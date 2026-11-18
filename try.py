@@ -17,6 +17,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from libsg.models import Copy, Edition, parse_copies, parse_search, parse_titles
 from libsg.nlb_client import NLBClient, NLBError
 
 FIXTURES = Path(__file__).parent / "tests" / "fixtures"
@@ -45,29 +46,25 @@ def save_fixture(endpoint: str, params: dict[str, Any], data: Any) -> None:
     print(f"[saved {path.relative_to(Path(__file__).parent)}]", file=sys.stderr)
 
 
-def clean_title(title: str | None) -> str:
-    # NLB titles look like "Emma / Jane Austen ; edited by ..." -- drop the responsibility part.
-    return (title or "").split(" / ")[0].strip() or "?"
-
-
-def year(publish_date: str | None) -> str:
-    m = re.search(r"\d{4}", publish_date or "")
-    return m.group(0) if m else "----"
-
-
 def cut(s: str, n: int) -> str:
     return s if len(s) <= n else s[: n - 1] + "…"
+
+
+def fmt_year(y: int | None) -> str:
+    return str(y) if y else "----"
+
+
+def edition_line(e: Edition) -> str:
+    avail = "*" if e.any_available else " "
+    return f"{e.brn:>10} {avail} {cut(e.title, 40):<40}  {cut(e.author, 25):<25}  {cut(e.format_name, 12):<12}  {fmt_year(e.year)}"
 
 
 def cmd_search(client: NLBClient, args: argparse.Namespace) -> None:
     data = client.search_titles(args.keywords, limit=args.limit)
     print(f"{data.get('totalRecords', 0)} works, showing {data.get('count', 0)}")
-    for t in data.get("titles") or []:
-        title, author = clean_title(t.get("title")), t.get("author") or ""
-        for r in t.get("records") or []:
-            fmt = (r.get("format") or {}).get("name", "")
-            avail = "*" if r.get("availability") else " "
-            print(f"{r.get('brn'):>10} {avail} {cut(title, 40):<40}  {cut(author, 25):<25}  {cut(fmt, 12):<12}  {year(r.get('publishDate'))}")
+    for g in parse_search(data):
+        for e in g.editions:
+            print(edition_line(e))
     print("(* = at least one copy available)")
 
 
@@ -75,42 +72,27 @@ def cmd_titles(client: NLBClient, args: argparse.Namespace) -> None:
     params = {k: v for k, v in (("Keywords", args.keywords), ("Title", args.title), ("Author", args.author), ("ISBN", args.isbn)) if v}
     data = client.get_titles(limit=args.limit, **params)
     print(f"{data.get('totalRecords', 0)} titles, showing {data.get('count', 0)}")
-    for t in data.get("titles") or []:
-        fmt = (t.get("format") or {}).get("name", "")
-        print(f"{t.get('brn'):>10}   {cut(clean_title(t.get('title')), 40):<40}  {cut(t.get('author') or '', 25):<25}  {cut(fmt, 12):<12}  {year(t.get('publishDate'))}")
-
-
-def is_available(item: dict) -> bool:
-    # status.code seen in fixtures: "In" (On Shelf), "Out" (On Loan), "In-Transit".
-    # Reference-only copies are also "In" but can't be borrowed, so exclude them.
-    return (item.get("status") or {}).get("code") == "In" and not item.get("nonCirculatingFlag")
+    for e in parse_titles(data):
+        print(edition_line(e))
 
 
 def cmd_avail(client: NLBClient, args: argparse.Namespace) -> None:
-    items = client.get_all_availability(args.brn)
-    if not items:
+    copies = parse_copies(client.get_all_availability(args.brn))
+    if not copies:
         print(f"No items found for BRN {args.brn}")
         return
-    by_branch: dict[str, list[dict]] = defaultdict(list)
-    for it in items:
-        by_branch[(it.get("location") or {}).get("name") or "?"].append(it)
-    total_avail = sum(is_available(i) for i in items)
-    print(f"BRN {args.brn}: {total_avail}/{len(items)} available across {len(by_branch)} locations\n")
-    for branch in sorted(by_branch, key=lambda b: (-sum(map(is_available, by_branch[b])), b)):
-        its = by_branch[branch]
-        print(f"{branch}: {sum(map(is_available, its))} available / {len(its)} total")
-        for it in its:
-            status = (it.get("status") or {}).get("name") or "?"
-            tx = it.get("transactionStatus") or {}
-            date = (tx.get("date") or "")[:10]
-            if it.get("status", {}).get("code") == "Out" and date:
-                extra = f" (due {date})"
-            elif tx.get("name") and tx.get("name") not in (status, "Available"):
-                extra = f" [{tx['name']}]"
-            else:
-                extra = ""
-            ref = " (reference only)" if it.get("nonCirculatingFlag") else ""
-            print(f"    {it.get('formattedCallNumber') or it.get('callNumber') or '?':<30} {status}{extra}{ref}")
+    by_branch: dict[str, list[Copy]] = defaultdict(list)
+    for c in copies:
+        by_branch[c.branch_name].append(c)
+    total_avail = sum(c.available for c in copies)
+    print(f"BRN {args.brn}: {total_avail}/{len(copies)} available across {len(by_branch)} locations\n")
+    for branch in sorted(by_branch, key=lambda b: (-sum(c.available for c in by_branch[b]), b)):
+        cs = by_branch[branch]
+        print(f"{branch}: {sum(c.available for c in cs)} available / {len(cs)} total")
+        for c in cs:
+            extra = f" (due {c.due_date})" if c.due_date else ""
+            ref = " (reference only)" if c.reference_only else ""
+            print(f"    {c.call_number or '?':<30} {c.status_name}{extra}{ref}")
 
 
 def main() -> int:
