@@ -1,0 +1,268 @@
+{
+  "totalRecords": 576,
+  "count": 5,
+  "hasMoreRecords": true,
+  "nextRecordsOffset": 5,
+  "setId": 46239961,
+  "titles": [
+    {
+      "title": "Jane Austen : a family record / Deirdre Le Faye.",
+      "author": "Le Faye, Deirdre.",
+      "fictionFlag": false,
+      "brn": 12415010,
+      "otherAuthors": [
+        "Austen-Leigh, William. Jane Austen, a family record.",
+        "Austen-Leigh, Richard Arthur, 1872-1961. Jane Austen, a family record."
+      ],
+      "isbns": [
+        "0521534178",
+        "0521826918"
+      ],
+      "format": {
+        "code": "1",
+        "name": "Book"
+      },
+      "edition": [
+        "2nd edition."
+      ],
+      "publisher": [
+        "Cambridge : Cambridge University Press"
+      ],
+      "publishDate": "2004.",
+      "subjects": [
+        "Austen, Jane, 1775-1817.",
+        "Austen, Jane, 1775-1817 Family.",
+        "Novelists, English 19th century Family relationships."
+      ],
+      "physicalDescription": [
+        "xxix, 377 pages: illustrations, maps; 23 cm"
+      ],
+      "notes": [
+        "Rev. ed. of: Jane Austen, a family record / by William Austen-Leigh and Richard Arthur Austen-Leigh ; revised and enlarged by Deirdre Le Faye, 1989."
+      ],
+      "allowReservation": false,
+      "isRestricted": false,
+      "activeReservationsCount": 0,
+      "language": [
+        "English"
+      ],
+      "serial": false,
+      "availability": false
+    },
+    {
+      "title": "Ao man yu pian jian = Pride and prejudice / Zhen Aositing zhu ; Liu Peifang, Deng Shengming yi.",
+      "nativeTitle": "傲慢与偏见 = Pride and prejudice / 珍·奧斯汀著 ; 刘珮芳, 邓盛铭译.",
+      "author": "Austen, Jane",
+      "nativeAuthor": "奥斯汀, 珍",
+      "fictionFlag": true,
+      "brn": 13716837,
+      "otherTitles": [
+        "Pride and prejudice. Chinese"
+      ],
+      "variantTitles": [
+        "Pride and prejudice"
+      ],
+      "otherAuthors": [
+        "Liu, Peifang.",
+        "Deng, Shengming."
+      ],
+      "nativeOtherAuthors": [
+        "刘珮芳",
+        "邓盛铭"
+      ],
+      "isbns": [
+        "986178120X",
+        "9789861781204"
+      ],
+      "format": {
+        "code": "1",
+        "name": "Book"
+      },
+      "edition": [
+        "2 ban."
+      ],
+      "nativeEdition": [
+        "2版."
+      ],
+      "publisher": [
+        "Taizhong : Hao du chu ban gong si"
+      ],
+      "nativePublisher": [
+        "台中 : 好读出版公司"
+      ],
+      "publishDate": "2010.",
+      "subjects": [
+        "Courtship England Fiction.",
+        "Young women England Fiction."
+      ],
+      "physicalDescription": [
+        "396 pages; 21 cm."
+      ],
+      "allowReservation": false,
+      "isRestricted": false,
+      "activeReservationsCount": 0,
+      "language": [
+        "Chinese"
+      ],
+      "serial": false,
+      "availability": false
+    },
+    {
+      "title": "The genius of Jane Austen : her love of theatre and why she works in Hollywood / Paula Byrne.",
+      "author": "Byrne, Paula",
+      "fictionFlag": false,
+      "brn": 202932602,
+      "otherTitles": [
+        "Jane Austen and the theatre"
+      ],
+      "isbns": [
+        "9780062674494",
+        "0062674498"
+      ],
+      "format": {
+        "code": "1",
+        "name": "Book"
+      },
+      "edition": [
+        "First U. S. Harper Perennial edition."
+      ],
+      "publisher": [
+        "New York : Harper Perennial"
+      ],
+      "publishDate": "2017.",
+      "subjects": [
+        "Austen, Jane, 1775-1817 Knowledge.",
+        "Austen, Jane, 1775-1817 Criticism and interpretation.",
+        "Theater History 18th century.",
+        "Theater History 19th century.",
+        "Women novelists, English 18th century History and criticism.",
+        "Women novelists, English 19th century History and criticism."
+      ],
+      "physicalDescription": [
+        "xvii, 334 pages, 8 unnumbered pages of plates : illustrations (some colour) ; 20 cm"
+      ],
+      "summary": [
+        "Jane Austen loved the theatre. She learned much of her art from a long tradition of English comic drama and took joyous participation in amateur theatricals and her visits to the theatre in London and Bath. Her juvenilia, then 'Sense and Sensibility', 'Pride and Prejudice', 'Mansfield Park' and 'Emma' were shaped by the arts of theatrical comedy. Her admiration for drama's dialogue, characterisation, plotting, exits and entrances is why she has been dramatised so successfully on screen in the last twenty years -- and these versions are at the centre of her continuing fame, culminating in her celebration on £10 note. From the stage adaptations of Austen's novels to modern classics, including the BBC 'Pride and Prejudice' and 'Persuasion', Emma Thompson's 'Sense and Sensibility', and the phenomenally brilliant and successful 'Clueless', 'The Comic Muse' presents an Austen not of prim manners and genteel calm, but filled with wild comedy and outrageous behaviour."
+      ],
+      "notes": [
+        "Originally published as : Jane Austen and the theatre. London : Hambledon and London, 2002."
+      ],
+      "allowReservation": true,
+      "isRestricted": false,
+      "activeReservationsCount": 0,
+      "language": [
+        "English"
+      ],
+      "serial": false,
+      "availability": true
+    },
+    {
+      "title": "Jane Austen's Pride and prejudice / a BBC/A & E Network co-production ; screenplay by Andrew Davies ; directed by Simon Langton ; produced by Sue Birtwistle.",
+      "fictionFlag": false,
+      "brn": 12762647,
+      "variantTitles": [
+        "Pride and prejudice",
+        "Title on container: Pride and prejudice by Jane Austen"
+      ],
+      "otherAuthors": [
+        "Austen, Jane, 1775-1817. Pride and prejudice.",
+        "Firth, Colin, 1960-",
+        "Ehle, Jennifer. 1969-",
+        "Langton, Simon.",
+        "Birtwistle, Sue.",
+        "Davies, Andrew.",
+        "British Broadcasting Corporation.",
+        "BBC Worldwide Ltd.",
+        "Arts & Entertainment Network."
+      ],
+      "format": {
+        "code": "34",
+        "name": "Videotape"
+      },
+      "publisher": [
+        "[London] : BBC Worldwide Ltd. ; [S.l.] : Vision Four Home Video (distributor)"
+      ],
+      "publishDate": "1995.",
+      "subjects": [
+        "Austen, Jane, 1775-1817 Film adaptations.",
+        "Young women England Drama.",
+        "Feature films.",
+        "England Social life and customs 19th century Drama."
+      ],
+      "physicalDescription": [
+        "2 videocassettes (301 min.): sound, color; 1/2 in."
+      ],
+      "summary": [
+        "The story of the turbulent relationship between Elizabeth and Mr. Darcy, one of five unmarried daughters living in the countryside of 19th England."
+      ],
+      "notes": [
+        "Based on the novel by Jane Austen.",
+        "Originally produced for television broadcast.",
+        "\"The stunning BBC TV dramatisation of a classic romance\"--Container."
+      ],
+      "allowReservation": false,
+      "isRestricted": false,
+      "activeReservationsCount": 0,
+      "audience": [
+        "MPAA rating: U."
+      ],
+      "language": [
+        "English"
+      ],
+      "serial": false,
+      "credits": [
+        "Photography, John Kenway ; music by Carl Davis."
+      ],
+      "performers": [
+        "Colin Firth, Jennifer Ehle, David Bamber, Crispin Bonham-Carter, Anna Chancellor, Susannah Harker, Barbara Leigh Hunt, Adrian Lukis, Julia Sawalha, Alison Steadman and Benjamin Whitrow."
+      ],
+      "availability": false
+    },
+    {
+      "title": "Jane Austen / written by Ma Isabel Sánchez Vegara ; illustrated by Katie Wilson.",
+      "author": "Sánchez Vegara, Ma Isabel",
+      "fictionFlag": false,
+      "brn": 203151976,
+      "otherTitles": [
+        "Pequeña & grande Jane Austen. English"
+      ],
+      "otherAuthors": [
+        "Wilson, Katie, illustrator."
+      ],
+      "isbns": [
+        "9781786031198",
+        "1786031191"
+      ],
+      "format": {
+        "code": "1",
+        "name": "Book"
+      },
+      "publisher": [
+        "London : Lincoln Children's Books"
+      ],
+      "publishDate": "2018.",
+      "subjects": [
+        "Austen, Jane, 1775-1817 Juvenile literature.",
+        "Women novelists, English 19th century Biography Juvenile literature.",
+        "Novelists, English 19th century Biography Juvenile literature."
+      ],
+      "physicalDescription": [
+        "32 unnumbered pages : illustrations (chiefly colour), portraits ; 25 cm."
+      ],
+      "summary": [
+        "Little Jane grew up in a big family that loved learning and she often read from her father's library. In her teenage years she began to write in bound notebooks and craft her own novels. As an adult, Jane created stories that shone a light on the English upper classes and provided a witty social commentary of the time, creating a new dialogue for female characters in books. With stylish and quirky illustrations and extra facts at the back, this empowering series celebrates the important life stories of wonderful women of the world."
+      ],
+      "allowReservation": true,
+      "isRestricted": false,
+      "activeReservationsCount": 0,
+      "audience": [
+        "5 - 8 years."
+      ],
+      "language": [
+        "English"
+      ],
+      "serial": false,
+      "availability": true
+    }
+  ]
+}

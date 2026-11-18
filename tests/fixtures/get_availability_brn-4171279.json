@@ -1,0 +1,42 @@
+{
+  "setId": 46239954,
+  "totalRecords": 1,
+  "count": 1,
+  "hasMoreRecords": false,
+  "nextRecordsOffset": 1,
+  "items": [
+    {
+      "irn": 13690875,
+      "itemId": "B02851661G",
+      "brn": 4171279,
+      "callNumber": "823.7 AUS",
+      "formattedCallNumber": "Malay 823.7 AUS",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "RSEA",
+        "name": "Reference Southeast Asia"
+      },
+      "location": {
+        "code": "RU",
+        "name": "Repository Used Book Collection"
+      },
+      "language": "Malay",
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "1999-01-01T00:00:00"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "For Reference Only",
+        "date": "1999-01-01T00:00:00"
+      },
+      "minAgeLimit": 0,
+      "publicNote": "For Reference Only",
+      "nonCirculatingFlag": true
+    }
+  ]
+}
