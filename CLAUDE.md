@@ -2,7 +2,7 @@
 Telegram bot for Singapore NLB library books: search, merge editions, alert when available.
 
 ## Stack
-- Python 3.12, python-telegram-bot (with JobQueue), httpx, SQLite
+- Python 3.14, python-telegram-bot (with JobQueue), httpx, SQLite
 - NLB Catalogue API v2; spec in docs/. Use it as the source of truth for fields.
 - Secrets come from .env only. Never hardcode or print keys.
 
