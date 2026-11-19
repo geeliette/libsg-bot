@@ -19,6 +19,8 @@ BASE_URL = "https://openweb.nlb.gov.sg/api"
 CATALOGUE = "v2/Catalogue"
 LIBRARY = "v1/Library"
 
+log = logging.getLogger(__name__)
+
 # httpx logs request lines at INFO; keep it quiet so nothing request-related leaks.
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("httpcore").setLevel(logging.WARNING)
@@ -46,6 +48,7 @@ class NLBClient:
         timeout: float = 20.0,
         on_response: ResponseHook | None = None,
         max_retries: int = 2,
+        transport: httpx.BaseTransport | None = None,  # for tests
     ):
         load_dotenv()
         api_key = api_key or os.getenv("NLB_API_KEY")
@@ -57,6 +60,7 @@ class NLBClient:
             base_url=base_url,
             headers={"X-Api-Key": api_key, "X-App-Code": app_code, "Accept": "application/json"},
             timeout=timeout,
+            transport=transport,
         )
         self.on_response = on_response
         self.max_retries = max_retries
@@ -72,15 +76,24 @@ class NLBClient:
 
     def _get(self, endpoint: str, params: dict[str, Any], api: str = CATALOGUE) -> Any:
         params = {k: v for k, v in params.items() if v is not None}
-        for attempt in range(self.max_retries + 1):
+        attempts = self.max_retries + 1
+        for attempt in range(attempts):
             resp = self._http.get(f"/{api}/{endpoint}", params=params)
-            if resp.status_code != 429 or attempt == self.max_retries:
+            if resp.status_code != 429:
+                if attempt:
+                    log.info("NLB %s succeeded after %d rate-limited attempt(s)", endpoint, attempt)
+                break
+            # Log every 429, even ones a retry recovers from, to see how close we run to NLB's limit.
+            if attempt == self.max_retries:
+                log.warning("NLB 429 on %s (attempt %d/%d): giving up", endpoint, attempt + 1, attempts)
                 break
             try:
                 wait = float(resp.headers.get("Retry-After", ""))
             except ValueError:
                 wait = 2.0 * (attempt + 1)
-            time.sleep(min(wait, 30.0))
+            wait = min(wait, 30.0)
+            log.warning("NLB 429 on %s (attempt %d/%d): retrying in %.0fs", endpoint, attempt + 1, attempts, wait)
+            time.sleep(wait)
         try:
             data = resp.json()
         except ValueError:
