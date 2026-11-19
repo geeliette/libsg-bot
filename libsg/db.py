@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS snapshots (
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(timezone.utc).isoformat(timespec="microseconds")
 
 
 @dataclass(frozen=True)
@@ -137,6 +137,28 @@ class Store:
         ids = [r["id"] for r in self.conn.execute("SELECT id FROM works WHERE user_id = ? ORDER BY id", (user_id,))]
         return [w for w in (self.get_work(i) for i in ids) if w]
 
+    def work_editions(self, work_id: int) -> list[sqlite3.Row]:
+        """Rows with brn, title, format_name, year, physical -- for building messages."""
+        return self.conn.execute(
+            "SELECT brn, title, format_name, year, physical FROM work_editions WHERE work_id = ?"
+            " ORDER BY year DESC, brn",
+            (work_id,),
+        ).fetchall()
+
+    def works_sharing_editions(self, user_id: int, brns: Iterable[int]) -> list[int]:
+        """IDs of this user's works that contain any of these BRNs (i.e. the same book saved before)."""
+        brns = list(brns)
+        if not brns:
+            return []
+        marks = ",".join("?" * len(brns))
+        return [
+            r["id"] for r in self.conn.execute(
+                f"SELECT DISTINCT k.id FROM works k JOIN work_editions e ON e.work_id = k.id"
+                f" WHERE k.user_id = ? AND e.brn IN ({marks}) ORDER BY k.id",
+                (user_id, *brns),
+            )
+        ]
+
     def delete_work(self, work_id: int) -> None:
         with self.conn:
             self.conn.execute("DELETE FROM works WHERE id = ?", (work_id,))
@@ -190,12 +212,23 @@ class Store:
             "w.work_id IN (SELECT work_id FROM work_editions WHERE brn = ?)", (brn,)
         )
 
+    def get_watch(self, watch_id: int) -> WatchInfo | None:
+        found = self._watch_infos("w.id = ?", (watch_id,))
+        return found[0] if found else None
+
     def watched_brns(self) -> list[int]:
-        """Physical BRNs that belong to at least one watched work -- what the poller must check."""
+        """Physical BRNs in at least one watched work -- what the poller must check.
+
+        Never-checked first, then longest-since-checked, so a round cut short by
+        rate limiting doesn't starve the same editions every time.
+        """
         return [
             r["brn"] for r in self.conn.execute(
-                "SELECT DISTINCT e.brn FROM work_editions e JOIN watches w ON w.work_id = e.work_id"
-                " WHERE e.physical = 1 ORDER BY e.brn"
+                "SELECT e.brn FROM work_editions e JOIN watches w ON w.work_id = e.work_id"
+                " LEFT JOIN checked_editions c ON c.brn = e.brn"
+                " WHERE e.physical = 1"
+                " GROUP BY e.brn"
+                " ORDER BY MAX(c.checked_at) IS NOT NULL, MAX(c.checked_at), e.brn"
             )
         ]
 
