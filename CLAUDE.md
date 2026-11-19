@@ -3,14 +3,37 @@ Telegram bot for Singapore NLB library books: search, merge editions, alert when
 
 ## Stack
 - Python 3.14, python-telegram-bot (with JobQueue), httpx, SQLite
-- NLB Catalogue API v2; spec in docs/. Use it as the source of truth for fields.
-- Secrets come from .env only. Never hardcode or print keys.
+- NLB APIs, specs in docs/ (gitignored). Use them as the source of truth for fields:
+  - Catalogue API v2 (`nlb-catalogue-openapi.json`): SearchTitles, GetTitles, GetAvailabilityInfo
+  - Library API v1 (`nlb-library-openapi.json`): GetBranches
+- Secrets come from .env only. Never hardcode or print keys. Telegram request URLs contain the bot token, so keep httpx logging at WARNING.
 
 ## Core concepts
 - Edition = one BRN. Work = a group of editions the user confirmed as "the same book".
 - Watch = (user, work, set of branches). Alert only when an edition goes from not-available to available at a watched branch.
+- Empty branch set = any branch. Works belong to one user (never shared).
+- A work stores all candidate editions; `watched=0` marks ones the user unticked, so Edit can offer them again.
+
+## Layout (libsg/)
+- `nlb_client.py` – sync HTTP client for both APIs (auth headers, 429 retry). No bot code here.
+- `models.py` – Edition/Copy parsed from API responses. `grouping.py` – suggest works by merging NLB groups.
+- `branches.py` – lending libraries from GetBranches. `db.py` – SQLite store (works, watches, snapshots, branches).
+- `watcher.py` – pure alert rule. `poller.py` – one polling round. `ratelimit.py` – Check now spam guard.
+- `messages.py` – all bot text and keyboards (pure functions). `bot.py` – handlers, jobs, entry point.
+
+## NLB data facts (verified against real responses)
+- Available copy = `status.code == "In"` and not `nonCirculatingFlag`. Other codes seen: "Out" (on loan), "In-Transit".
+- SearchTitles returns placeholder records with `brn: 0` and no data – skip them.
+- Digital editions have a `digitalId` / source "Overdrive" and no branch copies; only physical editions are polled.
+- A branch is open if GetBranches returns a non-empty `schedules`. Closed branches still have `isActive: true`.
+  Only branch types "PL"/"RL" lend books. Branch codes don't always follow names (Tampines = TRL, Toa Payoh = TPPL).
+- Catalogue link: `https://catalogue.nlb.gov.sg/search/card?recordId=<BRN>`. NLB may show several editions on one page.
+- NLB rate-limits bursts with 429 "API calls quota exceeded"; the quota is undocumented and no rate-limit headers are sent.
+  All NLB calls go through one lock and are spaced (poll: 10 s, saves/Check now: 3 s).
 
 ## Conventions
 - Keep the NLB client in its own module, separate from bot handlers.
-- Tests use saved JSON fixtures in tests/fixtures/, not live API calls.
-- Small commits, one per working step.
+- Tests use saved JSON fixtures in tests/fixtures/, not live API calls. Save new live responses there.
+- Run tests: `.venv/bin/pytest -q`.
+- Small commits, one per working step. Don't commit unless asked; list the `git add`/`git commit` commands instead.
+- Restarting the running bot kills checks in progress: check it's idle first and say when it was restarted.
