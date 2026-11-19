@@ -1,0 +1,2292 @@
+{
+  "totalRecords": 109,
+  "count": 20,
+  "hasMoreRecords": true,
+  "nextRecordsOffset": 20,
+  "titles": [
+    {
+      "title": "爱丽丝漫游奇境 = Alice's adventures in wonderland | Ailisi man you qi jing = Alice's adventures in wonderland",
+      "seriesTitle": [
+        "幻想国世界经典名著. | Huan xiang guo shi jie jing dian ming zhu."
+      ],
+      "author": "卡洛尔, 刘易斯, 1832-1898 | Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787550511552?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787550511552?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787550511552?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203153752,
+          "variantTitles": [
+            "Alice's adventures in wonderland"
+          ],
+          "otherAuthors": [
+            "Shao, Yan, translator."
+          ],
+          "nativeOtherAuthors": [
+            "邵言, translator."
+          ],
+          "isbns": [
+            "9787550511552",
+            "7550511551"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Dalian Shi : Dalian chu ban she"
+          ],
+          "nativePublisher": [
+            "大连市 : 大连出版社"
+          ],
+          "publishDate": "2017.",
+          "physicalDescription": [
+            "2, 136 pages : illustrations ; 22 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in wonderland.",
+      "seriesTitle": [
+        "Usborne illustrated originals."
+      ],
+      "author": "Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241695098?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241695098?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241695098?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300143213,
+          "otherAuthors": [
+            "Todd-Stanton, Joe, illustrator."
+          ],
+          "isbns": [
+            "9780241695098",
+            "0241695090"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "2025.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "135 pages : colour illustrations ; 27 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300087179,
+          "otherAuthors": [
+            "Barder, Gemma, adapter.",
+            "Westwood, Grace, illustrator.",
+            "Based on (work) Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9781802633474",
+            "1802633472"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Every Cherry edition."
+          ],
+          "publisher": [
+            "Leicester : Every Cherry Publishing",
+            ""
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Curiosity in children Juvenile fiction.",
+            "Imaginary places Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "199 pages : illustrations ; 20 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300124708,
+          "isbns": [
+            "9781802631746",
+            "1802631747"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Leicester : Cherry Stone Publishing",
+            ""
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "119 pages ; 20 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300123452,
+          "otherAuthors": [
+            "Jansson, Tove, illustrator."
+          ],
+          "isbns": [
+            "9781681378459",
+            "1681378450"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York, NY : New York Review Books"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Imagination Juvenile fiction.",
+            "Curiosity Juvenile fiction.",
+            "Decision making Juvenile fiction.",
+            "Imaginary places Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "110 pages : illustrations (some color) ; 24 cm"
+          ],
+          "summary": [
+            "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters."
+          ],
+          "contents": [
+            "Down the rabbit-hole -- The pool of tears -- A caucus-race and a long tale -- The rabbit sends in a little bill -- Advice from a caterpillar -- Pig and pepper -- A mad tea-party -- The queen's croquet-ground -- The mock turtle's story -- The lobster quadrille -- Who stole the tarts? -- Alice's evidence."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205374999,
+          "isbns": [
+            "9780241430651",
+            "0241430658"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Alice (Fictitious character from Carroll)",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "xiii, 145 pages : illustrations ; 18 cm."
+          ],
+          "notes": [
+            "First published in Puffin Books 1946."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205374747,
+          "otherAuthors": [
+            "Sardà, Júlia, illustrator."
+          ],
+          "isbns": [
+            "9781509897605",
+            "1509897607"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Two Hoots"
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "176 pages : color illustrations ; 24 cm"
+          ],
+          "notes": [
+            "This edition originally published: 2019."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205612517,
+          "otherAuthors": [
+            "Baker-Smith, Grahame, illustrator."
+          ],
+          "isbns": [
+            "9781787415607",
+            "1787415600"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Dorking : Templar Publishing"
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Alice (Fictitious character from Carroll)"
+          ],
+          "physicalDescription": [
+            "127 pages : illustrations ; 24 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205251293,
+          "otherAuthors": [
+            "Riddell, Chris, illustrator."
+          ],
+          "isbns": [
+            "9781529002461",
+            "152900246X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Macmillan Children's Books"
+          ],
+          "publishDate": "2020.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Alice (Fictitious character from Carroll)"
+          ],
+          "physicalDescription": [
+            "vi, 303 pages : illustrations, maps (some colour) ; 25 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205272912,
+          "otherAuthors": [
+            "Jansson, Tove, illustrator."
+          ],
+          "isbns": [
+            "9781854379573",
+            "1854379577"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Tate Publishing"
+          ],
+          "publishDate": "[2018]",
+          "subjects": [
+            "Adventure stories Juvenile fiction.",
+            "Magic Juvenile fiction.",
+            "Fantasy Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "110 pages : illustrations (some color) ; 24 cm"
+          ],
+          "summary": [
+            "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters."
+          ],
+          "notes": [
+            "'Alice's adventures in Wonderland' first published 1865. Swedish edition illustrated by Tove Jansson first published by Bonniers, Stockholm, 1966. This edition first published by Tate Publishing in 2011 and reprinted 2011, 2013, 2014, 2015, 2017, 2018."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202980487,
+          "otherAuthors": [
+            "Ingpen, Robert, 1936- illustrator."
+          ],
+          "isbns": [
+            "9781786751041",
+            "1786751046"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Palazzo"
+          ],
+          "publishDate": "2017.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Fantasy Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "191 pages : colour illustrations ; 25 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202919858,
+          "otherAuthors": [
+            "Tenniel, John, 1820-1914, illustrator."
+          ],
+          "isbns": [
+            "9780141385655",
+            "0141385650"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Special Puffin Classics edition."
+          ],
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "[2017]",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Imaginary places Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "ix, 145 pages : illustrations ; 19 cm."
+          ],
+          "summary": [
+            "On an ordinary summer's afternoon, Alice tumbles down a hole and an extraordinary adventure begins. In a strange world with even stranger characters, she meets a grinning cat and a rabbit with a pocket watch, joins a Mad Hatter's Tea Party, and plays croquet with the Queen! Lost in this fantasy land, Alice finds herself growing more and more curious by the minute."
+          ],
+          "notes": [
+            "First published: 1865.",
+            "\"©Victoria and Albert Museum, London\"--Title page verso."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "9+."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202651532,
+          "otherAuthors": [
+            "Browne, Anthony, 1946- illustrator."
+          ],
+          "isbns": [
+            "9781406370706 (paperback)",
+            "1406370703 (paperback)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Walker Books",
+            ""
+          ],
+          "publishDate": "2016.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "117 pages : color illustrations ; 28 cm"
+          ],
+          "summary": [
+            "This elegant hardback edition presents Lewis Carroll's best loved work, Alice's Adventures in Wonderland, with gilded page edges and original pen and ink illustrations by Sir John Tenniel. First published in 1865, this perennially popular tale follows the tale of curious Alice and her fall through the rabbit hole into a fantasy world filled with anthropomorphic and peculiar creatures, including the Mad Hatter, the Cheshire Cat and the Queen of Hearts. A lasting classic that plays with logic and the bizarre, this tale cannot fail to delight readers with its mix of prose and poetry."
+          ],
+          "notes": [
+            "Originally published: Julia MacRae Books, 1988."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202262859,
+          "otherAuthors": [
+            "Dalí, Salvador, 1904-1989, illustrator."
+          ],
+          "isbns": [
+            "9780691170022 (hardback : acid-free paper)",
+            "0691170029 (hardback : acid-free paper)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "150th anniversary edition."
+          ],
+          "publisher": [
+            "Princeton : Princeton University Press",
+            ""
+          ],
+          "publishDate": "[2015]",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Fiction.",
+            "Fantasy fiction, English."
+          ],
+          "physicalDescription": [
+            "xxx, 102 pages : color illustrations ; 26 cm"
+          ],
+          "summary": [
+            "\"Commemorating the 150th anniversary of one of the most beloved classics of children's literature, this illustrated edition presents Alice like you've never seen her before. In 1865, Charles Lutwidge Dodgson, an Oxford mathematician and Anglican deacon, published a story about a little girl who tumbles down a rabbit hole. Thus was the world first introduced to Alice and her pseudonymous creator, Lewis Carroll. This beautiful new edition of Alice's Adventures in Wonderland features rarely seen illustrations by Salvador Dalí that illuminate the surreal yet curiously logical and mathematical realm into which Alice famously falls. In an informative and wide-ranging introduction, Carroll expert Mark Burstein discusses Dalí's connections with Carroll, his treatment of the symbolic figure of Alice, and the mathematical nature of Wonderland. In addition, mathematician Thomas Banchoff reflects on the friendship he shared with Dalí and explores the mathematical undercurrents in Dalí's work\"-- Provided by publisher."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 202262044,
+          "otherAuthors": [
+            "Parreño, Fran, illustrator."
+          ],
+          "isbns": [
+            "9781409598664",
+            "1409598667"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Complete and unabridged."
+          ],
+          "publisher": [
+            "London : Usborne Publishing"
+          ],
+          "publishDate": "2015.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Imaginary places Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "239 pages : colour illustrations, portraits ; 23 cm."
+          ],
+          "summary": [
+            "Follow Alice's adventures as she disappears down a rabbit-hole and meets a cast of curious characters including White Rabbit, the Mad Hatter and the Cheshire Cat. Lewis Carroll's timeless classic, complete and unabridged, fully illustrated and bound in a traditional style with a cloth-covered jacket and a ribbon marker. An heirloom of the future."
+          ],
+          "notes": [
+            "First published by Macmillan, 1865."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Junior primary school age."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202843587,
+          "otherAuthors": [
+            "Dobson, Austin, 1840-1921, writer of supplementary textual content.",
+            "D'Aquino, Andrea, illustrator."
+          ],
+          "isbns": [
+            "9781631590757",
+            "1631590758"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Beverly, MA Rockport Publishers",
+            ""
+          ],
+          "publishDate": "2015.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll)"
+          ],
+          "physicalDescription": [
+            "245 pages : colour illustrations ; 20 cm."
+          ],
+          "summary": [
+            "More amazing and inspiring than your tired, old bedtime story. Classics Reimagined is a library of stunning collector's editions of classic novels illustrated by contemporary artists from around the world. Andrea D'Aquino's modern, illustrative interpretation of this classic tale follows Alice on her fanciful journey down the rabbit hole where she meets friends like the Mad Hatter, Cheshire Cat, the Catipillar and more! The lush, multi-faceted images breathe new life into this classic novel, making it a collectible for book and art lovers every where."
+          ],
+          "notes": [
+            "[Originally published: 1865]."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 11905891,
+          "isbns": [
+            "9810486812"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Simplified edition."
+          ],
+          "publisher": [
+            "Singapore : Bookstall Publications"
+          ],
+          "publishDate": "[2003].",
+          "subjects": [
+            "Fantasy."
+          ],
+          "physicalDescription": [
+            "94 pages: illustrations; 19 cm"
+          ],
+          "notes": [
+            "Parallel title in Chinese"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 5995197,
+          "format": {
+            "code": "28",
+            "name": "Braille"
+          },
+          "publisher": [
+            "London : T. Nelson"
+          ],
+          "publishDate": "1915.",
+          "subjects": [
+            "Blind Books and reading."
+          ],
+          "physicalDescription": [
+            "3 volumes"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 204015761,
+          "digitalId": "943F5A88-91CA-4501-8E03-465CC3F3ECF2",
+          "otherAuthors": [
+            "Dalí, Salvador, 1904-1989, illustrator."
+          ],
+          "isbns": [
+            "9781400874262"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2015.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Fiction.",
+            "Fiction.",
+            "Fantasy fiction, English.",
+            "Classic Literature.",
+            "Mythology."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Commemorating the 150th anniversary of one of the most beloved classics of children's literature, this illustrated edition presents Alice like you've never seen her before.In 1865, Charles Lutwidge Dodgson, an Oxford mathematician and Anglican deacon, published a story about a little girl who tumbles down a rabbit hole. Thus was the world first introduced to Alice and her pseudonymous creator, Lewis Carroll. This beautiful new edition of Alice's Adventures in Wonderland features rarely seen illustrations by Salvador Dalí that illuminate the surreal yet curiously logical and mathematical realm into which Alice famously falls.In an informative and wide-ranging introduction, Carroll expert Mark Burstein discusses Dalí's connections with Carroll, his treatment of the symbolic figure of Alice, and the mathematical nature of Wonderland. In addition, mathematician Thomas Banchoff reflects on the friendship he shared with Dalí and explores the mathematical undercurrents in Dalí's work."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203392123,
+          "digitalId": "4A3A6612-C9FF-43E5-B3A1-3AC9E53B6D8A",
+          "otherAuthors": [
+            "Shaw, Fiona."
+          ],
+          "isbns": [
+            "9789629543853 (sound recording)"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Abridged."
+          ],
+          "publisher": [
+            "Franklin : Naxos AudioBooks"
+          ],
+          "publishDate": "2005.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Classic Literature.",
+            "Juvenile Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (2 audio files) : digital"
+          ],
+          "summary": [
+            "\"Fiona Shaw gives a wonderfully fresh reading of Carroll's classic tale, making his fantastical characters thoroughly believable through an impression of voices. Vivid sound effects together with music by Delius, Parry and Bruckner complete this delightful production\"   The Good Book Guide  Music: Delius, Parry, Quilter, Bruckner"
+          ],
+          "notes": [
+            "Abridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 3 - Text Difficulty 8"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Fiona Shaw."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 66977 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland",
+      "author": "Willis, Jeanne",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781529043143?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781529043143?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781529043143?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205741677,
+          "otherAuthors": [
+            "Collins, Ross, Illustrator.",
+            "Adaptation of (work): Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9781529043143",
+            "152904314X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Macmillan Children's"
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Pictorial works Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "32 unnumbered pages : colour illustrations ; 25 x 28 cm"
+          ],
+          "summary": [
+            "\"Once upon a golden day, beside a silver brook Alice and her older sister sat and read a book. But when a talking rabbit runs past, Alice follows him down the rabbit hole to Wonderland, where she meet iconic characters of children's literature such as the grinning Cheshire Cat, the Hatter and the Queen of Hearts\"--Publisher's description."
+          ],
+          "notes": [
+            "\"The original rebel girl\"--Cover."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland",
+      "seriesTitle": [
+        "Pop! Lit for kids."
+      ],
+      "author": "Stuart, Brian J",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789811295379?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789811295379?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789811295379?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300162712,
+          "otherAuthors": [
+            "Tchaikovskaya, Nika, illustrator.",
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9789811295379",
+            "9811295379",
+            "9789811295386",
+            "9811295387",
+            "9789811295393",
+            "9811295395",
+            "9789811295409",
+            "9811295409"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : WS Education",
+            ""
+          ],
+          "publishDate": "[2025]",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "87 pages : colour illustrations ; 21 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland",
+      "author": "Jay, Alison",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780525429791?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780525429791?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780525429791?s=LG"
+      },
+      "records": [
+        {
+          "brn": 201601388,
+          "otherAuthors": [
+            "Adaptation of (expression): Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9780525429791 (board book)",
+            "0525429794 (board book)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Dial Books for Young Readers"
+          ],
+          "publishDate": "[2015]",
+          "subjects": [
+            "Vocabulary Juvenile literature.",
+            "Alice (Fictitious character from Carroll) Juvenile literature.",
+            "Board books."
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged) : color illustrations ; 18 cm"
+          ],
+          "summary": [
+            "A board book adaptation of Lewis Carroll's classic pairs illustrations of the story's iconic moments with descriptive verbs."
+          ],
+          "notes": [
+            "Cover title.",
+            "On board pages."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 205242237,
+          "digitalId": "B86641B0-DA2C-4A76-AB45-EC98B53A6F1F",
+          "otherAuthors": [
+            "Adaptation of (expression): Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9780399186172"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2015.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile literature.",
+            "Juvenile Fiction.",
+            "Board books.",
+            "Vocabulary Juvenile literature.",
+            "Picture Book Fiction."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in wonderland",
+      "seriesTitle": [
+        "First student's classics."
+      ],
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814357464?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814357464?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814357464?s=LG"
+      },
+      "records": [
+        {
+          "brn": 14455092,
+          "otherAuthors": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland.",
+            "Singapore Asia Publishers."
+          ],
+          "isbns": [
+            "9814357464",
+            "9789814357463"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Singapore Asia Publishers"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Comic books, strips, etc.",
+            "Graphic novels."
+          ],
+          "physicalDescription": [
+            "56 p: chiefly color illustrations; 22 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "爱丽丝漫游奇境记 = Alice's adventures in wonderland | Ailisi man you qi jing ji = Alice's adventures in wonderland",
+      "seriesTitle": [
+        "百部最伟大文学作品青少年成长必读丛书. | Bai bu zui wei da wen xue zuo pin qing shao nian cheng zhang bi du cong shu."
+      ],
+      "author": "卡罗尔, 刘易斯, 1832-1898 | Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787540459284?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787540459284?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787540459284?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200174255,
+          "variantTitles": [
+            "Subtitle on cover: Yuan ban cha tu ben",
+            "Alice's adventures in wonderland"
+          ],
+          "nativeVariantTitles": [
+            "Subtitle on cover: 原版插图本"
+          ],
+          "otherAuthors": [
+            "Yan, Xuemei, translator."
+          ],
+          "nativeOtherAuthors": [
+            "闫雪梅, translator."
+          ],
+          "isbns": [
+            "9787540459284 ",
+            "754045928X "
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Changsha Shi : Hunan wen yi chu ban she"
+          ],
+          "nativePublisher": [
+            "长沙市 : 湖南文艺出版社"
+          ],
+          "publishDate": "2013.",
+          "physicalDescription": [
+            "266 pages : illustrations ; 21 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland : &, through the looking-glass",
+      "seriesTitle": [
+        "Oxford children's classics (Oxford, England)"
+      ],
+      "author": "Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780192789020?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780192789020?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780192789020?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300123210,
+          "variantTitles": [
+            "& through the looking-glass",
+            "And through the looking-glass"
+          ],
+          "otherAuthors": [
+            "Container of (work) Carroll, Lewis, 1832-1898. Through the looking-glass."
+          ],
+          "isbns": [
+            "9780192789020",
+            "0192789023"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Oxford : Oxford University Press",
+            ""
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Wonderland (Imaginary place) Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "269 pages : illustrations ; 20 cm"
+          ],
+          "summary": [
+            "When Alice follows a rabbit through a hole, she finds herself in the fantasy world of Wonderland -- a whimsical place filled with talking creatures and amazing landscapes. As she faces challenges and impossible puzzles, Alice learns valuable lessons about courage and self-discovery."
+          ],
+          "notes": [
+            "Alice's adventures in Wonderland originally published: 1865.",
+            "Through the looking-glass originally published: 1871."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Logic in Wonderland : an introduction to logic through reading Alice's adventures in Wonderland. Teacher's guidebook",
+      "author": "Movshovitz-Hadar, Nitsa",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208629?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208629?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208629?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203863188,
+          "otherAuthors": [
+            "Shriki, Atara author."
+          ],
+          "isbns": [
+            "9789813208629",
+            "9813208627",
+            "9789813209817",
+            "981320981X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : WS Education, an imprint of World Scientific Publishing Co Pte Ltd",
+            ""
+          ],
+          "publishDate": "[2019]",
+          "subjects": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland.",
+            "Alice's adventures in Wonderland (Carroll, Lewis)",
+            "Logic, Symbolic and mathematical Study and teaching.",
+            "Logic, Symbolic and mathematical Problems, exercises, etc.",
+            "Logic, Symbolic and mathematical.",
+            "Logic, Symbolic and mathematical Study and teaching."
+          ],
+          "physicalDescription": [
+            "ix, 315 pages : illustrations ; 25 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Logic in Wonderland : an introduction to logic through reading Alice's adventures in Wonderland. Student's workbook",
+      "author": "Movshovitz-Hadar, Nitsa",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208674?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208674?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789813208674?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203863191,
+          "otherAuthors": [
+            "Shriki, Atara author."
+          ],
+          "isbns": [
+            "9789813208674",
+            "9813208678"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : WS Education, an imprint of World Scientific Publishing Co Pte Ltd",
+            ""
+          ],
+          "publishDate": "[2019]",
+          "subjects": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland.",
+            "Alice's adventures in Wonderland (Carroll, Lewis)",
+            "Logic, Symbolic and mathematical Study and teaching.",
+            "Logic, Symbolic and mathematical Problems, exercises, etc.",
+            "Logic, Symbolic and mathematical."
+          ],
+          "physicalDescription": [
+            "ix, 242 pages : illustrations ; 25 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland ; and, Through the looking-glass and what Alice found there",
+      "seriesTitle": [
+        "Penguin classics."
+      ],
+      "author": "Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780141439761?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780141439761?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780141439761?s=LG"
+      },
+      "records": [
+        {
+          "brn": 8943883,
+          "otherAuthors": [
+            "Haughton, Hugh, 1948-",
+            "Carroll, Lewis, 1832-1898. Through the looking glass."
+          ],
+          "isbns": [
+            "9780141439761",
+            "0141439769",
+            "0140433171"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Centenary edition."
+          ],
+          "publisher": [
+            "London : Penguin"
+          ],
+          "publishDate": "1998.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Children's stories, English."
+          ],
+          "physicalDescription": [
+            "lxxx, 357 pages: illustrations; 20 cm."
+          ],
+          "notes": [
+            "Reprinted with ISBN: 0141439769."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice in wonderland.",
+      "seriesTitle": [
+        "Stepping stone book classic."
+      ],
+      "author": "Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0375966412?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0375966412?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0375966412?s=LG"
+      },
+      "records": [
+        {
+          "brn": 13369100,
+          "otherAuthors": [
+            "Loehr, Mallory.",
+            "Tenniel, John, Sir, 1820-1914."
+          ],
+          "isbns": [
+            "0375966412",
+            "9780375966415",
+            "9780375866418"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York, N.Y. : Random House",
+            ""
+          ],
+          "publishDate": "2009.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Pictorial works Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "104 pages: illustrations; 22 cm."
+          ],
+          "notes": [
+            "\"A Stepping Stone book.\""
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203390636,
+          "digitalId": "B1DA5A7A-2394-483C-B473-6177D7CECC7D",
+          "otherAuthors": [
+            "O'Malley, Susan."
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Ashland : Blackstone Audio, Inc."
+          ],
+          "publishDate": "2004.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (audio file) : digital"
+          ],
+          "summary": [
+            "This enduring tale has been claimed to be a satire on language, a political allegory, a parody of Victorian children's literature, or even a reflection of contemporary ecclesiastical history. It was perhaps, as the author might have said, no more than a dream, a fairy tale about the trials and tribulations of growing up or down, or all turned round-as seen through the expert eyes of a child.       \"The why of this book cannot, and need not, be put into words. Those for whom a child's mind is a sealed book, and see no divinity in a child's smile, would read such words in vain; while for anyone who has ever loved one true child, no words are needed.\" Ellen Terry"
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 3 - Text Difficulty 8"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Susan O'Malley."
+          ],
+          "systemDetails": [
+            "Requires ."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland / by Lewis Carroll ; with forty-two illustrations by John Tenniel.",
+      "author": "Carroll, Lewis, 1832-1898",
+      "records": [
+        {
+          "brn": 203982124,
+          "otherAuthors": [
+            "Tenniel, John, 1820-1914, illustrator.",
+            "Clay, Richard, 1789-1877, printer.",
+            "Macmillan & Co., publisher.",
+            "R. Clay, Son and Taylor, printer."
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Macmillan and Co.",
+            "London : Richard Clay"
+          ],
+          "publishDate": "1866.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Fantasy fiction, English.",
+            "Imagination Juvenile fiction.",
+            "Curiosity Juvenile fiction.",
+            "Wit and humor, Juvenile.",
+            "Children Conduct of life Juvenile fiction.",
+            "Conduct of life Juvenile fiction.",
+            "Animals Juvenile fiction.",
+            "Alice (Fictitious character from Carroll)",
+            "Fantasy fiction, English."
+          ],
+          "physicalDescription": [
+            "192 pages : illustrations ; 20 cm"
+          ],
+          "summary": [
+            "A little girl falls down a rabbit hole and discovers a world of nonsensical and amusing characters."
+          ],
+          "notes": [
+            "Colophon: R. Clay, Son, and Taylor, printers, Bread Street Hill."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "The annotated Alice : Alice's adventures in Wonderland & Through the looking glass",
+      "author": "Carroll, Lewis, 1832-1898",
+      "records": [
+        {
+          "brn": 4403272,
+          "otherTitles": [
+            "Alice's adventures in Wonderland.",
+            "Through the looking glass."
+          ],
+          "otherAuthors": [
+            "Gardner, Martin, 1914-"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : A. Blond",
+            ""
+          ],
+          "publishDate": "1960.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Fiction.",
+            "Adventure stories, English.",
+            "Fantasy fiction, English."
+          ],
+          "physicalDescription": [
+            "352 pages: illustrations; 28 cm"
+          ],
+          "notes": [
+            "\"The complete and original illustrations in the only fully annotated ed.\"--jkt."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Step into Alice in Wonderland",
+      "seriesTitle": [
+        "Step into ... series"
+      ],
+      "author": "Alonso, Cynthia",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780711260542?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780711260542?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780711260542?s=LG"
+      },
+      "records": [
+        {
+          "brn": 206101551,
+          "variantTitles": [
+            "Alice in Wonderland"
+          ],
+          "otherAuthors": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9780711260542",
+            "0711260540"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Mission Viejo, CA : words & pictures, an imprint of The Quarto Group",
+            ""
+          ],
+          "publishDate": "2020.",
+          "subjects": [
+            "Imagination Juvenile fiction.",
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland Adaptations.",
+            "Alice (Fictitious character from Carroll)",
+            "Alice's adventures in Wonderland (Carroll, Lewis)",
+            "Board books",
+            "Imagination"
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged) : color illustrations ; 26 cm."
+          ],
+          "summary": [
+            "This exquisite board book introduces the classic story to the youngest children with engaging text, beautiful illustrations, and die-cut and layered pages. Follow the white rabbit and step into the story of Alice in Wonderland. Join Alice on her curious adventure and meet the Cheshire Cat, Mad Hatter, and the Queen of Hearts."
+          ],
+          "notes": [
+            "Cover title.",
+            "On die-cut board pages."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland : an 1865 printing re-described and newly identified as the publisher's \"file copy\" : with a revised and expanded census of the suppressed 1865 \"Alice\" compiled by Selwyn H. Goodacre : to which is added, a short-title index identifying and locating the original preliminary drawings by John Tenniel for Alice and Looking-Glass",
+      "author": "Schiller, Justin G",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0962711004?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0962711004?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0962711004?s=LG"
+      },
+      "records": [
+        {
+          "brn": 5773985,
+          "otherAuthors": [
+            "Goodacre, Selwyn Hugh.",
+            "Tenniel, John, Sir, 1820-1914."
+          ],
+          "isbns": [
+            "0962711004"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "1st edition."
+          ],
+          "publisher": [
+            "Kingston, N.Y. : Jabberwock : For obtaining copies, Battledore, Ltd."
+          ],
+          "publishDate": "1990",
+          "subjects": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland.",
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland Illustrations.",
+            "Fantasy fiction, English Criticism, Textual.",
+            "Fantasy fiction, English Illustrations."
+          ],
+          "physicalDescription": [
+            "109 pages, [2] leaves of plates (1 folded): illustrations, facsimiles; 26 cm"
+          ],
+          "notes": [
+            "With an errata slip."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice's adventures in Wonderland and Through the looking glass : nonsense, sense, and meaning",
+      "seriesTitle": [
+        "Twayne's masterwork studies ; no. 81."
+      ],
+      "author": "Rackin, Donald",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0805785531?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0805785531?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0805785531?s=LG"
+      },
+      "records": [
+        {
+          "brn": 6093494,
+          "isbns": [
+            "0805785531",
+            "0805794301"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Twayne Publishers ; Toronto : Maxwell Macmillan Canada ; New York : Maxwell Macmillan International"
+          ],
+          "publishDate": "1991.",
+          "subjects": [
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland.",
+            "Carroll, Lewis, 1832-1898. Through the looking-glass.",
+            "Nonsense literature, English History and criticism.",
+            "Children's stories, English History and criticism.",
+            "Fantasy fiction, English History and criticism.",
+            "Alice (Fictitious character from Carroll)",
+            "Meaning (Philosophy) in literature.",
+            "Children in literature."
+          ],
+          "physicalDescription": [
+            "xvii, 179 pages: illustrations; 23 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "爱丽丝漫游奇境 | Ailisi man you qi jing",
+      "seriesTitle": [
+        "我的第一本无障碍阅读书·美读本. | Wo de di yi ben wu zhang ai yue du shu, mei du ben."
+      ],
+      "author": "卡罗尔, 刘易斯, 1832-1898 | Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787533940119?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787533940119?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787533940119?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203190256,
+          "variantTitles": [
+            "Original title: Alice's adventures in Wonderland"
+          ],
+          "otherAuthors": [
+            "Gu, Xiang, translator."
+          ],
+          "nativeOtherAuthors": [
+            "顾湘, translator."
+          ],
+          "isbns": [
+            "9787533940119 (hardback)",
+            "7533940113 (hardback)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Hangzhou Shi : Zhejiang wen yi chu ban she"
+          ],
+          "nativePublisher": [
+            "杭州市 : 浙江文艺出版社"
+          ],
+          "publishDate": "2018.",
+          "physicalDescription": [
+            "295 pages : illustrations (chiefly color) ; 26 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203971016,
+          "otherAuthors": [
+            "Zhidianbangbangtang, editor, illustrator."
+          ],
+          "nativeOtherAuthors": [
+            "智典棒棒糖, editor, illustrator."
+          ],
+          "isbns": [
+            "9787518045723",
+            "7518045729"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Beijing Shi : Zhongguo fang zhi chu ban she"
+          ],
+          "nativePublisher": [
+            "北京市 : 中国纺织出版社"
+          ],
+          "publishDate": "2018.",
+          "physicalDescription": [
+            "172 pages : color illustrations ; 21 cm."
+          ],
+          "notes": [
+            "Parallel text in Chinese and Hanyu Pinyin."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202847872,
+          "otherAuthors": [
+            "Almagro, Leyre Garatea, illustrator.",
+            "Yang, Zhuoning, editor, translator."
+          ],
+          "nativeOtherAuthors": [
+            "阿尔玛格罗, 蕾尔·格拉媞, illustrator.",
+            "杨卓宁, editor, translator."
+          ],
+          "isbns": [
+            "9787304083236",
+            "7304083239"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Beijing Shi : Zhong yang guang bo dian shi da xue chu ban she"
+          ],
+          "nativePublisher": [
+            "北京市 : 中央广播电视大学出版社"
+          ],
+          "publishDate": "2017.",
+          "physicalDescription": [
+            "4, 2, 180 pages : color illustrations ; 21 cm."
+          ],
+          "notes": [
+            "Parallel text in Chinese and Hanyu Pinyin."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202671023,
+          "otherAuthors": [
+            "Lin, Mengchan, illustrator.",
+            "Liu, Zhimin, 1963- editor, translator."
+          ],
+          "nativeOtherAuthors": [
+            "林梦婵, illustrator.",
+            "刘志敏, 1963- editor, translator."
+          ],
+          "isbns": [
+            "9787544839778",
+            "754483977X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Nanning Shi : Jie li chu ban she"
+          ],
+          "nativePublisher": [
+            "南宁市 : 接力出版社"
+          ],
+          "publishDate": "2015.",
+          "physicalDescription": [
+            "2, 184 pages : illustrations (chiefly color) ; 24 cm."
+          ],
+          "notes": [
+            "Parallel text in Chinese and Hanyu Pinyin."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "爱丽丝漫游奇境记 | Ailisi man you qi jing ji",
+      "seriesTitle": [
+        "最美的成长乐园. | Zui mei de cheng zhang le yuan."
+      ],
+      "author": "卡洛尔, 刘易斯, 1832-1898 | Carroll, Lewis, 1832-1898",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787530664711?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787530664711?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787530664711?s=LG"
+      },
+      "records": [
+        {
+          "brn": 202540166,
+          "otherAuthors": [
+            "Deng, Minhua, editor, illustrator."
+          ],
+          "nativeOtherAuthors": [
+            "邓敏华, editor, illustrator."
+          ],
+          "isbns": [
+            "9787530664711 ",
+            "7530664719 "
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 1 ban."
+          ],
+          "nativeEdition": [
+            "第1版."
+          ],
+          "publisher": [
+            "Tianjin Shi : Bai hua wen yi chu ban she"
+          ],
+          "nativePublisher": [
+            "天津市 : 百花文艺出版社"
+          ],
+          "publishDate": "2014.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Juvenile fiction.",
+            "Fairy tales England.",
+            "Children's stories, English Translations into Chinese."
+          ],
+          "physicalDescription": [
+            "138 pages : color illustrations ; 24 cm."
+          ],
+          "notes": [
+            "Parallel text in Chinese and Hanyu Pinyin."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 14260120,
+          "variantTitles": [
+            "Original title: Alice's adventures in Wonderland"
+          ],
+          "otherAuthors": [
+            "Hildebrandt, Greg.",
+            "Guan, Jian."
+          ],
+          "nativeOtherAuthors": [
+            "希尔德布兰特, 格里格",
+            "关建"
+          ],
+          "isbns": [
+            "753465596X ",
+            "9787534655968 "
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Nanjing : Jiangsu shao nian er tong chu ban she"
+          ],
+          "nativePublisher": [
+            "南京 : 江苏少年儿童出版社"
+          ],
+          "publishDate": "2011.",
+          "physicalDescription": [
+            "54 pages: color illustrations; 28 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Alice in Wonderland : the graphic novel collection",
+      "seriesTitle": [
+        "Alice's adventures in Wonderland"
+      ],
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781772755053?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781772755053?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781772755053?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203064377,
+          "variantTitles": [
+            "At head of title: Disney",
+            "Disney Alice in Wonderland : graphic novel"
+          ],
+          "otherAuthors": [
+            "Burton, Tim, 1958-",
+            "Carroll, Lewis, 1832-1898. Alice's adventures in Wonderland."
+          ],
+          "isbns": [
+            "9781772755053",
+            "1772755052"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "1st Joe books edition."
+          ],
+          "publisher": [
+            "Toronto, Ont. : Joe Books"
+          ],
+          "publishDate": "2017.",
+          "subjects": [
+            "Alice (Fictitious character from Carroll) Comic books, strips, etc.",
+            "Girls Comic books, strips, etc.",
+            "Rabbits Comic books, strips, etc."
+          ],
+          "physicalDescription": [
+            "239 pages: color illustrations; 27 cm."
+          ],
+          "summary": [
+            "Relive the story of Disney Alice in Wonderland, from the moment Alice tumbles down the rabbit hole to the moment she conquers the Jabberwocky and restores the White Queen to her throne. Then, fall back in Underland in Disney Alice through the Looking Glass, as Alice returns to help the Mad Hatter. Containing graphic novel adaptations of both Disney Alice in Wondreland and Disney Alice Through the Looking Glass, this enchanting book of retellings illustrated by Max Narciso will transport you to a world beyond your imagination, with vivid images and colorful storytelling that bring the films to life on the page."
+          ],
+          "contents": [
+            "Disney Alice in Wonderland graphic novel -- Disney Alice through the Looking Glass graphic novel      -- The art of Disney Alice in Wonderland graphic novel -- The art of Disney Alice through the Looking Glass graphic novel."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    }
+  ],
+  "facets": [
+    {
+      "id": "intendedAudience",
+      "name": "Intended Audience",
+      "values": [
+        {
+          "id": "juvenile",
+          "data": "juvenile",
+          "count": 64
+        },
+        {
+          "id": "adolescent",
+          "data": "adolescent",
+          "count": 16
+        },
+        {
+          "id": "pre-adolescent",
+          "data": "pre-adolescent",
+          "count": 9
+        },
+        {
+          "id": "primary",
+          "data": "primary",
+          "count": 5
+        },
+        {
+          "id": "preschool",
+          "data": "preschool",
+          "count": 4
+        },
+        {
+          "id": "adult",
+          "data": "adult",
+          "count": 2
+        },
+        {
+          "id": "general",
+          "data": "general",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "values": [
+        {
+          "id": "eng",
+          "data": "English",
+          "count": 103
+        },
+        {
+          "id": "chi",
+          "data": "Chinese",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "values": [
+        {
+          "id": "jrl",
+          "data": "Jurong Library",
+          "count": 62
+        },
+        {
+          "id": "trl",
+          "data": "Tampines Library",
+          "count": 60
+        },
+        {
+          "id": "bipl",
+          "data": "Bishan Library",
+          "count": 56
+        },
+        {
+          "id": "prl",
+          "data": "Punggol Library",
+          "count": 55
+        },
+        {
+          "id": "jwpl",
+          "data": "Jurong West Library",
+          "count": 54
+        },
+        {
+          "id": "cll",
+          "data": "Central Library",
+          "count": 54
+        },
+        {
+          "id": "tppl",
+          "data": "Toa Payoh Library",
+          "count": 53
+        },
+        {
+          "id": "wrl",
+          "data": "Woodlands Library",
+          "count": 52
+        },
+        {
+          "id": "srpl",
+          "data": "Serangoon Library",
+          "count": 49
+        },
+        {
+          "id": "hbpl",
+          "data": "Harbourfront Library",
+          "count": 48
+        },
+        {
+          "id": "skpl",
+          "data": "Sengkang Library",
+          "count": 46
+        },
+        {
+          "id": "gepl",
+          "data": "Geylang East Library",
+          "count": 45
+        },
+        {
+          "id": "cckpl",
+          "data": "Choa Chu Kang Library",
+          "count": 45
+        },
+        {
+          "id": "bepl",
+          "data": "Bedok Library",
+          "count": 43
+        },
+        {
+          "id": "bppl",
+          "data": "Bukit Panjang Library",
+          "count": 42
+        },
+        {
+          "id": "cmpl",
+          "data": "Clementi Library",
+          "count": 41
+        },
+        {
+          "id": "prpl",
+          "data": "Pasir Ris Library",
+          "count": 39
+        },
+        {
+          "id": "sbpl",
+          "data": "Sembawang Library",
+          "count": 39
+        },
+        {
+          "id": "yipl",
+          "data": "Yishun Library",
+          "count": 38
+        },
+        {
+          "id": "bbpl",
+          "data": "Bukit Batok Library",
+          "count": 37
+        },
+        {
+          "id": "08lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 8",
+          "count": 8
+        },
+        {
+          "id": "cnpl",
+          "data": "Chinatown Library",
+          "count": 7
+        },
+        {
+          "id": "ld",
+          "data": "PublicationSG",
+          "count": 6
+        },
+        {
+          "id": "ru",
+          "data": "Repository Used Book Collection",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "materialType",
+      "name": "Material Type",
+      "values": [
+        {
+          "id": "bks",
+          "data": "Book",
+          "count": 109
+        },
+        {
+          "id": "ebk",
+          "data": "Ebook",
+          "count": 108
+        },
+        {
+          "id": "aeb",
+          "data": "Eaudiobook",
+          "count": 33
+        },
+        {
+          "id": "dvd",
+          "data": "DVD",
+          "count": 12
+        },
+        {
+          "id": "pmu",
+          "data": "Printed Music",
+          "count": 3
+        },
+        {
+          "id": "brd",
+          "data": "Blu-ray Disc",
+          "count": 2
+        },
+        {
+          "id": "brl",
+          "data": "Braille",
+          "count": 1
+        },
+        {
+          "id": "mcd",
+          "data": "Music CD",
+          "count": 1
+        },
+        {
+          "id": "emg",
+          "data": "Emagazine",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

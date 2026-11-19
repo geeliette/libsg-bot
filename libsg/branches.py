@@ -1,65 +1,50 @@
-"""NLB lending libraries a user can watch.
+"""Library branches users can watch, from NLB's Library API (GetBranches).
 
-Codes match GetAvailabilityInfo `location.code`. The spec lists codes (in the
-LocationCode pattern) but not names ("table T001" isn't included), so names
-come from two places:
+Source of truth is the API, not a hard-coded list: branches open and close
+(renovations, relocations), and the API reflects that.
 
-- VERIFIED: seen as location code/name pairs in real API responses
-  (tests/fixtures/). The SearchTitles location facet is capped at 24 values,
-  so it doesn't list everything.
-- UNVERIFIED: public NLB branch names for codes in the spec that haven't
-  appeared in our data yet. Replace with the API's name if it differs.
-
-Reference-only and back-office locations (Lee Kong Chian Reference Library
-levels, Repository Used Book Collection, PublicationSG, mobile library) are
-excluded: nothing there can be borrowed.
+What counts:
+- Lending libraries only: branchType "PL" (public) or "RL" (regional).
+  Excludes the National Library reference floors ("NL") and "Other" (archives, etc.).
+- Open = has an opening-hours schedule. NLB keeps closed branches as
+  isActive=true but empties their `schedules` and explains in
+  timing.closedDateRemarks (e.g. "closed for renovations").
 """
 
 from __future__ import annotations
 
-VERIFIED: dict[str, str] = {
-    "BEPL": "Bedok Library",
-    "BIPL": "Bishan Library",
-    "BBPL": "Bukit Batok Library",
-    "BPPL": "Bukit Panjang Library",
-    "CAL": "Central Arts Library",
-    "CLL": "Central Library",
-    "CCKPL": "Choa Chu Kang Library",
-    "CMPL": "Clementi Library",
-    "GEPL": "Geylang East Library",
-    "HBPL": "Harbourfront Library",
-    "JRL": "Jurong Library",
-    "JWPL": "Jurong West Library",
-    "PRPL": "Pasir Ris Library",
-    "PRL": "Punggol Library",
-    "SBPL": "Sembawang Library",
-    "SKPL": "Sengkang Library",
-    "SRPL": "Serangoon Library",
-    "TRL": "Tampines Library",
-    "TPPL": "Toa Payoh Library",
-    "WRL": "Woodlands Library",
-    "YIPL": "Yishun Library",
-}
+import re
+from dataclasses import dataclass
+from typing import Any
 
-UNVERIFIED: dict[str, str] = {
-    "AMKPL": "Ang Mo Kio Library",
-    "BMPL": "Bukit Merah Library",
-    "CSPL": "Cheng San Library",
-    "CNPL": "library@chinatown",
-    "EPPL": "library@esplanade",
-    "MPPL": "Marine Parade Library",
-    "OCPL": "library@orchard",
-    "QUPL": "Queenstown Library",
-}
-
-BRANCHES: dict[str, str] = dict(sorted({**VERIFIED, **UNVERIFIED}.items(), key=lambda kv: kv[1].lower()))
+LENDING_TYPES = {"PL", "RL"}
 
 
-def branch_name(code: str, fallback: str | None = None) -> str:
-    return BRANCHES.get(code.upper()) or fallback or code
+@dataclass(frozen=True)
+class Branch:
+    code: str
+    name: str
+    short_name: str
+    is_open: bool
+    note: str = ""  # closure remark, plain text
 
 
-def short_name(code: str) -> str:
-    """Button-sized label: "Toa Payoh Library" -> "Toa Payoh"."""
-    name = branch_name(code)
-    return name.removesuffix(" Library") if name.endswith(" Library") and name != "Central Library" else name
+def _plain(html: str | None) -> str:
+    text = re.sub(r"<[^>]+>", " ", html or "")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def parse_branches(data: dict[str, Any]) -> list[Branch]:
+    out = []
+    for b in data.get("branches") or []:
+        if (b.get("branchType") or {}).get("code") not in LENDING_TYPES or not b.get("isActive", True):
+            continue
+        code = (b.get("branchCode") or "").upper()
+        if not code:
+            continue
+        name = b.get("branchName") or code
+        is_open = bool(b.get("schedules"))
+        note = "" if is_open else _plain((b.get("timing") or {}).get("closedDateRemarks"))
+        short = (b.get("shortName") or name).removesuffix(" Library")  # "Central Arts Library" -> "Central Arts"
+        out.append(Branch(code, name, short, is_open, note))
+    return sorted(out, key=lambda br: br.short_name.lower())

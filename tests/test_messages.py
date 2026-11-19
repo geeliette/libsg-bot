@@ -1,86 +1,279 @@
 from libsg import messages as M
-from libsg.branches import BRANCHES, UNVERIFIED, VERIFIED, short_name
-from libsg.grouping import suggest_works
-from libsg.models import parse_search
+from libsg.branches import parse_branches
+from libsg.grouping import SuggestedWork, suggest_works
+from libsg.models import Edition, parse_search
 from libsg.watcher import Alert
 
 
-def _emma(emma_search):
-    return suggest_works(parse_search(emma_search), physical_only=True)[0]
+def _works(data):
+    return suggest_works(parse_search(data), physical_only=True)
 
 
 def _callbacks(markup):
     return [b.callback_data for row in markup.inline_keyboard for b in row]
 
 
-def test_branches_table():
-    assert not set(VERIFIED) & set(UNVERIFIED)
-    assert "TRL" in BRANCHES and BRANCHES["TRL"] == "Tampines Library"
-    assert not any("Reference" in n or "Repository" in n for n in BRANCHES.values())
-    assert short_name("TPPL") == "Toa Payoh"
-    assert short_name("CLL") == "Central Library"
-    assert short_name("CNPL") == "library@chinatown"
+def _texts(markup):
+    return [b.text for row in markup.inline_keyboard for b in row]
+
+
+def test_help_mentions_interval_and_commands():
+    t = M.help_text(30)
+    assert "every 30 minutes" in t
+    assert "closed for renovation or relocation" in t and "open right now" not in t
+    for cmd in ("/search", "/watches", "/help"):
+        assert f"<b>{cmd}</b>" in t  # each command has its own section
+    for button in ("Check now", "Edit", "Stop watching", "More results", "Any library"):
+        assert button in t
+    assert "Cover" not in t
+    assert "ISBN" in t and "NLB app" in t
+    assert "/search" in M.START
+    import re
+
+    for text in (M.START, t):  # impersonal: no "I", "I'll", "I'm"...
+        assert not re.search(r"\bI\b|\bI'", text), text
+    assert len(M.START) < 250
 
 
 def test_short_author():
     assert M.short_author("Austen, Jane, 1775-1817") == "Jane Austen"
-    assert M.short_author("Southam, B. C") == "B. C Southam"
     assert M.short_author("Plato") == "Plato"
+    assert M.short_author("陈启淦 | Chen, Qigan") == "陈启淦 (Qigan Chen)"
 
 
-def test_work_summary(emma_search):
-    text = M.work_summary(_emma(emma_search))
-    assert text.startswith("<b>Emma</b>\nJane Austen\n3 print editions (1981–2025)")
-    assert "on shelf" in text
+def test_estimate_text():
+    assert M.estimate_text(0, 3) == "about 5 seconds"
+    assert M.estimate_text(3, 3) == "about 15 seconds"
+    assert M.estimate_text(20, 3) == "about 2 minutes"
 
 
-def test_summary_escapes_html():
-    from libsg.grouping import SuggestedWork
-    from libsg.models import Edition
+# --- results ---------------------------------------------------------------
 
+
+def test_results_first_page(pp_search):
+    works = _works(pp_search)
+    t = M.results_text("pride and prejudice", works, 0, has_more=True)
+    assert t.startswith("Top 5 matches for “pride and prejudice” (print books only)")
+    assert "<b>1. " in t and "<b>5. " in t and "<b>6. " not in t
+    assert "Chinese" in t  # language shown when not just English
+    assert "author's name" in t
+    assert "That's all" not in t
+
+
+def test_results_later_page_and_end(pp_search):
+    works = _works(pp_search)
+    t = M.results_text("pp", works, 5, has_more=False)
+    assert t.startswith("Matches 6–")
+    assert "<b>6. " in t
+    assert "That's all the matches." in t
+
+
+def test_results_keyboard():
+    mk = M.results_keyboard(7, 5, 5, has_more=True)
+    assert _texts(mk) == ["6", "7", "8", "9", "10", "‹ Previous", "More results ▸"]
+    assert _callbacks(mk) == ["w:7:5", "w:7:6", "w:7:7", "w:7:8", "w:7:9", "p:7", "m:7"]
+    assert "m:7" not in _callbacks(M.results_keyboard(7, 0, 3, has_more=False))
+    assert "p:7" not in _callbacks(M.results_keyboard(7, 0, 5, has_more=True))  # no Previous on page 1
+    assert _texts(M.results_keyboard(7, 10, 2, has_more=False))[-1] == "‹ Previous"
+
+
+def test_escapes_html():
     w = SuggestedWork("Cats & <Dogs>", "", (Edition(1, "Cats & <Dogs>", "", "1", "Book", 2020),))
-    assert "Cats &amp; &lt;Dogs&gt;" in M.work_summary(w)
+    assert "Cats &amp; &lt;Dogs&gt;" in M.results_text("<q>", [w], 0, False)
+    assert "&lt;q&gt;" in M.results_text("<q>", [w], 0, False)
 
 
-def test_callback_data_fits_telegram_limit(emma_search):
-    emma = _emma(emma_search)
-    markups = [
-        M.work_keyboard(999999, 4),
-        M.editions_keyboard(emma.editions, {emma.editions[0].brn}),
-        M.branches_keyboard({"TRL"}),
-        M.watch_keyboard(10**9),
-    ]
-    for mk in markups:
+# --- editions --------------------------------------------------------------
+
+
+def _biggest(data):
+    return max(_works(data), key=lambda w: len(w.editions))
+
+
+def test_editions_text_details(pp_search):
+    w = next(w for w in _works(pp_search) if 200014276 in w.brns)
+    t = M.editions_text(w.title, w.author, list(w.editions), set(w.brns))
+    assert "✅ <b>1.</b> 2005 · Chinese · Da zhong shu ju · 221 pages" in t
+    assert "ISBN 9814185299" in t
+    assert 'href="https://catalogue.nlb.gov.sg/search/card?recordId=200014276">View in catalogue</a>' in t
+    assert "Cover" not in t
+    assert "200014276" not in t.replace("recordId=200014276", "")  # BRN only inside the link
+
+
+def test_every_edition_has_its_own_catalogue_link(emma_search):
+    emma = _works(emma_search)[0]
+    t = M.editions_text(emma.title, emma.author, list(emma.editions), set(emma.brns))
+    for e in emma.editions:  # incl. the Indonesian edition NLB files separately
+        assert f'<a href="https://catalogue.nlb.gov.sg/search/card?recordId={e.brn}">View in catalogue</a>' in t
+    assert t.count("View in catalogue</a>") == len(emma.editions)
+    assert "several editions on one page" in t
+
+
+def test_editions_text_ticks(pp_search):
+    w = _biggest(pp_search)
+    assert len(w.editions) >= 5
+    t = M.editions_text(w.title, w.author, list(w.editions), {w.editions[0].brn})
+    assert "✅ <b>1.</b>" in t and "⬜ <b>2.</b>" in t
+
+
+def _alice(alice_search):
+    return _biggest(alice_search)
+
+
+def test_long_edition_lists_are_paged_not_trimmed(alice_search):
+    w = _alice(alice_search)
+    eds = list(w.editions)
+    assert len(eds) == 19
+    sel = set(w.brns)
+    p1 = M.editions_text(w.title, w.author, eds, sel, start=0)
+    p2 = M.editions_text(w.title, w.author, eds, sel, start=10)
+    assert "Editions 1–10 of 19 · 19 ticked in total" in p1
+    assert "Editions 11–19 of 19" in p2
+    assert "<b>1.</b>" in p1 and "<b>10.</b>" in p1 and "<b>11.</b>" not in p1
+    assert "<b>11.</b>" in p2 and "<b>19.</b>" in p2
+    for page in (p1, p2):
+        assert len(page) <= M.MAX_TEXT
+        # every edition keeps its detail line (catalogue link, ISBN where known)
+        assert page.count("View in catalogue</a>") == page.count("✅ <b>")
+
+
+def test_short_lists_have_no_paging(pp_search):
+    eds = list(_biggest(pp_search).editions)[: M.EDITIONS_PAGE]
+    t = M.editions_text("T", "", eds, set())
+    assert "Editions 1–" not in t
+    assert not any(c.startswith("ep:") for c in _callbacks(M.editions_keyboard(eds, set())))
+
+
+def test_editions_keyboard_paging(alice_search):
+    eds = list(_alice(alice_search).editions)
+    k1 = M.editions_keyboard(eds, set(), ("‹ Back to results", "r:1"), start=0)
+    assert _texts(k1)[0] == "⬜ 1"
+    assert "More editions ▸" in _texts(k1) and "‹ Previous editions" not in _texts(k1)
+    assert "ep:10" in _callbacks(k1)
+    k2 = M.editions_keyboard(eds, set(), ("‹ Back to results", "r:1"), start=10)
+    assert _texts(k2)[0] == "⬜ 11" and _texts(k2)[8] == "⬜ 19"
+    assert "‹ Previous editions" in _texts(k2) and "More editions ▸" not in _texts(k2)
+    assert "ep:0" in _callbacks(k2)
+    assert _callbacks(k2)[-4:] == ["ea", "ec", "r:1", "en"]
+
+
+def test_editions_text_safety_net_for_huge_entries():
+    eds = [Edition(1000 + i, "T", "", "1", "Book", 2000, isbns=("9780000000000",), publisher="P" * 25, pages=300,
+                   edition_note="N" * 300) for i in range(10)]
+    t = M.editions_text("T", "", eds, {e.brn for e in eds})
+    assert len(t) <= M.MAX_TEXT
+
+
+def test_editions_keyboard(pp_search):
+    eds = list(_biggest(pp_search).editions)
+    mk = M.editions_keyboard(eds, {eds[0].brn})
+    texts = _texts(mk)
+    assert texts[0] == "✅ 1" and texts[1] == "⬜ 2"
+    assert "⬜ 11" not in texts  # only the first page's buttons
+    assert all(len(row) <= 5 for row in mk.inline_keyboard)
+    assert _callbacks(mk)[-3:] == ["ea", "ec", "en"]
+    assert "ep:10" in _callbacks(mk)  # 15 editions -> a second page
+    back = M.editions_keyboard(eds, set(), ("‹ Back to results", "r:3"))
+    assert [b.text for b in back.inline_keyboard[-1]] == ["‹ Back to results", "Next →"]
+    assert _callbacks(back)[-2:] == ["r:3", "en"]
+
+
+# --- branches --------------------------------------------------------------
+
+
+def test_branches_keyboard(branches_data):
+    open_branches = [b for b in parse_branches(branches_data) if b.is_open]
+    mk = M.branches_keyboard(open_branches, set())
+    assert mk.inline_keyboard[0][0].text == "✅ Any library"
+    texts = _texts(M.branches_keyboard(open_branches, {"TRL"}))
+    assert "⬜ Any library" in texts and "✅ Tampines" in texts and "Chinatown" in texts
+    assert not any(t in texts for t in ("Ang Mo Kio", "Orchard", "library@orchard", "Queenstown"))
+    assert all(len(row) <= 3 for row in mk.inline_keyboard)
+    assert _callbacks(mk)[-2:] == ["eb", "bs"]
+
+
+def test_branches_text_without_list():
+    assert "couldn't be loaded" in M.branches_text("Emma", has_branches=False)
+
+
+def test_callback_data_fits_telegram_limit(pp_search, branches_data):
+    eds = list(_biggest(pp_search).editions)
+    for mk in (M.results_keyboard(999999, 995, 5, True), M.editions_keyboard(eds, set()),
+               M.branches_keyboard(parse_branches(branches_data), set()), M.watch_keyboard(10**9)):
         assert all(len(d.encode()) <= 64 for d in _callbacks(mk))
 
 
-def test_editions_keyboard_ticks(emma_search):
-    emma = _emma(emma_search)
-    mk = M.editions_keyboard(emma.editions, {300172872})
-    labels = [b.text for row in mk.inline_keyboard for b in row]
-    assert labels[0] == "✅ 2025 · Book · 300172872"
-    assert labels[1].startswith("⬜")
-    assert _callbacks(mk)[-1] == "en"
+# --- saving / watches / alerts ----------------------------------------------
+
+NAMES = {"TRL": "Tampines", "PRPL": "Pasir Ris", "AMKPL": "Ang Mo Kio"}
 
 
-def test_branches_keyboard():
-    any_on = M.branches_keyboard(set())
-    assert any_on.inline_keyboard[0][0].text == "✅ Any library"
-    picked = M.branches_keyboard({"TRL"})
-    texts = [b.text for row in picked.inline_keyboard for b in row]
-    assert "⬜ Any library" in texts and "✅ Tampines" in texts
-    assert set(_callbacks(picked)) >= {"b:*", "bs"} | {f"b:{c}" for c in BRANCHES}
-    assert all(len(row) <= 3 for row in picked.inline_keyboard)
+def test_checking_text():
+    t = M.checking_text("Emma", 3, "about 15 seconds")
+    assert "Checking the shelves for 3 editions… this takes about 15 seconds." in t
+    assert "/watches" in t  # a way back if the check is interrupted
+    assert "checked…" not in t
+    assert M.checking_text("Emma", 17, "about 1 minute", done=6).endswith("\n6 of 17 checked…")
+    assert "checked…" not in M.checking_text("Emma", 17, "about 1 minute", done=17)
+    assert M.checking_now_text("Emma", 9, "about 40 seconds", done=3).endswith("\n3 of 9 checked…")
 
 
 def test_watch_saved_text():
-    t = M.watch_saved_text("Emma", {"TRL", "PRPL"}, {"TRL": 1})
+    t = M.watch_saved_text("Emma", {"TRL", "PRPL"}, {"TRL": 1}, NAMES)
     assert "Watching: <b>Emma</b> at Pasir Ris, Tampines." in t
-    assert "On shelf right now: Tampines (1)." in t
-    assert "No copies on the shelf" in M.watch_saved_text("Emma", set(), {})
-    assert "any library" in M.watch_saved_text("Emma", set(), {})
-    assert "couldn't check" in M.watch_saved_text("Emma", set(), None)
-    assert M.watch_saved_text("Emma", set(), {}, replaced=True).startswith("Updated")
+    assert "On the shelf right now: Tampines (1)." in t
+    assert "any library" in M.watch_saved_text("Emma", set(), {}, NAMES)
+    assert "Couldn't check" in M.watch_saved_text("Emma", set(), None, NAMES)
+    assert "You'll get a message" in M.watch_saved_text("Emma", set(), {}, NAMES)
+    assert M.watch_saved_text("Emma", set(), {}, NAMES, replaced=True).startswith("Updated your watch")
+
+
+def test_watch_text():
+    t = M.watch_text("Emma", "Austen, Jane", 3, {"AMKPL", "TRL"}, NAMES, {"AMKPL"}, {"TRL": 2}, "5 min ago")
+    assert t == (
+        "<b>Emma</b> – Jane Austen\n"
+        "Watching 3 editions at Ang Mo Kio (closed), Tampines\n"
+        "📗 On the shelf at 1 library: Tampines (2)\n"
+        "<i>Last checked 5 min ago</i>"
+    )
+    assert "not checked yet" in M.watch_text("Emma", "", 1, [], NAMES)
+    assert "none right now" in M.watch_text("Emma", "", 1, [], NAMES, on_shelf={})
+    many = {f"B{i:02d}": 1 for i in range(22)}
+    t = M.watch_text("Emma", "", 1, [], {}, on_shelf=many)
+    assert "On the shelf at 22 libraries: B00 (1), B01 (1)" in t
+    assert "B21 (1)" in t and "more" not in t  # every library listed
+    names = {"TRL": "Tampines", "BEPL": "Bedok", "CLL": "Central"}
+    t = M.watch_text("Emma", "", 1, [], names, on_shelf={"TRL": 3, "BEPL": 1, "CLL": 2})
+    assert "Bedok (1), Central (2), Tampines (3)" in t  # alphabetical
+
+
+def test_watch_keyboard():
+    assert _callbacks(M.watch_keyboard(12)) == ["c:12", "ed:12", "x:12"]
+
+
+def test_check_texts():
+    assert "Checking the shelves for 2 editions… about 10 seconds." in M.checking_now_text("Emma", 2, "about 10 seconds")
+    assert M.check_paused_text(5) == (
+        "Too many checks in a short time. Check now is paused for 5 minutes. Regular checks continue as normal."
+    )
+    assert "paused for 1 minute." in M.check_paused_text(1)
+
+
+def test_ago():
+    from datetime import datetime, timedelta, timezone
+
+    now = datetime(2026, 11, 19, 12, 0, tzinfo=timezone.utc)
+    iso = lambda **kw: (now - timedelta(**kw)).isoformat()
+    assert M.ago(iso(seconds=20), now) == "just now"
+    assert M.ago(iso(minutes=12), now) == "12 min ago"
+    assert M.ago(iso(hours=3), now) == "3 h ago"
+    assert M.ago(iso(days=3), now) == "3 days ago"
+    assert M.ago(None) == ""
+
+
+def test_searching_text_escapes_for_html():
+    # Must be sent with parse_mode=HTML, otherwise the escape shows literally ("handmaid&#x27;s").
+    assert M.searching_text("the handmaid's tale") == "Searching NLB for “the handmaid&#x27;s tale”…"
 
 
 def test_alert_text():
@@ -88,9 +281,11 @@ def test_alert_text():
         Alert(1, 10, 100, "Emma", 300172872, "TRL", "Tampines Library", 1),
         Alert(1, 10, 100, "Emma", 300123287, "PRPL", "Pasir Ris Library", 2),
     ]
-    eds = {300172872: (2025, "Book"), 300123287: (2024, "Book")}
-    assert M.alert_text("Emma", alerts, eds) == (
-        "📗 <b>Emma</b> is back on the shelf\n"
-        "• Pasir Ris Library: 2 copies – 2024 Book (BRN 300123287)\n"
-        "• Tampines Library: 1 copy – 2025 Book (BRN 300172872)"
+    labels = {300172872: "2025 · English · DK Classics · 467 pages", 300123287: "2024 · English · Puffin Books"}
+    assert M.alert_text("Emma", alerts, labels) == (
+        "📗 <b>Emma</b> is back on the shelf!\n"
+        "• <b>Pasir Ris Library</b>: 2 copies\n"
+        "   2024 · English · Puffin Books\n"
+        "• <b>Tampines Library</b>: 1 copy\n"
+        "   2025 · English · DK Classics · 467 pages"
     )

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import json
 import sqlite3
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
+from libsg.branches import Branch
 from libsg.models import Edition
 
 SCHEMA = """
@@ -27,6 +29,9 @@ CREATE TABLE IF NOT EXISTS work_editions (
     format_name TEXT NOT NULL DEFAULT '',
     year        INTEGER,
     physical    INTEGER NOT NULL DEFAULT 1,
+    label       TEXT NOT NULL DEFAULT '',  -- e.g. "2025 · English · Penguin Books · 357 pages"
+    watched     INTEGER NOT NULL DEFAULT 1,  -- 0 = candidate the user unticked (kept so Edit can re-tick it)
+    data        TEXT NOT NULL DEFAULT '',  -- the Edition as JSON, to rebuild it for editing
     PRIMARY KEY (work_id, brn)
 );
 CREATE INDEX IF NOT EXISTS work_editions_brn ON work_editions(brn);
@@ -60,7 +65,24 @@ CREATE TABLE IF NOT EXISTS snapshots (
     available   INTEGER NOT NULL,
     PRIMARY KEY (brn, branch_code)
 );
+
+-- Lending libraries from NLB's GetBranches, refreshed daily.
+CREATE TABLE IF NOT EXISTS branches (
+    code        TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
+    short_name  TEXT NOT NULL,
+    is_open     INTEGER NOT NULL,
+    note        TEXT NOT NULL DEFAULT '',
+    updated_at  TEXT NOT NULL
+);
 """
+
+# Columns added after a table first shipped: (table, column, definition).
+MIGRATIONS = [
+    ("work_editions", "label", "TEXT NOT NULL DEFAULT ''"),
+    ("work_editions", "watched", "INTEGER NOT NULL DEFAULT 1"),
+    ("work_editions", "data", "TEXT NOT NULL DEFAULT ''"),
+]
 
 
 def _now() -> str:
@@ -94,6 +116,10 @@ class Store:
         self.conn.row_factory = sqlite3.Row
         self.conn.execute("PRAGMA foreign_keys = ON")
         self.conn.executescript(SCHEMA)
+        for table, column, definition in MIGRATIONS:
+            cols = {r["name"] for r in self.conn.execute(f"PRAGMA table_info({table})")}
+            if column not in cols:
+                self.conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
         self.conn.commit()
 
     def close(self) -> None:
@@ -107,7 +133,13 @@ class Store:
 
     # --- works -------------------------------------------------------------
 
-    def create_work(self, user_id: int, title: str, author: str, editions: Iterable[Edition]) -> int:
+    def create_work(
+        self, user_id: int, title: str, author: str, editions: Iterable[Edition],
+        watched: Iterable[int] | None = None,
+    ) -> int:
+        """Save a work with all its candidate editions; `watched` = BRNs the user ticked (default: all)."""
+        editions = list(editions)
+        watched = {e.brn for e in editions} if watched is None else set(watched)
         with self.conn:
             cur = self.conn.execute(
                 "INSERT INTO works (user_id, title, author, created_at) VALUES (?, ?, ?, ?)",
@@ -115,9 +147,14 @@ class Store:
             )
             work_id = cur.lastrowid
             self.conn.executemany(
-                "INSERT OR IGNORE INTO work_editions (work_id, brn, title, format_name, year, physical)"
-                " VALUES (?, ?, ?, ?, ?, ?)",
-                [(work_id, e.brn, e.title, e.format_name, e.year, int(e.physical)) for e in editions],
+                "INSERT OR IGNORE INTO work_editions"
+                " (work_id, brn, title, format_name, year, physical, label, watched, data)"
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    (work_id, e.brn, e.title, e.format_name, e.year, int(e.physical), e.describe(),
+                     int(e.brn in watched), json.dumps(asdict(e), ensure_ascii=False))
+                    for e in editions
+                ],
             )
         assert work_id is not None
         return work_id
@@ -128,7 +165,7 @@ class Store:
             return None
         brns = tuple(
             r["brn"] for r in self.conn.execute(
-                "SELECT brn FROM work_editions WHERE work_id = ? ORDER BY brn", (work_id,)
+                "SELECT brn FROM work_editions WHERE work_id = ? AND watched = 1 ORDER BY brn", (work_id,)
             )
         )
         return Work(row["id"], row["user_id"], row["title"], row["author"], brns)
@@ -137,13 +174,28 @@ class Store:
         ids = [r["id"] for r in self.conn.execute("SELECT id FROM works WHERE user_id = ? ORDER BY id", (user_id,))]
         return [w for w in (self.get_work(i) for i in ids) if w]
 
-    def work_editions(self, work_id: int) -> list[sqlite3.Row]:
-        """Rows with brn, title, format_name, year, physical -- for building messages."""
-        return self.conn.execute(
-            "SELECT brn, title, format_name, year, physical FROM work_editions WHERE work_id = ?"
-            " ORDER BY year DESC, brn",
-            (work_id,),
-        ).fetchall()
+    def work_editions(self, work_id: int, watched_only: bool = True) -> list[sqlite3.Row]:
+        """Rows with brn, title, format_name, year, physical, label, watched -- for building messages."""
+        sql = ("SELECT brn, title, format_name, year, physical, label, watched, data"
+               " FROM work_editions WHERE work_id = ?")
+        if watched_only:
+            sql += " AND watched = 1"
+        return self.conn.execute(sql + " ORDER BY rowid", (work_id,)).fetchall()
+
+    def edition_choices(self, work_id: int) -> tuple[list[Edition], set[int]]:
+        """All candidate editions of a work (in their original order) and the BRNs currently watched."""
+        editions, watched = [], set()
+        for r in self.work_editions(work_id, watched_only=False):
+            if r["data"]:
+                d = json.loads(r["data"])
+                d["isbns"] = tuple(d.get("isbns") or ())
+                e = Edition(**d)
+            else:  # saved before full edition data was stored
+                e = Edition(r["brn"], r["title"], "", "", r["format_name"], r["year"], physical=bool(r["physical"]))
+            editions.append(e)
+            if r["watched"]:
+                watched.add(e.brn)
+        return editions, watched
 
     def works_sharing_editions(self, user_id: int, brns: Iterable[int]) -> list[int]:
         """IDs of this user's works that contain any of these BRNs (i.e. the same book saved before)."""
@@ -209,7 +261,7 @@ class Store:
 
     def watches_for_brn(self, brn: int) -> list[WatchInfo]:
         return self._watch_infos(
-            "w.work_id IN (SELECT work_id FROM work_editions WHERE brn = ?)", (brn,)
+            "w.work_id IN (SELECT work_id FROM work_editions WHERE brn = ? AND watched = 1)", (brn,)
         )
 
     def get_watch(self, watch_id: int) -> WatchInfo | None:
@@ -226,7 +278,7 @@ class Store:
             r["brn"] for r in self.conn.execute(
                 "SELECT e.brn FROM work_editions e JOIN watches w ON w.work_id = e.work_id"
                 " LEFT JOIN checked_editions c ON c.brn = e.brn"
-                " WHERE e.physical = 1"
+                " WHERE e.physical = 1 AND e.watched = 1"
                 " GROUP BY e.brn"
                 " ORDER BY MAX(c.checked_at) IS NOT NULL, MAX(c.checked_at), e.brn"
             )
@@ -243,6 +295,30 @@ class Store:
             for r in self.conn.execute("SELECT branch_code, available FROM snapshots WHERE brn = ?", (brn,))
         }
 
+    def checked_times(self, brns: Iterable[int]) -> dict[int, str]:
+        """brn -> last check time (ISO, UTC) for the BRNs that have been checked."""
+        brns = list(brns)
+        if not brns:
+            return {}
+        marks = ",".join("?" * len(brns))
+        return {
+            r["brn"]: r["checked_at"]
+            for r in self.conn.execute(f"SELECT brn, checked_at FROM checked_editions WHERE brn IN ({marks})", brns)
+        }
+
+    def last_checked(self, brns: Iterable[int]) -> str | None:
+        """Oldest check time across these BRNs (ISO, UTC), None if any was never checked."""
+        brns = list(brns)
+        if not brns:
+            return None
+        marks = ",".join("?" * len(brns))
+        rows = self.conn.execute(
+            f"SELECT checked_at FROM checked_editions WHERE brn IN ({marks})", brns
+        ).fetchall()
+        if len(rows) < len(set(brns)):
+            return None
+        return min(r["checked_at"] for r in rows)
+
     def save_snapshot(self, brn: int, counts: dict[str, int]) -> None:
         with self.conn:
             self.conn.execute("DELETE FROM snapshots WHERE brn = ?", (brn,))
@@ -255,3 +331,30 @@ class Store:
                 " ON CONFLICT (brn) DO UPDATE SET checked_at = excluded.checked_at",
                 (brn, _now()),
             )
+
+    # --- branches ----------------------------------------------------------
+
+    def save_branches(self, branches: Iterable[Branch]) -> None:
+        """Replace the stored branch list with a fresh one from GetBranches."""
+        rows = [(b.code, b.name, b.short_name, int(b.is_open), b.note, _now()) for b in branches]
+        if not rows:
+            return  # never wipe a good list with an empty response
+        with self.conn:
+            self.conn.execute("DELETE FROM branches")
+            self.conn.executemany(
+                "INSERT INTO branches (code, name, short_name, is_open, note, updated_at) VALUES (?, ?, ?, ?, ?, ?)",
+                rows,
+            )
+
+    def branches(self, open_only: bool = False) -> list[Branch]:
+        sql = "SELECT code, name, short_name, is_open, note FROM branches"
+        if open_only:
+            sql += " WHERE is_open = 1"
+        return [
+            Branch(r["code"], r["name"], r["short_name"], bool(r["is_open"]), r["note"])
+            for r in self.conn.execute(sql + " ORDER BY short_name COLLATE NOCASE")
+        ]
+
+    def branches_updated_at(self) -> str | None:
+        row = self.conn.execute("SELECT MAX(updated_at) AS t FROM branches").fetchone()
+        return row["t"] if row else None
