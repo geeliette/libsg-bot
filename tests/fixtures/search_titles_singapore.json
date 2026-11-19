@@ -1,0 +1,1175 @@
+{
+  "totalRecords": 325399,
+  "count": 1,
+  "hasMoreRecords": true,
+  "nextRecordsOffset": 1,
+  "titles": [
+    {
+      "title": "Singapore",
+      "seriesTitle": [
+        "International library of social change in Asia Pacific."
+      ],
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0754621065?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0754621065?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0754621065?s=LG"
+      },
+      "records": [
+        {
+          "brn": 9809786,
+          "otherAuthors": [
+            "Rodan, Garry, 1955- editor"
+          ],
+          "isbns": [
+            "0754621065"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Burlington, VT : Ashgate"
+          ],
+          "publishDate": "2001.",
+          "subjects": [
+            "Singapore Politics and government.",
+            "Singapore Economic policy.",
+            "Singapore Social conditions."
+          ],
+          "physicalDescription": [
+            "xxxiii, 520 pages; 25 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200184103,
+          "otherAuthors": [
+            "Yogerst, Joseph R.",
+            "Hoefer, Hans creator."
+          ],
+          "isbns": [
+            "9624214549",
+            "9789624214543"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Apa Publications (HK) Limited",
+            ""
+          ],
+          "publishDate": "[1997]",
+          "subjects": [
+            "Singapore Guidebooks.",
+            "Singapore Description and travel Guidebooks."
+          ],
+          "physicalDescription": [
+            "150 pages : color, illustrations., color, maps, color photos ; 25 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true,
+          "volumes": [
+            "[year]1997"
+          ]
+        },
+        {
+          "brn": 300113803,
+          "otherAuthors": [
+            "Singapore Tourist Promotion Board."
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Singapore Tourist Promotion Board"
+          ],
+          "publishDate": "[1987?]",
+          "subjects": [
+            "Tourism Singapore.",
+            "Singapore Description and travel."
+          ],
+          "physicalDescription": [
+            "28 unnumbered pages : color illustrations, color map ; 34 cm"
+          ],
+          "notes": [
+            "A paper shopping bag is attached to one leaf.",
+            "Includes sample menus and tourist attraction tickets.",
+            "Promotional brochure.",
+            "Two leaves are die-cut, one in the shape of a mask."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203010416,
+          "otherAuthors": [
+            "Singapore Tourist Promotion Board publsher."
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore] : Singapore Tourist Promotion Board"
+          ],
+          "publishDate": "[198--]",
+          "subjects": [
+            "Singapore Description and travel."
+          ],
+          "physicalDescription": [
+            "57 pages : colour illustrations ; 21 x 30 cm + 1 map (41 x 57 cm)."
+          ],
+          "notes": [
+            "Cover title.",
+            "\"Free official publication of the Singapore Tourist Promotion Board.\"",
+            "Map titled: Map of Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 4401459,
+          "otherAuthors": [
+            "Choo, Joseph, editor"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Richmond, Vic. ; Singapore] : Spectrum Pub. in association with Toppan"
+          ],
+          "publishDate": "1978.",
+          "subjects": [
+            "Singapore Description and travel Views."
+          ],
+          "physicalDescription": [
+            "[36] pages: chiefly color illustrations; 19 x 21 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 5434671,
+          "otherAuthors": [
+            "Straits Times."
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore : Straits Times]"
+          ],
+          "publishDate": "1971.",
+          "subjects": [
+            "Singapore."
+          ],
+          "physicalDescription": [
+            "138 pages: illustrations (some color); 28 cm"
+          ],
+          "notes": [
+            "Cover title.",
+            "Published as a Straits Times National Day special feature."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200068208,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Straits Times"
+          ],
+          "publishDate": "1971.",
+          "subjects": [
+            "Singapore Anniversaries, etc."
+          ],
+          "physicalDescription": [
+            "40 pages: illustrations"
+          ],
+          "notes": [
+            "\"A straits times national day special feature August 9, 1971.\""
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 5387663,
+          "otherAuthors": [
+            "Singapore Tourist Promotion Board"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore : The Board"
+          ],
+          "publishDate": "[between 1970 and 1979]",
+          "subjects": [
+            "Singapore Description and travel."
+          ],
+          "physicalDescription": [
+            "[76] pages: chiefly color illustrations; 29 cm"
+          ],
+          "notes": [
+            "Cover title.",
+            "\"Produced by the Singapore Tourist Promotion Board for the Commonwealth Heads' of Government Meeting, Singapore, January 14-22, 1971.\"",
+            "Ill. on lining papers."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200111024,
+          "otherAuthors": [
+            "Singapore Tourist Promotion Board"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Singapore Tourist Promotion Board"
+          ],
+          "publishDate": "[197-]",
+          "subjects": [
+            "Singapore Social life and customs Pictorial works.",
+            "Singapore History Pictorial works.",
+            "Singapore Pictorial works."
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged): color illustrations; 36 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200911654,
+          "otherAuthors": [
+            "Singapore Tourist Promotion Board"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Singapore Tourist Promotion Board"
+          ],
+          "publishDate": "[1970?]",
+          "subjects": [
+            "Singapore Description and travel.",
+            "Singapore Pictorial works."
+          ],
+          "physicalDescription": [
+            "67 unnumbered  pages : chiefly color illustrations ; 29 cm"
+          ],
+          "notes": [
+            "Cover title."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 13668400,
+          "variantTitles": [
+            "Singapore by B.O.A.C."
+          ],
+          "otherAuthors": [
+            "British Overseas Airways Corporation.",
+            "Qantas Empire Airways.",
+            "Air India International."
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Inter-Continental Air Guides"
+          ],
+          "publishDate": "[1961]",
+          "subjects": [
+            "Singapore Guidebooks."
+          ],
+          "physicalDescription": [
+            "72 pages: illustrations, map; 19 cm"
+          ],
+          "notes": [
+            "\"British Overseas Airways Corporation, Qantas Empire Airways, Air India International.\"",
+            "Pagination includes advertisements."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200067648,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore : Craftsman Press"
+          ],
+          "publishDate": "1949]",
+          "subjects": [
+            "Singapore Guidebooks."
+          ],
+          "physicalDescription": [
+            "7 pages; maps.; 19 cm"
+          ],
+          "notes": [
+            "Cover title."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203895756,
+          "variantTitles": [
+            "Singapore indentures, 1940-1949"
+          ],
+          "otherAuthors": [
+            "Singapore. Registrar of Deeds."
+          ],
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "1940-1949.",
+          "subjects": [
+            "Deeds Singapore Cases.",
+            "Conveyancing Singapore Cases."
+          ],
+          "physicalDescription": [
+            "8 document sleeves ; 28 x 43 cm"
+          ],
+          "contents": [
+            "Indenture of statutory reconveyance dated 22nd February, 1940 between Chia Keng Tye, the mortgagee, and Chia Siew Yean, the mortgagor -- Indenture dated 22nd February 1940 between Chia Siew Yean, the borrower, and Ahna Runa Ahna Runa Arun Achalam Chettiar, the lender : mortgage of no. 9 Lorong Sidin, Singapore  -- Indenture dated 20th April 1940 between Gan Tiang Kwee, the vendor, and Arthur Morley, the original purchaser, and Syed Ibrahim bin Omar Alsagoff, the sub-purchaser, conveyance of freehold land and house known as no. 60 Cheng Cheok Street , Singapore -- Indenture dated 16th August 1940 between Chia Guat Neo, the vendor, and Shariffah Mohain binte Abibakar bin Abdulrahman bin Shahalrudeen, the purchaser -- Indenture dated 16th August 1940 between Ahna Runa Ahna Runa Arumachalam Chettiar, the mortgagee, and Chia Siew Gean, the vendor, and Syed Alwi bin Abdulrahman bn Adullah bin Ali bin Aidroos bin Shahalrudeen, the purchaser : assignment of leasehold land and premises no. 9 Lorong Sidin, Singapore -- Indenture dated 18th December 1941 between Syed Abdullah bin Shaik vin Mohamed Balfageih, the vendor and Syed Zain bin Shaik bin Mohamed Balfageih, Syed Ali bin Shaik bin Mohamed Balfageih and Shariffah Aisha binte Shaik bin Mohamed Balfageih, the purchasers : conveyance : nos 83 & 84 Duxton Road, Singapore -- Indenture dated 17th March 1949 between Syed Ahmad bin Abdul Kader Al Sfadad, the administrator, and Syed Hassan bin Salleh bin Alwee Alaidroos, Syed Mustafa bin Salleh bin Alwee Alaidroos, Syed Aidroos bin Salleh bin Alwee Alaidroos, Sheriffa Seedah binte Salleh bin Alwee Alaidroos, Sheriffa Zeinah binte Salleh bin Alwee Alaidroos and Sheriffa Mahawi binte Salleh bin Alwee Alaidroos, the beneficiaries : assent : property 341 Victoria Street and 51-1 Johore Road Singapore -- Assignment dated 1st June 1949 between Syed Mohamed bin Ahmad bin Shaikh, the vendor and Syed Omar bin Hassan bin Zain Alhadi, Syed Ali bin Hassan bin Zain Alhadi, Shariffah binte Hassan bin Zain Alhadi, the purchasers : assignment of lease-hold land and premises known as nos. 36, 36a, 36b Sago Street Singapore."
+          ],
+          "notes": [
+            "Devised title.",
+            "Holograph and typescript.",
+            "Documents stamped: Registrar of Deeds, Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203896221,
+          "variantTitles": [
+            "Singapore indentures, 1922-1929"
+          ],
+          "otherAuthors": [
+            "Singapore. Registrar of Deeds."
+          ],
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "1922-1929.",
+          "subjects": [
+            "Deeds Singapore Cases.",
+            "Conveyancing Singapore Cases."
+          ],
+          "physicalDescription": [
+            "7 document sleeves ; 28 x 43 cm"
+          ],
+          "contents": [
+            "Indenture of statutory mortgage dated 20th April 1922 between Layna Mohamed Ghouse Maricar, the mortgagor, and Thomas Oswald Mayhew and Ahmed bin Kadir Naina Marican : freehold no. 27 Newton Road, Singapore -- Indenture dated 31st day December 1923 between Syed Abdulrahman bin Shaikh Alkaff and another to Syed Abdul Gadir bin Shaik Alkaff : conveyance of no. 97 and 99 New Market Road Singapore and assignment of leasehold land adjoining -- Indenture of statutory mortgage dated 24th August 1926 between Hadji Abdullah bin Hadji Masaood, the mortgagor, and Nana Pana Lana Seena Tana Mootiah Chettiar : leasehold land  and premise at no. 737 North Bridge Road, Singapore -- Indenture of statutory reconveyance dated 11th November 1927 between Thomas Oswald Mayhew and Ahmed bin Kader Naina Marican, the mortgagees, and Layna Mohamed Ghouse Maricar, the mortgagor : freehold land and premise known as no 27 Newton Road, Singapore -- Indenture dated 2nd August 1927 between Hadji Abdullah bin Hadji Masaood, the vendor and Moona Mohamed Shariff bin Mohamed Kassim, the purchaser : assignment of equity of redemption of the land and premise known as 737 North Bride Road, Singapore -- Indenture of statutory mortgage dated 18th September 1929 between Hussain Khan bin Mohamed Khan, the mortgagor and the British Malaya Trustee and Executor Company Limited, Tan Chong Gark, and Tan Chong Khee, the lenders : freehold premises known as nos. 69-1 to 69-6 and 70-1 to 70-10 Thomson Road Singapore to secure $26,000 and interest; Indenture dated 18th September 1929 between Syed Mohamed bin Omar Alsagoff and Syed Ahmed bin Omar Alsagoff, the vendors, and Hussain Khan bin Mohamed Khan, the purchaser : conveyance of freehold premises known as nos. 69/1 to 69/6 and 70/1 to 70/10 Thomson Road Singapore; Galmon (Malaya) Ltd to Hussain Khan bin Mohamed Khan : deed of acknowledgement / Donaldson & Burkinshaw -- Indenture dated 2nd December 1929 between Moona Mohamed Shariff bin Mohamed Kassim, the vendor, and Shaik Allie bin Obed Baragaybah, the purchaser : assignment of leasehold land and house at no. 737 North Bridge Road Singapore."
+          ],
+          "notes": [
+            "Devised title.",
+            "Holograph and typescript.",
+            "Documents stamped: Registrar of Deeds, Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203896804,
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            "1854-1899."
+          ],
+          "publishDate": "",
+          "subjects": [
+            "Conveyancing Singapore Cases.",
+            "Deeds Singapore Cases.",
+            "Conveyancing Straits Settlements Cases.",
+            "Deeds Straits Settlements Cases."
+          ],
+          "physicalDescription": [
+            "27 documents ; 45 x 32 cm"
+          ],
+          "contents": [
+            "Indenture dated 1st January 1854 between the East India Company and Gooroowadong -- Indenture dated 1st January 1854 between the East India Company and Vengadasalew -- Indenture dated 11th May 1861 between Vitalingum and Tae Boon Tong -- Indenture dated 9th March 1868 between His Excellency the Governor of the Straits Settlements and Abdulla bin Ahroom -- 17th March 1868 between Abdulla bin Ahroom and Fattmah binte Ahroom -- Indenture dated 2nd November 1872 between Fattmah binte Ahroom and Pana Ravena Mana Palaneappa Chitty -- Indenture dated 18th April 1873 between Pana Ravena Mana Palaneappa Chitty and Chea Tek Lin -- Indenture dated 20th August 1874 between Tay Luan Hin and Tan Kim Keat -- Indenture dated 14th September 1874 between Murda Mootoo Padiachee and Durmahkah Thakoor -- Indenture dated 3rd February 1875 between Tae Boon Tong and Tay Luan Hin -- Indenture dated 14th August 1879 between Henry Hewetson and Syed Aboobakar bin Omar Al Junied -- Indenture dated 9th April 1880 between Tan Keng Cheow and Syed Abdulrahman bin Mahomed bin Ebrahim al Sagoff -- Indenture dated 12th September 1882 between Syed Allowee Bin Ally Al Junied and Lim Eng Teong : conveyance of freeholds -- Indenture dated 20th January 1883 between Noova Mohamed and Loh Song Chye -- Deed made on 6th March 1884 between Loh Song Chye and Armogum Annamalai.",
+            "Indenture dated 10th January 1885 between Armogum Annamalai and Noor Mahomed -- Indenture dated 13th March 1885 between Noor Mahomed and Meena Shaik Madarsah -- Indenture dated 13th March 1885 between Meena Shaik Madarsah and Meyna Chryna Allagappa Chitty -- Indenture dated 3rd December 1885 between Chea Tek Lin and Ravena Mana Ghona Moona Peria Kurper Chitty -- Indenture dated 6th May 1887 between Meyna Chryna Allagappa Chitty and Cheena Tamby : assignment of leasehold -- Indenture dated 8th April 1894 between Cheena Tambly and Kader Meydin -- Indenture dated 7th March 1895 between Lo Boon Peng and Shaik Ahmad Bin Mohamed Bin Thalab : deed of convenant for production of old title deeds -- Indenture dated 27th November 1895 between Tan Kee Peck and Shaik Abdullah bin Mobarak bin Talib : assignment of leasehold land and messuage known as No 507 and 508 North Bridge Road Singapore -- Indenture of statutory mortgage dated 27th November 1895 between Shaik Abdullah bin Mobarak bin Talib and Edward James Vanson : mortgage of leasehold land and houses known as No 507 and 508 North Bridge Road Singapore for securing $1,500 and interest -- Indenture dated 2nd November 1896 between Tan Chay Yan and Chia Keow -- Indenture dated 3rd September 1897 between Ravena Mana Ghona Moona Peria Kurper Chitty and Syed Shaik bin Abdulrahman al Kaff : assignment of leasehold land and houses Nos 40 and 41 New Market Road Singapore -- Indenture dated 14th June 1899 between Shaik Aboobakar bin Mohamed Iajam and Valentine Aloysim Fernandez : assignment of houses No 2 Bain Street Singapore."
+          ],
+          "notes": [
+            "Typescript and holograph.",
+            "Devised title.",
+            "Some documents stamped: Registrar of deeds, Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203896495,
+          "variantTitles": [
+            "Singapore indentures, 1900-1916"
+          ],
+          "otherAuthors": [
+            "Singapore. Registrar of Deeds."
+          ],
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "1900-1916.",
+          "subjects": [
+            "Deeds Singapore Cases.",
+            "Conveyancing Singapore Cases."
+          ],
+          "physicalDescription": [
+            "20 document sleeves ; 28 x 43 cm"
+          ],
+          "contents": [
+            "Indenture of statutory mortagage dated 19th October 1900 between Kader Meydin, the mortgagor and Kana Yena Odaykalavan Chitty, the mortgagee : leasehold land and house known as Municipal no. 41 Bain Street Singapore to secure $400 and interest and further advances not exceeding $100 -- Indenture dated 12th September 1901 between Kader Meydin, the vendor, and Kader Beebee binte Miskinsah, the purchaser : assignment of leasehold land and house no. 41 Bain Street Singapore, comprised in lease lot no. 78 of lease no 262 for 999 years -- Indenture of statutory reconveyance , dated 6th August 1902 between Domingos Zuzarte, the mortgagee and Armenisgild Stanislans Desker, the mortgagor -- Indenture of statutory mortgage dated 1st February 1902 between Armenisgild Stanislans Desker, the mortgagor, and Domingos Zuzarte, the mortgagee : mortgage of freehold land and houses at Queen Street Singapore to secure $2000 and interest -- Indenture dated 28th August 1902 between Armenisgild Stanislans Desker, the vendor, and Loh Swee, the purchaser : conveyance of property nos. 211, 212, 213, 214, 215, and 216 Queen Street Singapore -- Indenture of statutory mortgage dated 28th August 1902 between Loh Lum, the mortgagor, and Armenisgild Stanislans Desker, the mortgagee : nos 211 to 216 Queen Street Singapore to secure $18000 term & year interest 8 percent, insurance $12000 -- Indenture of statutory  mortgage dated 18th October 1902 between Kader Beebee binte Miskinsah, the mortgagor, and Navena Cheena Jana Vayna Ravena Mana Somasundram Chitty : mortgage of leasehold land and house at no. 41 Bain Street Singapore to secure $2000 and interest  -- Indenture dated 19th May 1903 between Loh Lum, the vendor, and Loh Tiam Hock, the purchaser.",
+            "Indenture of statutory reconveyance dated 25th February 1905 between Navena Cheena Jana Vayna Ravena Mana Somasundram Chitty, the mortgagee, and Kader Beebee binte Miskinsah, the mortgagor -- Indenture dated 20th July 1904 between Loh Tiam Hock, the vendor, and Wong Ah Fook, the purchaser -- Indenture dated 8th August 1908 between Chua Lew Neo, executor of Chia Keow, deceased, the vendor, and Chia Tiong Guan : conveyance of freehold land situate in Tanjong Pagar Singapore being lot no. 41 of grant no. 5 -- Indenture dated 10th May 1909 between Chia Tiong Guan, the vendor, and Syed Alwee bin Abdulrahman bin Sheikh Alsagoff, the purchaser : conveyance of freehold land and premises known as Municipal no. 289 Tanjong Pagar Road Singapore -- Indenture dated 19th January 1909 between the Reverend Richard Richards, the vendor and Shaik Ahamed bin Syed Johan, the purchaser : assignment of leasehold lands and premises known as Municipal no. 9 Holloway Lane Singapore -- Indenture dated 18th August 1909 between Roogayah Kamisah binte Marjan, the vendor and Shaik Salman bin Abdul Shaik Shamie, the purchaser : assignment of leasehold land at Dunlop Street Singapore; Indenture of statutory mortgage 8th December 1910 between Shaik Salman bin Abdul Shamie, the mortgagor and Rowland Allen, the mortgagee : leasehold land and premises known as Municpal no. 26 to 29 Dunlop Street Singapore  -- Indenture of statutory transfer of mortgage and statutory mortgage dated 31st January 1913 between Edward Henry Desker, Nativity Joaquim Desker, Thomas Samuel Cornelius, Samuel Rudolph de Souza, the transferors, and Wong Ah Fook, the mortgagor, and George Frederico d' Almeida and another, the transferees : freehold land and houses known as nos. 211 to 216 Queen Street Singapore.",
+            "Indenture of statutory mortgage dated 11th July 1912 between Abdulrahim bin Hadjee Osman, the mortgagor, and Abraham Frankel, the mortgagee : leasehold land and houses known as Municpal no. 249 Victoria Street Singapore to secure $2200 and interest -- Indenture dated 2nd January 1913 between Abdulrahim bin Hadjee Osman, the vendor, and Andi Genggong bin Arong Abdulrahim, the purchaser : assignment of leasehold land and house known as Municipal no. 249 Victoria Street Singapore -- Indenture of statutory transfer of mortgage dated 8th May 1914 between George Frederico d'Almeida, the transferor, and George Frederico d'Almeida and Cecil Augustus Evans, the transferees -- Indenture dated 14 March 1914 between Andi Genggong bin Arong Abdulrahim, the vendor and Syed Salleh bin Alwee bin Hassan al Hydroos, the purchaser : assignment of leasehold land and premises known as no. 249 Victoria Street Singapore -- Indenture Indenture dated 1st June 1916 between George Frederico d'Almeida and Cecil Augustus Evans, the mortagees and Wong Ah Fook, the vendor, and Syed Mohamed bin Alwee bin Ibrahim Alsagoff, the purchaser : conveyance of freehold land and houses known as municpal no. 211 to 216 Queen Street Singapore."
+          ],
+          "notes": [
+            "Devised title.",
+            "Holograph and typescript.",
+            "Documents stamped: Registrar of Deeds, Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203916260,
+          "variantTitles": [
+            "Indentures relating to Tan Tock Seng Hospital and notice of land acquisition for public library"
+          ],
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "1885-1954.",
+          "subjects": [
+            "Deeds Singapore Cases.",
+            "Conveyancing Singapore Cases.",
+            "Tan Tock Seng Hospital History Sources.",
+            "Eminent domain Singapore History 20th century."
+          ],
+          "physicalDescription": [
+            "4 document sleeves ; 46 x 34 cm or smaller"
+          ],
+          "contents": [
+            "Indenture dated 25th March 1885 between Tan Tock Seng's Hospital and Pakira Pillay : lease no. 50 Tan Tock Seng's Hospital, Syed Alli's land : lease for 99 years; Indenture dated 12th May 1885 between Pakina Pillay and Hadjee Mahmood alias Sanain; Indenture of statutory mortgage dated 8th March 1887 between Hadjee Mahmood alias Sanain, the mortgagor, and Ahna Roona Ana Narianah Pillay, the mortgagee; Indenture dated 27 September 1892 between Ahna Roona Ana Narainah Pillay and Hadjee Mahmood bin Tanjong, the vendor, and Hadjee Osman bin Hadjee Aboonayhim, the purchaser -- Indenture dated 9th February 1903 between Lim Sye Neo, Lim Geck Moah, the vendor, and Shaik Jaffar bin Sallim bin Allie Omar bin Tallip, and Syed Salleh bin Allowee al Hydroose, the purchaser : assignment of leasehold land and house known as Municipal no. 5172 Johore Road, Singapore being part II of Tan Tock Seng's Hospital lease no. 84 for 99 years -- Indenture dated 30th January 1912 between Hadjee Ismail bin Hadjee Osman, Hadjee Mohamed Omar bin Hajee Osman and Abdulrahim bin Hadjee Osman : assignment of leasehold land in Singapore comprising the Tan Tock Seng's Hospital lease no. 50 for 99 years together with dwelling house erected known as no. 249 Victoria Street Singapore -- Notice under Section 8 of the Land Acquisition Ordinance (Chapter 128) : to Sheriffah Katijah binte Abdulrahman bin Junied Aljunied, 737 North Bridge Road,  of Government intention to take possession of 758 sq ft. of land Lot 123-2 T.S. XX as site for a public library & cultural centre, dated 9 October 1954."
+          ],
+          "notes": [
+            "Devised title.",
+            "Holograph and typescript."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203896238,
+          "format": {
+            "code": "15",
+            "name": "Manuscript Material"
+          },
+          "publisher": [
+            "1932-1939."
+          ],
+          "publishDate": "",
+          "subjects": [
+            "Conveyancing Singapore Cases.",
+            "Deeds Singapore Cases.",
+            "Conveyancing Straits Settlements Cases.",
+            "Deeds Straits Settlements Cases."
+          ],
+          "physicalDescription": [
+            "11 documents ; 45 x 32 cm"
+          ],
+          "contents": [
+            "Indenture dated 19th December 1932 between Syed Mohamed Bin Junied Al Junied, Syed Omar Bin Junied Bin Omar Al Junied and Syed Mohamed, Syed Omar and Syed Haroon Bin Hassan Bin Abdulrahman Al Junied : appointment of new trustees -- Indenture dated 30th April 1932 between Tan Chang Khee, Tan Chong Yark and The British Malaya Trustee and Executor Company Limited, the vendors and Syed Mohamad bin Ahmad bin Shaik Alkaff and Syed Mohamed bin Husain bin Abdullah Alkaff, the purchasers : conveyance of freehold premises situate at Nos 231 to 261 (odds), Thomson Road, Singapore -- Indenture dated 1st July 1935 between Shaik Abdulrahman bin Allie Ambar Banama and Shaika Salma binte Ahsmad bin Said Jocban : assignment of leasehold land and premises situate at and known as No 9, Holloway Lane, Singapore -- Indenture dated 1st July 1935 between Sech Salim bin Awad Djoban, the vendor and Shaik Abdulrahman bin Allie Ambar Banama, the purchaser : assignment of leasehold land and premises situate at and known as No 9, Holloway Lane, Singapore  -- Indenture dated 11th August 1936 between Syed Abdullah bin Abdulkader Al Hadad, the executor, Syed Mohamed bin Alwee bin Ibrahim bin Shaik and others, the beneficiaries, and Shaik bin Alwee bin Ibrahim bin Shaik Alsagoff, the grantee : conveyance & assignment of various properties in Singapore Straits Settlements -- Indenture dated 11th August 1936 between Syed Abdullah bin Abdulkader Al Hadad, the executor, Syed Mohamed bin Alwee bin Ibrahim bin Shaik and others, the beneficiaries, and Syed Abubakar bin & Ibrahim bin Alwee bin Ibrahim bin Shaik Alsagoff, the grantee : conveyance & assignment of various properties in Singapore Straits Settlements.",
+            "Indenture dated 4th November 1938 between Peyna Reena Ana Moona Muthukaruppan Chettiar, the vendor and Syed Mohamed bin Abdulrahman bin Ali Al Junied, the purchaser : assignment of leasehold land and premises No 737 North Bridge Road, Singapore -- Indenture dated 15th February 1939 between Chia Keng Chin and Chia Keng Tye, the executors, and Chia Guat Neo, the legatee : assignment by way of assent of leasehold lands and premises known as Nos 21 & 22 Lorong Sidin, Singapore -- Indenture dated 19th April 1939 between Chia Siew Yean, the mortagor and Chia Keng Tye, the mortgagee : statutory mortgage of leasehold land and house situate at No 9 Lorong Sidin Singapore to secure the payment of $1,600 and interest -- Indenture dated 29th July 1939 netween Syed Haroun Bin Hassan Bin Abdulrahman Aljunied, the mortgagor and Eastern Auto Company Limited, the mortgagee : mortgage of leasehold land and house No 737 North Bridge Road, Singapore erected thereon to secure $3,000 and interest -- Indenture dated 7th November 1939 between Gan Tiang Kwee, the mortgagor and Arthur Morley, the mortgagee : statutory mortgage of freehold land and houses erected thereon and known as Nos 59 and 60 Cheng Cheok Street, Singapore to secure $4,000 and interest."
+          ],
+          "notes": [
+            "Typescript and holograph.",
+            "Devised title.",
+            "Some documents in Arabic.",
+            "Documents stamped: Registrar of deeds, Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 10215426,
+          "format": {
+            "code": "26",
+            "name": "Microform"
+          },
+          "publisher": [
+            "London : British Library Reference Division, Reprographic Section"
+          ],
+          "publishDate": "1948.",
+          "subjects": [
+            "Singapore Description and travel."
+          ],
+          "physicalDescription": [
+            "1 microfilm reel: positive, illustrations, maps; 35 mm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    }
+  ],
+  "facets": [
+    {
+      "id": "intendedAudience",
+      "name": "Intended Audience",
+      "values": [
+        {
+          "id": "Adults",
+          "data": "Adults",
+          "count": 59204
+        },
+        {
+          "id": "juvenile",
+          "data": "juvenile",
+          "count": 20878
+        },
+        {
+          "id": "general",
+          "data": "general",
+          "count": 5562
+        },
+        {
+          "id": "Adults|Young People",
+          "data": "Adults|Young People",
+          "count": 4015
+        },
+        {
+          "id": "Adults|Young people",
+          "data": "Adults|Young people",
+          "count": 3675
+        },
+        {
+          "id": "primary",
+          "data": "primary",
+          "count": 2548
+        },
+        {
+          "id": "adolescent",
+          "data": "adolescent",
+          "count": 1876
+        },
+        {
+          "id": "adult",
+          "data": "adult",
+          "count": 1535
+        },
+        {
+          "id": "pre-adolescent",
+          "data": "pre-adolescent",
+          "count": 1038
+        },
+        {
+          "id": "Young people",
+          "data": "Young people",
+          "count": 1000
+        },
+        {
+          "id": "Children",
+          "data": "Children",
+          "count": 997
+        },
+        {
+          "id": "preschool",
+          "data": "preschool",
+          "count": 962
+        },
+        {
+          "id": "specialized",
+          "data": "specialized",
+          "count": 349
+        },
+        {
+          "id": "Young Adults",
+          "data": "Young Adults",
+          "count": 300
+        },
+        {
+          "id": "Young People",
+          "data": "Young People",
+          "count": 239
+        },
+        {
+          "id": "Adults | Young Adults",
+          "data": "Adults | Young Adults",
+          "count": 187
+        },
+        {
+          "id": "Adults | Children",
+          "data": "Adults | Children",
+          "count": 182
+        },
+        {
+          "id": "General|Children",
+          "data": "General|Children",
+          "count": 151
+        },
+        {
+          "id": "Children | Adults",
+          "data": "Children | Adults",
+          "count": 148
+        },
+        {
+          "id": "Young adults",
+          "data": "Young adults",
+          "count": 117
+        },
+        {
+          "id": "Young Adults | Adults",
+          "data": "Young Adults | Adults",
+          "count": 97
+        },
+        {
+          "id": "Young People|Adults",
+          "data": "Young People|Adults",
+          "count": 92
+        },
+        {
+          "id": "Adults|Young People|Children",
+          "data": "Adults|Young People|Children",
+          "count": 85
+        },
+        {
+          "id": "Children|Young People",
+          "data": "Children|Young People",
+          "count": 57
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "values": [
+        {
+          "id": "eng",
+          "data": "English",
+          "count": 241091
+        },
+        {
+          "id": "chi",
+          "data": "Chinese",
+          "count": 61009
+        },
+        {
+          "id": "may",
+          "data": "Malay",
+          "count": 11006
+        },
+        {
+          "id": "tam",
+          "data": "Tamil",
+          "count": 6785
+        },
+        {
+          "id": "kor",
+          "data": "Korean",
+          "count": 988
+        },
+        {
+          "id": "zxx",
+          "data": "No linguistic content",
+          "count": 531
+        },
+        {
+          "id": "jpn",
+          "data": "Japanese",
+          "count": 517
+        },
+        {
+          "id": "ind",
+          "data": "Indonesian",
+          "count": 508
+        },
+        {
+          "id": "fre",
+          "data": "French",
+          "count": 454
+        },
+        {
+          "id": "ara",
+          "data": "Arabic",
+          "count": 327
+        },
+        {
+          "id": "spa",
+          "data": "Spanish",
+          "count": 319
+        },
+        {
+          "id": "pan",
+          "data": "Panjabi",
+          "count": 216
+        },
+        {
+          "id": "mul",
+          "data": "Multiple languages",
+          "count": 204
+        },
+        {
+          "id": "hin",
+          "data": "Hindi",
+          "count": 202
+        },
+        {
+          "id": "ger",
+          "data": "German",
+          "count": 188
+        },
+        {
+          "id": "dut",
+          "data": "Dutch",
+          "count": 160
+        },
+        {
+          "id": "lat",
+          "data": "Latin",
+          "count": 151
+        },
+        {
+          "id": "guj",
+          "data": "Gujarati",
+          "count": 130
+        },
+        {
+          "id": "ben",
+          "data": "Bengali",
+          "count": 109
+        },
+        {
+          "id": "urd",
+          "data": "Urdu",
+          "count": 102
+        },
+        {
+          "id": "ita",
+          "data": "Italian",
+          "count": 60
+        },
+        {
+          "id": "tha",
+          "data": "Thai",
+          "count": 60
+        },
+        {
+          "id": "vie",
+          "data": "Vietnamese",
+          "count": 58
+        },
+        {
+          "id": "tgl",
+          "data": "Tagalog",
+          "count": 33
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "values": [
+        {
+          "id": "ld",
+          "data": "PublicationSG",
+          "count": 197940
+        },
+        {
+          "id": "11lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 11",
+          "count": 74690
+        },
+        {
+          "id": "ru",
+          "data": "Repository Used Book Collection",
+          "count": 25410
+        },
+        {
+          "id": "08lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 8",
+          "count": 16427
+        },
+        {
+          "id": "09lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 9",
+          "count": 15129
+        },
+        {
+          "id": "wrl",
+          "data": "Woodlands Library",
+          "count": 13417
+        },
+        {
+          "id": "jrl",
+          "data": "Jurong Library",
+          "count": 12103
+        },
+        {
+          "id": "trl",
+          "data": "Tampines Library",
+          "count": 11325
+        },
+        {
+          "id": "cll",
+          "data": "Central Library",
+          "count": 10838
+        },
+        {
+          "id": "tppl",
+          "data": "Toa Payoh Library",
+          "count": 10230
+        },
+        {
+          "id": "jwpl",
+          "data": "Jurong West Library",
+          "count": 10105
+        },
+        {
+          "id": "prl",
+          "data": "Punggol Library",
+          "count": 9994
+        },
+        {
+          "id": "hbpl",
+          "data": "Harbourfront Library",
+          "count": 9408
+        },
+        {
+          "id": "bepl",
+          "data": "Bedok Library",
+          "count": 8600
+        },
+        {
+          "id": "srpl",
+          "data": "Serangoon Library",
+          "count": 8126
+        },
+        {
+          "id": "bipl",
+          "data": "Bishan Library",
+          "count": 8072
+        },
+        {
+          "id": "cckpl",
+          "data": "Choa Chu Kang Library",
+          "count": 8063
+        },
+        {
+          "id": "yipl",
+          "data": "Yishun Library",
+          "count": 7619
+        },
+        {
+          "id": "07lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 7",
+          "count": 7540
+        },
+        {
+          "id": "bppl",
+          "data": "Bukit Panjang Library",
+          "count": 6999
+        },
+        {
+          "id": "gepl",
+          "data": "Geylang East Library",
+          "count": 6988
+        },
+        {
+          "id": "skpl",
+          "data": "Sengkang Library",
+          "count": 6393
+        },
+        {
+          "id": "sbpl",
+          "data": "Sembawang Library",
+          "count": 6252
+        },
+        {
+          "id": "prpl",
+          "data": "Pasir Ris Library",
+          "count": 5807
+        }
+      ]
+    },
+    {
+      "id": "materialType",
+      "name": "Material Type",
+      "values": [
+        {
+          "id": "bks",
+          "data": "Book",
+          "count": 189962
+        },
+        {
+          "id": "OAI:Digitised Periodical",
+          "data": "OAI:Digitised Periodical",
+          "count": 48802
+        },
+        {
+          "id": "ser",
+          "data": "Serial",
+          "count": 27510
+        },
+        {
+          "id": "OAI:Digitised Book",
+          "data": "OAI:Digitised Book",
+          "count": 15291
+        },
+        {
+          "id": "ngr",
+          "data": "Photograph",
+          "count": 7974
+        },
+        {
+          "id": "mss",
+          "data": "Manuscript Material",
+          "count": 5811
+        },
+        {
+          "id": "ebk",
+          "data": "Ebook",
+          "count": 5597
+        },
+        {
+          "id": "OAI:Article",
+          "data": "OAI:Article",
+          "count": 3529
+        },
+        {
+          "id": "dvd",
+          "data": "DVD",
+          "count": 2581
+        },
+        {
+          "id": "OAI:Document",
+          "data": "OAI:Document",
+          "count": 2400
+        },
+        {
+          "id": "OAI:Manuscript",
+          "data": "OAI:Manuscript",
+          "count": 2068
+        },
+        {
+          "id": "mix",
+          "data": "Archival/Mixed Materials",
+          "count": 1978
+        },
+        {
+          "id": "map",
+          "data": "Map",
+          "count": 1866
+        },
+        {
+          "id": "mcd",
+          "data": "Music CD",
+          "count": 1746
+        },
+        {
+          "id": "OAI:Electronic Periodical",
+          "data": "OAI:Electronic Periodical",
+          "count": 1586
+        },
+        {
+          "id": "vcr",
+          "data": "Videotape",
+          "count": 1343
+        },
+        {
+          "id": "elr",
+          "data": "Electronic Resources",
+          "count": 1249
+        },
+        {
+          "id": "OAI:Electronic Book",
+          "data": "OAI:Electronic Book",
+          "count": 1062
+        },
+        {
+          "id": "OAI:Programme",
+          "data": "OAI:Programme",
+          "count": 871
+        },
+        {
+          "id": "vid",
+          "data": "Videorecording",
+          "count": 866
+        },
+        {
+          "id": "OAI:Map",
+          "data": "OAI:Map",
+          "count": 673
+        },
+        {
+          "id": "mic",
+          "data": "Microform",
+          "count": 589
+        },
+        {
+          "id": "msr",
+          "data": "Musical Sound Recording",
+          "count": 584
+        },
+        {
+          "id": "pmu",
+          "data": "Printed Music",
+          "count": 511
+        }
+      ]
+    }
+  ]
+}
