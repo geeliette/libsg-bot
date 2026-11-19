@@ -7,7 +7,7 @@ import pytest
 from libsg.db import Store
 from libsg.models import Edition
 from libsg.nlb_client import NLBError
-from libsg.poller import poll_once
+from libsg.poller import check_editions, poll_once
 
 A, B, C = 300111959, 300148287, 300172891  # three print P&P editions, ascending
 
@@ -147,3 +147,27 @@ def test_shared_brn_checked_once(store, emma_avail):
     nlb = FakeNLB({A: relabel(emma_avail["items"], A)})
     run(poll_once(store, nlb, FakeSleep()))
     assert nlb.calls == [A]
+
+
+def test_progress_reported_after_each_successful_edition(store, emma_avail):
+    base = emma_avail["items"]
+    watch(store, 1, [A, B, C])
+    seen = []
+
+    async def progress(done, total):
+        seen.append((done, total))
+
+    nlb = FakeNLB({A: relabel(base, A), B: NLBError(500, "x", "y"), C: relabel(base, C)})
+    run(check_editions(store, [A, B, C], nlb, FakeSleep(), on_progress=progress))
+    assert seen == [(1, 3), (3, 3)]  # B failed, so no progress for it
+
+
+def test_failing_progress_never_stops_the_check(store, emma_avail):
+    watch(store, 1, [A, B])
+
+    async def broken(done, total):
+        raise RuntimeError("telegram down")
+
+    nlb = FakeNLB({A: relabel(emma_avail["items"], A), B: relabel(emma_avail["items"], B)})
+    r = run(check_editions(store, [A, B], nlb, FakeSleep(), on_progress=broken))
+    assert r.checked == 2

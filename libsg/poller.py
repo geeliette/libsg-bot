@@ -30,6 +30,7 @@ log = logging.getLogger(__name__)
 
 Fetch = Callable[[int], Awaitable[list[dict[str, Any]]]]
 Sleep = Callable[[float], Awaitable[Any]]
+Progress = Callable[[int, int], Awaitable[Any]]  # (done, total)
 
 
 @dataclass
@@ -49,7 +50,7 @@ def group_alerts(alerts: list[Alert]) -> dict[tuple[int, int], list[Alert]]:
 
 
 async def check_editions(store: Store, brns: list[int], fetch: Fetch, sleep: Sleep = asyncio.sleep,
-                         spacing: float = 10.0) -> PollResult:
+                         spacing: float = 10.0, on_progress: Progress | None = None) -> PollResult:
     result = PollResult()
     collected: list[Alert] = []
     for i, brn in enumerate(brns):
@@ -72,6 +73,11 @@ async def check_editions(store: Store, brns: list[int], fetch: Fetch, sleep: Sle
             continue
         collected.extend(process_edition(store, brn, parse_copies(items)))
         result.checked += 1
+        if on_progress:
+            try:
+                await on_progress(i + 1, len(brns))
+            except Exception as e:  # a failed progress message must never stop the check
+                log.warning("Progress update failed: %s", e)
     result.alerts = group_alerts(collected)
     return result
 
