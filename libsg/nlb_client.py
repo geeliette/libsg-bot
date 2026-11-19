@@ -1,6 +1,6 @@
-"""Small client for the NLB Catalogue API v2.
+"""Small client for the NLB Catalogue API v2 and Library API v1.
 
-Spec: docs/nlb-catalogue-openapi.json. Auth is two headers, X-Api-Key and
+Specs: docs/nlb-catalogue-openapi.json, docs/nlb-library-openapi.json. Auth is two headers, X-Api-Key and
 X-App-Code, read from .env (NLB_API_KEY, NLB_APP_CODE). Keys are never logged
 or included in exceptions.
 """
@@ -15,7 +15,9 @@ from typing import Any, Callable
 import httpx
 from dotenv import load_dotenv
 
-BASE_URL = "https://openweb.nlb.gov.sg/api/v2/Catalogue"
+BASE_URL = "https://openweb.nlb.gov.sg/api"
+CATALOGUE = "v2/Catalogue"
+LIBRARY = "v1/Library"
 
 # httpx logs request lines at INFO; keep it quiet so nothing request-related leaks.
 logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -68,10 +70,10 @@ class NLBClient:
     def __exit__(self, *exc: object) -> None:
         self.close()
 
-    def _get(self, endpoint: str, params: dict[str, Any]) -> Any:
+    def _get(self, endpoint: str, params: dict[str, Any], api: str = CATALOGUE) -> Any:
         params = {k: v for k, v in params.items() if v is not None}
         for attempt in range(self.max_retries + 1):
-            resp = self._http.get(f"/{endpoint}", params=params)
+            resp = self._http.get(f"/{api}/{endpoint}", params=params)
             if resp.status_code != 429 or attempt == self.max_retries:
                 break
             try:
@@ -130,3 +132,7 @@ class NLBClient:
             if not page.get("hasMoreRecords") or page.get("nextRecordsOffset") in (None, offset):
                 return items
             offset = page["nextRecordsOffset"]
+
+    def get_branches(self, list_type: str = "onsite") -> dict:
+        """GET Library/GetBranches. "onsite" = active branches shown on NLB's site (includes ones closed for renovation)."""
+        return self._get("GetBranches", {"ListType": list_type}, api=LIBRARY)
