@@ -31,3 +31,20 @@ def reference_avail():
 @pytest.fixture
 def austen_titles():
     return load("get_titles_author-jane-austen.json")
+
+
+@pytest.fixture
+def pp_search():
+    """Pride and prejudice search; contains brn-0 placeholder records."""
+    return load("search_titles_pride-and-prejudice.json")
+
+
+@pytest.fixture
+def branches_data():
+    return load("get_branches_onsite.json")
+
+
+@pytest.fixture
+def alice_search():
+    """Alice's adventures in wonderland: one work with 19 print editions (needs paging)."""
+    return load("search_titles_alice-in-wonderland_bks.json")

@@ -13,6 +13,7 @@ def test_clean_title_and_year():
     assert clean_title("Emma / Jane Austen ; edited by X.") == "Emma"
     assert clean_title("Emma.") == "Emma"
     assert clean_title(None) == "?"
+    assert clean_title("傲慢与偏见 = Pride and prejudice | Ao man yu pian jian = Pride and prejudice") == "傲慢与偏见 = Pride and prejudice"
     assert parse_year("2012.") == 2012
     assert parse_year("c1981") == 1981
     assert parse_year("") is None
@@ -69,3 +70,39 @@ def test_available_by_branch(emma_avail):
     assert counts["TPPL"] == 0  # Toa Payoh: on loan
     assert counts["CLL"] == 0  # Central: 2 on loan
     assert sum(counts.values()) == 4
+
+
+def test_placeholder_records_skipped(pp_search):
+    raw_zero = sum(r["brn"] == 0 for t in pp_search["titles"] for r in t["records"])
+    assert raw_zero == 3
+    eds = [e for g in parse_search(pp_search) for e in g.editions]
+    assert eds and all(e.brn > 0 for e in eds)
+
+
+def test_edition_details(pp_search):
+    eds = {e.brn: e for g in parse_search(pp_search) for e in g.editions}
+    chinese = eds[200014276]
+    assert chinese.language == "Chinese"
+    assert chinese.publisher == "Da zhong shu ju"
+    assert chinese.pages == 221
+    assert chinese.isbn == "9814185299"
+    assert chinese.describe() == "2005 · Chinese · Da zhong shu ju · 221 pages"
+    assert chinese.catalogue_url.endswith("recordId=200014276")
+
+
+def test_describe_without_data():
+    e = Edition(1, "X", "", "1", "Book", None)
+    assert e.describe() == "Year unknown"
+    assert e.isbn == ""
+
+
+def test_publisher_and_pages_cleanup():
+    from libsg.models import clean_publisher, parse_pages
+
+    assert clean_publisher("[London]: Vintage Classics UK") == "Vintage Classics UK"
+    assert clean_publisher("New York : Puffin Books, an imprint of Penguin Random House") == "Puffin Books"
+    assert clean_publisher("London : Penguin, 2003.") == "Penguin"
+    assert clean_publisher("Xinbei Shi : Da zhong guo ji shu ju gu fen you xian gong si").endswith("…")
+    assert parse_pages("221 pages: color illustrations; 22 cm.") == 221
+    assert parse_pages("xii, 480 p. ; 20 cm") == 480
+    assert parse_pages("1 online resource") is None

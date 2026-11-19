@@ -8,13 +8,43 @@ from typing import Any
 
 
 def clean_title(title: str | None) -> str:
-    """NLB titles look like "Emma / Jane Austen ; edited by ..." -- drop the responsibility part."""
-    return (title or "").split(" / ")[0].strip().rstrip(".").strip() or "?"
+    """NLB titles look like "Emma / Jane Austen ; edited by ..." -- drop the responsibility part.
+
+    Non-Latin records come as "native | romanised" ("傲慢与偏见 = Pride and prejudice | Ao man yu ...");
+    keep the native part, which usually includes the English title too.
+    """
+    title = (title or "").split(" | ")[0]
+    return title.split(" / ")[0].strip().rstrip(".").strip() or "?"
 
 
 def parse_year(publish_date: str | None) -> int | None:
     m = re.search(r"\d{4}", publish_date or "")
     return int(m.group(0)) if m else None
+
+
+def _first(values: Any) -> str:
+    if isinstance(values, list):
+        return str(values[0]) if values else ""
+    return str(values or "")
+
+
+def clean_publisher(raw: str) -> str:
+    """"Xinjiapo : Da zhong shu ju" -> "Da zhong shu ju"; "London : Penguin, 2003." -> "Penguin"."""
+    name = re.split(r"\s*:\s*", raw.split(";")[0], maxsplit=1)[-1]  # drop "Place :" / "[Place]:"
+    name = re.sub(r",?\s*(c|©)?\d{4}\.?$", "", name.strip())
+    name = re.split(r",\s*an imprint of\b", name, flags=re.I)[0]
+    name = name.strip(" ,.;:[]")
+    return name if len(name) <= 30 else name[:29].rstrip() + "…"
+
+
+def parse_pages(raw: str) -> int | None:
+    m = re.search(r"(\d+)\s*(?:pages|p\b)", raw or "")
+    return int(m.group(1)) if m else None
+
+
+def is_placeholder(rec: dict[str, Any]) -> bool:
+    """NLB sometimes returns empty records with brn 0 and no data -- skip them."""
+    return not rec.get("brn") or int(rec["brn"]) <= 0
 
 
 @dataclass(frozen=True)
@@ -30,6 +60,36 @@ class Edition:
     isbns: tuple[str, ...] = ()
     physical: bool = True
     any_available: bool = False
+    language: str = ""
+    publisher: str = ""
+    pages: int | None = None
+    edition_note: str = ""
+
+    @property
+    def isbn(self) -> str:
+        """First ISBN, digits only ("9781402256790 (electronic bk)" -> "9781402256790")."""
+        for raw in self.isbns:
+            m = re.match(r"[\dXx-]{10,17}", raw.strip())
+            if m:
+                return m.group(0).replace("-", "")
+        return ""
+
+    @property
+    def catalogue_url(self) -> str:
+        return f"https://catalogue.nlb.gov.sg/search/card?recordId={self.brn}"
+
+    def describe(self) -> str:
+        """Human label, e.g. "2025 · English · Penguin Books · 480 pages"."""
+        bits = [str(self.year) if self.year else "Year unknown"]
+        if self.language:
+            bits.append(self.language)
+        if self.publisher:
+            bits.append(self.publisher)
+        if self.edition_note:
+            bits.append(self.edition_note)
+        if self.pages:
+            bits.append(f"{self.pages} pages")
+        return " · ".join(bits)
 
     @classmethod
     def from_record(cls, rec: dict[str, Any], title: str | None = None, author: str | None = None) -> "Edition":
@@ -47,6 +107,10 @@ class Edition:
             isbns=tuple(rec.get("isbns") or ()),
             physical=not digital,
             any_available=bool(rec.get("availability")),
+            language=_first(rec.get("language")),
+            publisher=clean_publisher(_first(rec.get("publisher"))),
+            pages=parse_pages(_first(rec.get("physicalDescription"))),
+            edition_note=_first(rec.get("edition")).strip().rstrip(".").strip(),
         )
 
 
@@ -63,13 +127,13 @@ def parse_search(data: dict[str, Any]) -> list[SearchGroup]:
     groups = []
     for t in data.get("titles") or []:
         title, author = t.get("title"), t.get("author")
-        eds = tuple(Edition.from_record(r, title, author) for r in t.get("records") or [])
+        eds = tuple(Edition.from_record(r, title, author) for r in t.get("records") or [] if not is_placeholder(r))
         groups.append(SearchGroup(clean_title(title), author or "", eds))
     return groups
 
 
 def parse_titles(data: dict[str, Any]) -> list[Edition]:
-    return [Edition.from_record(t) for t in data.get("titles") or []]
+    return [Edition.from_record(t) for t in data.get("titles") or [] if not is_placeholder(t)]
 
 
 @dataclass(frozen=True)

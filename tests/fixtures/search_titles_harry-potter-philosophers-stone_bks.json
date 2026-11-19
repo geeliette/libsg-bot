@@ -1,0 +1,2832 @@
+{
+  "totalRecords": 27,
+  "count": 20,
+  "hasMoreRecords": true,
+  "nextRecordsOffset": 20,
+  "titles": [
+    {
+      "title": "Harry Potter and the philosopher's stone",
+      "seriesTitle": [
+        "Harry Potter."
+      ],
+      "author": "Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526602381?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526602381?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526602381?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203194156,
+          "otherAuthors": [
+            "Kay, Jim (Illustrator), illustrator."
+          ],
+          "isbns": [
+            "9781526602381",
+            "1526602385"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Bloomsbury",
+            ""
+          ],
+          "publishDate": "2018.",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Wizards Juvenile fiction.",
+            "Magic Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "246 pages : colour illustrations ; 23 cm. + poster."
+          ],
+          "summary": [
+            "Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!"
+          ],
+          "notes": [
+            "\"Selected illustrated highlights--includes poster\"--Cover of book.",
+            "First published in Great Britain in 1997 by Bloomsbury Publishing."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 6,
+          "audience": [
+            "8+."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 13720061,
+          "isbns": [
+            "1408810549",
+            "9781408810545",
+            "9781408855652"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Bloomsbury"
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Wizards Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "223 pages ; 20 cm"
+          ],
+          "summary": [
+            "When a letter arrives for unhappy but ordinary Harry Potter, a decade-old secret is revealed to him that apparently he's the last to know. His parents were wizards, killed by a Dark Lord's curse when Harry was just a baby, and which he somehow survived. Leaving his unsympathetic aunt and uncle for Hogwarts, a wizarding school brimming with ghosts and enchantments, Harry stumbles upon a sinister mystery when he finds a three-headed dog guarding a room on the third floor. Then he hears of a missing stone with astonishing powers which could be valuable, dangerous - or both. An incredible adventure is about to begin!"
+          ],
+          "notes": [
+            "Originally published: 1997."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 3,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 203238001,
+          "digitalId": "A28EBA32-5BD2-48BE-8286-48ED7F75BDF9",
+          "isbns": [
+            "9781781100219 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Valley View : Pottermore"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Juvenile Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Harry Potter thinks he is an ordinary boy. He lives with his Uncle Vernon, Aunt Petunia and cousin Dudley, who make him sleep in a cupboard under the stairs. Then Harry starts receiving mysterious letters and his life is changed for ever. He is whisked away by a beetle-eyed giant of a man and enrolled in Hogwarts School of Witchcraft and Wizardry. The reason: Harry Potter is a wizard!"
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6",
+            "MG/Middle grades (4th-8th)",
+            "6 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 867 KB) or Kobo app or compatible Kobo device (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203391845,
+          "digitalId": "F24FDF1F-44E8-4A66-AD0F-626B8C737FBC",
+          "otherAuthors": [
+            "Fry, Stephen, 1957-"
+          ],
+          "isbns": [
+            "9781781102367 (sound recording)"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Valley View : Pottermore from J.K. Rowling"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Fantasy.",
+            "Juvenile Literature.",
+            "Thriller."
+          ],
+          "physicalDescription": [
+            "1 online resource (9 audio files) : digital"
+          ],
+          "summary": [
+            "\"Turning the envelope over, his hand trembling, Harry saw a purple wax seal bearing a coat of arms; a lion, an eagle, a badger and a snake surrounding a large letter 'H'.\"Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin!"
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6",
+            "MG/Middle grades (4th-8th)",
+            "6 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Stephen Fry."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 246100 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "seriesTitle": [
+        "Harry Potter ; year 1"
+      ],
+      "author": "Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878929?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878929?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878929?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300096027,
+          "otherTitles": [
+            "Harry Potter and the philosopher's stone"
+          ],
+          "variantTitles": [
+            "Sorcerer's Stone"
+          ],
+          "otherAuthors": [
+            "GrandPré, Mary, illustrator.",
+            "Sequel: Rowling, J. K. Harry Potter and the Chamber of Secrets."
+          ],
+          "isbns": [
+            "9781338878929",
+            "1338878921"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Scholastic Inc.",
+            ""
+          ],
+          "publishDate": "[2023]",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Granger, Hermione (Fictitious character) Juvenile fiction.",
+            "Weasley, Ron (Fictitious character) Juvenile fiction.",
+            "Granger, Hermione (Fictitious character)",
+            "Potter, Harry (Fictitious character)",
+            "Weasley, Ron (Fictitious character)",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Wizards Juvenile fiction.",
+            "Magic Juvenile fiction.",
+            "Schools Juvenile fiction.",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+            "Magic",
+            "Schools",
+            "Wizards",
+            "England Juvenile fiction.",
+            "England"
+          ],
+          "physicalDescription": [
+            "vi, 309 pages : illustrations ; 20 cm."
+          ],
+          "summary": [
+            "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School for Witchcraft and Wizardry."
+          ],
+          "contents": [
+            "The Boy Who Lived -- The Vanishing Glass -- The Letters from No One -- The Keeper of the Keys -- Diagon Alley -- The Journey from Platform Nine and Three-quarters -- The Sorting Hat -- The Potions Master -- The Midnight Duel -- Halloween -- Quidditch -- The Mirror of Erised -- Nicolas Flamel -- Norbert The Norwegian Ridgeback -- The Forbidden Forest -- Through the Trapdoor -- The Man with Two Faces."
+          ],
+          "notes": [
+            "Sequel: Harry Potter and the Chamber of Secrets.",
+            "ALA Notable Children's Book, 1999."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Middle School."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "哈利·波特与魔法石 | Hali Bote yu mo fa shi",
+      "seriesTitle": [
+        "Harry Potter, 1"
+      ],
+      "author": "罗琳, J. K | Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787020143528?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787020143528?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9787020143528?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203882410,
+          "variantTitles": [
+            "Original title: Harry Potter and the philosopher's stone"
+          ],
+          "otherAuthors": [
+            "Su, Nong, translator."
+          ],
+          "nativeOtherAuthors": [
+            "苏农, translator."
+          ],
+          "isbns": [
+            "9787020143528",
+            "7020143520"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Beijing di 1 ban, Ying Han dui zhao ban."
+          ],
+          "nativeEdition": [
+            "北京第1版, 英汉对照版."
+          ],
+          "publisher": [
+            "Beijing Shi : Ren min wen xue chu ban she"
+          ],
+          "nativePublisher": [
+            "北京市 : 人民文学出版社"
+          ],
+          "publishDate": "2019.",
+          "physicalDescription": [
+            "457 pages : illustrations ; 23 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203880742,
+          "variantTitles": [
+            "Original title on colophon: Harry Potter and the philosopher's stone"
+          ],
+          "otherAuthors": [
+            "Su, Nong, translator."
+          ],
+          "nativeOtherAuthors": [
+            "苏农, translator."
+          ],
+          "isbns": [
+            "9787020144532",
+            "7020144535"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Di 2 ban."
+          ],
+          "nativeEdition": [
+            "第2版."
+          ],
+          "publisher": [
+            "Beijing Shi : Ren min wen xue chu ban she"
+          ],
+          "nativePublisher": [
+            "北京市 : 人民文学出版社"
+          ],
+          "publishDate": "2018.",
+          "physicalDescription": [
+            "241 pages : illustrations ; 24 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 206025466,
+          "digitalId": "32C0E540-17DD-495C-92CA-A89E83259631",
+          "otherTitles": [
+            "Harry Potter and the philosopher's stone. Chinese"
+          ],
+          "otherAuthors": [
+            "Su, Nong, translator."
+          ],
+          "nativeOtherAuthors": [
+            "苏农, translator."
+          ],
+          "isbns": [
+            "9781781104804 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2016.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Juvenile Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "「哈利用颤抖的手把信封翻转过来，只见上面有一块蜡封、一个盾牌饰章，大写\"H\"字母的周围圈着一头狮子、一只鹰、一只獾和一条蛇。」 当信件开始掉落在女贞路4号门口的地垫时，哈利·波特不曾听说霍格沃茨的存在。那些信是以翡翠绿的墨水写的，在黄色的羊皮纸上有着紫色蜡封。哈利的阿姨和姨丈迅速地没收了这些信。直到哈利的11岁生日那天，一名眼睛如黑甲虫般闪亮、自称鲁伯·海格的巨人突然冲进屋内，带来了令人惊讶的消息：哈利·波特是一名巫师，而且拥有进入霍格沃茨魔法学校就读的资格。一段超棒的冒险即将启程！"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "ஹாரி பாட்டரும் : ரசவாதக் கல்லும் | Hāri pāṭṭarum : Racavātak kallum",
+      "author": "ரோலிங், ஜே. கே | Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9788183223744?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9788183223744?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9788183223744?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200709455,
+          "variantTitles": [
+            "Harry Potter and the philosopher's stone"
+          ],
+          "otherAuthors": [
+            "Kumāracāmi, P. S. V., translation."
+          ],
+          "nativeOtherAuthors": [
+            "குமாரசாமி P.S.V., translation."
+          ],
+          "isbns": [
+            "9788183223744",
+            "8183223745"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Bhopal : Mañcuḷ Papḷiṣiṅ Havus"
+          ],
+          "publishDate": "2013.",
+          "physicalDescription": [
+            "341 pages ; 22 cm"
+          ],
+          "notes": [
+            "Translated from English."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Tamil"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Harry Potter and the Chamber of Secrets",
+      "seriesTitle": [
+        "Harry Potter."
+      ],
+      "author": "Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878936?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878936?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338878936?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300103153,
+          "variantTitles": [
+            "Chamber of Secrets"
+          ],
+          "otherAuthors": [
+            "GrandPré, Mary, illustrator."
+          ],
+          "isbns": [
+            "9781338878936",
+            "133887893X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Scholastic Inc.",
+            ""
+          ],
+          "publishDate": "[2023]",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Granger, Hermione (Fictitious character) Juvenile fiction.",
+            "Weasley, Ron (Fictitious character) Juvenile fiction.",
+            "Granger, Hermione (Fictitious character)",
+            "Potter, Harry (Fictitious character)",
+            "Weasley, Ron (Fictitious character)",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Boarding schools Juvenile fiction.",
+            "Boarding school students Juvenile fiction.",
+            "Magic Juvenile fiction.",
+            "Witches Juvenile fiction.",
+            "Wizards Juvenile fiction.",
+            "Children's stories.",
+            "Boarding school students",
+            "Boarding schools",
+            "Children's stories",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+            "Magic",
+            "Witches",
+            "Wizards"
+          ],
+          "physicalDescription": [
+            "vi, 341 pages : illustrations ; 20 cm."
+          ],
+          "summary": [
+            "Ever since Harry had come home for the summer, the Dursleys had been so mean and hideous that all Harry wanted was to get back to Hogwarts School of Witchcraft and Wizardry. But just as he's packing his bags, Harry receives a warning from a strange, impish creature who says that if Harry returns to Hogwarts, disaster will strike. And strike it does. For in Harry's second year at Hogwarts, fresh torments and horrors arise, including an outrageously stuck-up new professor and a spirit who haunts the girls' bathroom. But then the real trouble begins: Someone is turning Hogwarts students to stone. Could it be Draco Malfoy, a more poisonous rival than ever? Could it be Hagrid, whose mysterious past is finally told? Or could it be the one everyone at Hogwarts most suspects... Harry Potter himself!"
+          ],
+          "notes": [
+            "\"This book was originally published in hardcover by Arthur A. Levine Books in June 1999 and was art directed by David Saylor.\" -- Title verso page."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 1,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202719075,
+          "otherAuthors": [
+            "Kay, Jim, illustrator."
+          ],
+          "isbns": [
+            "9781408845653",
+            "1408845652",
+            "9781526609205"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "[First illustrated edition]."
+          ],
+          "publisher": [
+            "London : Bloomsbury"
+          ],
+          "publishDate": "2016.",
+          "subjects": [
+            "Wizards Juvenile fiction.",
+            "Magic Juvenile fiction.",
+            "Schools Juvenile fiction.",
+            "England Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "258 pages : colour illustrations ; 28 cm."
+          ],
+          "summary": [
+            "Harry Potter is in his second year at Hogwarts School of Witchcraft and Wizardry. With friends Ron and Hermione, Harry is soon immersed in the learning Potions, Herbology, Charms, Defence Against the Dark Arts, and Quidditch. But then horrible and mysterious things start happening. Harry keeps hearing strange voices, sinister and dark messages appear, and then Ron's sister Ginny disappears."
+          ],
+          "notes": [
+            "Originally published in a slightly different form in the United Kingdom by Bloomsbury in 1998.",
+            "Sequel to: Harry Potter and the sorcerer's stone.",
+            "Sequel: Harry Potter and the prisoner of Azkaban.",
+            "ISBN 9781526609205 (paperback) - London : Bloomsbury Children's Books, 2019."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 1,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 202944594,
+          "isbns": [
+            "9781408855669",
+            "1408855666",
+            "9781408855904",
+            "1408855909"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Bloomsbury"
+          ],
+          "publishDate": "2014.",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Wizards Juvenile fiction.",
+            "Children's stories."
+          ],
+          "physicalDescription": [
+            "359 pages : map ; 20 cm."
+          ],
+          "summary": [
+            "Harry Potter can't wait for his holidays with the dire Dursleys to end. But a small, self-punishing house-elf warns Harry of mortal danger awaiting him at Hogwarts. Returning to the castle nevertheless, Harry hears a rumour about a Chamber of Secrets, holding unknown horrors for wizards of Muggle parentage. Now someone is casting spells that turn people to stone, and a terrible warning is found painted on the wall. The chief suspect, always in the wrong place - is Harry. But something much more terrifying has yet to be unleashed."
+          ],
+          "contents": [
+            "The Worst Birthday -- Dobby's Warning -- The Burrow -- At Flourish and Blotts -- The Whomping Willow -- Gilderoy Lockhart -- Mudbloods and Murmurs -- The Deathday Party -- The Writing on the Wall -- The Rogue Bludger -- The Dueling Club -- The Polyjuice Potion -- The Very Secret Diary -- Cornelius Fudge -- Aragog -- The Chamber of Secrets -- The Heir of Slytherin -- Dobby's Reward."
+          ],
+          "notes": [
+            "Originally published: 1998."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        },
+        {
+          "brn": 203238478,
+          "digitalId": "C8011AF3-8051-4B32-AE5C-0253FB34B03E",
+          "isbns": [
+            "9781781100226 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Valley View : Pottermore"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Juvenile Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6",
+            "MG/Middle grades (4th-8th)",
+            "940 Lexile.",
+            "6.7 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 851 KB) or Kobo app or compatible Kobo device (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203391808,
+          "digitalId": "7FE055D8-E6DE-4CB0-B278-3C7E39CA28FB",
+          "otherAuthors": [
+            "Fry, Stephen, 1957-"
+          ],
+          "isbns": [
+            "9781781102374 (sound recording)"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Valley View : Pottermore from J.K. Rowling"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Fantasy.",
+            "Juvenile Literature.",
+            "Thriller."
+          ],
+          "physicalDescription": [
+            "1 online resource (10 audio files) : digital"
+          ],
+          "summary": [
+            "\"'There is a plot, Harry Potter. A plot to make most terrible things happen at Hogwarts School of Witchcraft and Wizardry this year.'\" Harry Potter's summer has included the worst birthday ever, doomy warnings from a house-elf called Dobby, and rescue from the Dursleys by his friend Ron Weasley in a magical flying car! Back at Hogwarts School of Witchcraft and Wizardry for his second year, Harry hears strange whispers echo through empty corridors-and then the attacks start. Students are found as though turned to stone...Dobby's sinister predictions seem to be coming true."
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6",
+            "MG/Middle grades (4th-8th)",
+            "940 Lexile.",
+            "6.7 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Stephen Fry."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 285981 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Harris bin Potter and the stoned philosopher",
+      "author": "Suffian Hakim",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789814845328?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789814845328?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789814845328?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203970179,
+          "otherAuthors": [
+            "Muhammad Izdi, illustrator."
+          ],
+          "isbns": [
+            "9789814845328",
+            "9814845329",
+            "9789814845335",
+            "9814845337"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Illustrated edition."
+          ],
+          "publisher": [
+            "Singapore : Epigram Books",
+            ""
+          ],
+          "publishDate": "[2019]",
+          "subjects": [
+            "Orphans Fiction.",
+            "Wizards Fiction.",
+            "Magic Fiction.",
+            "Singaporean fiction (English)"
+          ],
+          "physicalDescription": [
+            "ix, 255 pages : illustrations ; 20 cm"
+          ],
+          "notes": [
+            "Originally published: Suffian Hakim, 2015."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202829638,
+          "isbns": [
+            "9789810792671",
+            "9810792670"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore] : Suffian Hakim",
+            ""
+          ],
+          "publishDate": "[2015]",
+          "subjects": [
+            "Orphans Fiction.",
+            "Wizards Fiction.",
+            "Magic Fiction.",
+            "Singaporean fiction (English)"
+          ],
+          "physicalDescription": [
+            "238 pages ; 18 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205362325,
+          "digitalId": "339D8D52-1A65-4378-B4E8-8A82F9175F33",
+          "otherAuthors": [
+            "Muhammad Izdi, illustrator."
+          ],
+          "isbns": [
+            "9789814845335"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Singapore : Epigram Books"
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Magic Fiction.",
+            "Wizards Fiction.",
+            "Orphans Fiction.",
+            "Singaporean fiction (English)"
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "An illustrated edition of the author's first novel-the hilarious, viral hit Harris bin Potter and the Stoned Philosopher, in which a bespectacled boy finds out that magic is disappearing in Singapore... and has to stop it. Harris bin Potter is an orphan who loves to play void deck football like any other Singaporean boy. But when he discovers he is a parceltongue (id est, he can talk to boxes...er, parcels), his world changes. Harris learns about his magical lineage and enrols at the MOE-approved Hog-Tak-Halal-What School of Witchcraft and Wizardry. There, he is sorted into the House of Fandi and gets caught up in an insane adventure to save Singapore's magical folk from being turned into kosongs."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 18057 KB) or Amazon Kindle (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "The art of Harry Potter",
+      "author": "Sumerak, Marc",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1785657399?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1785657399?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1785657399?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203082663,
+          "isbns": [
+            "1785657399",
+            "9781785657399"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Titan Books",
+            ""
+          ],
+          "publishDate": "[2017]",
+          "subjects": [
+            "Harry Potter and the sorcerer's stone (Motion picture) Pictorial works.",
+            "Harry Potter and the Chamber of Secrets (Motion picture) Pictorial works.",
+            "Harry Potter and the prisoner of Azkaban (Motion picture) Pictorial works.",
+            "Harry Potter and the Half-Blood Prince (Motion picture) Pictorial works.",
+            "Harry Potter and the Order of the Phoenix (Motion picture) Pictorial works.",
+            "Harry Potter and the Deathly Hallows, part 1 (Motion picture) Pictorial works.",
+            "Harry Potter and the Deathly Hallows, part 2 (Motion picture) Pictorial works.",
+            "Harry Potter and the goblet of fire (Motion picture) Pictorial works.",
+            "Motion pictures Production and direction.",
+            "Harry Potter films.",
+            "Fantasy films."
+          ],
+          "physicalDescription": [
+            "363 pages : color illustrations ; 33 cm"
+          ],
+          "summary": [
+            "Since the debut of Harry Potter and the Sorcerer's Stone, the Harry Potter film franchise has become one of the most popular and successful in the world. Beautifully crafted and presented in a deluxe, large-format with lavish production values, these pages present a visual chronicle of the work by artists and filmmakers to bring the wizarding world to life onscreen. Bursting with hundreds of rare and unpublished works of art, including production paintings, concept sketches, storyboards, blueprints, and more, this collectible book is the definitive tome on the visual legacy of the Harry Potter films. Fans will recognize beloved characters, creatures, locations, and more as they embark on a journey through the wizarding world, from Gringotts to the Quidditch pitch."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Harry Potter dengan batu hikmat",
+      "author": "Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9830001768?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9830001768?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9830001768?s=LG"
+      },
+      "records": [
+        {
+          "brn": 12094291,
+          "otherAuthors": [
+            "Rowling, J. K. Harry Potter and the Philosopher's Stone.",
+            "Penerbitan Pelangi."
+          ],
+          "isbns": [
+            "9830001768"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Johor Bahru : Penerbitan Pelangi"
+          ],
+          "publishDate": "2002.",
+          "physicalDescription": [
+            "322 pages; 19 cm"
+          ],
+          "notes": [
+            "Judul asli: Harry Potter and the Philosopher's Stone."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Malay"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Christmas at Hogwarts",
+      "author": "Rowling, J. K",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526677082?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526677082?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781526677082?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300086491,
+          "otherAuthors": [
+            "Gao, Ziyi, illustrator.",
+            "Adaptation of (work): Rowling, J. K. Harry Potter and the philosopher's stone."
+          ],
+          "isbns": [
+            "9781526677082",
+            "1526677083"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Bloomsbury Children's Books"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Juvenile fiction.",
+            "Hogwarts School of Witchcraft and Wizardry (Imaginary organization) Juvenile fiction.",
+            "Christmas Juvenile fiction.",
+            "Boarding schools Juvenile fiction.",
+            "Magic Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged) : colour illustrations ; 29 cm"
+          ],
+          "summary": [
+            "\"So begins Chapter 12 of Harry Potter and the Philosopher's Stone, the story of Harry Potter's magical first Christmas at Hogwarts School of Witchcraft and Wizardry. From the wonder of the Great Hall decked with sparkling, decorated fir trees to cosy evenings by the fire in the Gryffindor common room and the joy of opening presents on Christmas morning, it's a school holiday filled with warmth, friendship, treats and magical surprises that Harry will never forget\"--Amazon.com."
+          ],
+          "notes": [
+            "\"From Harry Potter and the philosopher's stone.\""
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Second best",
+      "author": "Foenkinos, David",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781913547745?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781913547745?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781913547745?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300068226,
+          "otherTitles": [
+            "Numero deux. English"
+          ],
+          "otherAuthors": [
+            "Jones, Megan, translator"
+          ],
+          "isbns": [
+            "9781913547745",
+            "1913547744"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Gallic Books"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Potter, Harry (Fictitious character) Fiction.",
+            "Child actors Fiction.",
+            "Failure (Psychology) Fiction.",
+            "French fiction 21st century."
+          ],
+          "physicalDescription": [
+            "204 pages ; 21 cm"
+          ],
+          "summary": [
+            "It's 1999. Martin Hill is ten years old, crazy about Arsenal and has a minor crush on a girl named Betty. Then he makes it to the final two in the casting for Harry Potter and the Philosopher's Stone. In the end, the other boy is picked for the role of a lifetime. A devastated Martin tries to move on with his life. But how can he escape his failure, especially when it's the most famous film series in the world?"
+          ],
+          "notes": [
+            "Originally published in French in 2022 by Gallimard."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 206148768,
+          "digitalId": "5950D8F0-C63A-4087-B43D-62C582490700",
+          "isbns": [
+            "9781913547622 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "LaVergne : Gallic Books"
+          ],
+          "publishDate": "2023.",
+          "subjects": [
+            "Fiction.",
+            "Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "'It's about time British readers discovered the wit and originality of David Foenkinos' Jonathan Coe, author of  Bournville      A magical imagining of the fate of a fictional boy whose life is shaped forever when he loses out on the role of Harry Potter.   It's 1999. Martin Hill is ten years old, crazy about Arsenal and has a minor crush on a girl named Betty. Then he makes it to the final two in the casting for  Harry Potter and the Philosopher's Stone .   In the end, the other boy is picked for the role of a lifetime. A devastated Martin tries to move on with his life. But how can he escape his failure, especially when it's the most famous film series in the world?   Foenkinos's smash-hit  Second Best  is a playful, poignant story about fate, loss and how the lives we wish we'd led might not be all they're cracked up to be . . ."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires the Libby app or a modern web browser."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 300052503,
+          "digitalId": "B2B20F6E-D285-4B22-86BD-18A3201B78B6",
+          "otherAuthors": [
+            "Thomas, Joe."
+          ],
+          "isbns": [
+            "9781004153022 (sound recording)"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Rearsby, Leicestershire : Clipper Audiobooks"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Fiction.",
+            "Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (5 audio files) : digital"
+          ],
+          "summary": [
+            "A magical imagining of the fate of a fictional boy whose life is shaped forever when he loses out on the role of Harry Potter. It's 1999. Martin Hill is ten years old, crazy about Arsenal and has a minor crush on a girl named Betty. Then he makes it to the final two in the casting for Harry Potter and the Philosopher's Stone. In the end, the other boy is picked for the role of a lifetime. A devastated Martin tries to move on with his life. But how can he escape his failure, especially when it's the most famous film series in the world? Foenkinos's smash-hit Second Best is a playful, poignant story about fate, loss and how the lives we wish we'd led might not be all they're cracked up to be . . ."
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Joe Thomas."
+          ],
+          "systemDetails": [
+            "Requires the Libby app or a modern web browser."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Beatrix potter",
+      "seriesTitle": [
+        "Little people, big dreams."
+      ],
+      "author": "Sánchez Vegara, Ma Isabel (María Isabel)",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781805701620?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781805701620?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781805701620?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300183312,
+          "otherAuthors": [
+            "Rhys, Sara, illustrator."
+          ],
+          "isbns": [
+            "9781805701620",
+            "1805701622",
+            "9781805701644"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Frances Lincoln Children's Books",
+            ""
+          ],
+          "publishDate": "[2026]",
+          "subjects": [
+            "Potter, Beatrix, 1866-1943 Pictorial works Juvenile literature.",
+            "Potter, Beatrix, 1866-1943 Juvenile literature.",
+            "1900-1999",
+            "Authors, English 20th century Biography Juvenile literature.",
+            "Illustrators Great Britain Biography Juvenile literature.",
+            "Women artists Great Britain Biography Pictorial works Juvenile literature.",
+            "Women novelists, English 20th century Biography Pictorial works Juvenile literature.",
+            "Women artists",
+            "Women novelists, English",
+            "Great Britain"
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged) : colour illustrations ; 25 cm"
+          ],
+          "summary": [
+            "\"Learn about the inspiring story of Beatrix Potter, the legendary author, illustrator, and protector of nature. During her childhood in London, little Beatrix loved to draw. She drew everything she came across, and particularly loved drawing animals and other things that she spotted in the natural world around her. As an adult, she began writing and drawing her own stories, and she created a story about a naughty little rabbit named Peter. That story, which she decided to publish with her own money, became The Tale of Peter Rabbit, which today is a true classic. She went on to create other beloved animal characters, such as Jemima Puddle-Duck and Mrs. Tiggy-Winkle, enchanting readers with her timeless tales set in the English countryside. Her beautifully illustrated stories, filled with mischief and adventure, inspire readers with a love of nature and storytelling. Beyond her writing, Beatrix was a pioneering conservationist, preserving land for future generations. Her story, of self-belief and perseverance, is a reminder that we should always follow our dreams, and that everyone has a story to tell. This powerful book features quirky illustrations and extra facts at the back, including a biographical timeline with historical photos and a detailed profile of the author's life.\" -- Amazon.com."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "4-6 years."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300176292,
+          "digitalId": "C1721889-639D-47DA-A122-FA821D7CA289",
+          "otherAuthors": [
+            "Rhys, Sara, illustrator."
+          ],
+          "isbns": [
+            "9781805701651"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2026.",
+          "subjects": [
+            "Potter, Beatrix, 1866-1943 Juvenile literature.",
+            "Juvenile Nonfiction.",
+            "Art.",
+            "Biography & Autobiography.",
+            "Reference.",
+            "Women authors, English 20th century Biography Juvenile literature.",
+            "Women artists Great Britain Juvenile literature.",
+            "Illustrators Great Britain Biography Juvenile literature.",
+            "Authors, English 20th century Biography Juvenile literature.",
+            "Artists Great Britain Biography Juvenile literature.",
+            "Women Great Britain Biography Juvenile literature.",
+            "Children's literature Authorship Juvenile literature.",
+            "Women Great Britain Juvenile literature.",
+            "Authors, English 20th century Juvenile literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Learn about the inspiring story of Beatrix Potter, the legendary author, illustrator, and protector of nature. During her childhood in London, little Beatrix loved to draw. She drew everything she came across, and particularly loved drawing animals and other things that she spotted in the natural world around her. As an adult, she began writing and drawing her own stories, and she created a story about a naughty little rabbit named Peter. That story, which she decided to publish with her own money, became The Tale of Peter Rabbit , which today is a true classic. She went on to create other beloved animal characters, such as Jemima Puddle-Duck and Mrs. Tiggy-Winkle, enchanting readers with her timeless tales set in the English countryside. Her beautifully illustrated stories, filled with mischief and adventure, inspire readers with a love of nature and storytelling. Beyond her writing, Beatrix was a pioneering conservationist, preserving land for future generations. Her story, of self-belief and perseverance, is a reminder that we should always follow our dreams, and that everyone has a story to tell. This powerful book features quirky illustrations and  extra facts at the back , including a biographical timeline with historical photos and a detailed profile of the author's life. Little People, BIG DREAMS is a bestselling biography series for kids that explores the lives of outstanding people, from designers and artists to scientists and activists. All of them achieved incredible things, yet each began life as a child with a dream. This empowering series of books offers inspiring messages to children of all ages, in a range of formats. The hardcover versions present expanded stories for beginning readers. With rewritten text for older children, the treasuries each bring together a multitude of dreamers in a single volume. You can also collect a selection of the books by theme in boxed gift sets . Activity books and a journal provide even more ways to make the lives of these role models accessible to children. Select praise for the New York Times Bestselling Little People, BIG DREAMS series: \"...cute and quirky...\"- USA Today , in praise of Dolly Parton \"...address[es] not only setbacks but also their strength to persevere and reach their goals.\"-Buzzfeed, in praise of RuPaul \"...introduc[es] kids to important figures in Latinx history.\"- Good Housekeeping , in praise of Frida Kahlo \"...[an] extraordinary series...\"-TheEverymom, in praise of Mindy Kaling \"...a fabulous way to teach little ones about the extraordinary lives of influential people...\"- Town & Country , in praise of Vincent Van Gogh \"...handled in an age appropriate way...\"-Parents.com, in praise of Amanda Gorman \"...particularly great for this age...\"- NY Magazine , in praise of Prince \"...encourages kids to dream big to 'achieve incredible things.'\"- Rolling Stone , in praise of Kamala Harris"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Sticks and stones : the troublesome success of children's literature from Slovenly Peter to Harry Potter",
+      "author": "Zipes, Jack, 1937-",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0415938805?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0415938805?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/0415938805?s=LG"
+      },
+      "records": [
+        {
+          "brn": 11813142,
+          "isbns": [
+            "0415938805"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Routledge "
+          ],
+          "publishDate": "2002.",
+          "subjects": [
+            "Children's literature History and criticism.",
+            "Children's literature, American History and criticism."
+          ],
+          "physicalDescription": [
+            "xiv, 213 pages"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Great expectations",
+      "seriesTitle": [
+        "Complete O level literature series."
+      ],
+      "author": "Dickens, Charles, 1812-1870",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781454965855?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781454965855?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781454965855?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300218819,
+          "isbns": [
+            "9781454965855",
+            "1454965851"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Union Square & Co.",
+            ""
+          ],
+          "publishDate": "2026.",
+          "subjects": [
+            "Young men Fiction.",
+            "Working class Fiction.",
+            "Benefactors Fiction.",
+            "England Social conditions 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "540 pages ; 21 cm."
+          ],
+          "summary": [
+            "\"Pip is a poor orphan, a boy with \"no expectations\" being raised by his unkind sister and her husband in a small home on the marshes of Kent. But when Pip meets the bizarre Miss Havisham and her beautiful ward, Estella, he starts to yearn for a life as a gentleman. However, Pip will discover that wealth and honesty do not go hand in hand, and that kindness can be found in the most surprising places. A love story, a mystery, and a sharp critique of upper-class English society, Great Expectations remains one of Dickens's best-regarded works'--Amazon."
+          ],
+          "notes": [
+            "Originally published in 1860 and 1861."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300121614,
+          "otherAuthors": [
+            "Jennings, Linda M., abridger.",
+            "Doyle, Roddy, 1958- author of introduction."
+          ],
+          "isbns": [
+            "9780241734339",
+            "0241734339"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Young adult fiction.",
+            "England Social conditions Fiction."
+          ],
+          "physicalDescription": [
+            "vii, 491 pages ; 20 cm."
+          ],
+          "summary": [
+            "\"Rediscover the Puffin Classics collection and bring the best-loved classics to a new generation - including this charming edition of Great Expectations. As a small boy at Joe Gargery's forge, Pip meets two people who will affect his whole life - an escaped convict he is forced to help, and the eccentric Miss Haversham, whose beautiful, cold-hearted ward Estella young Pip adores. But when a secret benefactor pays for him to go to London to become a gentleman, Pip never dreams he will meet the dreadful Magwitch again, nor just how wrong his expectations are. . .\"--Amazon."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 204445713,
+          "otherAuthors": [
+            "Noel, Jack, artist."
+          ],
+          "isbns": [
+            "9781405294041",
+            "1405294043"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Egmont UK Limited",
+            ""
+          ],
+          "publishDate": "2020.",
+          "subjects": [
+            "Great Britain Social conditions Comic books, strips, etc. Fiction.",
+            "Social conditions.",
+            "Great Britain."
+          ],
+          "physicalDescription": [
+            "259 pages : chiefly illustrations (colour) ; 19 cm."
+          ],
+          "summary": [
+            "WHAT THE DICKENS? Ten-year-old Pip gets the fright of his life when he meets an escaped convict in a spooky graveyard. And that's just the beginning of an adventure that will lead him to a house full of secrets, a strange old lady and a journey to the big city to seek his fortune. But Pip is in for a BIG surprise... Join Pip in a rip-roaring story of family secrets, scary grannies and a REALLY annoying big sister\"--Page 4 of cover."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 204024787,
+          "otherAuthors": [
+            "Jennings, Linda M., abridger.",
+            "Doyle, Roddy, writer of introduction."
+          ],
+          "isbns": [
+            "9780241372357",
+            "0241372356"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Puffin"
+          ],
+          "publishDate": "2019.",
+          "subjects": [
+            "England Social conditions Fiction."
+          ],
+          "physicalDescription": [
+            "vii, 491 pages ; 18 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200171716,
+          "otherAuthors": [
+            "Shaw, George Bernard. Great expectations."
+          ],
+          "isbns": [
+            "9780141198897",
+            "0141198893"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Penguin"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "England Social conditions Fiction."
+          ],
+          "physicalDescription": [
+            "570 pages ; 20 cm."
+          ],
+          "notes": [
+            "\"First published in 1860-61; published in Penguin Classics edited by Charlotte Mitchell 1996\"--T.p. verso.",
+            "Includes an essay entitled \"Great expectations\" by George Bernard Shaw."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 12479128,
+          "otherAuthors": [
+            "Jayashree Singh."
+          ],
+          "isbns": [
+            "9814417393"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Allscript Establishment (Singapore)"
+          ],
+          "publishDate": "2004.",
+          "subjects": [
+            "Man-woman relationships Juvenile fiction.",
+            "Ex-convicts Juvenile fiction.",
+            "Benefactors Juvenile fiction.",
+            "Young men Juvenile fiction.",
+            "Orphans Juvenile fiction.",
+            "Revenge Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "224 pages: illustrations; 14 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 11773014,
+          "otherAuthors": [
+            "Mitchell, Charlotte.",
+            "Trotter, David, 1951-"
+          ],
+          "isbns": [
+            "9780141439563",
+            "0141439564"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Penguin"
+          ],
+          "publishDate": "2003.",
+          "physicalDescription": [
+            "xxviii, 514 pages: map; 20 cm."
+          ],
+          "summary": [
+            "\"A terrifying encounter with an escaped convict in a graveyard on the wild Kent marshes; a summons to meet the bitter, decaying Miss Havisham and her beautiful, cold-hearted ward Estella; the sudden generosity of a mysterious benefactor-these form a series of events that change the orphan Pip's life forever, as he eagerly abandons his humble origins to begin a new life as a gentleman. Dickens's haunting novel depicts Pip's education and development through adversity as he discovers the true nature of his great expectations. Published nine years before Dickens's death, it remains one of his most celebrated works.\" -- From publisher's website."
+          ],
+          "notes": [
+            "\"Reprinted with updated further reading, revised Dickens Chronology and new appendix 2003.\".",
+            "Previously published: 1996."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 6218897,
+          "otherAuthors": [
+            "Morgan, Terry."
+          ],
+          "isbns": [
+            "997161510X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Unabridged edition."
+          ],
+          "publisher": [
+            "Singapore : ShingLee Publishers"
+          ],
+          "publishDate": "1991.",
+          "subjects": [
+            "Dickens, Charles, 1812-1870. Great expectations Study guides.",
+            "Dickens, Charles, 1812-1870. Great expectations Problems, exercises, etc."
+          ],
+          "physicalDescription": [
+            "iii, 388 pages; 26 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300075767,
+          "digitalId": "15DEFDC2-CD15-4CD1-AF84-2B04E944F754",
+          "isbns": [
+            "9780714546995 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "London : Alma Books"
+          ],
+          "publishDate": "2017.",
+          "subjects": [
+            "England Social conditions Fiction."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "One of Dickens's finest novels, Great Expectations chronicles the fortunes of its young protagonist Pip as he is unexpectedly endowed by a mysterious benefactor with the life of a gentleman, enabling him to escape to London from the prospect of a humble blacksmith's career in rural Kent. In the bustling, unforgiving capital he must learn for himself the pitfalls of love and wealth, and how to sort his friends from his enemies. Through the lives of its unforgettable and iconic characters - such as Magwitch, Miss Havisham and Estella - Great Expectations charts the course of an England undergoing rapid social and economic change, and tells a tale that is among the foremost classics of the English language."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12",
+            "1200 Lexile."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires the Libby app or a modern web browser."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203673263,
+          "digitalId": "96956063-D690-453D-9A10-052B9C4BFD8A",
+          "isbns": [
+            "9780698155992"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2013.",
+          "subjects": [
+            "Fiction.",
+            "Manners and customs",
+            "Revenge",
+            "Man-woman relationships",
+            "Orphans",
+            "Ex-convicts",
+            "Benefactors",
+            "Young men",
+            "Classic Literature.",
+            "Literature.",
+            "England"
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Soon to be a major motion picture directed by Mike Newell (Harry Potter and the Goblet of Fire) and starring Helena Bonham Carter as Miss Havisham, Ralph Fiennes as Magwitch, and Jeremy Irvine as Pip  A terrifying encounter with an escaped convict in a graveyard on the wild Kent marshes; a summons to meet the bitter, decaying Miss Havisham and her beautiful, cold-hearted ward Estella; the sudden generosity of a mysterious benefactor-these form a series of events that change the orphan Pip's life forever, as he eagerly abandons his humble origins to begin a new life as a gentleman. Dickens's haunting novel depicts Pip's education and development through adversity as he discovers the true nature of his great expectations. Published nine years before Dickens's death, it remains one of his most celebrated works."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203603675,
+          "digitalId": "4EAD3BC4-52E6-4234-AB51-E2AE4DE56C78",
+          "isbns": [
+            "9781620116616"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Garfield Heights : Duke Classics"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Young men",
+            "Manners and customs",
+            "Revenge",
+            "Man-woman relationships",
+            "Orphans",
+            "Ex-convicts",
+            "Benefactors",
+            "England",
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "summary": [
+            "Pip is content with his simple life until a bitter gentlewoman employs him as a sometime companion to herself and her adopted daughter. Pip then aspires to become a gentleman himself, though his dreams are unrealistic until the day he mysteriously comes into a fortune and is sent to London to become refined. The story follows Pip's journey into adulthood and emotional maturity and understanding."
+          ],
+          "notes": [
+            "Title from eBook information screen."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Grade 8"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires Adobe Digital Editions (file size: 2311 KB) or Adobe Digital Editions (file size: 607 KB) or Adobe Digital Editions (file size: 2309 KB) or OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 597 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203495242,
+          "digitalId": "03E358FF-DFF5-4261-BE43-37391FF3D05C",
+          "isbns": [
+            "9780307758378"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "New York : Random House Books for Young Readers"
+          ],
+          "publishDate": "2011.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Classic Literature."
+          ],
+          "summary": [
+            "(Book Jacket Status: Jacketed)One of Charles Dickens's most fascinating novels, Great Expectations follows the orphan Pip as he leaves behind a childhood of misery and poverty after an anonymous benefactor offers him a chance at the life of a gentleman. From the young Pip's first terrifying encounter with the convict Magwitch in the gloom of a graveyard to the splendidly morbid set pieces in Miss Havisham's mansion to the magnificently realized boat chase down the Thames, Great Expectations is filled with the transcendent excitement that Dickens could so abundantly provide. Written in 1860, at the height of his maturity, it also reveals the novelist's bittersweet understanding of the extent to which our deepest moral dilemmas are born of our own obsessions and illusions. This edition includes Dickens's original, discarded conclusion to the novel, the 1907 Everyman preface by G. K. Chesterton, and twenty illustrations by F. W...."
+          ],
+          "notes": [
+            "Title from eBook information screen."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Grade 2 - Grade 5",
+            "LG/Lower grades (K-3rd)",
+            "3.5 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires Adobe Digital Editions (file size: 2199 KB) or Amazon Kindle (file size: N/A KB) or OverDrive Read (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203275957,
+          "digitalId": "6F29AEFE-EE5D-44E6-9EBA-2438B26DBE72",
+          "isbns": [
+            "0594082986 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "New York : Barnes & Noble World Digital Library"
+          ],
+          "publishDate": "2002.",
+          "subjects": [
+            "England Social conditions Fiction."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Great Expectations  follows the life of the orphan, Pip. We first meet him as a tiny, terrified child in a village churchyard. Years later, through the help of an anonymous benefactor, Pip will travel to London, full of expectations to become a gentleman. But his life is already inextricably tangled in a mystery that surrounds a beautiful woman, an embittered recluse, and an ambitious lawyer.   Great Expectations  is both a finely crafted novel and an acute examination of Victorian society. Filled with unforgettable settings and characters, it achieves great dramatic richness."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6 - Text Difficulty 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 1702 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 300075778,
+          "digitalId": "0FE6F547-C6DC-4933-82EE-141EC4489A9B",
+          "otherAuthors": [
+            "Lloyd, Harry."
+          ],
+          "isbns": [
+            "9780241440971 (sound recording)"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "London : Penguin Classics"
+          ],
+          "publishDate": "2020.",
+          "subjects": [
+            "Young men England Fiction.",
+            "Orphans England Fiction.",
+            "Classic Literature.",
+            "Great Britain Social life and customs 19th century."
+          ],
+          "physicalDescription": [
+            "1 online resource (16 audio files) : digital"
+          ],
+          "summary": [
+            "Brought to you by Penguin.    This Penguin Classic is performed by Harry Lloyd, known for his roles in  Game of Thrones , and  The Theory of Everything . He is a relative of Charles Dickens. This definitive recording includes an Introduction by David Trotter.  A terrifying encounter with an escaped convict in a graveyard on the wild Kent marshes; a summons to meet the bitter, decaying Miss Havisham and her beautiful, cold-hearted ward Estella; the sudden generosity of a mysterious benefactor - these form a series of events that change the orphaned Pip's life forever, and he eagerly abandons his humble origins to begin a new life as a gentleman. Dickens's haunting late novel depicts Pip's education and development through adversity as he discovers thetrue nature of his 'great expectations'. (P) 2020, Penguin Audio"
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12",
+            "1200 Lexile."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Harry Lloyd."
+          ],
+          "systemDetails": [
+            "Requires the Libby app or a modern web browser."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203412592,
+          "digitalId": "0E640696-038D-4CE0-A5FE-77F4823F10EF",
+          "otherAuthors": [
+            "Vance, Simon."
+          ],
+          "isbns": [
+            "9781400126323"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Old Saybrook : Tantor Media"
+          ],
+          "publishDate": "2009.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (16 audio files) : digital"
+          ],
+          "summary": [
+            "Considered by many to be Charles Dickens's finest novel, Great Expectations traces the growth of the book's narrator, the orphan Philip Pirrip (Pip), from a boy of shallow dreams to a man with depth of character. From its famous dramatic opening on the bleak Kentish marshes, the story abounds with some of Dickens's most memorable characters. Among them are the kindly blacksmith Joe Gargery, the mysterious convict Abel Magwitch, the eccentric Miss Havisham and her beautiful ward Estella, Pip's good-hearted roommate Herbert Pocket, and the pompous Pumblechook. As Pip unravels the truth behind his own \"great expectations\" in his quest to become a gentleman, the mysteries of the past and the convolutions of fate through a series of thrilling adventures serve to steer him toward maturity and his most important discovery of all---the truth about himself."
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Simon Vance."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 503487 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203417243,
+          "digitalId": "3B868E20-D544-42FE-8BFE-7895B3EC955B",
+          "otherAuthors": [
+            "Lesser, Anton."
+          ],
+          "isbns": [
+            "9789629544904"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Abridged."
+          ],
+          "publisher": [
+            "Franklin : Naxos AudioBooks"
+          ],
+          "publishDate": "2005.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (4 audio files) : digital"
+          ],
+          "summary": [
+            "In this, perhaps Dickens' most profound and personal novel, we are invited to share in the sentimental education of Pip, the poor boy from the village forge who risks losing himself in snobbery and selfishness when he mysteriously inherits a fortune. The story moves from the bleak Kentish marshes of Pip's childhood to a thrilling climax which mingles tragedy and triumph. Music:  Mendelssohn, Grieg, Liadov, Liszt, Cui, Sullivan"
+          ],
+          "notes": [
+            "Abridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 6 - Text Difficulty 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Anton Lesser."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 147511 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Nightfall",
+      "seriesTitle": [
+        "Keeper of the lost cities ; book six"
+      ],
+      "author": "Messenger, Shannon",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781481497404?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781481497404?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781481497404?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203095768,
+          "isbns": [
+            "9781481497404",
+            "1481497405",
+            "9781481497411",
+            "1481497413",
+            "9781481497428"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First Aladdin hardcover edition."
+          ],
+          "publisher": [
+            "New York : Aladdin"
+          ],
+          "publishDate": "2017.",
+          "subjects": [
+            "Psychic ability Juvenile fiction.",
+            "Memory Juvenile fiction.",
+            "Identity (Philosophical concept) Juvenile fiction.",
+            "Foster parents Juvenile fiction.",
+            "Elves Juvenile fiction.",
+            "Ability Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "794 pages ; 22 cm."
+          ],
+          "summary": [
+            "\"Sophie must uncover the truth about the Lost Cities' insidious past, before it repeats itself and changes reality\"--Provided by publisher."
+          ],
+          "notes": [
+            "ISBN 9781481497411 (paperback) - New York : Aladdin, 2018.",
+            "ISBN 9781471189470 (paperback) - London : Simon & Schuster, 2020."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203723070,
+          "digitalId": "351EC7F5-2474-4568-BE41-682D569947D0",
+          "isbns": [
+            "9781481497428"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2017.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Ability Juvenile fiction.",
+            "Elves Juvenile fiction.",
+            "Foster parents Juvenile fiction.",
+            "Identity (Philosophical concept) Juvenile fiction.",
+            "Memory Juvenile fiction.",
+            "Psychic ability Juvenile fiction.",
+            "Juvenile Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Sophie and her friends face battles unlike anything they've seen before in this thrilling sixth book of the New York Times and USA TODAY bestselling Keeper of the Lost Cities series.Sophie Foster is struggling. Grieving. Scrambling. But she knows one thing: she will not be defeated. The Neverseen have had their victories-but the battle is far from over. It's time to change tactics. Make sacrifices. Reexamine everything. Maybe even time for Sophie to trust her enemies. All paths lead to Nightfall-an ominous door to an even more ominous place-and Sophie and her friends strike a dangerous bargain to get there. But nothing can prepare them for what they discover. The problems they're facing stretch deep into their history. And with time running out, and mistakes catching up with them, Sophie and her allies must join forces in ways they never have before. In this spectacular sixth book in the New York Times and USA TODAY bestselling Keeper of the Lost Cities series, Sophie must uncover the truth about the Lost Cities' insidious past, before it repeats itself and changes reality."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Keeper of the lost cities",
+      "author": "Messenger, Shannon",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781442445932?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781442445932?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781442445932?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200125077,
+          "isbns": [
+            "9781442445932",
+            "1442445939",
+            "9781442445949",
+            "9781471189371"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Aladdin"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Ability Juvenile fiction.",
+            "Psychic ability Juvenile fiction.",
+            "Memory Juvenile fiction.",
+            "Identity (Philosophical concept) Juvenile fiction.",
+            "Foster parents Juvenile fiction.",
+            "Elves Juvenile fiction.",
+            "Fantasy fiction."
+          ],
+          "physicalDescription": [
+            "488 pages; 22 cm"
+          ],
+          "summary": [
+            "At age twelve, Sophie learns that the remarkable abilities that have always caused her to stand out identify her as an elf, and after being brought to Eternalia to hone her skills, discovers that she has secrets buried in her memory for which some would kill."
+          ],
+          "notes": [
+            "Paperback edition with ISBN 9781471189371 published by London : Simon & Schuster, 2020."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Ages 8-12."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Scarlett Hart : monster hunter",
+      "author": "Sedgwick, Marcus, 1968-2022",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781250159847?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781250159847?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781250159847?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203121593,
+          "variantTitles": [
+            "Monster hunter"
+          ],
+          "otherAuthors": [
+            "Taylor, Thomas, 1973- illustrator."
+          ],
+          "isbns": [
+            "9781250159847",
+            "1250159849",
+            "9781626720268",
+            "1626720266"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First edition."
+          ],
+          "publisher": [
+            "New York : First Second, an imprint of Roaring Brook Press",
+            ""
+          ],
+          "publishDate": "2018.",
+          "subjects": [
+            "Orphans Comic books, strips, etc. Juvenile fiction.",
+            "Monsters Juvenile fiction.",
+            "Monsters Comic books, strips, etc. Juvenile fiction.",
+            "Animals, Mythical Comic books, strips, etc. Juvenile fiction.",
+            "Butlers Comic books, strips, etc. Juvenile fiction.",
+            "Comic books, strips, etc. United States.",
+            "Graphic novels United States.",
+            "Adventure stories."
+          ],
+          "physicalDescription": [
+            "192 pages : illustrations (chiefly color) ; 22 cm"
+          ],
+          "summary": [
+            "\"Scarlett Hart, orphaned daughter of two legendary monster hunters, is determined to carry on in her parents' footsteps--even if the Royal Academy for the Pursuit and Eradication of Zoological Eccentricities says she's too young. Whether it's creepy mummies or a horrid hound, Scarlett won't back down, and with the help of her loyal butler and a lot of monster-mashing gadgets, she's on the case. But with her parents' archrival, Count Stankovic, taking all the monster-catching rewards for himself, it's getting hard for Scarlett to do what she was born to do. And when more monsters start mysteriously manifesting than ever before, Scarlett knows she has to get to the bottom of it and save the city...whatever the danger!\"--Page [4] of cover."
+          ],
+          "notes": [
+            "Chiefly illustrations."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203856993,
+          "digitalId": "1C391599-B2DA-452E-9895-D9CDCE665467",
+          "otherAuthors": [
+            "Taylor, Thomas, 1973- illustrator."
+          ],
+          "isbns": [
+            "9781250310446"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2018.",
+          "subjects": [
+            "Juvenile Fiction.",
+            "Adventure stories.",
+            "Graphic novels United States.",
+            "Comic books, strips, etc. United States.",
+            "Butlers Comic books, strips, etc. Juvenile fiction.",
+            "Animals, Mythical Comic books, strips, etc. Juvenile fiction.",
+            "Monsters Comic books, strips, etc. Juvenile fiction.",
+            "Monsters Juvenile fiction.",
+            "Orphans Comic books, strips, etc. Juvenile fiction.",
+            "Comic and Graphic Books.",
+            "Science Fiction & Fantasy."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Scarlett Hart, orphaned daughter of two legendary monster hunters, is determined to carry on in her parents' footsteps-even if the Royal Academy for the Pursuit and Eradication of Zoological Eccentricities says she's too young to fight perilous horrors. But whether it's creepy mummies or a horrid hound, Scarlett won't back down, and with the help of her loyal butler and a lot of monster-mashing gadgets, she's on the case.  With her parent's archrival, Count Stankovic, ratting her out to T.R.A.P.E.Z.E. and taking all the monster-catching rewards for himself, it's getting hard for Scarlett to do what she was born to do. And when more monsters start mysteriously manifesting than ever before, Scarlett knows she has to get to the bottom of it and save the city . . . whatever the danger!  In his first adventure for middle-grade readers, acclaimed YA author Marcus Sedgwick teams up with Thomas Taylor (illustrator of the original edition of  Harry Potter and the Philosopher's Stone ) to create a rip-roaring romp full of hairy horrors, villainous villains, and introducing the world's toughest monster hunter-Scarlett Hart!"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty K - Text Difficulty 2",
+            "MG/Middle grades (4th-8th)",
+            "2.8 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Art and globalization",
+      "seriesTitle": [
+        "Stone art theory institutes (Series) ; v. 1."
+      ],
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780271037165?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780271037165?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780271037165?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200161016,
+          "otherAuthors": [
+            "Elkins, James, 1955- editor.",
+            "Valiavicharska, Zhivka, editor.",
+            "Kim, Alice, editor."
+          ],
+          "isbns": [
+            "9780271037165 (cloth : alk. paper)",
+            "0271037164 (cloth : alk. paper)",
+            "9780271037172 (paperback)",
+            "0271037172 (paperback)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "University Park, Pennsylvania : Pennsylvania State University Press",
+            ""
+          ],
+          "publishDate": "[2010]",
+          "subjects": [
+            "Art and globalization."
+          ],
+          "physicalDescription": [
+            "x, 294 pages : illustrations ; 27 cm."
+          ],
+          "summary": [
+            "\"Brings together historians, philosophers, critics, postcolonial theorists, and curators to ask how contemporary global art is conceptualized. Issues discussed include globalism and globalization, internationalism and nationality, empire and capitalism\"--Provided by publisher."
+          ],
+          "contents": [
+            "First introduction / James Elkins -- Second Introduction / Zhivka Valiavicharska -- The seminars. The national situation ; Translation ; The prehistory of globalization ; Hybridity ; Temporality ; Postcolonial narratives ; Neoliberalism ; Four failures of the seminars ; Universality -- Assessments. Carolins A. Jones ; Karl Eric Leitzel ; Rasheed Araeen ; N..ư̐estor Garc..ư̐ia Canclini ; Blake Gopnik ; Marina Grzinic ; Jonathan Harris ; Anthony D. King ; Nina M..ư̐ontmann ; Ming Tiampo ; Reiko Tomii ; C.J. W.-L. Wee ; John Clark ; Iftikhar Dadi ; Mark Jarzombek ; Tani Barlow ; Esther Gabara ; J..ư̐an Bako..ư̐s ; T.J. Demos ; Chris Berry ; Hyungmin Pai ; Partha Mitter ; Carolyn Loeb ; Suman Gupta ; Saskia Sassen ; Charles Green ; Joaqu..ư̐in Barriendos -- Afterword / James Elkins."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "The stories behind the stories : the remarkable true tales behind your favorite children's books",
+      "author": "Higley, Danielle",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781638190417?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781638190417?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781638190417?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205723560,
+          "otherAuthors": [
+            "Miles, David, 1973- illustrator."
+          ],
+          "isbns": [
+            "9781638190417",
+            "1638190410"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First edition."
+          ],
+          "publisher": [
+            "Fresno, California : Bushel & Peck Books",
+            ""
+          ],
+          "publishDate": "[2021]",
+          "subjects": [
+            "Children's books Authorship Juvenile literature.",
+            "Children's books History Juvenile literature.",
+            "Children's books Characters Juvenile literature.",
+            "Authorship Juvenile literature.",
+            "Authorship.",
+            "Children's books."
+          ],
+          "physicalDescription": [
+            "94 pages : color illustrations ; 29 cm"
+          ],
+          "summary": [
+            "Did you know that the Very Hungry Caterpillar was originally just a fat worm named Willi? Or that the author of Charlotte's Web hatched real spiders on top of his dresser? In The Stories Behind the Stories, you'll hear the incredible behind-the-scenes tales of twenty-nine beloved children's classics. Discover the childhood inspiration behind Charlie and the Chocolate Factory, the original name of Curious George, the mysterious origin of Mother Goose, and what happened when Maurice Sendak told his editor he couldn't draw wild horses (spoiler alert: he drew wild things instead)."
+          ],
+          "contents": [
+            "Stories and rhymes by Mother Goose -- The night before Christmas -- The tale of Peter Rabbit -- Peter and Wendy -- The Boxcar Children -- Winnie-the-Pooh -- Nancy Drew mystery stories -- The Hobbit -- Curious George -- Goodnight Moon -- Henry Huggins -- The lion, the witch, and the wardrobe -- Charlotte's web -- To kill a mockingbird -- Green eggs and ham -- Where the red fern grows -- A wrinkle in time -- Where the wild things are -- Charlie and the chocolate factory -- The giving tree -- The very hungry caterpillar -- Roll of thunder, hear my cry -- The magic school bus -- The Watsons go to Birmingham -1963 -- Harry Potter and the Sorcerer's Stone -- Captain Underpants -- A series of unfortunate events -- Percy Jackson and the Olympians -- Diary of a wimpy kid."
+          ],
+          "notes": [
+            "Illustrations by David Miles."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Shit, actually : The definitive, 100% objective guide to modern cinema.",
+      "author": "West, Lindy",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780316449823?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780316449823?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780316449823?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205525187,
+          "isbns": [
+            "9780316449823",
+            "0316449822"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First edition."
+          ],
+          "publisher": [
+            "New York : Hachette Books",
+            ""
+          ],
+          "publishDate": "[2020]",
+          "subjects": [
+            "Motion pictures Criticism and interpretation.",
+            "Motion pictures Humor.",
+            "Motion pictures History.",
+            "Motion pictures."
+          ],
+          "physicalDescription": [
+            "xxiii, 243 pages ; 22 cm"
+          ],
+          "summary": [
+            "\"New York Times opinion writer and best-selling author Lindy West was once the in-house movie critic for Seattle's alternative newsweekly The Stranger, where she covered film with brutal honesty and giddy irreverence. In Shit, Actually, Lindy returns to those roots, reexamining beloved and iconic movies from the past 40 years with an eye toward the big questions of our time: Is Twilight the horniest movie in history? Why do the zebras in The Lion King trust Mufasa - who is a lion - to look out for their best interests? Why did anyone bother making any more movies after The Fugitive achieved perfection? And, my god, why don't any of the women in Love, Actually ever fucking talk? From Forrest Gump, Honey I Shrunk the Kids, and Bad Boys II, to Face/Off, Top Gun, and The Notebook, Lindy combines her razor-sharp wit and trademark humor with a genuine adoration for nostalgic trash to shed new critical light on some of our defining cultural touchstones - the stories we've long been telling ourselves about who we are. At once outrageously funny and piercingly incisive, Shit, Actually reminds us to pause and ask, \"How does this movie hold up?\", all while teaching us how to laugh at the things we love without ever letting them or ourselves off the hook.\"--Back cover",
+            "Reexamines iconic movies from the past forty years to identify laugh-worthy plot holes and fictional misrepresentations in such esteemed blockbusters as \"Forrest Gump,\" \"The Lion King,\" and \"Top Gun.\""
+          ],
+          "contents": [
+            "Introduction -- The Fugitive is the only good movie (The Fugitive) -- Shit, actually (Love Actually) -- On marriage (Honey, I Shrunk the Kids) -- Dude, you gotta stop listening to your mom (Forrest Gump) -- Literally a bird's diary (The Notebook) -- Harry plot hole (Harry Potter and the Sorcerer's Stone) -- Big boy freaky Friday (Face/Off) -- Time travel doesn't make sense and I think we should make it illegal (Back to the Future Part II) -- I'd prefer a highway away from the danger zone, but okay (Top Gun) -- Fabrizio's last meatball (Titanic) -- Dead man's pants (The Santa Clause) -- Men yelling men yelling men yelling (The Rock) -- ...Miami? (Bad Boys II) -- The real monster is inspections (Jurassic Park) -- No toucan will ever make ME have sex (The Lion King) -- Look at your little punk British ass (Rush Hour) -- All the kissing in the world could not save it (Garden State) -- Auf Wiedersehen, Kinderbjorn! (Terminator 2: Judgment Day) -- Manual for shitheads (Reality Bites) -- Never boring, always horny (Twilight) -- Speed 2 is not canon (Speed) -- The shawnsnake redumptruck (The Shawshank Redemption) -- Know your enemy (American Pie) -- Acknowledgments."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205350060,
+          "digitalId": "93581D19-79F5-425A-AB78-4F05F4E096D8",
+          "isbns": [
+            "9780316449854"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2020.",
+          "subjects": [
+            "Nonfiction.",
+            "Motion pictures.",
+            "Motion pictures History.",
+            "Motion pictures Humor.",
+            "Motion pictures Criticism and interpretation.",
+            "Essays.",
+            "Humor (Nonfiction).",
+            "Performing Arts."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "**Your Favorite Movies, Re-Watched**       New York Times  opinion writer and bestselling author Lindy West was once the in-house movie critic for Seattle's alternative newsweekly  The Stranger , where she covered film with brutal honesty and giddy irreverence. In  Shit, Actually,  Lindy returns to those roots, re-examining beloved and iconic movies from the past 40 years with an eye toward the big questions of our time: Is  Twilight  the horniest movie in history? Why do the zebras in  The Lion King  trust Mufasa-WHO IS A LION-to look out for their best interests? Why did anyone bother making any more movies after  The Fugitive  achieved perfection? And, my god, why don't any of the women in  Love, Actually  ever fucking talk?!?!   From  Forrest Gump, Honey I Shrunk the Kids,  and  Bad Boys II,  to  Face/Off, Top Gun,  and  The Notebook,  Lindy combines her razor-sharp wit and trademark humor with a genuine adoration for nostalgic trash to shed new critical light on some of our defining cultural touchstones-the stories we've long been telling ourselves about who we are. At once outrageously funny and piercingly incisive,  Shit, Actually  reminds us to pause and ask, \"How does this movie hold up?\", all while teaching us how to laugh at the things we love without ever letting them or ourselves off the hook.   Shit, Actually  is a love letter and a break-up note all in one: to the films that shaped us and the ones that ruined us. More often than not, Lindy finds, they're one and the same."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Atlas of imagined places : from Lilliput to Gotham City",
+      "author": "Brown, Matt, 1976-",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781849946414?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781849946414?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781849946414?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205668966,
+          "otherAuthors": [
+            "Davies, Rhys B., author."
+          ],
+          "isbns": [
+            "9781849946414",
+            "1849946418"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : BT Batsford",
+            ""
+          ],
+          "publishDate": "[2021]",
+          "subjects": [
+            "Imaginary places Maps.",
+            "Imaginary places."
+          ],
+          "physicalDescription": [
+            "168 pages : illustrations, maps ; 32 cm"
+          ],
+          "notes": [
+            "Includes index."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 205592111,
+          "digitalId": "C54157F4-BBF6-4BAA-922F-EFCB661DF30C",
+          "isbns": [
+            "9781849947428"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2021.",
+          "subjects": [
+            "Nonfiction.",
+            "Imaginary places.",
+            "Imaginary places.",
+            "Imaginary places Maps.",
+            "Sociology."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "From Stephen King's  Salem's Lot  to the superhero land of Wakanda, from Lilliput of  Gulliver's Travels  to Springfield in  The Simpsons , this is a wondrous atlas of imagined places around the world. Locations from film, tv, literature, myths, comics and video games are plotted in a series of beautiful vintage-looking maps.   The maps feature fictional buildings, towns, cities and countries plus mountains and rivers, oceans and seas. Ever wondered where the Bates Motel was based? Or Bedford Falls in  It's a Wonderful Life ? The authors have taken years to research the likely geography of thousands of popular culture locations that have become almost real to us. Sometimes these are easy to work out, but other times a bit of detective work is needed and the authors have been those detectives. By looking at the maps, you'll find that the revolution at  Animal Farm  happened next to Winnie the Pooh's home.  Each location has an an extended index entry plus coordinates so you can find it on the maps. Illuminating essays accompanying the maps give a great insight into the stories behind the imaginary places, from Harry Potter's wizardry to Stone Age Bedrock in the Flintstones.  A stunning map collection of invented geography and topography drawn from the world's imagination. Fascinating and beautiful, this is an essential book for any popular culture fan and map enthusiast."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    }
+  ],
+  "facets": [
+    {
+      "id": "intendedAudience",
+      "name": "Intended Audience",
+      "values": [
+        {
+          "id": "juvenile",
+          "data": "juvenile",
+          "count": 10
+        },
+        {
+          "id": "pre-adolescent",
+          "data": "pre-adolescent",
+          "count": 4
+        },
+        {
+          "id": "adolescent",
+          "data": "adolescent",
+          "count": 2
+        },
+        {
+          "id": "general",
+          "data": "general",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "values": [
+        {
+          "id": "eng",
+          "data": "English",
+          "count": 24
+        },
+        {
+          "id": "chi",
+          "data": "Chinese",
+          "count": 1
+        },
+        {
+          "id": "may",
+          "data": "Malay",
+          "count": 1
+        },
+        {
+          "id": "tam",
+          "data": "Tamil",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "values": [
+        {
+          "id": "jrl",
+          "data": "Jurong Library",
+          "count": 18
+        },
+        {
+          "id": "jwpl",
+          "data": "Jurong West Library",
+          "count": 14
+        },
+        {
+          "id": "prl",
+          "data": "Punggol Library",
+          "count": 14
+        },
+        {
+          "id": "bipl",
+          "data": "Bishan Library",
+          "count": 13
+        },
+        {
+          "id": "bepl",
+          "data": "Bedok Library",
+          "count": 12
+        },
+        {
+          "id": "tppl",
+          "data": "Toa Payoh Library",
+          "count": 11
+        },
+        {
+          "id": "trl",
+          "data": "Tampines Library",
+          "count": 11
+        },
+        {
+          "id": "wrl",
+          "data": "Woodlands Library",
+          "count": 11
+        },
+        {
+          "id": "hbpl",
+          "data": "Harbourfront Library",
+          "count": 9
+        },
+        {
+          "id": "cll",
+          "data": "Central Library",
+          "count": 9
+        },
+        {
+          "id": "gepl",
+          "data": "Geylang East Library",
+          "count": 7
+        },
+        {
+          "id": "sbpl",
+          "data": "Sembawang Library",
+          "count": 7
+        },
+        {
+          "id": "skpl",
+          "data": "Sengkang Library",
+          "count": 7
+        },
+        {
+          "id": "cckpl",
+          "data": "Choa Chu Kang Library",
+          "count": 7
+        },
+        {
+          "id": "prpl",
+          "data": "Pasir Ris Library",
+          "count": 6
+        },
+        {
+          "id": "srpl",
+          "data": "Serangoon Library",
+          "count": 6
+        },
+        {
+          "id": "yipl",
+          "data": "Yishun Library",
+          "count": 6
+        },
+        {
+          "id": "bbpl",
+          "data": "Bukit Batok Library",
+          "count": 6
+        },
+        {
+          "id": "bppl",
+          "data": "Bukit Panjang Library",
+          "count": 6
+        },
+        {
+          "id": "08lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 8",
+          "count": 5
+        },
+        {
+          "id": "gngsnoop",
+          "data": "Snoopy Library",
+          "count": 4
+        },
+        {
+          "id": "cmpl",
+          "data": "Clementi Library",
+          "count": 4
+        },
+        {
+          "id": "cnpl",
+          "data": "Chinatown Library",
+          "count": 2
+        },
+        {
+          "id": "ld",
+          "data": "PublicationSG",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "materialType",
+      "name": "Material Type",
+      "values": [
+        {
+          "id": "bks",
+          "data": "Book",
+          "count": 27
+        },
+        {
+          "id": "ebk",
+          "data": "Ebook",
+          "count": 34
+        },
+        {
+          "id": "aeb",
+          "data": "Eaudiobook",
+          "count": 11
+        },
+        {
+          "id": "pmu",
+          "data": "Printed Music",
+          "count": 7
+        },
+        {
+          "id": "mcd",
+          "data": "Music CD",
+          "count": 2
+        },
+        {
+          "id": "brd",
+          "data": "Blu-ray Disc",
+          "count": 2
+        },
+        {
+          "id": "bcd",
+          "data": "Book + CD",
+          "count": 1
+        },
+        {
+          "id": "emg",
+          "data": "Emagazine",
+          "count": 1
+        },
+        {
+          "id": "OAI:Electronic Book",
+          "data": "OAI:Electronic Book",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

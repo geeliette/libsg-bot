@@ -1,0 +1,2447 @@
+{
+  "totalRecords": 380,
+  "count": 20,
+  "hasMoreRecords": true,
+  "nextRecordsOffset": 20,
+  "titles": [
+    {
+      "title": "傲慢与偏见 = Pride and prejudice | Ao man yu pian jian = Pride and prejudice",
+      "seriesTitle": [
+        "Er tong cai se shi jie wen xue = World's classics"
+      ],
+      "author": "陈启淦 | Chen, Qigan",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814185299?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814185299?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9814185299?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200014276,
+          "variantTitles": [
+            "Pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Chen, Jiongqing.",
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "nativeOtherAuthors": [
+            "陈炯清",
+            "奥斯汀, 珍 1775-1817. 傲慢与偏见"
+          ],
+          "isbns": [
+            "9814185299"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Xinjiapo : Da zhong shu ju"
+          ],
+          "nativePublisher": [
+            "新加坡 : 大众书局"
+          ],
+          "publishDate": "2005.",
+          "physicalDescription": [
+            "221 pages: color illustrations; 22 cm."
+          ],
+          "nativePhysicalDescription": [
+            "221页 : 彩色插图 ; 22公分."
+          ],
+          "notes": [
+            "Distributed and/or printed in Singapore."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true,
+          "volumes": [
+            "2005"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "傲慢与偏见 = Pride and prejudice | Ao man yu pian jian = Pride and prejudice",
+      "seriesTitle": [
+        "悦读名著漫画版. | Yue du ming zhu man hua ban."
+      ],
+      "author": "林芳宇 | Lin, Fangyu",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789863016427?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789863016427?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9789863016427?s=LG"
+      },
+      "records": [
+        {
+          "brn": 202558812,
+          "variantTitles": [
+            "Pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817, author."
+          ],
+          "nativeOtherAuthors": [
+            "奥斯汀, 珍, 1775-1817, author."
+          ],
+          "isbns": [
+            "9789863016427",
+            "986301642X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Chu ban."
+          ],
+          "nativeEdition": [
+            "初版."
+          ],
+          "publisher": [
+            "Xinbei Shi : Da zhong guo ji shu ju gu fen you xian gong si"
+          ],
+          "nativePublisher": [
+            "新北市 : 大众国际书局股份有限公司"
+          ],
+          "publishDate": "2016.",
+          "subjects": [
+            "Social classes England History 19th century Comic books, strips, etc. Juvenile literature.",
+            "England Social life and customs 19th century Comic books, strips, etc. Juvenile literature."
+          ],
+          "physicalDescription": [
+            "148 pages : chiefly color illustrations ; 21 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": false
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "seriesTitle": [
+        "Illustrated classics."
+      ],
+      "author": "Austen, Jane, 1775-1817",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9798217136469?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9798217136469?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9798217136469?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300172891,
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "9798217136469"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[London]: Vintage Classics UK "
+          ],
+          "publishDate": "2025.",
+          "subjects": [
+            "Darcy, Fitzwilliam (Fictitious character) Fiction.",
+            "Bennet, Elizabeth (Fictitious character) Fiction.",
+            "Young women England 19th century Fiction.",
+            "Courtship England 19th century Fiction.",
+            "Marriage England 19th century Fiction.",
+            "Man-woman relationships England 19th century Fiction.",
+            "England Social life and customs 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "368 pages : colour illustrations ; 21 cm"
+          ],
+          "summary": [
+            "\"When Elizabeth Bennet first meets eligible bachelor Fitzwilliam Darcy, she thinks him arrogant and conceited; he is indifferent to her good looks and lively mind. When she later discovers that Darcy has involved himself in the troubled relationship between his friend Bingley and her beloved sister Jane, she is determined to dislike him more than ever. In the sparkling comedy of manners that follows, Jane Austen shows the folly of judging by first impressions and superbly evokes the friendships, gossip, and snobberies of provincial middle-class life.\"-- Amazon.com."
+          ],
+          "notes": [
+            "This edition has color illustrations on endpages and sprayed edges.",
+            "\"Pride and Prejudice was first published in 1813.\"-- Title page verso."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300111959,
+          "isbns": [
+            "9780241735923",
+            "0241735920"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "2025.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Juvenile fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Juvenile fiction.",
+            "Social classes Juvenile fiction.",
+            "Young women Juvenile fiction.",
+            "Courtship Juvenile fiction.",
+            "Sisters Juvenile fiction.",
+            "England Social life and customs 19th century Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "437 pages ; 20 cm."
+          ],
+          "summary": [
+            "\"When Elizabeth Bennet first meets eligible bachelor Fitzwilliam Darcy, she thinks him arrogant and conceited; he is indifferent to her good looks and lively mind. When she later discovers that Darcy has involved himself in the troubled relationship between his friend Bingley and her beloved sister Jane, she is determined to dislike him more than ever. In the sparkling comedy of manners that follows, Jane Austen shows the folly of judging by first impressions and superbly evokes the friendships, gossip and snobberies of provincial middle-class life\"--Amazon."
+          ],
+          "notes": [
+            "\"Abridged\"--Back cover."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300148287,
+          "otherAuthors": [
+            "Matthew, Patricia A., editor, writer of introduction."
+          ],
+          "isbns": [
+            "9780143138730",
+            "0143138731",
+            "9780241734889",
+            "0241734886"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Penguin Books"
+          ],
+          "publishDate": "2025.",
+          "subjects": [
+            "Young women England Fiction.",
+            "Social classes England Fiction.",
+            "Courtship Fiction.",
+            "England Social life and customs 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "xxii, 357 pages : illustrations ; 22 cm."
+          ],
+          "summary": [
+            "\"When Elizabeth Bennet first meets eligible bachelor Fitzwilliam Darcy, she thinks him arrogant and conceited; he is indifferent to her good looks and lively mind. When she later discovers that Darcy has involved himself in the troubled relationship between his friend Bingley and her beloved sister Jane, she is determined to dislike him more than ever.\"\"--Publisher."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300080944,
+          "isbns": [
+            "9789811750687",
+            "9811750688",
+            "9789811750670",
+            "981175067X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "[Singapore] : Origami Books Pte. Ltd.",
+            ""
+          ],
+          "publishDate": "[2024]",
+          "subjects": [
+            "Young women England Fiction.",
+            "Courtship England Fiction.",
+            "Families England Fiction.",
+            "England Social life and customs 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "351 pages ; 21 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300126672,
+          "isbns": [
+            "9780192789228",
+            "0192789228"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Oxford : Oxford University Press"
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Sisters Juvenile fiction.",
+            "Great Britain Social life and customs 19th century Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "415 pages ; 20 cm."
+          ],
+          "notes": [
+            "First published: 1813."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 300124537,
+          "otherAuthors": [
+            "Bond, Anna, cover illustrator."
+          ],
+          "isbns": [
+            "9780593622452",
+            "0593622456"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Reissue edition."
+          ],
+          "publisher": [
+            "New York, NY : Puffin Books, an imprint of Penguin Random House.",
+            ""
+          ],
+          "publishDate": "2024.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Fiction.",
+            "Social classes Fiction.",
+            "Young women Fiction.",
+            "Courtship Fiction.",
+            "Sisters Fiction.",
+            "England Social life and customs 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "464 pages ; 19 cm"
+          ],
+          "summary": [
+            "Mr. and Mrs. Bennet live with their five daughters. Jane, the eldest daughter, falls in love with Charles Bingley, a rich bachelor who moves into a house nearby with his two sisters and friend, Fitzwilliam Darcy. Darcy is attracted to the second daughter, Elizabeth, but she finds him arrogant and self-centered. When Darcy proposes to Elizabeth, she refuses. But perhaps there is more to Darcy than meets the eye."
+          ],
+          "notes": [
+            "\"First published in 1813 ; published by Penguin classics, 1996. \" -- Title page verso."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 204094510,
+          "isbns": [
+            "9789811444760",
+            "9811444765"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First edition."
+          ],
+          "publisher": [
+            "Singapore : Origami Books Pte. Ltd."
+          ],
+          "publishDate": "2019.",
+          "subjects": [
+            "Young women England Fiction.",
+            "Courtship England Fiction.",
+            "Families England Fiction.",
+            "England Social life and customs 19th century Fiction.",
+            "Courtship.",
+            "Families.",
+            "Manners and customs.",
+            "Young women.",
+            "England."
+          ],
+          "physicalDescription": [
+            "351 pages ; 21 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203965887,
+          "otherAuthors": [
+            "Jennings, Linda M., abridger."
+          ],
+          "isbns": [
+            "9780241374887",
+            "024137488X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Abridged."
+          ],
+          "publisher": [
+            "London : Puffin Books"
+          ],
+          "publishDate": "2019.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Juvenile fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Juvenile fiction.",
+            "Man-woman relationships Juvenile fiction.",
+            "Young women England Juvenile fiction.",
+            "Social classes England Juvenile fiction.",
+            "England Social life and customs 19th century Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "437 pages ; 18 cm."
+          ],
+          "summary": [
+            "When two rich young gentlemen move to town, they don't go unnoticed - especially when Mrs Bennett vows to have one of her five daughters marry into their fortunes. But love, as Jane and Elizabeth Bennett soon discover, is rarely straightforward, and often surprising. It's only a matter of time until their own small worlds are turned upside down and they discover that first impressions can be the most misleading of all."
+          ],
+          "notes": [
+            "\"This abridgement, by Linda Jennings, first published in Puffin Books 1995\"--Title page verso."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 204154883,
+          "isbns": [
+            "9789814867870",
+            "981486787X"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Penguin Random House SEA Pte Ltd"
+          ],
+          "publishDate": "2019.",
+          "subjects": [
+            "Social classes England History Fiction.",
+            "England Social life and customs Fiction.",
+            "Classical fiction."
+          ],
+          "physicalDescription": [
+            "337 pages ; 20 cm."
+          ],
+          "notes": [
+            "\"Sample copy. Not for sale.\"--Title page."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 202827736,
+          "variantTitles": [
+            "Jane Austen's pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Pattullo, Alice, illustrator."
+          ],
+          "isbns": [
+            "1631590766",
+            "9781631590764"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Beverly, Massachusetts : Quarto Publishing Group USA Inc.",
+            ""
+          ],
+          "publishDate": "[2015]",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Fiction.",
+            "Young women England Fiction.",
+            "Sisters England Fiction.",
+            "Courtship England Fiction.",
+            "England Social life and customs 18th century Fiction."
+          ],
+          "physicalDescription": [
+            "370 pages : color illustrations ; 23 cm."
+          ],
+          "summary": [
+            "When Elizabeth Bennet meets Mr. Darcy she is repelled by his overbearing pride, and prejudice towards her family. But the Bennet girls are in need of financial security in the shape of husbands, so when Darcy's friend, the affable Mr. Bingley, forms an attachment to Jane, Darcy becomes increasingly hard to avoid.",
+            "\"Enjoy Jane Austen's witty novel of love and misunderstanding as you've never seen it before! Alice Pattullo's colorful interpretation of Pride and Prejudice follows the romantic adventures of Bennett sisters, Mr. Bingley and his dour friend Mr. Darcy. Her folkloric, multi-faceted images, breathe new life into this engaging romantic novel\"-- Publisher."
+          ],
+          "notes": [
+            "\"First published in the United States of America in 2015 by Rockport Publishers, a member of Quarto Publishing Group USA Inc.\"",
+            "Pages [236-241] fold out."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 12479049,
+          "otherAuthors": [
+            "Navin Sharma."
+          ],
+          "isbns": [
+            "9814177415"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Singapore : Allscript Establishment (Singapore)"
+          ],
+          "publishDate": "2004.",
+          "subjects": [
+            "Young women Juvenile fiction.",
+            "Courtship Juvenile fiction.",
+            "Sisters Juvenile fiction.",
+            "England Social life and customs 18th century Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "224 pages: illustrations; 14 cm."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 11773017,
+          "otherAuthors": [
+            "Jones, Vivien."
+          ],
+          "isbns": [
+            "9780141439518",
+            "0141024038",
+            "0141439513"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Penguin"
+          ],
+          "publishDate": "2003.",
+          "subjects": [
+            "Young women England History 19th century Fiction.",
+            "Upper class England History 19th century Fiction.",
+            "Marriage England History 19th century Fiction.",
+            "Great Britain Social life and customs History 19th century Fiction."
+          ],
+          "physicalDescription": [
+            "xlii, 435 pages; 20 cm."
+          ],
+          "summary": [
+            "Of all Jane Austen's books, Pride and Prejudice has earned a special place in the hearts of the reading public as her best-loved and most intimately known novel. From its famous opening sentence, the story of the Bennet family and of the novel's two protagonists, Elizabeth and Darcy, told with a wit that its author feared might prove 'rather too light and bright, and sparkling', delights its most familiar readers as thoroughly as it does those who encounter it for the first time. Jane Austen's artistry is apparent, too, in the delineation of the minor characters: the ill-matched Mr. and Mrs. Bennet, Charles Bingley and his sisters, and above all the fatuous Mr. Collins, whose proposal to Elizabeth Bennet is one of the finest comic passages in English literature. And while she entertains us, Jane Austen teaches us the wisdom of balance, the folly of 'pride' and 'prejudice'."
+          ],
+          "notes": [
+            "1996 reprint reissued with new chronology, updated Further reading and 1972 Penguin classics introduction by Tony Tanner. - Originally published: London : T. Egerton, 1813."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 4141665,
+          "otherAuthors": [
+            "Lee, Dora."
+          ],
+          "isbns": [
+            "9971610043 "
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "revised edition."
+          ],
+          "publisher": [
+            "Singapore : Book Emporium"
+          ],
+          "publishDate": "1980.",
+          "subjects": [
+            "Married women England Fiction.",
+            "Family England Fiction.",
+            "England Social life and customs 18th century Fiction."
+          ],
+          "physicalDescription": [
+            "iv, 404 pages: illustrations; 18 cm"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 200113140,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Student edition."
+          ],
+          "publisher": [
+            "Singapore : Singapore Book Emporium "
+          ],
+          "publishDate": "1978.",
+          "subjects": [
+            "Young women Fiction.",
+            "Courtship Fiction.",
+            "Sisters Fiction.",
+            "English literature 19th century.",
+            "England Fiction."
+          ],
+          "physicalDescription": [
+            "vii 208 pages; 18 cm"
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 203460441,
+          "digitalId": "BDF34595-BCFA-4489-9938-A35FBCFC0054",
+          "otherAuthors": [
+            "Priestley, J. B. (John Boynton), 1894-1984. Austen portrays a small world with humour and detachment."
+          ],
+          "isbns": [
+            "9780141974248"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Fiction.",
+            "Social classes England History Fiction.",
+            "Classic Literature.",
+            "England Social life and customs Fiction."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "'No sooner had he made it clear to himself and his friends that she had hardly a good feature in her face, than he began to find it was rendered uncommonly intelligent by the beautiful expression of her dark eyes ...'  When Elizabeth Bennet first meets eligible bachelor Fitzwilliam Darcy, she thinks him arrogant and conceited; he is indifferent to her good looks and lively mind. When she later discovers that Darcy has involved himself in the troubled relationship between his friend Bingley and her beloved sister Jane, she is determined to dislike him more than ever. In the sparkling comedy of manners that follows, Jane Austen shows the folly of judging by first impressions and superbly evokes the friendships, gossip and snobberies of provincial middle-class life.  The Penguin English Library - 100 editions of the best fiction in English, from the eighteenth century and the very first novels to the beginning of the First World War."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203604077,
+          "digitalId": "1123FED8-AAD0-4DD8-98C6-3F9FA3AAADC9",
+          "isbns": [
+            "9781620117071"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Garfield Heights : Duke Classics"
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Courtship",
+            "Manners and customs",
+            "Social classes",
+            "Sisters",
+            "Young women",
+            "England",
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "summary": [
+            "Mr and Mrs Bennet have five unmarried daughters. When the amiable Mr Bingly moves into the neighbourhood, Mrs Bennet therefore feels entirely sure that he is meant for one of her girls. Her eldest Miss Bennet captures his attention, but Mr Bingley's proud friend Mr Darcy does not approve the match and takes his friend away to London. Though not before losing his own heart to the second eldest, Lizzie. With an indolent father on one side and a nervous, ignorant mother on the other, the girls soon find themselves in the middle of a disaster which throws them back in with the two gentlemen. All parties must re-think their pride and the prejudice of first impressions.Pride and Prejudice is Jane Austen's most famous novel."
+          ],
+          "notes": [
+            "Title from eBook information screen."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Grade 11 - Grade 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires Adobe Digital Editions (file size: 1750 KB) or Adobe Digital Editions (file size: 486 KB) or Amazon Kindle (file size: N/A KB) or Adobe Digital Editions (file size: 1748 KB) or OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 477 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203537379,
+          "digitalId": "AC0CF217-2321-4D39-A98A-40718F8CF527",
+          "isbns": [
+            "9780062023285"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Young Adult Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "\"Darcy had never been so bewitched by any woman as he was by her.\"With all the forces of the world conspiring to keep Mr. Darcy and Elizabeth Bennet apart, how will fate manage to bring them together? It certainly won't be easy if they're fighting it every step of the way. But theirs is a love that was meant to be, despite all the odds against them.One of the most captivating love stories of all time, Jane Austen's enduring masterpiece is beloved by generation after generation. Beautifully presented for a modern teen audience, this is the must-have edition of a timeless classic."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 7 - Text Difficulty 12",
+            "UG/Upper grades (9th-12)",
+            "1100 Lexile.",
+            "12 ATOS Level"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203540783,
+          "digitalId": "27E1874F-3BA0-4071-B625-B9D75D2A9952",
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "edition": [
+            "Illustrated edition."
+          ],
+          "publisher": [
+            "Naperville : Sourcebooks Landmark"
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature.",
+            "Literature.",
+            "Romance."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "This special edition of Pride and Prejudice includes the famous illustrations by Henry Matthew Brock, originally created in 1898. Brock and his brothers were all successful illustrators of the day and often posed for each other using costumes, props and furniture in their Cambridge studio. Brock’s older brother Charles also illustrated other editions of Pride and Prejudice, and joined him in illustrating other Austen releases for this set of 1898 editions.     Pride and Prejudice was published anonymously in 1813. It was Jane Austen’s second novel and became her most popular. Considered by many to be the very first romance novel, the book features Elizabeth, an independent-minded heroine, and Darcy, a dark, brooding, rich, handsome hero. Jane Austen’s wit and insight into human nature are legendary and make Pride and Prejudice a book to be savored over and over again.    Pride and Prejudice is the deceptively simple story of Elizabeth Bennet, second eldest of five unmarried daughters of an affable country gentleman and a very silly lady whose mission in life is to marry them off. When a wealthy young man moves into the neighborhood, he brings with him his friend Mr. Darcy, who falls in love with Elizabeth - much to his own chagrin - after insulting her and earning the derision of the entire neighborhood. The necessity for both of them to overcome their pride and see each other for the people they really are is the backbone of an enduring comedy of manners and love story."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires ."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203301979,
+          "digitalId": "F5E0570E-863E-4BCE-A81D-39B1139CC924",
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Garfield Heights : Duke Classics"
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "summary": [
+            "Pride and Prejudice is one of the most beloved novels of all time. Elizabeth Bennett, the book's poverty-bound heroine has charmed readers with her wit and sincerity since the book was first published in 1813.  Its hero, the handsome and wealthy Mr. Darcy, infuriates Elizabeth &#8212; and women readers around the world &#8212; with his rude arrogance, but all fall in love with him anyway.A comedy of manners, romance, and neighborhood drama &#8212; it's all there and more."
+          ],
+          "notes": [
+            "Title from eBook information screen."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Grade 11 - Grade 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires Adobe Digital Editions (file size: 1540 KB) or Adobe Digital Editions (file size: 1435 KB) or Amazon Kindle (file size: N/A KB) or OverDrive Read (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203243049,
+          "digitalId": "774954C6-525E-4059-9BFF-D40618C98624",
+          "isbns": [
+            "1595471839 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            "Luverne : NuVision Publications"
+          ],
+          "publishDate": "2004.",
+          "subjects": [
+            "Fiction.",
+            "Drama.",
+            "Historical Fiction.",
+            "Romance."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Early nineteenth century English society imposed many requirements for a successful life. Women, to maintain a comfortable economic condition, needed to make the conventions of class and wealth important when they came of marrying age. Mr. and Mrs. Bennett had five daughters to present before whatever eligibly prosperous men were available. This story centers on the Bennetts' daughter Elizabeth who will be most resistant to any financially stable marriage which has no room for romance. Because Elizabeth has her sights set on happiness, she employs her intelligence and quick response to keep an edge on suitors like Mr. Collins whose overdone manner combined with unassertive demands make him totally undesirable. Elizabeth is sure of her ability to accurately judge the quality of others. But Elizabeth meets Mr. Darcy who is rich and aristocratic. He becomes a rather unwelcome presence in her life even though he is a close friend of her sister's beau. Elizabeth mistakenly believes that Darcy has a disagreeable tendency to hate everyone, but the longer she knows him she is shown through event and example how generous and capable he is. The novel becomes a discovery of true love as Darcy and Elizabeth reconcile the conceits of prejudice and pride that had hidden the possibility of pleasure.  Please Note:  This book is easy to read in true text, not scanned images that can sometimes be difficult to decipher.  The Microsoft eBook has a contents page linked to the chapter headings for easy navigation. The Adobe eBook has bookmarks at chapter headings and is printable up to two full copies per year.  Both versions are text searchable."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12",
+            "1190 Lexile."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 1961 KB) or Amazon Kindle (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203260156,
+          "digitalId": "E0CEC34A-65FC-49F2-9AD5-E85CC900B8F1",
+          "isbns": [
+            "0594081637 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "edition": [
+            "World digital library edition"
+          ],
+          "publisher": [
+            "New York : Barnes & Noble World Digital Library"
+          ],
+          "publishDate": "2002.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Since its publication in 1813,  Pride and Prejudice ’s blend of humor, romance, and social satire have delighted readers of all ages. In telling the story of Mr. and Mrs. Bennett and their five daughters, Jane Austen creates a miniature of her world, where social grace and the nuances of behavior predominate in the making of a great love story."
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB) or Adobe Digital Editions (file size: 1252 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203413262,
+          "digitalId": "6A600B7A-AFDA-4F0F-A32C-5BE178267B0E",
+          "otherAuthors": [
+            "Kellgren, Kate."
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Garfield Heights : Duke Classics"
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Pride and prejudice (Austen, Jane)",
+            "Fiction.",
+            "Sisters Fiction.",
+            "Courtship Fiction.",
+            "Mate selection Fiction.",
+            "Young women Fiction.",
+            "Social classes England Fiction.",
+            "Gentry England Fiction.",
+            "Classic Literature.",
+            "England Social life and customs 19th century Fiction.",
+            "England."
+          ],
+          "physicalDescription": [
+            "1 online resource (11 audio files) : digital"
+          ],
+          "summary": [
+            "Pride and Prejudice is one of the most beloved novels of all time. Elizabeth Bennett, the book's poverty-bound heroine has charmed readers with her wit and sincerity since the book was first published in 1813.  Its hero, the handsome and wealthy Mr. Darcy, infuriates Elizabeth - and women readers around the world - with his rude arrogance, but all fall in love with him anyway.A comedy of manners, romance, and neighborhood drama - it's all there and more."
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Kate Kellgren."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 347653 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 203417412,
+          "digitalId": "B6C804BA-6BD1-431B-B6AC-7BC38E8ABD9F",
+          "otherAuthors": [
+            "Agutter, Jenny."
+          ],
+          "isbns": [
+            "9789629548483"
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Abridged."
+          ],
+          "publisher": [
+            "Franklin : Naxos AudioBooks"
+          ],
+          "publishDate": "2005.",
+          "subjects": [
+            "Young Adult Fiction.",
+            "Classic Literature."
+          ],
+          "physicalDescription": [
+            "1 online resource (3 audio files) : digital"
+          ],
+          "summary": [
+            "Pride and Prejudice is a key title for the new Naxos AudioBooks series 'Young Adult Classics'. An abridged recording with music makes this Regency novel much more accessible to the 21st century young adult keen to get to grips with the classics. Pride and Prejudice is a leading title for 'Young Adult Classics', being one of the pillars of English Literature, and Jenny Agutter's friendly reading bridges the gap between the films and the book. Bonus CD-ROM with searchable texts in word document and exam-helpful notes from leading teacher/writer Francis Gilbert.   Note: CD-ROM/DVD and other supplementary materials are not included."
+          ],
+          "notes": [
+            "Abridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 9 - Text Difficulty 12"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Jenny Agutter."
+          ],
+          "systemDetails": [
+            "Requires OverDrive Listen (file size: N/A KB) or OverDrive app (file size: 103377 KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        },
+        {
+          "brn": 205223234,
+          "digitalId": "E5380450-62CB-4E11-B91F-72007FC37A56",
+          "otherAuthors": [
+            "Redding, Kate."
+          ],
+          "format": {
+            "code": "41",
+            "name": "Eaudiobook"
+          },
+          "edition": [
+            "Unabridged."
+          ],
+          "publisher": [
+            "Solon : InAudio"
+          ],
+          "publishDate": "2005.",
+          "subjects": [
+            "Fiction.",
+            "Classic Literature.",
+            "Historical Fiction.",
+            "Romance."
+          ],
+          "physicalDescription": [
+            "1 online resource (audio file) : digital"
+          ],
+          "notes": [
+            "Unabridged."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Text Difficulty 3 - Text Difficulty 8"
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Narrator: Kate Redding."
+          ],
+          "systemDetails": [
+            "Requires ."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "seriesTitle": [
+        "Penguin readers ; Level 4"
+      ],
+      "author": "Degnan-Vaness, Coleen",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241375273?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241375273?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780241375273?s=LG"
+      },
+      "records": [
+        {
+          "brn": 203986183,
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Grott, Isabella, 1985- illustrator."
+          ],
+          "isbns": [
+            "9780241375273",
+            "0241375274"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "London : Penguin Books"
+          ],
+          "publishDate": "2019.",
+          "physicalDescription": [
+            "79 pages : illustrations ; 20 cm."
+          ],
+          "summary": [
+            "Elizabeth Bennet, the daughter of an English country gentleman, meets Mr. Darcy, a rich man who owns land. At first, Elizabeth hates him and thinks he is proud, but slowly her feelings start to change. Can she fight her own pride and find happiness?"
+          ],
+          "notes": [
+            "Includes questions, exercises and project work."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "For ages 12+ years."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "seriesTitle": [
+        "Pride and Prejudice (2009)."
+      ],
+      "author": "Butler, Nancy",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205416743,
+          "digitalId": "AE19AAB9-8615-4A3A-A1A7-F33C5A69D7D1",
+          "isbns": [
+            "9780785170877 (electronic bk)"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "edition": [
+            "Collected Mini-Series."
+          ],
+          "publisher": [
+            "Cleveland : Marvel Worldwide, Inc."
+          ],
+          "publishDate": "2012.",
+          "subjects": [
+            "Fiction.",
+            "Comic and Graphic Books."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Collects Pride and Prejudice #1-5.  Tailored from the adored Jane Austen classic, Marvel Comics is proud to present PRIDE AND PREJUDICE! Two-time Rita Award-Winner Nancy Butler and fan-favorite Hugo Petrus fathfully adapt the whimsical tale of Lizzy Bennet and her loveable-if-eccentric family, as they navigate through tricky British social circles. Will Lizzy's father manage to marry off his five daughters, despite his wife's incessant nagging? And will Lizzy's beautiful sister Jane marry the handsome, wealthy Mr. Bingley, or will his brooding friend Mr. Darcy stand between their happiness?"
+          ],
+          "notes": [
+            "Title from eBook information screen.."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "systemDetails": [
+            "Requires OverDrive Read (file size: N/A KB)."
+          ],
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "seriesTitle": [
+        "Thea Stilton classic tales."
+      ],
+      "author": "Stilton, Thea",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338656060?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338656060?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781338656060?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205265182,
+          "otherTitles": [
+            "Orgoglio e pregiudizio. English"
+          ],
+          "variantTitles": [
+            "Pride & prejudice"
+          ],
+          "otherAuthors": [
+            "Adaptation of (work): Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Clement, Emily (Translator), translator.",
+            "Pellizzari, Barbara, illustrator.",
+            "Livio, Carolina, illustrator.",
+            "Aliprandi, Christian, illustrator."
+          ],
+          "isbns": [
+            "9781338656060",
+            "1338656066"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York, NY : Scholastic Inc."
+          ],
+          "publishDate": "[2020]",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Juvenile fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Juvenile fiction.",
+            "Young women England Juvenile fiction.",
+            "England Social life and customs 19th century Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "197 pages : color illustrations ; 20 cm."
+          ],
+          "notes": [
+            "Original Italian titile: Orgoglio e pregiudizio."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "seriesTitle": [
+        "Real reads."
+      ],
+      "author": "Tavner, Gill",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1912464020?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1912464020?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1912464020?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205310283,
+          "otherAuthors": [
+            "Kronheimer, Ann, illustrator.",
+            "Adaptation of (work): Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "1912464020",
+            "9781912464029"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Newbury, Berkshire, UK : Baker Street Press",
+            ""
+          ],
+          "publishDate": "2018.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Juvenile fiction.",
+            "Social classes England Juvenile fiction.",
+            "England Social life and customs Juvenile fiction.",
+            "Manners and customs.",
+            "Social classes.",
+            "England."
+          ],
+          "physicalDescription": [
+            "63 pages : color illustrations ; 21 cm."
+          ],
+          "summary": [
+            "\"'You are the last man in the world I would marry.' Why does spirited, lively Elizabeth Bennett so rudely reject the proposal of the handsome, rich Mr Darcy? What could he possibly have done to offend her?\"-- Page [4] of cover."
+          ],
+          "contents": [
+            "The characters -- Pride and prejudice -- Looking closer."
+          ],
+          "notes": [
+            "First published by Real Reads Ltd. in 2008.",
+            "Includes reading comprehension activities.",
+            "\"Miniature masterpieces - BBC R4, open book\"--Page [4] of cover."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        },
+        {
+          "brn": 13114199,
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Kronheimer, Ann."
+          ],
+          "isbns": [
+            "1906230064",
+            "9781906230067"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Stroud, Gloucestershire : Real Reads"
+          ],
+          "publishDate": "2008.",
+          "subjects": [
+            "Young women England Juvenile fiction.",
+            "Sisters Juvenile fiction.",
+            "England Social life and customs 19th century Juvenile fiction.",
+            "Fiction."
+          ],
+          "physicalDescription": [
+            "64 pages: color illustrations; 20 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "author": "Peterson, Eric",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9971512009?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9971512009?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9971512009?s=LG"
+      },
+      "records": [
+        {
+          "brn": 4754677,
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "9971512009"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "Wiley student edition."
+          ],
+          "publisher": [
+            "Singapore : J. Wiley",
+            ""
+          ],
+          "publishDate": "1987.",
+          "subjects": [
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "physicalDescription": [
+            "53 pages; 19 cm"
+          ],
+          "notes": [
+            "\"Cliffs notes on Austen's Pride and prejudice\"--Cover.",
+            "\"Including life of the author, introduction to the novel, brief synopsis, chapter summaries and commentaries, general critique, character analyses, questions and discussion topics bibliography\"."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "author": "Davis, Carl",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/724383609024?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/724383609024?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/724383609024?s=LG"
+      },
+      "records": [
+        {
+          "brn": 9482688,
+          "otherAuthors": [
+            "Tan, Melvyn.",
+            "Arts & Entertainment Network."
+          ],
+          "format": {
+            "code": "35",
+            "name": "Music CD"
+          },
+          "publisher": [
+            "New York, N.Y. : Angel"
+          ],
+          "publishDate": "p1995.",
+          "subjects": [
+            "Television music.",
+            "Piano music."
+          ],
+          "physicalDescription": [
+            "1 sound disc (55 min.): digital, stereo.; 4 3/4 in."
+          ],
+          "contents": [
+            "Pride and prejudice (opening title music) (3:30) --Dance montage (:48) -- Elizabeth observed (1:11) --Piano summary (Episode one) (2:01) -- Canon Collins (2:12) -- Piano summary (Episode two) (2:02) -- The Gardiners (1:03) -- Winter into spring (3:29) --Parting (1:37) -- Rosings (1:20) -- Piano summary (Episode three) (2:13) -- Telling the truth (4:29) --Farewell to the regiment (2:21) -- Pemberley (2:10) --Darcy returns (3:08) -- Piano summary (Episode four) (2:10) -- Thinking about Lizzy  (1:29) -- Lydia's elopement (2:52) -- Piano summary (Episode five) (2:40) -- Lydia's wedding (2:40) -- Return of Bingley (2:58) -- Darcy's second proposal (1:55) -- Double wedding (2:36) -- Finale (1:38)."
+          ],
+          "notes": [
+            "\"The original soundtrack from the A&E special presentation\"--Insert.",
+            "Synopsis by Susie Conklin and program notes by Sue Birtwistle and Susie Conklin inserted in container.",
+            "Compact disc."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "credits": [
+            "Carl Davis and Mark Warman, producers."
+          ],
+          "performers": [
+            "Melvyn Tan, fortepiano ; with various instrumentalists."
+          ],
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1422988864?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1422988864?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/1422988864?s=LG"
+      },
+      "records": [
+        {
+          "brn": 14424208,
+          "otherTitles": [
+            "Pride and prejudice (Television program : 1995)"
+          ],
+          "otherAuthors": [
+            "Firth, Colin, 1960-",
+            "Ehle, Jennifer, 1969-",
+            "Steadman, Alison, 1946-",
+            "Whitrow, Benjamin.",
+            "Harker, Susannah.",
+            "Chancellor, Anna.",
+            "Sawalha, Julia, 1968-",
+            "Bamber, David.",
+            "Birtwistle, Sue.",
+            "Langton, Simon.",
+            "Davies, Andrew, 1936-",
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Arts and Entertainment Network.",
+            "New Video Group.",
+            "British Broadcasting Corporation. Television Service.",
+            "BBC Worldwide Americas, Inc."
+          ],
+          "isbns": [
+            "1422988864",
+            "9781422988862"
+          ],
+          "format": {
+            "code": "40",
+            "name": "Blu-ray Disc"
+          },
+          "edition": [
+            "[Blu-ray version, Widescreen format]."
+          ],
+          "publisher": [
+            "[New York] : A&E Television Networks : Distributed by New Video"
+          ],
+          "publishDate": "2010.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Drama.",
+            "Young women England Drama.",
+            "Courtship England Drama.",
+            "Social classes Drama.",
+            "England Social life and customs 19th century Drama."
+          ],
+          "physicalDescription": [
+            "2 videodiscs (approximately 5 hr., 23 min.): sound, color; 4 3/4 in."
+          ],
+          "summary": [
+            "The story of lively and rebellious Elizabeth Bennett, one of five unmarried daughters living in the countryside of nineteenth-century England, in a world where an advantageous marriage is a woman's sole occupation."
+          ],
+          "notes": [
+            "Title and credits from container.",
+            "Based on the novel by Jane Austen.",
+            "Originally produced for television in 1995.",
+            "Includes bonus featurettes."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Board of Film Censors, Singapore: PG."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "performers": [
+            "Colin Firth, Jennifer Ehle, Allison Steadman, Benjamin Whitrow, Susannah Harker, Anna Chancellor, Julia Swalha, David Bamber, Emilia Fox, Lucy Davis, Adrian Lukis."
+          ],
+          "systemDetails": [
+            "Blu-ray; PCM 2.0 stereo.",
+            "This Blu-ray disc will not play in standard DVD players."
+          ],
+          "availability": true,
+          "volumes": [
+            "[pt.]2 BDs"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Shanower, Eric",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785170877?s=LG"
+      },
+      "records": [
+        {
+          "brn": 0,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "serial": false,
+          "availability": false,
+          "volumes": [
+            "[v.]1",
+            "[v.]2",
+            "[v.]3",
+            "[v.]4"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice",
+      "author": "Austen, Jane, 1775-1817",
+      "records": [
+        {
+          "brn": 0,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "serial": false,
+          "availability": false,
+          "volumes": [
+            "[v.]1",
+            "[v.]2",
+            "[v.]3",
+            "[v.]4"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice / notes by Eric Peterson",
+      "author": "Peterson, Eric",
+      "records": [
+        {
+          "brn": 0,
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "serial": false,
+          "availability": false,
+          "volumes": [
+            "[v.]1",
+            "[v.]2",
+            "[v.]3",
+            "[v.]4"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "熊大、兔兔读傲慢与偏见 : 看清爱, 懂选择 = Brown & Cony, pride and prejudice | Xiongda, Tutu du Ao man yu pian jian : kan qing ai, dong xuan ze = Brown & Cony, pride and prejudice",
+      "seriesTitle": [
+        "Line Friends 读经典语录系列. | Line Friends du jing dian yu lu xi lie."
+      ],
+      "author": "陈湘妤 | Chen, Xiangyu",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9786264348911?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9786264348911?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9786264348911?s=LG"
+      },
+      "records": [
+        {
+          "brn": 300222172,
+          "variantTitles": [
+            "Kan qing ai, dong xuan ze",
+            "Brown & Cony, pride and prejudice"
+          ],
+          "nativeVariantTitles": [
+            "看清爱, 懂选择"
+          ],
+          "otherAuthors": [
+            "Line Friends."
+          ],
+          "isbns": [
+            "9786264348911",
+            "6264348910"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "1 ban."
+          ],
+          "nativeEdition": [
+            "1版."
+          ],
+          "publisher": [
+            "Taibei Shi : Jian duan chu ban"
+          ],
+          "nativePublisher": [
+            "台北市 : 尖端出版"
+          ],
+          "publishDate": "2026.",
+          "subjects": [
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Quotations.",
+            "Love Quotations, maxims, etc.",
+            "Conduct of life Quotations, maxims, etc."
+          ],
+          "physicalDescription": [
+            "151 pages : colour illustrations ; 18 cm."
+          ],
+          "notes": [
+            "Text written in traditional Chinese script."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "Chinese"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice : Jane Austen.",
+      "seriesTitle": [
+        "SparkNotes literature guides."
+      ],
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/141146978X?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/141146978X?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/141146978X?s=LG"
+      },
+      "records": [
+        {
+          "brn": 200321041,
+          "variantTitles": [
+            "Sparknotes : Pride and prejudice"
+          ],
+          "isbns": [
+            "141146978X (paperback)",
+            "9781411469785 (paperback)"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York, NY : Spark Publishing",
+            ""
+          ],
+          "publishDate": "2014.",
+          "subjects": [
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Austen, Jane, 1775-1817. Pride and prejudice Examinations Study guides."
+          ],
+          "physicalDescription": [
+            "86 pages ; 21 cm."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride & prejudice",
+      "seriesTitle": [
+        "Marvel illustrated"
+      ],
+      "author": "Butler, Nancy, 1951-",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785139164?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785139164?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9780785139164?s=LG"
+      },
+      "records": [
+        {
+          "brn": 13233556,
+          "variantTitles": [
+            "Pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Petrus, Hugo.",
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "9780785139164",
+            "078513915X ",
+            "9780785139157 "
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "New York : Marvel",
+            ""
+          ],
+          "publishDate": "2009.",
+          "subjects": [
+            "Young women Comic books, strips, etc.",
+            "Social classes England 19th century Comic books, strips, etc.",
+            "Courtship Comic books, strips, etc.",
+            "Sisters Comic books, strips, etc.",
+            "Graphic novels.",
+            "England 19th century Comic books, strips, etc."
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged): chiefly color illustrations; 27 cm."
+          ],
+          "summary": [
+            "An adaptation of the original by Jane Austen that tells of Lizzy Bennet and her loveable, eccentric family as they navigate through tricky British social circles."
+          ],
+          "notes": [
+            "Contains material originally published in magazine form as Pride & prejudice #1-5.",
+            "Pbk. ed. (ISBN: 9780785139164) published in 2010."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride and prejudice : A retelling.",
+      "seriesTitle": [
+        "Classic Retellings."
+      ],
+      "author": "Wood, Laura",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900882?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900882?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900882?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205665148,
+          "digitalId": "9BBB61CA-143C-4949-B62F-3627918A3646",
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "9781800900882"
+          ],
+          "format": {
+            "code": "36",
+            "name": "Ebook"
+          },
+          "publisher": [
+            ""
+          ],
+          "publishDate": "2022.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Fiction.",
+            "Darcy, Fitzwilliam (Fictitious character)",
+            "Bennet, Elizabeth (Fictitious character)",
+            "Darcy, Fitzwilliam (Fictitious character) Fiction.",
+            "Young Adult Fiction.",
+            "Manners and customs.",
+            "Young adult fiction.",
+            "Classic Literature.",
+            "Romance.",
+            "Young Adult Literature.",
+            "England Social life and customs 19th century Fiction.",
+            "England."
+          ],
+          "physicalDescription": [
+            "1 online resource"
+          ],
+          "summary": [
+            "Witty, intelligent Elizabeth Bennet has no desire for a marriage of convenience.   And when she meets the handsome, wealthy Mr Darcy, her opinion of him is quickly set: he is aloof, selfish and proud - the last man in the world she would ever marry. Until their paths cross again, and again, and the pair begin to realise that first impressions can be flawed...   But as Elizabeth and Darcy become entangled in a dance through the strict hierarchies of society, will there be space for true love to bloom?   Bestselling and YA Book Prize shortlisted author Laura Wood brings Elizabeth Bennet and Mr Darcy's romance to life once more in a stunning and truly accessible retelling of Austen's beloved classic."
+          ],
+          "allowReservation": false,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": false,
+          "source": "Overdrive"
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride & prejudice",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/5050582391251?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/5050582391251?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/5050582391251?s=LG"
+      },
+      "records": [
+        {
+          "brn": 12728721,
+          "variantTitles": [
+            "Pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Wright, Joe.",
+            "Bevan, Tim.",
+            "Fellner, Eric.",
+            "Webster, Paul.",
+            "Knightley, Keira, 1985-",
+            "Austen, Jane, 1775-1817. Pride and prejudice.",
+            "Macfadyen, Matthew, 1974-",
+            "Blethyn, Brenda, 1946-",
+            "Sutherland, Donald, 1935-2024",
+            "Dench, Judi, 1934-",
+            "Studio Canal+",
+            "Universal Pictures Corporation.",
+            "Working Title Films."
+          ],
+          "format": {
+            "code": "33",
+            "name": "DVD"
+          },
+          "edition": [
+            "Widescreen."
+          ],
+          "publisher": [
+            "[London, U.K.] : Universal Pictures"
+          ],
+          "publishDate": "[2005].",
+          "subjects": [
+            "Feature films.",
+            "Video recordings for hard of hearing people.",
+            "Young women England Drama.",
+            "Courtship England Drama.",
+            "Love Drama.",
+            "Sisters Drama.",
+            "Film adaptations.",
+            "Motion pictures, British.",
+            "England Social life and customs 19th century Drama."
+          ],
+          "physicalDescription": [
+            "1 videodisc (approximately 121 min.): sound, color; 4 3/4 in."
+          ],
+          "summary": [
+            "The five Bennet sisters have all been raised by their mother with one purpose in life - finding a husband. However, the second eldest Lizzie can think of many reasons not to marry."
+          ],
+          "notes": [
+            "Special features include: the politics of dating, the stately homes ; the Bennets, the life and times of Jane Austen, commentary, trailer.",
+            "Based on the novel by Jane Austen.",
+            "Originally released as a motion picture in 2005."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "audience": [
+            "Board of Film Censors, Singapore: PG."
+          ],
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "credits": [
+            "Director of photography, Roman Osin ; art directors, Nick Gottschalk, Mark Swain ; editor, Paul Tothill ; music, Dario Marianelli ; costume designer, Jacqueline Durran ; production designer, Sarah Greenwood."
+          ],
+          "performers": [
+            "Kiera Knightley, Matthew Macfayden, Brenda Blethyn, Donald Sutherland, Judi Dench."
+          ],
+          "systemDetails": [
+            "DVD, region 2,5 ; anamorphic widescreen (2.35:1) presentation; Dolby Digital 5.1."
+          ],
+          "availability": true,
+          "volumes": [
+            "[pt.] 1 DVD"
+          ]
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Pride & prejudice : a retelling",
+      "author": "Wood, Laura (Laura Clare)",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900240?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900240?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781800900240?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205657490,
+          "variantTitles": [
+            "Pride and prejudice"
+          ],
+          "otherAuthors": [
+            "Austen, Jane, 1775-1817. Pride and prejudice."
+          ],
+          "isbns": [
+            "9781800900240",
+            "1800900244",
+            "9781800900882"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "publisher": [
+            "Edinburgh : Barrington Stoke"
+          ],
+          "publishDate": "2022.",
+          "subjects": [
+            "Bennet, Elizabeth (Fictitious character) Fiction.",
+            "Darcy, Fitzwilliam (Fictitious character) Fiction.",
+            "Bennet, Elizabeth (Fictitious character)",
+            "Darcy, Fitzwilliam (Fictitious character)",
+            "1800-1899",
+            "Young adult fiction.",
+            "Manners and customs.",
+            "England Social life and customs 19th century Fiction.",
+            "England."
+          ],
+          "physicalDescription": [
+            "129 pages ; 20 cm"
+          ],
+          "summary": [
+            "Elizabeth Bennet and Mr Darcy's romance comes to life once more in a stunning and truly accessible retelling of Austen's beloved classic from bestseller Laura Wood. Witty, intelligent Elizabeth Bennet has no desire for a marriage of convenience. And when she meets the handsome, wealthy Mr Darcy, her opinion of him is quickly set: he is aloof, selfish and proud - the last man in the world she would ever marry. Until their paths cross again, and again, and the pair begin to realise that first impressions can be flawed... But as Elizabeth and Darcy become entangled in a dance through the strict hierarchies of society, will there be space for true love to bloom? Bestselling and YA Book Prize shortlisted author Laura Wood brings Elizabeth Bennet and Mr Darcy's romance to life once more in a stunning and truly accessible retelling of Austen's beloved classic."
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    },
+    {
+      "title": "Jane Austen's pride and prejudice",
+      "seriesTitle": [
+        "BabyLit storybook."
+      ],
+      "author": "Clarkson, Stephanie",
+      "coverUrl": {
+        "small": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781423647836?s=SM",
+        "medium": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781423647836?s=MD",
+        "large": "https://eservice.nlb.gov.sg/bookcoverwrapper/cover/9781423647836?s=LG"
+      },
+      "records": [
+        {
+          "brn": 205717035,
+          "variantTitles": [
+            "Pride and prejudice."
+          ],
+          "otherAuthors": [
+            "Tempest, Annabel, illustrator."
+          ],
+          "isbns": [
+            "9781423647836",
+            "1423647831"
+          ],
+          "format": {
+            "code": "1",
+            "name": "Book"
+          },
+          "edition": [
+            "First edition."
+          ],
+          "publisher": [
+            "Layton, UT : Gibbs Smith",
+            ""
+          ],
+          "publishDate": "[2017]",
+          "subjects": [
+            "Austen, Jane, 1775-1817. Pride and prejudice Juvenile fiction.",
+            "Dating (Social customs) Juvenile fiction.",
+            "Man-woman relationships Juvenile fiction."
+          ],
+          "physicalDescription": [
+            "1 volume (unpaged) : color illustrations ; 25 cm."
+          ],
+          "summary": [
+            "\"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife. Mrs. Bennet must find husbands for her daughters, but rich Mr. Darcy is rude and Elizabeth Bennet wants to marry for love.\" -- Provided by Publisher."
+          ],
+          "notes": [
+            "Cover title"
+          ],
+          "allowReservation": true,
+          "isRestricted": false,
+          "activeReservationsCount": 0,
+          "language": [
+            "English"
+          ],
+          "serial": false,
+          "availability": true
+        }
+      ],
+      "fictionFlag": false
+    }
+  ],
+  "facets": [
+    {
+      "id": "intendedAudience",
+      "name": "Intended Audience",
+      "values": [
+        {
+          "id": "adolescent",
+          "data": "adolescent",
+          "count": 32
+        },
+        {
+          "id": "juvenile",
+          "data": "juvenile",
+          "count": 18
+        },
+        {
+          "id": "adult",
+          "data": "adult",
+          "count": 14
+        },
+        {
+          "id": "general",
+          "data": "general",
+          "count": 12
+        },
+        {
+          "id": "Adults",
+          "data": "Adults",
+          "count": 4
+        },
+        {
+          "id": "preschool",
+          "data": "preschool",
+          "count": 3
+        },
+        {
+          "id": "pre-adolescent",
+          "data": "pre-adolescent",
+          "count": 2
+        },
+        {
+          "id": "Adults|Young people",
+          "data": "Adults|Young people",
+          "count": 1
+        },
+        {
+          "id": "specialized",
+          "data": "specialized",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "values": [
+        {
+          "id": "eng",
+          "data": "English",
+          "count": 363
+        },
+        {
+          "id": "chi",
+          "data": "Chinese",
+          "count": 8
+        },
+        {
+          "id": "zxx",
+          "data": "No linguistic content",
+          "count": 7
+        },
+        {
+          "id": "may",
+          "data": "Malay",
+          "count": 1
+        },
+        {
+          "id": "tam",
+          "data": "Tamil",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "values": [
+        {
+          "id": "jrl",
+          "data": "Jurong Library",
+          "count": 96
+        },
+        {
+          "id": "trl",
+          "data": "Tampines Library",
+          "count": 91
+        },
+        {
+          "id": "wrl",
+          "data": "Woodlands Library",
+          "count": 84
+        },
+        {
+          "id": "jwpl",
+          "data": "Jurong West Library",
+          "count": 73
+        },
+        {
+          "id": "tppl",
+          "data": "Toa Payoh Library",
+          "count": 70
+        },
+        {
+          "id": "prl",
+          "data": "Punggol Library",
+          "count": 69
+        },
+        {
+          "id": "cll",
+          "data": "Central Library",
+          "count": 69
+        },
+        {
+          "id": "bipl",
+          "data": "Bishan Library",
+          "count": 67
+        },
+        {
+          "id": "hbpl",
+          "data": "Harbourfront Library",
+          "count": 62
+        },
+        {
+          "id": "bepl",
+          "data": "Bedok Library",
+          "count": 61
+        },
+        {
+          "id": "gepl",
+          "data": "Geylang East Library",
+          "count": 53
+        },
+        {
+          "id": "srpl",
+          "data": "Serangoon Library",
+          "count": 53
+        },
+        {
+          "id": "cckpl",
+          "data": "Choa Chu Kang Library",
+          "count": 44
+        },
+        {
+          "id": "skpl",
+          "data": "Sengkang Library",
+          "count": 43
+        },
+        {
+          "id": "yipl",
+          "data": "Yishun Library",
+          "count": 42
+        },
+        {
+          "id": "cmpl",
+          "data": "Clementi Library",
+          "count": 39
+        },
+        {
+          "id": "prpl",
+          "data": "Pasir Ris Library",
+          "count": 36
+        },
+        {
+          "id": "bbpl",
+          "data": "Bukit Batok Library",
+          "count": 34
+        },
+        {
+          "id": "bppl",
+          "data": "Bukit Panjang Library",
+          "count": 31
+        },
+        {
+          "id": "sbpl",
+          "data": "Sembawang Library",
+          "count": 30
+        },
+        {
+          "id": "cal",
+          "data": "Central Arts Library",
+          "count": 21
+        },
+        {
+          "id": "08lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 8",
+          "count": 12
+        },
+        {
+          "id": "ld",
+          "data": "PublicationSG",
+          "count": 6
+        },
+        {
+          "id": "11lkcrl",
+          "data": "Lee Kong Chian Reference Library Level 11",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "id": "materialType",
+      "name": "Material Type",
+      "values": [
+        {
+          "id": "ebk",
+          "data": "Ebook",
+          "count": 255
+        },
+        {
+          "id": "bks",
+          "data": "Book",
+          "count": 156
+        },
+        {
+          "id": "aeb",
+          "data": "Eaudiobook",
+          "count": 89
+        },
+        {
+          "id": "pmu",
+          "data": "Printed Music",
+          "count": 10
+        },
+        {
+          "id": "dvd",
+          "data": "DVD",
+          "count": 5
+        },
+        {
+          "id": "mcd",
+          "data": "Music CD",
+          "count": 2
+        },
+        {
+          "id": "abk",
+          "data": "Audio Books",
+          "count": 2
+        },
+        {
+          "id": "brd",
+          "data": "Blu-ray Disc",
+          "count": 2
+        },
+        {
+          "id": "OAI:Digitised Book",
+          "data": "OAI:Digitised Book",
+          "count": 2
+        },
+        {
+          "id": "OAI:Digitised Periodical",
+          "data": "OAI:Digitised Periodical",
+          "count": 2
+        },
+        {
+          "id": "lpt",
+          "data": "Large Print",
+          "count": 1
+        },
+        {
+          "id": "bkv",
+          "data": "Book + DVD",
+          "count": 1
+        },
+        {
+          "id": "abc",
+          "data": "Audio Book on CD",
+          "count": 1
+        },
+        {
+          "id": "OAI:Electronic Book",
+          "data": "OAI:Electronic Book",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
