@@ -49,7 +49,7 @@ def compute_alerts(
     seen: set[tuple[int, str]] = set()
     for branch in newly_available(prev, new):
         for w in watches:
-            if not w.covers(branch) or (w.user_id, branch) in seen:
+            if not w.notify or not w.covers(branch) or (w.user_id, branch) in seen:
                 continue
             seen.add((w.user_id, branch))
             alerts.append(

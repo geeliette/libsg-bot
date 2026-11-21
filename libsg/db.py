@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS watches (
     user_id     INTEGER NOT NULL,
     work_id     INTEGER NOT NULL REFERENCES works(id) ON DELETE CASCADE,
     created_at  TEXT NOT NULL,
+    notify      INTEGER NOT NULL DEFAULT 1,  -- 0 = no alerts; the book just stays on the user's list
     UNIQUE (user_id, work_id)
 );
 
@@ -82,6 +83,7 @@ MIGRATIONS = [
     ("work_editions", "label", "TEXT NOT NULL DEFAULT ''"),
     ("work_editions", "watched", "INTEGER NOT NULL DEFAULT 1"),
     ("work_editions", "data", "TEXT NOT NULL DEFAULT ''"),
+    ("watches", "notify", "INTEGER NOT NULL DEFAULT 1"),
 ]
 
 
@@ -96,6 +98,7 @@ class WatchInfo:
     work_id: int
     work_title: str
     branches: frozenset[str]  # empty = any branch
+    notify: bool = True  # False: no alerts, the book is only listed in /watches
 
     def covers(self, branch_code: str) -> bool:
         return not self.branches or branch_code in self.branches
@@ -217,14 +220,14 @@ class Store:
 
     # --- watches -----------------------------------------------------------
 
-    def set_watch(self, user_id: int, work_id: int, branches: Iterable[str] = ()) -> int:
-        """Create or update the user's watch on a work; replaces its branch set."""
+    def set_watch(self, user_id: int, work_id: int, branches: Iterable[str] = (), notify: bool = True) -> int:
+        """Create or update the user's watch on a work; replaces its branch set and alert setting."""
         branches = sorted({b.upper() for b in branches})
         with self.conn:
             self.conn.execute(
-                "INSERT INTO watches (user_id, work_id, created_at) VALUES (?, ?, ?)"
-                " ON CONFLICT (user_id, work_id) DO NOTHING",
-                (user_id, work_id, _now()),
+                "INSERT INTO watches (user_id, work_id, created_at, notify) VALUES (?, ?, ?, ?)"
+                " ON CONFLICT (user_id, work_id) DO UPDATE SET notify = excluded.notify",
+                (user_id, work_id, _now(), int(notify)),
             )
             watch_id = self.conn.execute(
                 "SELECT id FROM watches WHERE user_id = ? AND work_id = ?", (user_id, work_id)
@@ -236,13 +239,19 @@ class Store:
             )
         return watch_id
 
+    def set_notify(self, watch_id: int, notify: bool) -> None:
+        """Turn alerts on/off. The bot refreshes stale snapshots when turning alerts on, so copies
+        already on the shelf don't trigger an alert -- only the next 0 -> 1 does."""
+        with self.conn:
+            self.conn.execute("UPDATE watches SET notify = ? WHERE id = ?", (int(notify), watch_id))
+
     def remove_watch(self, watch_id: int) -> None:
         with self.conn:
             self.conn.execute("DELETE FROM watches WHERE id = ?", (watch_id,))
 
     def _watch_infos(self, where: str, params: tuple) -> list[WatchInfo]:
         rows = self.conn.execute(
-            f"SELECT w.id, w.user_id, w.work_id, k.title FROM watches w JOIN works k ON k.id = w.work_id"
+            f"SELECT w.id, w.user_id, w.work_id, k.title, w.notify FROM watches w JOIN works k ON k.id = w.work_id"
             f" WHERE {where} ORDER BY w.id",
             params,
         ).fetchall()
@@ -253,7 +262,7 @@ class Store:
                     "SELECT branch_code FROM watch_branches WHERE watch_id = ?", (r["id"],)
                 )
             )
-            out.append(WatchInfo(r["id"], r["user_id"], r["work_id"], r["title"], branches))
+            out.append(WatchInfo(r["id"], r["user_id"], r["work_id"], r["title"], branches, bool(r["notify"])))
         return out
 
     def list_watches(self, user_id: int) -> list[WatchInfo]:
@@ -269,7 +278,10 @@ class Store:
         return found[0] if found else None
 
     def watched_brns(self) -> list[int]:
-        """Physical BRNs in at least one watched work -- what the poller must check.
+        """Physical BRNs in at least one watched work with alerts on -- what the poller must check.
+
+        Books with alerts off aren't polled; they only update via Check now (or when someone
+        else's alerting watch shares the edition).
 
         Never-checked first, then longest-since-checked, so a round cut short by
         rate limiting doesn't starve the same editions every time.
@@ -278,7 +290,7 @@ class Store:
             r["brn"] for r in self.conn.execute(
                 "SELECT e.brn FROM work_editions e JOIN watches w ON w.work_id = e.work_id"
                 " LEFT JOIN checked_editions c ON c.brn = e.brn"
-                " WHERE e.physical = 1 AND e.watched = 1"
+                " WHERE e.physical = 1 AND e.watched = 1 AND w.notify = 1"
                 " GROUP BY e.brn"
                 " ORDER BY MAX(c.checked_at) IS NOT NULL, MAX(c.checked_at), e.brn"
             )

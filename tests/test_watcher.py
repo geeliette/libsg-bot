@@ -9,8 +9,8 @@ from libsg.watcher import compute_alerts, newly_available, process_edition
 BRN = 300172891
 
 
-def watch(user=1, branches=(), wid=10, work=100):
-    return WatchInfo(wid, user, work, "Pride and prejudice", frozenset(branches))
+def watch(user=1, branches=(), wid=10, work=100, notify=True):
+    return WatchInfo(wid, user, work, "Pride and prejudice", frozenset(branches), notify)
 
 
 def test_first_check_is_baseline():
@@ -58,6 +58,17 @@ def test_multiple_users_and_dedupe():
     assert all(a.branch_name == "Central Library" for a in alerts)
 
 
+def test_alerts_off_means_no_alert():
+    assert compute_alerts(BRN, {"CLL": 0}, {"CLL": 1}, [watch(notify=False)]) == []
+
+
+def test_silent_watch_does_not_swallow_a_loud_one():
+    # Same user watches the BRN twice: alerts off on one book, on for another. Still one alert.
+    ws = [watch(user=1, wid=10, work=100, notify=False), watch(user=1, wid=11, work=101)]
+    alerts = compute_alerts(BRN, {"CLL": 0}, {"CLL": 1}, ws)
+    assert [(a.user_id, a.watch_id) for a in alerts] == [(1, 11)]
+
+
 # --- end-to-end with the store and the real fixture --------------------------
 
 
@@ -103,3 +114,20 @@ def test_process_edition_end_to_end(store, emma_avail):
     # Poll 5: borrowed again, Poll 6: returned again -> alerts again.
     assert process_edition(store, BRN, parse_copies(items)) == []
     assert len(process_edition(store, BRN, parse_copies(returned))) == 1
+
+
+def test_turning_alerts_on_sends_no_backlog(store, emma_avail):
+    items = emma_avail["items"]
+    wid = store.create_work(1, "Pride and prejudice", "Austen", [])
+    store.conn.execute("INSERT INTO work_editions (work_id, brn, title) VALUES (?, ?, ?)", (wid, BRN, "P&P"))
+    watch_id = store.set_watch(1, wid, ["CLL"], notify=False)
+    returned = _set_status(items, "CLL", "In")
+
+    assert process_edition(store, BRN, parse_copies(items)) == []  # baseline: on loan
+    assert process_edition(store, BRN, parse_copies(returned)) == []  # back on shelf, but alerts off
+    assert store.get_snapshot(BRN)["CLL"] == 2  # still tracked while silent
+
+    store.set_notify(watch_id, True)
+    assert process_edition(store, BRN, parse_copies(returned)) == []  # already on shelf: no backlog alert
+    assert process_edition(store, BRN, parse_copies(items)) == []
+    assert len(process_edition(store, BRN, parse_copies(returned))) == 1  # next return alerts

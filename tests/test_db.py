@@ -150,3 +150,42 @@ def test_checked_times(store):
     store.save_snapshot(1, {})
     times = store.checked_times([1, 2])
     assert set(times) == {1}
+
+
+def test_notify_setting(store, emma_work):
+    wid = store.create_work(USER, emma_work.title, emma_work.author, emma_work.editions)
+    watch_id = store.set_watch(USER, wid, ["CLL"])
+    assert store.get_watch(watch_id).notify is True  # default: alerts on
+    store.set_notify(watch_id, False)
+    assert store.get_watch(watch_id).notify is False
+    assert store.list_watches(USER)[0].branches == {"CLL"}  # untouched
+    assert store.watched_brns() == []  # alerts off: not polled
+    store.set_watch(USER, wid, ["TRL"], notify=True)  # saving again sets it explicitly
+    w = store.get_watch(watch_id)
+    assert w.notify is True and w.branches == {"TRL"}
+
+
+def test_migration_adds_notify_on(tmp_path):
+    import sqlite3
+
+    path = tmp_path / "old.db"
+    old = sqlite3.connect(path)
+    old.executescript(
+        "CREATE TABLE works (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, title TEXT NOT NULL,"
+        " author TEXT NOT NULL DEFAULT '', created_at TEXT NOT NULL);"
+        "CREATE TABLE watches (id INTEGER PRIMARY KEY, user_id INTEGER NOT NULL, work_id INTEGER NOT NULL,"
+        " created_at TEXT NOT NULL, UNIQUE (user_id, work_id));"
+        "INSERT INTO works VALUES (1, 5, 'Emma', '', 'x'); INSERT INTO watches VALUES (7, 5, 1, 'x');"
+    )
+    old.commit()
+    old.close()
+    with Store(path) as s:
+        assert s.get_watch(7).notify is True  # existing watches keep alerting
+
+
+def test_only_alerting_watches_are_polled(store, emma_work):
+    loud = store.create_work(USER, emma_work.title, emma_work.author, emma_work.editions, watched=[300172872])
+    quiet = store.create_work(OTHER, emma_work.title, emma_work.author, emma_work.editions)
+    store.set_watch(USER, loud)
+    store.set_watch(OTHER, quiet, notify=False)
+    assert store.watched_brns() == [300172872]  # OTHER's silent editions aren't polled
