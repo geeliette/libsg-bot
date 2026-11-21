@@ -20,6 +20,7 @@ Telegram bot for Singapore NLB library books: search, merge editions, alert when
 - `branches.py` – lending libraries from GetBranches. `db.py` – SQLite store (works, watches, snapshots, branches).
 - `watcher.py` – pure alert rule. `poller.py` – one polling round. `ratelimit.py` – Check now spam guard.
 - `messages.py` – all bot text and keyboards (pure functions). `bot.py` – handlers, jobs, entry point.
+- `deploy/` – `push.sh` (rsync from Mac to server, then runs setup) and `setup.sh` (on server: uv Python 3.14, systemd unit `libsg-bot`). Server runs Oracle Cloud Always Free, Ubuntu, user `ubuntu`.
 
 ## NLB data facts (verified against real responses)
 - Available copy = `status.code == "In"` and not `nonCirculatingFlag`. Other codes seen: "Out" (on loan), "In-Transit".

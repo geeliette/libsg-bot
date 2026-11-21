@@ -59,6 +59,42 @@ The bot loads the library list from NLB on startup, then checks all watched edit
 | `POLL_MINUTES` | `30` | Minutes between regular checks |
 | `POLL_SPACING_SECONDS` | `10` | Pause between NLB calls during regular checks |
 
+## Deploying (Oracle Cloud Always Free)
+
+Runs the bot 24/7 on a free Ubuntu server as a systemd service: it starts on boot and restarts 30 s after a crash. Only outbound connections are used, so no ports need opening.
+
+**Run only one copy.** Telegram allows one running bot per token; a second copy (e.g. on your Mac) causes `Conflict` errors.
+
+1. **Create the server.** Sign up at cloud.oracle.com and pick **Singapore** as home region (it can't be changed later). Create a compute instance:
+   - Image: Canonical Ubuntu 24.04.
+   - Shape: `VM.Standard.E2.1.Micro` (Always Free), or `VM.Standard.A1.Flex` with 1 OCPU / 6 GB if available.
+   - SSH key: upload your public key (`~/.ssh/id_rsa.pub`).
+   - Note the public IP. The login user is `ubuntu`.
+
+   Oracle may reclaim Always Free VMs that stay nearly idle for a week, and this bot is very light. Upgrading the account to *Pay As You Go* stops that; Always Free resources stay free.
+
+2. **First deploy**, from the project folder on your Mac:
+   ```sh
+   ssh ubuntu@<ip> 'mkdir -p libsg-bot'
+   scp .env ubuntu@<ip>:libsg-bot/.env
+   # Optional, to keep existing watches: stop the bot on your Mac first, then
+   scp libsg.db ubuntu@<ip>:libsg-bot/libsg.db
+   deploy/push.sh ubuntu@<ip>
+   ```
+   `push.sh` copies the code and runs `deploy/setup.sh` on the server, which installs Python 3.14 (via uv) and the dependencies, sets the timezone to Singapore and starts the service.
+
+3. **Updates:** run `deploy/push.sh ubuntu@<ip>` again. It restarts the bot, so check it's idle first.
+
+**On the server:**
+```sh
+journalctl -u libsg-bot -f              # live log
+sudo systemctl status libsg-bot         # running?
+sudo systemctl restart libsg-bot        # restart
+sudo systemctl stop libsg-bot           # stop (starts again on reboot unless you `disable` it)
+```
+
+The database lives at `~/libsg-bot/libsg.db` on the server. Copy it back now and then (`scp ubuntu@<ip>:libsg-bot/libsg.db backup.db`) so watches survive losing the VM.
+
 ## Trying the API without the bot
 
 `try.py` calls the NLB API directly and saves every raw response to `tests/fixtures/`:
@@ -92,6 +128,7 @@ libsg/
   messages.py     All bot text and buttons
   bot.py          Telegram handlers, scheduled jobs, entry point
 try.py            CLI for poking the API
+deploy/           push.sh (Mac → server) and setup.sh (server: install + systemd service)
 tests/            pytest suite + fixtures/
 ```
 
