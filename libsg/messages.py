@@ -6,7 +6,8 @@ Callback data (Telegram limit: 64 bytes):
     w:<gen>:<i>   pick result i (0-based, across pages) from search generation gen
     m:<gen>       more results;  p:<gen> = previous results;  r:<gen> = back to results
     e:<brn>       toggle an edition;  ea = select all, ec = clear, en = next;  ep:<start> = page of editions
-    b:<CODE>      toggle a branch;  b:* = any library;  bs = save;  eb = back to editions
+    b:<CODE>      toggle a branch;  b:* = any library;  bn = alerts on/off;  bs = save;  eb = back to editions
+    n:<watch_id>  turn alerts on/off for a saved watch
     ed:<watch_id> edit a watch;  wc = cancel editing;  c:<watch_id> = check now
     x:<watch_id>  stop watching
 """
@@ -30,34 +31,24 @@ EDITIONS_PAGE = 10  # editions per page when picking editions
 MAX_TEXT = 3900  # Telegram's limit is 4096; leave room
 
 START = (
-    "Get a message when an NLB library book is back on the shelf at the libraries you choose.\n\n"
-    "Start with <code>/search</code> and a title, e.g. <code>/search pride and prejudice</code>\n"
-    "/help – how it works"
+    "📚 Find library books faster.\n\n"
+    "Search for a book to get started, e.g.\n"
+    "<code>/search pride and prejudice</code>\n\n"
+    "New here? /help shows how it all works."
 )
 
 HELP = (
-    "📚 Get a message when an NLB library book is back on the shelf.\n\n"
+    "📚 Here's how it works:\n\n"
     "<b>/search</b> <i>title, author or ISBN</i>\n"
-    "Find a book and start watching it:\n"
-    "1. Pick it from the top 5 matches (<i>More results</i> for more).\n"
-    "2. Tick the editions to watch – untick other languages or ones you don't want. "
-    "Not sure which is which? Search the ISBN in the NLB app, or tap <i>View in catalogue</i>.\n"
-    "3. Choose the libraries you can get to, or keep <i>Any library</i>.\n"
-    "4. Save – you'll see where it's on the shelf right now.\n\n"
+    "Find a book and see all its editions in one place. Watch them all at once, "
+    "or just untick any you don't want. Then pick the libraries you'd like alerts from "
+    "– alerts are on by default.\n\n"
     "<b>/watches</b>\n"
-    "All the books being watched, with where each one is on the shelf as of the last check. "
-    "Each book has buttons to:\n"
-    "• <i>Check now</i> – check the shelves right away\n"
-    "• <i>Edit</i> – change its editions or libraries\n"
-    "• <i>Stop watching</i>\n\n"
-    "<b>/help</b> – this guide\n\n"
-    "<b>How alerts work</b>\n"
-    "The shelves get checked every {minutes} minutes. When a copy comes back on the shelf "
-    "at one of your libraries, a message arrives – so don't wait too long, it can get borrowed again!\n\n"
-    "<b>Good to know</b>\n"
-    "• Print books only – no ebooks or audiobooks.\n"
-    "• Libraries closed for renovation or relocation aren't listed.\n"
-    "• Reservations happen in the NLB app, not here."
+    "All your books, and which libraries have them on the shelf.\n"
+    "🔔 <i>Alerts on</i>: the shelves get checked every {minutes} minutes, and you'll get a message "
+    "as soon as a copy is back at one of your alert libraries.\n"
+    "🔕 <i>Alerts off</i>: tap <i>Check now</i> whenever you want to see where it is.\n\n"
+    "Print books only, and reservations happen in the NLB app. Happy reading! 📖"
 )
 
 
@@ -227,23 +218,41 @@ def editions_keyboard(
 # --- draft: branches ------------------------------------------------------
 
 
-def branches_text(title: str, has_branches: bool = True) -> str:
+def branches_text(title: str, has_branches: bool = True, notify: bool = True) -> str:
+    if not notify:
+        return (
+            f"<b>{escape(title)}</b>\n🔕 <i>Alerts off</i>: no messages, so no libraries to pick – "
+            "/watches shows every library. The book isn't checked automatically; "
+            "use <i>Check now</i> in /watches whenever you like."
+            "\n\nTap 🔕 to turn alerts back on, or Save watch."
+        )
     text = (
-        f"<b>{escape(title)}</b>\nWhich libraries can you get to? "
-        "Tap as many as you like, or leave <i>Any library</i> on. Then tap Save watch."
+        f"<b>{escape(title)}</b>\n🔔 <i>Alerts on</i>: which libraries should alert you? Tap as many as you like, "
+        "or keep <i>Any library</i> on. You'll get a message when a copy comes back on the shelf there, "
+        "and /watches shows every library either way."
+        "\n\nRather not get messages? Tap 🔔 to turn alerts off. Then tap Save watch."
     )
     if not has_branches:
         text += "\n\n(The library list couldn't be loaded from NLB just now, so only <i>Any library</i> is available.)"
     return text
 
 
-def branches_keyboard(branches: Sequence[Branch], selected: set[str], per_row: int = 3) -> Markup:
-    rows = [[Button(f"{'✅' if not selected else '⬜'} Any library", callback_data="b:*")]]
-    buttons = [
-        Button(f"{'✅ ' if b.code in selected else ''}{b.short_name}", callback_data=f"b:{b.code}")
-        for b in branches
-    ]
-    rows += [buttons[i:i + per_row] for i in range(0, len(buttons), per_row)]
+def notify_label(notify: bool) -> str:
+    return "🔔 Alerts on" if notify else "🔕 Alerts off"
+
+
+def branches_keyboard(
+    branches: Sequence[Branch], selected: set[str], notify: bool = True, per_row: int = 3,
+) -> Markup:
+    """Alerts switch on top; library buttons only when alerts are on (they only choose where alerts come from)."""
+    rows = [[Button(f"{notify_label(notify)} (tap to change)", callback_data="bn")]]
+    if notify:
+        rows.append([Button(f"{'✅' if not selected else '⬜'} Any library", callback_data="b:*")])
+        buttons = [
+            Button(f"{'✅ ' if b.code in selected else ''}{b.short_name}", callback_data=f"b:{b.code}")
+            for b in branches
+        ]
+        rows += [buttons[i:i + per_row] for i in range(0, len(buttons), per_row)]
     rows.append([Button("‹ Back to editions", callback_data="eb"), Button("Save watch", callback_data="bs")])
     return Markup(rows)
 
@@ -264,26 +273,69 @@ def checking_text(title: str, n_editions: int, estimate: str, done: int = 0) -> 
     )
 
 
+def _places(counts: Mapping[str, int], names: Mapping[str, str]) -> str:
+    """"Bedok (2), Clementi (1)" -- alphabetical so people can spot their library."""
+    items = sorted(counts.items(), key=lambda kv: names.get(kv[0], kv[0]).lower())
+    return ", ".join(f"{escape(names.get(c, c))} ({n})" for c, n in items)
+
+
+def _library_names(codes: Iterable[str], names: Mapping[str, str], closed: set[str] = frozenset()) -> str:
+    return ", ".join(
+        escape(names.get(c, c)) + (" (closed)" if c in closed else "")
+        for c in sorted(codes, key=lambda c: names.get(c, c).lower())
+    )
+
+
+def shelf_lines(
+    on_shelf: Mapping[str, int] | None,
+    alert_branches: Iterable[str],
+    names: Mapping[str, str],
+    notify: bool = True,
+) -> list[str]:
+    """Where a book is on the shelf, across every library. on_shelf: branch -> copies, None = not checked yet.
+
+    With alerts on for specific libraries, those come first and the rest follow as "Also on the shelf".
+    """
+    if on_shelf is None:
+        return ["On the shelf: not checked yet"]
+    available = {c: n for c, n in on_shelf.items() if n}
+    alert_branches = set(alert_branches)
+    if not (notify and alert_branches):
+        if not available:
+            return ["On the shelf: none right now"]
+        return [f"📗 On the shelf at {plural(len(available), 'library', 'libraries')}: {_places(available, names)}"]
+    mine = {c: n for c, n in available.items() if c in alert_branches}
+    others = {c: n for c, n in available.items() if c not in alert_branches}
+    lines = [
+        f"🔔 On the shelf at your alert libraries: {_places(mine, names)}" if mine
+        else f"🔔 Not on the shelf at {_library_names(alert_branches, names)} right now"
+    ]
+    if others:
+        lines.append(f"📗 Also on the shelf at {plural(len(others), 'library', 'libraries')}: {_places(others, names)}")
+    return lines
+
+
 def watch_saved_text(
     title: str,
     branches: set[str],
     on_shelf: Mapping[str, int] | None,
     names: Mapping[str, str],
     replaced: bool = False,
+    notify: bool = True,
 ) -> str:
-    """on_shelf: branch -> copies on shelf now (within the watched branches), None if unknown."""
+    """branches: alert libraries (empty = any). on_shelf: branch -> copies at every library, None if unknown."""
     head = "Updated your watch" if replaced else "Watching"
-    text = f"{head}: <b>{escape(title)}</b> at {escape(branch_list(branches, names))}."
+    lines = [f"{head}: <b>{escape(title)}</b>"]
     if on_shelf is None:
-        text += "\nCouldn't check the shelves just now (NLB was busy) – it'll be checked in the next round."
-    elif on_shelf:
-        where = ", ".join(
-            f"{escape(names.get(b, b))} ({n})" for b, n in sorted(on_shelf.items(), key=lambda kv: names.get(kv[0], kv[0]))
-        )
-        text += f"\nOn the shelf right now: {where}."
+        lines.append("Couldn't check the shelves just now (NLB was busy) – it'll be checked in the next round.")
     else:
-        text += "\nNo copies on the shelf there right now."
-    return text + "\nYou'll get a message when a copy comes back on the shelf."
+        lines += shelf_lines(on_shelf, branches, names, notify)
+    if notify:
+        where = _library_names(branches, names) if branches else "any library"
+        lines.append(f"\nYou'll get a message when a copy comes back at {where}.")
+    else:
+        lines.append("\n🔕 Alerts are off: this book isn't checked automatically. Use Check now in /watches to update it.")
+    return "\n".join(lines)
 
 
 # --- watches --------------------------------------------------------------
@@ -315,40 +367,43 @@ def watch_text(
     closed: set[str] = frozenset(),
     on_shelf: Mapping[str, int] | None = None,
     checked: str = "",
+    notify: bool = True,
 ) -> str:
-    """One watched book for /watches. on_shelf: branch -> copies (watched branches only); None = not checked yet."""
+    """One book for /watches. branches: alert libraries (empty = any).
+    on_shelf: branch -> copies at every library; None = not checked yet."""
     author = short_author(author)
     branches = list(branches)
-    if branches:
-        where = ", ".join(
-            escape(names.get(c, c)) + (" (closed)" if c in closed else "")
-            for c in sorted(branches, key=lambda c: names.get(c, c))
-        )
+    if not notify:
+        alerts = "🔕 Alerts off – not checked automatically, tap Check now to update"
+    elif branches:
+        alerts = f"🔔 Alerts at {_library_names(branches, names, closed)}"
     else:
-        where = "any library"
+        alerts = "🔔 Alerts at any library"
     lines = [
         f"<b>{escape(title)}</b>" + (f" – {escape(author)}" if author else ""),
-        f"Watching {plural(n_editions, 'edition')} at {where}",
+        f"Watching {plural(n_editions, 'edition')}",
+        alerts,
+        *shelf_lines(on_shelf, branches, names, notify),
     ]
-    if on_shelf is None:
-        lines.append("On the shelf: not checked yet")
-    elif on_shelf:
-        # Every library, alphabetical so people can spot theirs; all ~22 fit comfortably in one message.
-        places = sorted(on_shelf.items(), key=lambda kv: names.get(kv[0], kv[0]).lower())
-        shown = ", ".join(f"{escape(names.get(c, c))} ({n})" for c, n in places)
-        lines.append(f"📗 On the shelf at {plural(len(places), 'library', 'libraries')}: {shown}")
-    else:
-        lines.append("On the shelf: none right now")
     if checked:
         lines.append(f"<i>Last checked {checked}</i>")
     return "\n".join(lines)
 
 
-def watch_keyboard(watch_id: int) -> Markup:
+def watch_keyboard(watch_id: int, notify: bool = True) -> Markup:
+    toggle = "🔕 Turn alerts off" if notify else "🔔 Turn alerts on"
     return Markup([
-        [Button("🔄 Check now", callback_data=f"c:{watch_id}")],
+        [Button("🔄 Check now", callback_data=f"c:{watch_id}"), Button(toggle, callback_data=f"n:{watch_id}")],
         [Button("Edit", callback_data=f"ed:{watch_id}"), Button("Stop watching", callback_data=f"x:{watch_id}")],
     ])
+
+
+def alerts_on_checking_text(title: str, n_editions: int, estimate: str, done: int = 0) -> str:
+    return (
+        f"<b>{escape(title)}</b>\n🔔 Turning alerts on – checking the shelves for "
+        f"{plural(n_editions, 'edition')} first, so only copies returned from now on trigger an alert… {estimate}."
+        + progress_line(done, n_editions)
+    )
 
 
 def checking_now_text(title: str, n_editions: int, estimate: str, done: int = 0) -> str:

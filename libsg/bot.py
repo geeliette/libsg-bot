@@ -62,6 +62,8 @@ class Draft:
     gen: int | None = None  # search it came from (for "Back to results")
     page_start: int = 0  # first edition shown (edition list is paged)
     watch_id: int | None = None  # set when editing an existing watch
+    message_id: int | None = None  # the message this set-up lives in; buttons elsewhere can't touch it
+    notify: bool = True  # alerts on/off
 
     def back_button(self) -> tuple[str, str] | None:
         if self.watch_id is not None:
@@ -106,6 +108,23 @@ async def _search_page(ctx: ContextTypes.DEFAULT_TYPE, query: str, offset: int) 
     works = suggest_works(parse_search(data), physical_only=True)
     nxt = data.get("nextRecordsOffset") if data.get("hasMoreRecords") else None
     return works, nxt
+
+
+def _stale_brns(store: Store, brns: list[int], max_age: float) -> list[int]:
+    """BRNs never checked, or last checked more than max_age seconds ago."""
+    times = store.checked_times(brns)
+    now = datetime.now(timezone.utc)
+
+    def age(iso: str) -> float:
+        t = datetime.fromisoformat(iso)
+        return (now - (t if t.tzinfo else t.replace(tzinfo=timezone.utc))).total_seconds()  # naive = UTC
+
+    return [b for b in brns if b not in times or age(times[b]) >= max_age]
+
+
+def _baseline_age(ctx: ContextTypes.DEFAULT_TYPE) -> float:
+    """Snapshots older than one poll interval aren't kept fresh by anyone, so they're stale as a baseline."""
+    return ctx.bot_data["poll_minutes"] * 60
 
 
 def _progress(q, render):
@@ -179,7 +198,8 @@ async def cmd_search(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
 
 
 def _watch_view(store: Store, watch, branches) -> str:
-    """Text for one watched book: editions, libraries, where it's on the shelf as of the last check."""
+    """Text for one watched book: editions, alert libraries, and where it's on the shelf at every library
+    as of the last check."""
     names = {b.code: b.short_name for b in branches}
     closed = {b.code for b in branches if not b.is_open}
     work = store.get_work(watch.work_id)
@@ -190,10 +210,11 @@ def _watch_view(store: Store, watch, branches) -> str:
         on_shelf = {}
         for snap in snaps:
             for code, n in (snap or {}).items():
-                if n and watch.covers(code):
+                if n:  # every library; alert libraries are listed first by the message
                     on_shelf[code] = on_shelf.get(code, 0) + n
     checked = M.ago(store.last_checked(physical)) if physical else ""
-    return M.watch_text(work.title, work.author, len(work.brns), watch.branches, names, closed, on_shelf, checked)
+    return M.watch_text(work.title, work.author, len(work.brns), watch.branches, names, closed, on_shelf, checked,
+                        notify=watch.notify)
 
 
 async def cmd_watches(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
@@ -206,7 +227,7 @@ async def cmd_watches(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     branches = store.branches()
     await msg.reply_text(f"You're watching {M.plural(len(watches), 'book')}:")
     for w in watches:
-        await msg.reply_text(_watch_view(store, w, branches), parse_mode=HTML, reply_markup=M.watch_keyboard(w.watch_id))
+        await msg.reply_text(_watch_view(store, w, branches), parse_mode=HTML, reply_markup=M.watch_keyboard(w.watch_id, w.notify))
 
 
 # --- button callbacks -------------------------------------------------------
@@ -224,6 +245,10 @@ async def on_button(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
             await _previous(update, ctx, int(data[2:]))
         elif data.startswith("r:"):
             await _back_to_results(update, ctx, int(data[2:]))
+        elif data.startswith("n:"):
+            await _toggle_notify(update, ctx, int(data[2:]))
+        elif data == "bn":
+            await _toggle_draft_notify(update, ctx)
         elif data.startswith("c:"):
             await _check_now(update, ctx, int(data[2:]))
         elif data.startswith("ed:"):
@@ -257,12 +282,25 @@ def _search(ctx: ContextTypes.DEFAULT_TYPE, gen: int) -> Search | None:
     return s if s and s.gen == gen else None
 
 
-def _draft(ctx: ContextTypes.DEFAULT_TYPE) -> Draft | None:
-    return ctx.user_data.get("draft")
+def _message_id(update: Update) -> int | None:
+    return getattr(update.callback_query.message, "message_id", None)
+
+
+def _draft(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> Draft | None:
+    """The set-up in progress -- but only for buttons on the message it lives in.
+
+    Only one set-up is kept per user. Without this check, a button on an older message
+    (e.g. book A's) would change, and could save over, the current one (e.g. book B's edit).
+    """
+    draft = ctx.user_data.get("draft")
+    return draft if draft and draft.message_id == _message_id(update) else None
 
 
 async def _expired(update: Update) -> None:
-    await update.callback_query.answer("That's from an old search. Run /search again.", show_alert=True)
+    await update.callback_query.answer(
+        "This message is out of date. Run /search again, or use /watches to edit a saved book.",
+        show_alert=True,
+    )
 
 
 async def _more(update: Update, ctx: ContextTypes.DEFAULT_TYPE, gen: int) -> None:
@@ -312,7 +350,8 @@ async def _pick_work(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) 
         await _expired(update)
         return
     w = s.works[int(i)]
-    draft = Draft(w.title, w.author, list(w.editions), {e.brn for e in w.editions}, gen=s.gen)
+    draft = Draft(w.title, w.author, list(w.editions), {e.brn for e in w.editions}, gen=s.gen,
+                  message_id=_message_id(update))
     ctx.user_data["draft"] = draft
     await update.callback_query.answer()
     await _show_editions(update, draft)
@@ -320,7 +359,7 @@ async def _pick_work(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) 
 
 async def _edit_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) -> None:
     q = update.callback_query
-    draft = _draft(ctx)
+    draft = _draft(update, ctx)
     if not draft:
         await _expired(update)
         return
@@ -330,8 +369,8 @@ async def _edit_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: s
             return
         await q.answer()
         branches = _store(ctx).branches(open_only=True)
-        await q.edit_message_text(M.branches_text(draft.title, bool(branches)), parse_mode=HTML,
-                                  reply_markup=M.branches_keyboard(branches, draft.branches))
+        await q.edit_message_text(M.branches_text(draft.title, bool(branches), draft.notify), parse_mode=HTML,
+                                  reply_markup=M.branches_keyboard(branches, draft.branches, draft.notify))
         return
     if data.startswith("ep:"):
         draft.page_start = min(max(0, int(data[3:])), max(0, len(draft.editions) - 1))
@@ -369,13 +408,14 @@ async def _back_to_results(update: Update, ctx: ContextTypes.DEFAULT_TYPE, gen: 
     if not s:
         await _expired(update)
         return
-    ctx.user_data.pop("draft", None)
+    if _draft(update, ctx):  # only drop the set-up that lives in this message
+        ctx.user_data.pop("draft", None)
     await update.callback_query.answer()
     await _render_results(update, s)
 
 
 async def _back_to_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
-    draft = _draft(ctx)
+    draft = _draft(update, ctx)
     if not draft:
         await _expired(update)
         return
@@ -393,7 +433,8 @@ async def _edit_watch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: 
         return
     work = store.get_work(w.work_id)
     editions, watched = store.edition_choices(w.work_id)
-    ctx.user_data["draft"] = Draft(work.title, work.author, editions, watched, set(w.branches), watch_id=watch_id)
+    ctx.user_data["draft"] = Draft(work.title, work.author, editions, watched, set(w.branches), watch_id=watch_id,
+                                   notify=w.notify, message_id=_message_id(update))
     await q.answer()
     await _show_editions(update, ctx.user_data["draft"])
 
@@ -411,11 +452,8 @@ async def _check_now(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: i
         await q.answer(M.check_paused_text(guard.minutes(wait)), show_alert=True)
         return
     physical = [r["brn"] for r in store.work_editions(w.work_id) if r["physical"]]
-    times = store.checked_times(physical)
-    now = datetime.now(timezone.utc)
-    stale = [b for b in physical
-             if b not in times or (now - datetime.fromisoformat(times[b])).total_seconds() >= FRESH_FOR]
-    view = lambda: (_watch_view(store, w, store.branches()), M.watch_keyboard(watch_id))
+    stale = _stale_brns(store, physical, FRESH_FOR)
+    view = lambda: (_watch_view(store, w, store.branches()), M.watch_keyboard(watch_id, w.notify))
 
     if not stale:
         await q.answer(f"Just checked ({M.ago(store.last_checked(physical))}) – showing that.")
@@ -440,20 +478,24 @@ async def _check_now(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: i
 
 async def _cancel_edit(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     q = update.callback_query
-    draft = ctx.user_data.pop("draft", None)
+    draft = _draft(update, ctx)
+    if not draft:
+        await _expired(update)
+        return
+    ctx.user_data.pop("draft", None)
     store = _store(ctx)
-    w = store.get_watch(draft.watch_id) if draft and draft.watch_id is not None else None
+    w = store.get_watch(draft.watch_id) if draft.watch_id is not None else None
     await q.answer("No changes made")
     if not w:
         await q.edit_message_text("No changes made. Send /watches to see your watched books.")
         return
     await q.edit_message_text(_watch_view(store, w, store.branches()), parse_mode=HTML,
-                              reply_markup=M.watch_keyboard(w.watch_id))
+                              reply_markup=M.watch_keyboard(w.watch_id, w.notify))
 
 
 async def _toggle_branch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, code: str) -> None:
     q = update.callback_query
-    draft = _draft(ctx)
+    draft = _draft(update, ctx)
     if not draft:
         await _expired(update)
         return
@@ -463,12 +505,56 @@ async def _toggle_branch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, code: s
     elif code in {b.code for b in branches}:
         draft.branches ^= {code}
     await q.answer()
-    await q.edit_message_reply_markup(M.branches_keyboard(branches, draft.branches))
+    await q.edit_message_reply_markup(M.branches_keyboard(branches, draft.branches, draft.notify))
+
+
+async def _toggle_draft_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    q = update.callback_query
+    draft = _draft(update, ctx)
+    if not draft:
+        await _expired(update)
+        return
+    draft.notify = not draft.notify  # library picks are kept, so switching back on restores them
+    await q.answer(M.notify_label(draft.notify))
+    branches = _store(ctx).branches(open_only=True)
+    await q.edit_message_text(  # text changes too: with alerts off there are no libraries to pick
+        M.branches_text(draft.title, bool(branches), draft.notify), parse_mode=HTML,
+        reply_markup=M.branches_keyboard(branches, draft.branches, draft.notify),
+    )
+
+
+async def _toggle_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -> None:
+    """🔔/🔕 on a book in /watches."""
+    q = update.callback_query
+    store = _store(ctx)
+    w = store.get_watch(watch_id)
+    if not w or w.user_id != update.effective_user.id:
+        await q.answer("That watch no longer exists.", show_alert=True)
+        await q.edit_message_reply_markup(None)
+        return
+    store.set_notify(watch_id, not w.notify)
+    w = store.get_watch(watch_id)
+    await q.answer(M.notify_label(w.notify))
+    if w.notify:
+        # Its snapshots may be days old (books with alerts off aren't polled). Refresh them first,
+        # so the next poll doesn't alert about copies that were already on the shelf.
+        physical = [r["brn"] for r in store.work_editions(w.work_id) if r["physical"]]
+        stale = _stale_brns(store, physical, _baseline_age(ctx))
+        if stale:
+            estimate = M.estimate_text(len(stale), SAVE_SPACING)
+            await q.edit_message_text(M.alerts_on_checking_text(w.work_title, len(stale), estimate), parse_mode=HTML)
+            result = await check_editions(
+                store, stale, lambda b: _fetch(ctx, b), spacing=SAVE_SPACING,
+                on_progress=_progress(q, lambda done: M.alerts_on_checking_text(w.work_title, len(stale), estimate, done)),
+            )
+            await _send_alerts(ctx, result, skip_user=w.user_id)
+    await q.edit_message_text(_watch_view(store, w, store.branches()), parse_mode=HTML,
+                              reply_markup=M.watch_keyboard(watch_id, w.notify))
 
 
 async def _save(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     q = update.callback_query
-    draft = _draft(ctx)
+    draft = _draft(update, ctx)
     if not draft:
         await _expired(update)
         return
@@ -483,14 +569,17 @@ async def _save(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         store.delete_work(wid)
     # Keep the unticked candidates too, so Edit can offer them again.
     work_id = store.create_work(user_id, draft.title, draft.author, draft.editions, watched=draft.selected)
-    store.set_watch(user_id, work_id, draft.branches)
+    store.set_watch(user_id, work_id, draft.branches, notify=draft.notify)
     ctx.user_data.pop("draft", None)
 
     physical = [e.brn for e in editions if e.physical]
-    unchecked = [b for b in physical if store.get_snapshot(b) is None]
+    # Never-checked editions always get a first check. With alerts on, editions whose last check is
+    # older than a poll interval (e.g. from a time alerts were off) are refreshed too, so the next poll
+    # doesn't alert about copies that were already on the shelf.
+    unchecked = _stale_brns(store, physical, _baseline_age(ctx) if draft.notify else float("inf"))
     await q.answer("Saved")
     estimate = M.estimate_text(len(unchecked), SAVE_SPACING)
-    if unchecked:  # editions already checked by the regular poll need no new call
+    if unchecked:  # editions with a fresh check need no new call
         await q.edit_message_text(M.checking_text(draft.title, len(unchecked), estimate), parse_mode=HTML)
 
     # Baseline: check editions we've never seen. Any alerts this produces belong to *other*
@@ -508,10 +597,10 @@ async def _save(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
             on_shelf = None
             break
         for code, n in snap.items():
-            if n and (not draft.branches or code in draft.branches):
+            if n:  # every library; alert libraries are listed first by the message
                 on_shelf[code] = on_shelf.get(code, 0) + n
     await q.edit_message_text(
-        M.watch_saved_text(draft.title, draft.branches, on_shelf, _names(ctx), replaced=bool(old)),
+        M.watch_saved_text(draft.title, draft.branches, on_shelf, _names(ctx), replaced=bool(old), notify=draft.notify),
         parse_mode=HTML,
     )
 

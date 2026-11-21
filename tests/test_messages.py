@@ -19,20 +19,21 @@ def _texts(markup):
 
 def test_help_mentions_interval_and_commands():
     t = M.help_text(30)
-    assert "every 30 minutes" in t
-    assert "closed for renovation or relocation" in t and "open right now" not in t
-    for cmd in ("/search", "/watches", "/help"):
+    assert "checked every 30 minutes" in t
+    for cmd in ("/search", "/watches"):
         assert f"<b>{cmd}</b>" in t  # each command has its own section
-    for button in ("Check now", "Edit", "Stop watching", "More results", "Any library"):
-        assert button in t
-    assert "Cover" not in t
+    assert "all its editions in one place" in t  # what search does
+    assert "alerts are on by default" in t and "alert libraries" in t
+    assert "🔔" in t and "🔕" in t and "Check now" in t
     assert "ISBN" in t and "NLB app" in t
     assert "/search" in M.START
+    assert len(t) < 800  # keep it short
     import re
 
     for text in (M.START, t):  # impersonal: no "I", "I'll", "I'm"...
         assert not re.search(r"\bI\b|\bI'", text), text
-    assert len(M.START) < 250
+    assert len(M.START) < 200 and "/help" in M.START
+    assert "Alerts" not in M.START and "/watches" not in M.START  # explained in /help, not repeated
 
 
 def test_short_author():
@@ -184,12 +185,13 @@ def test_editions_keyboard(pp_search):
 def test_branches_keyboard(branches_data):
     open_branches = [b for b in parse_branches(branches_data) if b.is_open]
     mk = M.branches_keyboard(open_branches, set())
-    assert mk.inline_keyboard[0][0].text == "✅ Any library"
+    assert mk.inline_keyboard[0][0].text == "🔔 Alerts on (tap to change)"  # the switch comes first
+    assert mk.inline_keyboard[1][0].text == "✅ Any library"
     texts = _texts(M.branches_keyboard(open_branches, {"TRL"}))
     assert "⬜ Any library" in texts and "✅ Tampines" in texts and "Chinatown" in texts
     assert not any(t in texts for t in ("Ang Mo Kio", "Orchard", "library@orchard", "Queenstown"))
     assert all(len(row) <= 3 for row in mk.inline_keyboard)
-    assert _callbacks(mk)[-2:] == ["eb", "bs"]
+    assert _callbacks(mk)[0] == "bn" and _callbacks(mk)[-2:] == ["eb", "bs"]
 
 
 def test_branches_text_without_list():
@@ -219,36 +221,79 @@ def test_checking_text():
 
 
 def test_watch_saved_text():
-    t = M.watch_saved_text("Emma", {"TRL", "PRPL"}, {"TRL": 1}, NAMES)
-    assert "Watching: <b>Emma</b> at Pasir Ris, Tampines." in t
-    assert "On the shelf right now: Tampines (1)." in t
-    assert "any library" in M.watch_saved_text("Emma", set(), {}, NAMES)
+    t = M.watch_saved_text("Emma", {"TRL", "PRPL"}, {"TRL": 1, "BEPL": 2}, {**NAMES, "BEPL": "Bedok"})
+    assert t == (
+        "Watching: <b>Emma</b>\n"
+        "🔔 On the shelf at your alert libraries: Tampines (1)\n"
+        "📗 Also on the shelf at 1 library: Bedok (2)\n"
+        "\nYou'll get a message when a copy comes back at Pasir Ris, Tampines."
+    )
+    assert "comes back at any library" in M.watch_saved_text("Emma", set(), {}, NAMES)
+    assert "On the shelf: none right now" in M.watch_saved_text("Emma", set(), {}, NAMES)
     assert "Couldn't check" in M.watch_saved_text("Emma", set(), None, NAMES)
-    assert "You'll get a message" in M.watch_saved_text("Emma", set(), {}, NAMES)
     assert M.watch_saved_text("Emma", set(), {}, NAMES, replaced=True).startswith("Updated your watch")
 
 
 def test_watch_text():
-    t = M.watch_text("Emma", "Austen, Jane", 3, {"AMKPL", "TRL"}, NAMES, {"AMKPL"}, {"TRL": 2}, "5 min ago")
+    names = {**NAMES, "BEPL": "Bedok", "CLL": "Central"}
+    t = M.watch_text("Emma", "Austen, Jane", 3, {"AMKPL", "TRL"}, names, {"AMKPL"},
+                     {"TRL": 2, "BEPL": 1, "CLL": 3, "PRPL": 0}, "5 min ago")
     assert t == (
         "<b>Emma</b> – Jane Austen\n"
-        "Watching 3 editions at Ang Mo Kio (closed), Tampines\n"
-        "📗 On the shelf at 1 library: Tampines (2)\n"
+        "Watching 3 editions\n"
+        "🔔 Alerts at Ang Mo Kio (closed), Tampines\n"
+        "🔔 On the shelf at your alert libraries: Tampines (2)\n"
+        "📗 Also on the shelf at 2 libraries: Bedok (1), Central (3)\n"  # every library is shown
         "<i>Last checked 5 min ago</i>"
     )
+    none_mine = M.watch_text("Emma", "", 1, {"TRL"}, names, on_shelf={"BEPL": 1})
+    assert "🔔 Not on the shelf at Tampines right now" in none_mine
+    assert "📗 Also on the shelf at 1 library: Bedok (1)" in none_mine
+    any_lib = M.watch_text("Emma", "", 1, [], names, on_shelf={"BEPL": 1, "TRL": 2})
+    assert "🔔 Alerts at any library" in any_lib
+    assert "📗 On the shelf at 2 libraries: Bedok (1), Tampines (2)" in any_lib
     assert "not checked yet" in M.watch_text("Emma", "", 1, [], NAMES)
-    assert "none right now" in M.watch_text("Emma", "", 1, [], NAMES, on_shelf={})
+    assert "none right now" in M.watch_text("Emma", "", 1, [], NAMES, on_shelf={"TRL": 0})
     many = {f"B{i:02d}": 1 for i in range(22)}
     t = M.watch_text("Emma", "", 1, [], {}, on_shelf=many)
-    assert "On the shelf at 22 libraries: B00 (1), B01 (1)" in t
-    assert "B21 (1)" in t and "more" not in t  # every library listed
-    names = {"TRL": "Tampines", "BEPL": "Bedok", "CLL": "Central"}
-    t = M.watch_text("Emma", "", 1, [], names, on_shelf={"TRL": 3, "BEPL": 1, "CLL": 2})
-    assert "Bedok (1), Central (2), Tampines (3)" in t  # alphabetical
+    assert "On the shelf at 22 libraries: B00 (1), B01 (1)" in t and "B21 (1)" in t
 
 
 def test_watch_keyboard():
-    assert _callbacks(M.watch_keyboard(12)) == ["c:12", "ed:12", "x:12"]
+    assert _callbacks(M.watch_keyboard(12)) == ["c:12", "n:12", "ed:12", "x:12"]
+    assert "🔕 Turn alerts off" in _texts(M.watch_keyboard(12, notify=True))
+    assert "🔔 Turn alerts on" in _texts(M.watch_keyboard(12, notify=False))
+
+
+def test_alerts_off_wording():
+    # Alerts off: no alert libraries are highlighted; every library is shown the same way.
+    t = M.watch_text("Emma", "", 1, {"TRL"}, NAMES, on_shelf={"TRL": 1, "PRPL": 2}, notify=False)
+    assert "🔕 Alerts off – not checked automatically, tap Check now to update" in t
+    assert "📗 On the shelf at 2 libraries: Pasir Ris (2), Tampines (1)" in t
+    assert "alert libraries" not in t
+    saved_off = M.watch_saved_text("Emma", {"TRL"}, {}, NAMES, notify=False)
+    assert "isn't checked automatically" in saved_off and "You'll get a message" not in saved_off
+    t = M.alerts_on_checking_text("Emma", 3, "about 15 seconds", done=1)
+    assert "Turning alerts on" in t and t.endswith("\n1 of 3 checked…")
+
+
+def test_branches_keyboard_alerts_toggle(branches_data):
+    open_branches = [b for b in parse_branches(branches_data) if b.is_open]
+    on = M.branches_keyboard(open_branches, set())
+    off = M.branches_keyboard(open_branches, set(), notify=False)
+    assert "🔔 Alerts on (tap to change)" in _texts(on)
+    assert "🔕 Alerts off (tap to change)" in _texts(off)
+    # Alerts off: no library buttons at all, just the switch, Back and Save.
+    assert _callbacks(off) == ["bn", "eb", "bs"]
+    assert len(_callbacks(on)) == 3 + 1 + len(open_branches)  # switch, Any library, each library, Back, Save
+    # Picks survive switching off and on again (the keyboard just hides them).
+    assert "✅ Tampines" in _texts(M.branches_keyboard(open_branches, {"TRL"}, notify=True))
+    bt = M.branches_text("Emma")
+    assert "which libraries should alert you?" in bt and "every library either way" in bt
+    assert "turn alerts off" in bt
+    off_text = M.branches_text("Emma", notify=False)
+    assert "no libraries to pick" in off_text and "/watches shows every library" in off_text
+    assert "Check now" in off_text
 
 
 def test_check_texts():
