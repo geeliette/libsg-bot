@@ -1,5 +1,7 @@
 # NLB Watch Bot
 
+[![tests](https://github.com/geeliette/libsg-bot/actions/workflows/tests.yml/badge.svg)](https://github.com/geeliette/libsg-bot/actions/workflows/tests.yml)
+
 A Telegram bot for Singapore's public libraries (NLB). Search for a book, see at once which libraries have it on the shelf across all its editions, save it to a reading list, and get a message when a copy comes back to a library you chose.
 
 NLB's own app lists each edition separately and has no shelf alerts. If a book is popular, you either check every day or reserve it and wait. This bot does the checking for you.
