@@ -1,139 +1,115 @@
 # NLB Watch Bot
 
-A Telegram bot for Singapore NLB library books: see where a book is on the shelf across all its editions, keep a list of books you want, and get a message when one is back on the shelf at the libraries you choose.
+A Telegram bot for Singapore's public libraries (NLB). Search for a book, see at once which libraries have it on the shelf across all its editions, save it to a reading list, and get a message when a copy comes back to a library you chose.
 
-Search for a book and tap it to see which libraries have it on the shelf. Save it to *My books* to keep it, with alerts on or off.
+NLB's own app lists each edition separately and has no shelf alerts. If a book is popular, you either check every day or reserve it and wait. This bot does the checking for you.
 
-## Features
+**Try it on Telegram: [@libsg_bot](https://t.me/libsg_bot)**
 
-- **Search** by title, author or ISBN (`/search emma`, or just `/search` and then type it). Print books only, top 5 matches with *More results*.
-- **Availability at once.** Tapping a result checks every edition and lists the libraries with a copy on the shelf (with counts) and those whose copies are all on loan. Checks under 5 minutes old are reused.
-- **Editions together.** Each result is one of NLB's own groups of editions; untick any you don't want. Each edition shows year, language, publisher, pages, ISBN and a link to the NLB catalogue.
-- **My books** (`/books`): saved books and where they are on the shelf as of the last check, with *Check now*, alerts on/off, *Edit* and *Remove*.
-- **Alerts** when a copy goes from not available to on the shelf at one of your alert libraries (or any library). The picker only lists open libraries that hold a copy; libraries closed for renovation or relocation never appear.
+## What it does
 
-## Commands
+- **Search** by title, author or ISBN with `/search`. Results are print books only, five at a time.
+- **Availability at once.** Tap a result to see the libraries with a copy on the shelf (with counts) and those whose copies are all on loan, across every edition of that book.
+- **My books** (`/books`): a reading list showing where each book was on the shelf at the last check, with *Check now*, *Edit* and *Remove*.
+- **Alerts**, which you can turn on or off per book. You get a message when a copy goes from not available to on the shelf at one of your libraries. The library picker only lists open libraries that actually hold a copy.
 
-| Command | What it does |
+## Tech stack
+
+| | |
 |---|---|
-| `/search <title, author or ISBN>` | Find a book and see where it's on the shelf (bare `/search` asks for one) |
-| `/books` | My books: where each is, Check now, alerts on/off, Edit, Remove |
-| `/help` | How the bot works |
+| Language | Python 3.14 |
+| Bot framework | [python-telegram-bot](https://python-telegram-bot.org/) (async handlers, JobQueue for scheduled checks) |
+| HTTP | httpx |
+| Storage | SQLite |
+| Data | NLB Open Web Service: Catalogue API v2 (search, availability) and Library API v1 (branches, opening hours) |
+| Hosting | Oracle Cloud Always Free (Ubuntu VM, systemd service), deployed with rsync over SSH |
+| Tests | pytest, run against recorded API responses |
 
-## Setup
+## How it works
 
-You need Python 3.14, an NLB API key with its app code, and a Telegram bot token.
-
-1. **Get credentials**
-   - NLB: apply for API access through NLB's Open Web Service (openweb.nlb.gov.sg). You'll get an API key and an app code.
-   - Telegram: create a bot with [@BotFather](https://t.me/BotFather) and copy its token.
-
-2. **Create `.env`** in the project root. It's gitignored, so never commit it.
-   ```
-   NLB_API_KEY=...
-   NLB_APP_CODE=...
-   TELEGRAM_BOT_TOKEN=...
-   ```
-
-3. **Install**
-   ```sh
-   python3.14 -m venv .venv
-   .venv/bin/pip install -r requirements-dev.txt   # or requirements.txt to run without tests
-   ```
-
-4. **API specs (optional, for development):** put NLB's OpenAPI files in `docs/` as `nlb-catalogue-openapi.json` and `nlb-library-openapi.json`. They're gitignored.
-
-## Running
-
-```sh
-.venv/bin/python -m libsg.bot
+```
+/search ──▶ SearchTitles ──▶ results (one per NLB edition group)
+                                  │ tap
+                                  ▼
+                 GetAvailabilityInfo per print edition ──▶ on shelf / on loan, by library
+                                  │ ⭐ Save
+                                  ▼
+                 My books ──▶ alerts on? ──▶ checked every 30 min while libraries are open
+                                                   │ not available ──▶ on shelf
+                                                   ▼
+                                              Telegram message
 ```
 
-The bot loads the library list from NLB on startup, then checks the editions of books with alerts on every 30 minutes while libraries are open (opening hours from GetBranches, plus 30 minutes after closing; public holidays count as closed). If the hours can't be loaded, it checks around the clock. Data is stored in `libsg.db` (SQLite, gitignored).
+Each check stores a snapshot of available copies per edition and library. An alert fires only on the change from "none available" to "some available" at a library the user picked, so a book sitting on the shelf doesn't send repeat messages.
 
-### Optional settings (`.env`)
+## Design decisions
 
-| Variable | Default | Meaning |
-|---|---|---|
-| `DB_PATH` | `libsg.db` | SQLite database file |
-| `POLL_MINUTES` | `30` | Minutes between regular checks |
-| `POLL_SPACING_SECONDS` | `10` | Pause between editions during regular checks (on top of the 1.5 s gap between any two NLB calls) |
+**One shared rate limit.** NLB rate-limits per API key, so every user of the bot shares one undocumented quota. Bursts return HTTP 429. All NLB calls go through a single lock, and the client keeps at least 1.5 s between any two requests, whoever makes them: a user's search, another user's *Check now* or the background poll. That gap came from the production logs, where a poll call and a user call went out 0.15 s apart and both got 429s. The client also honours NLB's `Retry-After` header. A poll round that gets rate-limited stops early, and the editions it skipped go first next round, so none of them miss out for long.
 
-## Deploying (Oracle Cloud Always Free)
+**Poll only when it matters.** Books are only shelved while libraries are open. The bot reads opening hours and public-holiday closures from the Library API and pauses polling overnight (with 30 minutes' grace after closing for books shelved at closing time). That saves a large share of the API quota. *Check now* still works at any hour.
 
-Runs the bot 24/7 on a free Ubuntu server as a systemd service: it starts on boot and restarts 30 s after a crash. Only outbound connections are used, so no ports need opening.
+**Spending calls only on real requests.** Checks are reused for a few minutes, so opening the same book twice costs nothing. A per-user spam guard pauses *Check now* briefly if someone keeps pressing it. Search only runs from `/search`, so stray messages never call NLB.
 
-**Run only one copy.** Telegram allows one running bot per token; a second copy (e.g. on your Mac) causes `Conflict` errors.
+**Libraries come from the API.** Branches close for renovation or relocation without disappearing from the API: they stay `isActive` but lose their schedule. The bot treats a branch with no opening hours as closed and never shows it, and it refreshes the list daily instead of hard-coding it. Only lending libraries count; reference floors and the legal-deposit and repository collections (PublicationSG, for example) are left out.
 
-1. **Create the server.** Sign up at cloud.oracle.com and pick **Singapore** as home region (it can't be changed later). Create a compute instance:
-   - Image: Canonical Ubuntu 24.04.
-   - Shape: `VM.Standard.E2.1.Micro` (Always Free), or `VM.Standard.A1.Flex` with 1 OCPU / 6 GB if available.
-   - SSH key: upload your public key (`~/.ssh/id_rsa.pub`).
-   - Note the public IP. The login user is `ubuntu`.
-
-   Oracle may reclaim Always Free VMs that stay nearly idle for a week, and this bot is very light. Upgrading the account to *Pay As You Go* stops that; Always Free resources stay free.
-
-2. **First deploy**, from the project folder on your Mac:
-   ```sh
-   ssh ubuntu@<ip> 'mkdir -p libsg-bot'
-   scp .env ubuntu@<ip>:libsg-bot/.env
-   # Optional, to keep saved books: stop the bot on your Mac first, then
-   scp libsg.db ubuntu@<ip>:libsg-bot/libsg.db
-   deploy/push.sh ubuntu@<ip>
-   ```
-   `push.sh` copies the code and runs `deploy/setup.sh` on the server, which installs Python 3.14 (via uv) and the dependencies, sets the timezone to Singapore and starts the service.
-
-3. **Updates:** run `deploy/push.sh ubuntu@<ip>` again. It restarts the bot, so check it's idle first.
-
-**On the server:**
-```sh
-journalctl -u libsg-bot -f              # live log
-sudo systemctl status libsg-bot         # running?
-sudo systemctl restart libsg-bot        # restart
-sudo systemctl stop libsg-bot           # stop (starts again on reboot unless you `disable` it)
-```
-
-The database lives at `~/libsg-bot/libsg.db` on the server. Copy it back now and then (`scp ubuntu@<ip>:libsg-bot/libsg.db backup.db`) so saved books survive losing the VM.
-
-## Trying the API without the bot
-
-`try.py` calls the NLB API directly and saves every raw response to `tests/fixtures/`:
-
-```sh
-.venv/bin/python try.py search "pride and prejudice"
-.venv/bin/python try.py avail 300172891          # copies per library for one BRN
-.venv/bin/python try.py titles --author "jane austen"
-```
-
-## Tests
-
-```sh
-.venv/bin/pytest -q
-```
-
-Tests run against saved API responses in `tests/fixtures/`. They make no network calls and need no credentials.
+**Pure logic, thin handlers.** The alert rule, polling round, edition grouping and all message text are plain functions with no Telegram or network code. That makes them easy to test against recorded NLB responses.
 
 ## Project layout
 
 ```
 libsg/
-  nlb_client.py   NLB Catalogue + Library API client
+  nlb_client.py   NLB Catalogue + Library API client (auth, request gap, 429 retry)
   models.py       Editions and copies parsed from API responses
   grouping.py     One suggested book per NLB group of editions
-  branches.py     Lending libraries and whether they're open
-  db.py           SQLite storage
+  branches.py     Lending libraries, open/closed, opening hours
+  db.py           SQLite storage (works, watches, snapshots, branches)
   watcher.py      The alert rule
   poller.py       One round of availability checks
-  ratelimit.py    Spam guard for Check now and opening results
+  ratelimit.py    Reuse of recent checks, spam guard for Check now
   messages.py     All bot text and buttons
   bot.py          Telegram handlers, scheduled jobs, entry point
-try.py            CLI for poking the API
-deploy/           push.sh (Mac → server) and setup.sh (server: install + systemd service)
-tests/            pytest suite + fixtures/
+try.py            CLI for calling the NLB API directly
+deploy/           Deploy scripts and guide (see deploy/README.md)
+tests/            pytest suite; fixtures/ holds recorded NLB responses
 ```
 
-## Good to know
+## Running it yourself
 
-- **NLB rate limits.** NLB returns HTTP 429 when calls come too fast, and the limit isn't documented. The quota is shared by all users (it's per API key). The bot sends calls one at a time with at least 1.5 s between any two, honours `Retry-After`, and stops a check round early if it's rate-limited; skipped editions go first next round.
-- **No reservations.** The bot only checks shelves. Reserve books in the NLB app.
-- **Restarts** interrupt any check in progress; saved books are kept.
+You need Python 3.14, an NLB API key and app code (from NLB's Open Web Service, openweb.nlb.gov.sg), and a Telegram bot token from [@BotFather](https://t.me/BotFather).
+
+```sh
+python3.14 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
+```
+
+Create `.env` in the project root (it's gitignored):
+
+```
+NLB_API_KEY=...
+NLB_APP_CODE=...
+TELEGRAM_BOT_TOKEN=...
+```
+
+Then run the bot or the tests:
+
+```sh
+.venv/bin/python -m libsg.bot
+.venv/bin/pytest -q      # no network calls or credentials needed
+```
+
+| Optional setting (`.env`) | Default | Meaning |
+|---|---|---|
+| `DB_PATH` | `libsg.db` | SQLite database file |
+| `POLL_MINUTES` | `30` | Minutes between regular checks |
+| `POLL_SPACING_SECONDS` | `10` | Extra pause between editions during regular checks |
+
+Telegram allows one running copy per bot token. A second copy causes `Conflict` errors.
+
+`try.py` calls the API directly and saves each raw response to `tests/fixtures/`:
+
+```sh
+.venv/bin/python try.py search "pride and prejudice"
+.venv/bin/python try.py avail 300172891
+```
+
+Deploying to a server is covered in [deploy/README.md](deploy/README.md).
