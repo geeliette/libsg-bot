@@ -198,7 +198,10 @@ def test_unknown_command_points_to_real_ones(env):
 
 
 def test_text_and_unknown_command_handlers_are_registered(monkeypatch):
+    # Fake values for everything build_app reads, so the test never depends on a local .env.
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:abc")
+    monkeypatch.setenv("NLB_API_KEY", "test-key")
+    monkeypatch.setenv("NLB_APP_CODE", "test-app")
     monkeypatch.setenv("DB_PATH", ":memory:")
     app = B.build_app()
     callbacks = [h.callback for group in app.handlers.values() for h in group]
