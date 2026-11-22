@@ -1,0 +1,75 @@
+{
+  "setId": 46354211,
+  "totalRecords": 2,
+  "count": 2,
+  "hasMoreRecords": false,
+  "nextRecordsOffset": 2,
+  "items": [
+    {
+      "irn": 351401679,
+      "itemId": "B36409455C",
+      "brn": 205390533,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "CLL",
+        "name": "Central Library"
+      },
+      "language": "English",
+      "price": 11.98,
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "2026-10-31T10:47:28"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "Available",
+        "date": "2026-10-31T10:47:28"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 351400889,
+      "itemId": "B36475458I",
+      "brn": 205390533,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "PRL",
+        "name": "Punggol Library"
+      },
+      "language": "English",
+      "price": 12.01,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-25T12:23:18"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-15T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    }
+  ]
+}

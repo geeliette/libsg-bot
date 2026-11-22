@@ -1,0 +1,764 @@
+{
+  "setId": 46354198,
+  "totalRecords": 22,
+  "count": 22,
+  "hasMoreRecords": false,
+  "nextRecordsOffset": 22,
+  "items": [
+    {
+      "irn": 433601341,
+      "itemId": "B39601073G",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "AMKPL",
+        "name": "Ang Mo Kio Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-20T11:33:12"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-11T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601342,
+      "itemId": "B39601074H",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "AMKPL",
+        "name": "Ang Mo Kio Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-20T19:13:43"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-11T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601332,
+      "itemId": "B39601052D",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "BBPL",
+        "name": "Bukit Batok Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-23T19:10:46"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-04T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601333,
+      "itemId": "B39601053E",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "BEPL",
+        "name": "Bedok Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-15T15:06:40"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-07T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601347,
+      "itemId": "B39601054F",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "BIPL",
+        "name": "Bishan Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "2026-11-19T10:24:18"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "Available",
+        "date": "2026-11-19T10:24:18"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601348,
+      "itemId": "B39601055G",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "BPPL",
+        "name": "Bukit Panjang Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-08-20T15:13:44"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-09-13T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601349,
+      "itemId": "B39601056H",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "CCKPL",
+        "name": "Choa Chu Kang Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Held",
+        "name": "On Hold",
+        "setDate": "2026-11-21T10:13:13"
+      },
+      "transactionStatus": {
+        "code": "H",
+        "name": "Reserved",
+        "date": "2026-11-21T10:13:13"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601334,
+      "itemId": "B39601057I",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "CLL",
+        "name": "Central Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-07T16:44:33"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-28T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601350,
+      "itemId": "B39601058J",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "CMPL",
+        "name": "Clementi Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-17T15:36:49"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-28T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601351,
+      "itemId": "B39601059K",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "GEPL",
+        "name": "Geylang East Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-06T17:05:28"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-18T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601352,
+      "itemId": "B39601060C",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "HBPL",
+        "name": "Harbourfront Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-20T12:44:04"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-11T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601335,
+      "itemId": "B39601061D",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "JRL",
+        "name": "Jurong Library"
+      },
+      "language": "English",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-14T15:00:44"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-26T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601336,
+      "itemId": "B39601062E",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "JWPL",
+        "name": "Jurong West Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-09-22T14:38:26"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-03T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433984265,
+      "itemId": "B39918474A",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "JWPL",
+        "name": "Jurong West Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.46,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-09T14:10:31"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-30T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601353,
+      "itemId": "B39601064G",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "PRL",
+        "name": "Punggol Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-20T11:38:25"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-11T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601354,
+      "itemId": "B39601067J",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "SBPL",
+        "name": "Sembawang Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-18T11:33:06"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-14T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601355,
+      "itemId": "B39601068K",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "SKPL",
+        "name": "Sengkang Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-09T14:00:46"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-30T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601356,
+      "itemId": "B39601069A",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "SRPL",
+        "name": "Serangoon Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "2026-11-16T12:31:00"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "Available",
+        "date": "2026-11-16T12:31:00"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601357,
+      "itemId": "B39601070D",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "TPPL",
+        "name": "Toa Payoh Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-26T16:28:56"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-07T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601358,
+      "itemId": "B39601071E",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "TRL",
+        "name": "Tampines Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "In-Transit",
+        "name": "In-Transit",
+        "setDate": "2026-11-21T13:15:25"
+      },
+      "transactionStatus": {
+        "code": "I",
+        "name": "In Transit",
+        "date": "2026-11-21T13:15:25",
+        "inTransitFrom": {
+          "code": "GEPL",
+          "name": "Geylang East Library"
+        },
+        "inTransitTo": {
+          "code": "TRL",
+          "name": "Tampines Library"
+        }
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601340,
+      "itemId": "B39601072F",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "WRL",
+        "name": "Woodlands Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-18T12:05:09"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-30T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 433601360,
+      "itemId": "B39601078A",
+      "brn": 300148552,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "YIPL",
+        "name": "Yishun Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 10.92,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-04T17:32:41"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-16T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    }
+  ]
+}

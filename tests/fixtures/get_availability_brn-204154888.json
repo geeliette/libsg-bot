@@ -1,0 +1,73 @@
+{
+  "setId": 46354216,
+  "totalRecords": 2,
+  "count": 2,
+  "hasMoreRecords": false,
+  "nextRecordsOffset": 2,
+  "items": [
+    {
+      "irn": 318952154,
+      "itemId": "B32438946F",
+      "brn": 204154888,
+      "callNumber": "",
+      "formattedCallNumber": "",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "R",
+        "name": "Reference"
+      },
+      "location": {
+        "code": "LD",
+        "name": "PublicationSG"
+      },
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "2020-02-20T04:32:44"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "For Reference Only",
+        "date": "2020-02-20T04:32:44"
+      },
+      "minAgeLimit": 0,
+      "publicNote": "For Reference Only",
+      "nonCirculatingFlag": true
+    },
+    {
+      "irn": 318952254,
+      "itemId": "B32438949I",
+      "brn": 204154888,
+      "callNumber": "",
+      "formattedCallNumber": "",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "R",
+        "name": "Reference"
+      },
+      "location": {
+        "code": "LD",
+        "name": "PublicationSG"
+      },
+      "status": {
+        "code": "In",
+        "name": "On Shelf",
+        "setDate": "2020-02-20T04:30:10"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "For Reference Only",
+        "date": "2020-02-20T04:30:10"
+      },
+      "minAgeLimit": 0,
+      "publicNote": "For Reference Only",
+      "nonCirculatingFlag": true
+    }
+  ]
+}

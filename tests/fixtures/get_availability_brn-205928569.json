@@ -1,0 +1,109 @@
+{
+  "setId": 46354220,
+  "totalRecords": 3,
+  "count": 3,
+  "hasMoreRecords": false,
+  "nextRecordsOffset": 3,
+  "items": [
+    {
+      "irn": 404327209,
+      "itemId": "B37819112J",
+      "brn": 205928569,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "BBPL",
+        "name": "Bukit Batok Library"
+      },
+      "language": "English",
+      "suffix": "",
+      "price": 0,
+      "status": {
+        "code": "Shelving",
+        "name": "Shelving",
+        "setDate": "2026-11-21T13:08:12"
+      },
+      "transactionStatus": {
+        "code": "S",
+        "name": "Recently Returned",
+        "date": "2026-11-21T13:08:12"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 404327226,
+      "itemId": "B37819097K",
+      "brn": 205928569,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "SKPL",
+        "name": "Sengkang Library"
+      },
+      "language": "English",
+      "price": 9.01,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-10-17T17:29:20"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-11-28T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    },
+    {
+      "irn": 404327228,
+      "itemId": "B37819095I",
+      "brn": 205928569,
+      "callNumber": "ORW",
+      "formattedCallNumber": "English ORW",
+      "media": {
+        "code": "BOOK",
+        "name": "Book"
+      },
+      "usageLevel": {
+        "code": "ADULT",
+        "name": "Adult"
+      },
+      "location": {
+        "code": "TPPL",
+        "name": "Toa Payoh Library"
+      },
+      "language": "English",
+      "price": 9.01,
+      "status": {
+        "code": "Out",
+        "name": "On Loan",
+        "setDate": "2026-11-11T18:51:53"
+      },
+      "transactionStatus": {
+        "code": "C",
+        "name": "On Loan",
+        "date": "2026-12-02T23:59:59"
+      },
+      "minAgeLimit": 0,
+      "nonCirculatingFlag": false
+    }
+  ]
+}
