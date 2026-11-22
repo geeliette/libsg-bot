@@ -6,7 +6,8 @@ Callback data (Telegram limit: 64 bytes):
     w:<gen>:<i>   pick result i (0-based, across pages) from search generation gen
     m:<gen>       more results;  p:<gen> = previous results;  r:<gen> = back to results
     e:<brn>       toggle an edition;  ea = select all, ec = clear, en = next;  ep:<start> = page of editions
-    b:<CODE>      toggle a branch;  b:* = any library;  bn = alerts on/off;  bs = save;  eb = back to editions
+    av            availability of the book being set up (also "Try again");  ev = its editions;  sv = save -> picker
+    b:<CODE>      toggle a branch;  b:* = any library;  bn = alerts on/off;  bs = save;  eb = back from the picker
     n:<watch_id>  turn alerts on/off for a saved watch
     ed:<watch_id> edit a watch;  wc = cancel editing;  c:<watch_id> = check now
     x:<watch_id>  stop watching
@@ -173,7 +174,7 @@ def editions_text(
     author = short_author(author)
     head = f"<b>{escape(title)}</b>" + (f" – {escape(author)}" if author else "")
     head += (
-        "\n\nTicked editions will be watched. Untick any you don't want (e.g. other languages), then tap Next."
+        "\n\nUntick any you don't want. Availability and alerts only count ticked editions."
         "\nNot sure which is which? Search the ISBN in the NLB app, or tap <i>View in catalogue</i> "
         "(NLB sometimes shows several editions on one page)."
     )
@@ -195,9 +196,10 @@ def editions_text(
 
 def editions_keyboard(
     editions: Sequence[Edition], selected: set[int], back: tuple[str, str] | None = None,
-    start: int = 0, per_row: int = 5,
+    start: int = 0, per_row: int = 5, done: str = "Next →",
 ) -> Markup:
-    """Tick buttons for the current page; back: (label, callback_data) e.g. ("‹ Back to results", "r:3")."""
+    """Tick buttons for the current page; back: (label, callback_data) e.g. ("‹ Back to results", "r:3").
+    done: label of the "en" button ("Done" back to availability, "Next →" on to the library picker)."""
     page = editions[start:start + EDITIONS_PAGE]
     buttons = [
         Button(f"{'✅' if e.brn in selected else '⬜'} {start + i + 1}", callback_data=f"e:{e.brn}")
@@ -214,29 +216,109 @@ def editions_keyboard(
     if len(editions) > 1:
         rows.append([Button("Select all", callback_data="ea"), Button("Clear", callback_data="ec")])
     nav = [Button(back[0], callback_data=back[1])] if back else []
-    rows.append(nav + [Button("Next →", callback_data="en")])
+    rows.append(nav + [Button(done, callback_data="en")])
     return Markup(rows)
+
+
+# --- availability ---------------------------------------------------------
+
+
+def _book_head(title: str, author: str) -> str:
+    author = short_author(author)
+    return f"<b>{escape(title)}</b>" + (f" – {escape(author)}" if author else "")
+
+
+def availability_checking_text(title: str, author: str, n_editions: int, estimate: str, done: int = 0) -> str:
+    return (
+        f"{_book_head(title, author)}\nChecking the shelves for {plural(n_editions, 'edition')}… {estimate}."
+        + progress_line(done, n_editions)
+    )
+
+
+def availability_text(
+    title: str,
+    author: str,
+    editions: Sequence[Edition],
+    on_shelf: Mapping[str, int],
+    on_loan: Iterable[str],
+    names: Mapping[str, str],
+    checked: str = "",
+    in_my_books: bool = False,
+) -> str:
+    """Where the ticked editions are, at open lending libraries.
+    on_shelf: branch -> borrowable copies on the shelf. on_loan: branches whose copies are all out.
+    On-loan libraries get no count: "Punggol (2)" next to "on loan" reads like 2 to borrow."""
+    bits = [plural(len(editions), "edition")]
+    if yr := year_range(editions):
+        bits[0] += f" ({yr})"
+    langs = sorted({e.language for e in editions if e.language})
+    if langs:
+        bits.append(escape(", ".join(langs)))
+    lines = [_book_head(title, author), " · ".join(bits)]
+    if in_my_books:
+        lines.append("⭐ In My books")
+    lines.append("")
+    on_shelf = {c: n for c, n in on_shelf.items() if n}
+    on_loan = sorted(set(on_loan) - set(on_shelf), key=lambda c: names.get(c, c).lower())
+    if not on_shelf and not on_loan:
+        lines.append("No copies to borrow – NLB only has reference copies of this book, or none at an open library.")
+    else:
+        lines.append(f"📗 On shelf: {_places(on_shelf, names)}" if on_shelf
+                     else "📗 Not on the shelf anywhere right now")
+        if on_loan:
+            lines.append(f"⏳ On loan: {_library_names(on_loan, names)}")
+    if checked:
+        lines.append(f"<i>Checked {checked}</i>")
+    return "\n".join(lines)
+
+
+def availability_keyboard(
+    back: tuple[str, str] | None, n_selected: int, n_editions: int, in_my_books: bool = False,
+) -> Markup:
+    rows = [[Button("⭐ Update in My books" if in_my_books else "⭐ Save to My books", callback_data="sv")]]
+    row = [Button(f"Editions ({n_selected} of {n_editions})", callback_data="ev")]
+    if back:
+        row.append(Button(back[0], callback_data=back[1]))
+    rows.append(row)
+    return Markup(rows)
+
+
+def availability_busy_text(title: str, author: str) -> str:
+    return f"{_book_head(title, author)}\nNLB is busy right now. Try again in a minute."
+
+
+def availability_busy_keyboard(back: tuple[str, str] | None) -> Markup:
+    row = [Button("🔄 Try again", callback_data="av")]
+    if back:
+        row.append(Button(back[0], callback_data=back[1]))
+    return Markup([row])
 
 
 # --- draft: branches ------------------------------------------------------
 
 
+SHELF, LOAN, NO_COPIES = "shelf", "loan", "none"  # library status in the picker
+_STATUS_ICON = {SHELF: "📗", LOAN: "⏳", NO_COPIES: "⚠️"}
+
+
 def branches_text(title: str, has_branches: bool = True, notify: bool = True) -> str:
+    """has_branches: some open lending library holds a copy of the ticked editions."""
     if not notify:
         return (
             f"<b>{escape(title)}</b>\n🔕 <i>Alerts off</i>: no messages, so no libraries to pick – "
             "/books shows every library. The book isn't checked automatically; "
             "use <i>Check now</i> in /books whenever you like."
-            "\n\nTap 🔕 to turn alerts back on, or Save watch."
+            "\n\nTap 🔕 to turn alerts back on, or Save."
         )
     text = (
-        f"<b>{escape(title)}</b>\n🔔 <i>Alerts on</i>: which libraries should alert you? Tap as many as you like, "
-        "or keep <i>Any library</i> on. You'll get a message when a copy comes back on the shelf there, "
-        "and /books shows every library either way."
-        "\n\nRather not get messages? Tap 🔔 to turn alerts off. Then tap Save watch."
+        f"<b>{escape(title)}</b>\n🔔 <i>Alerts on</i>: get a message when a copy is back on the shelf at the "
+        "libraries you pick, or keep <i>Any library</i> on."
     )
-    if not has_branches:
-        text += "\n\n(The library list couldn't be loaded from NLB just now, so only <i>Any library</i> is available.)"
+    if has_branches:
+        text += "\nOnly libraries with a copy are listed: 📗 on the shelf now, ⏳ all on loan."
+    else:
+        text += "\nNo open library has a copy to borrow right now, so only <i>Any library</i> can be picked."
+    text += "\n\nRather not get messages? Tap 🔔 to turn alerts off. Then tap Save."
     return text
 
 
@@ -244,19 +326,25 @@ def notify_label(notify: bool) -> str:
     return "🔔 Alerts on" if notify else "🔕 Alerts off"
 
 
+def _picker_label(b: Branch, status: str, selected: bool) -> str:
+    label = f"{'✅' if selected else ''}{_STATUS_ICON[status]} {b.short_name}"
+    return label + " (no copies)" if status == NO_COPIES else label
+
+
 def branches_keyboard(
-    branches: Sequence[Branch], selected: set[str], notify: bool = True, per_row: int = 3,
+    options: Sequence[tuple[Branch, str]], selected: set[str], notify: bool = True, per_row: int = 3,
 ) -> Markup:
-    """Alerts switch on top; library buttons only when alerts are on (they only choose where alerts come from)."""
+    """Alerts switch on top; library buttons only when alerts are on (they only choose where alerts come from).
+    options: (library, SHELF / LOAN / NO_COPIES), NO_COPIES only for an old pick that has no copies any more."""
     rows = [[Button(f"{notify_label(notify)} (tap to change)", callback_data="bn")]]
     if notify:
         rows.append([Button(f"{'✅' if not selected else '⬜'} Any library", callback_data="b:*")])
         buttons = [
-            Button(f"{'✅ ' if b.code in selected else ''}{b.short_name}", callback_data=f"b:{b.code}")
-            for b in branches
+            Button(_picker_label(b, status, b.code in selected), callback_data=f"b:{b.code}")
+            for b, status in options
         ]
         rows += [buttons[i:i + per_row] for i in range(0, len(buttons), per_row)]
-    rows.append([Button("‹ Back to editions", callback_data="eb"), Button("Save watch", callback_data="bs")])
+    rows.append([Button("‹ Back", callback_data="eb"), Button("Save", callback_data="bs")])
     return Markup(rows)
 
 
@@ -418,7 +506,7 @@ def checking_now_text(title: str, n_editions: int, estimate: str, done: int = 0)
 
 def check_paused_text(wait_minutes: int) -> str:
     return (
-        f"Too many checks in a short time. Check now is paused for {plural(wait_minutes, 'minute')}. "
+        f"Too many checks in a short time. Checking the shelves is paused for {plural(wait_minutes, 'minute')}. "
         "Regular checks continue as normal."
     )
 

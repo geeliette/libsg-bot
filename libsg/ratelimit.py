@@ -16,6 +16,7 @@ import time
 from collections import defaultdict, deque
 
 FRESH_FOR = 2 * 60
+VIEW_FRESH_FOR = 5 * 60  # opening a search result reuses checks this recent (no call, no spam-guard count)
 
 
 class SpamGuard:

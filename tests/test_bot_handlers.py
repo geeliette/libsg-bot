@@ -23,16 +23,18 @@ class FakeQuery:
     def __init__(self, data, message_id):
         self.data = data
         self.message = NS(message_id=message_id)
-        self.answers, self.edits = [], []
+        self.answers, self.edits, self.markups = [], [], []
 
     async def answer(self, text=None, show_alert=False):
         self.answers.append(text)
 
     async def edit_message_text(self, text, **kw):
         self.edits.append(text)
+        self.markups.append(kw.get("reply_markup"))
 
-    async def edit_message_reply_markup(self, *a, **kw):
+    async def edit_message_reply_markup(self, markup=None, *a, **kw):
         self.edits.append("<buttons>")
+        self.markups.append(markup)
 
 
 @pytest.fixture
@@ -47,7 +49,7 @@ def env(emma_search, pp_search, branches_data, monkeypatch):
     monkeypatch.setattr(B, "SAVE_SPACING", 0)
     emma = suggest_works(parse_search(emma_search), physical_only=True)[0]
     pp = next(w for w in suggest_works(parse_search(pp_search), physical_only=True) if len(w.editions) > 5)
-    ctx = NS(user_data={}, bot_data={"store": store, "poll_minutes": 30}, bot=NS())
+    ctx = NS(user_data={}, bot_data={"store": store, "poll_minutes": 30, "spam_guard": B.SpamGuard()}, bot=NS())
     yield NS(store=store, ctx=ctx, emma=emma, pp=pp)
     store.close()
 
@@ -78,7 +80,7 @@ def test_old_message_cannot_change_or_save_over_current_setup(env):
     before = set(draft.selected)
 
     # Tapping A's old buttons in message 1 must not touch B's set-up...
-    for data in (f"e:{env.emma.editions[0].brn}", "ea", "ec", "en", "eb", "b:TRL", "bn"):
+    for data in (f"e:{env.emma.editions[0].brn}", "ea", "ec", "en", "eb", "b:TRL", "bn", "av", "ev", "sv"):
         q = press(env, data, message_id=1)
         assert q.answers and q.answers[-1].startswith(OUT_OF_DATE), data
         assert q.edits == [], data  # message 1 isn't redrawn with B's editions
@@ -121,7 +123,7 @@ def test_cancel_and_back_only_affect_their_own_message(env):
 
 def test_after_restart_buttons_are_out_of_date(env):
     # A restart wipes user_data: any set-up button is out of date, nothing crashes.
-    for data in ("e:1", "en", "bs", "b:TRL", "bn", "wc", "r:1", "w:1:0"):
+    for data in ("e:1", "en", "bs", "b:TRL", "bn", "wc", "r:1", "w:1:0", "av", "ev", "sv"):
         q = press(env, data, message_id=1)
         assert q.answers[-1].startswith(OUT_OF_DATE), data
 
@@ -205,3 +207,139 @@ def test_text_and_unknown_command_handlers_are_registered(monkeypatch):
     assert B.on_text in callbacks
     app.bot_data["store"].close()
     app.bot_data["client"].close()
+
+
+
+# --- availability after picking a result, and the library picker --------------
+
+from libsg.nlb_client import NLBError
+
+A, B2 = 300172872, 300123287  # Emma's two print editions (English)
+
+
+def copy(brn, code, status="In", reference=False):
+    return {"brn": brn, "location": {"code": code, "name": code}, "status": {"code": status},
+            "nonCirculatingFlag": reference}
+
+
+SHELVES = {
+    # Central on shelf, Punggol on loan, Queenstown closed for renovation, LD = PublicationSG reference copy.
+    A: [copy(A, "CLL"), copy(A, "PRL", "Out"), copy(A, "QUPL"), copy(A, "LD", reference=True)],
+    B2: [copy(B2, "BIPL"), copy(B2, "BIPL"), copy(B2, "TPPL", "Out")],
+}
+
+
+@pytest.fixture
+def nlb(env, monkeypatch):
+    """Fake GetAvailabilityInfo: records BRNs fetched; put a BRN in .busy to get a 429 for it."""
+    state = NS(calls=[], busy=set())
+
+    async def fetch(ctx, brn):
+        state.calls.append(brn)
+        if brn in state.busy:
+            raise NLBError(429, "Too Many Requests", "API calls quota exceeded")
+        return SHELVES.get(brn, [])
+
+    monkeypatch.setattr(B, "_fetch", fetch)
+    env.ctx.user_data["search"] = B.Search(1, "emma", [env.emma], None)
+    env.ctx.user_data["gen"] = 1
+    return state
+
+
+def _buttons(q):
+    return [b.text for row in q.markups[-1].inline_keyboard for b in row]
+
+
+def test_picking_a_result_shows_availability(env, nlb):
+    assert {e.brn for e in env.emma.editions} == {A, B2}
+    q = press(env, "w:1:0", message_id=1)
+    assert sorted(nlb.calls) == sorted([A, B2])
+    text = q.edits[-1]
+    assert "📗 On shelf: Bishan (2), Central (1)" in text
+    assert "⏳ On loan: Punggol, Toa Payoh" in text
+    assert "Queenstown" not in text and "LD" not in text  # closed library, reference collection
+    assert _buttons(q) == ["⭐ Save to My books", "Editions (2 of 2)", "‹ Back to results"]
+
+
+def test_recent_checks_are_reused_and_dont_count_toward_the_pause(env, nlb):
+    press(env, "w:1:0", message_id=1)
+    for _ in range(10):  # well over the pause limit, but nothing is fetched
+        q = press(env, "w:1:0", message_id=1)
+        assert "📗 On shelf" in q.edits[-1]
+    assert len(nlb.calls) == 2
+
+
+def test_too_many_fresh_checks_pause(env, nlb, monkeypatch):
+    monkeypatch.setattr(B, "VIEW_FRESH_FOR", 0)  # every open fetches again
+    for _ in range(6):
+        press(env, "w:1:0", message_id=1)
+    q = press(env, "w:1:0", message_id=1)
+    assert "paused" in q.answers[-1] and q.edits == []
+
+
+def test_nlb_busy_shows_try_again_without_partial_results(env, nlb):
+    nlb.busy = {B2}
+    q = press(env, "w:1:0", message_id=1)
+    assert "NLB is busy right now. Try again in a minute." in q.edits[-1]
+    assert "On shelf" not in q.edits[-1]
+    assert _buttons(q) == ["🔄 Try again", "‹ Back to results"]
+    nlb.busy, nlb.calls = set(), []
+    q = press(env, "av", message_id=1)
+    assert nlb.calls == [B2]  # the edition already fetched is reused
+    assert "📗 On shelf: Bishan (2), Central (1)" in q.edits[-1]
+
+
+def test_unticking_an_edition_updates_availability_without_calls(env, nlb):
+    press(env, "w:1:0", message_id=1)
+    q = press(env, "ev", message_id=1)
+    assert _buttons(q)[-1] == "Done"
+    press(env, f"e:{B2}", message_id=1)
+    nlb.calls = []
+    q = press(env, "en", message_id=1)
+    assert nlb.calls == []
+    assert "📗 On shelf: Central (1)" in q.edits[-1] and "Bishan" not in q.edits[-1]
+    assert "Editions (1 of 2)" in _buttons(q)
+
+
+def test_picker_lists_only_open_libraries_with_copies_and_saves_without_calls(env, nlb):
+    press(env, "w:1:0", message_id=1)
+    q = press(env, "sv", message_id=1)
+    libs = _buttons(q)[2:-2]  # after the switch and Any library, before Back and Save
+    assert libs == ["📗 Bishan", "📗 Central", "⏳ Punggol", "⏳ Toa Payoh"]
+    assert "Only libraries with a copy are listed" in q.edits[-1]
+    press(env, "b:CLL", message_id=1)
+    press(env, "b:TRL", message_id=1)  # Tampines has no copy: not offered, so ignored
+    assert env.ctx.user_data["draft"].branches == {"CLL"}
+    q = press(env, "eb", message_id=1)  # Back -> availability again
+    assert "📗 On shelf" in q.edits[-1]
+    nlb.calls = []
+    press(env, "sv", message_id=1)
+    press(env, "bs", message_id=1)
+    assert nlb.calls == []  # everything was just checked
+    (w,) = env.store.list_watches(USER)
+    assert w.branches == {"CLL"}
+
+
+def test_saved_book_shows_in_my_books(env, nlb):
+    press(env, "w:1:0", message_id=1)
+    press(env, "sv", message_id=1)
+    press(env, "bs", message_id=1)
+    q = press(env, "w:1:0", message_id=2)
+    assert "⭐ In My books" in q.edits[-1]
+    assert _buttons(q)[0] == "⭐ Update in My books"
+
+
+def test_editing_drops_closed_picks_and_flags_picks_without_copies(env, nlb):
+    wid = env.store.create_work(USER, env.emma.title, env.emma.author, env.emma.editions)
+    watch = env.store.set_watch(USER, wid, ["CLL", "TRL", "QUPL"])  # Tampines: no copy; Queenstown: closed
+    press(env, f"ed:{watch}", message_id=5)
+    assert env.ctx.user_data["draft"].branches == {"CLL", "TRL"}
+    q = press(env, "en", message_id=5)  # Next -> never-checked editions are checked, then the picker
+    assert sorted(nlb.calls) == sorted([A, B2])
+    libs = _buttons(q)[2:-2]
+    assert "✅📗 Central" in libs and "✅⚠️ Tampines (no copies)" in libs
+    assert not any("Queenstown" in t for t in libs)
+    q = press(env, "b:TRL", message_id=5)  # untick it: it leaves the list
+    assert not any("Tampines" in t for t in _buttons(q))
+    q = press(env, "eb", message_id=5)  # Back while editing -> editions
+    assert _buttons(q)[-1] == "Next →"

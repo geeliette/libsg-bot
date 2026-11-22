@@ -27,7 +27,7 @@ from libsg.grouping import SuggestedWork, suggest_works
 from libsg.models import Edition, parse_search
 from libsg.nlb_client import NLBClient, NLBError
 from libsg.poller import PollResult, check_editions, poll_once
-from libsg.ratelimit import FRESH_FOR, SpamGuard
+from libsg.ratelimit import FRESH_FOR, VIEW_FRESH_FOR, SpamGuard
 
 log = logging.getLogger("libsg.bot")
 HTML = ParseMode.HTML
@@ -64,6 +64,9 @@ class Draft:
     watch_id: int | None = None  # set when editing an existing watch
     message_id: int | None = None  # the message this set-up lives in; buttons elsewhere can't touch it
     notify: bool = True  # alerts on/off
+
+    def physical(self, ticked_only: bool = True) -> list[int]:
+        return [e.brn for e in self.editions if e.physical and (e.brn in self.selected or not ticked_only)]
 
     def back_button(self) -> tuple[str, str] | None:
         if self.watch_id is not None:
@@ -278,7 +281,9 @@ async def on_button(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
         elif data == "wc":
             await _cancel_edit(update, ctx)
         elif data == "eb":
-            await _back_to_editions(update, ctx)
+            await _back_from_picker(update, ctx)
+        elif data in ("av", "ev", "sv"):
+            await _availability_button(update, ctx, data)
         elif data.startswith("e:") or data.startswith("ep:") or data in ("ea", "ec", "en"):
             await _edit_editions(update, ctx, data)
         elif data.startswith("b:"):
@@ -361,7 +366,8 @@ async def _show_editions(update: Update, draft: Draft) -> None:
         M.editions_text(draft.title, draft.author, draft.editions, draft.selected, draft.page_start),
         parse_mode=HTML,
         link_preview_options=NO_PREVIEW,
-        reply_markup=M.editions_keyboard(draft.editions, draft.selected, draft.back_button(), draft.page_start),
+        reply_markup=M.editions_keyboard(draft.editions, draft.selected, draft.back_button(), draft.page_start,
+                                         done="Next →" if draft.watch_id is not None else "Done"),
     )
 
 
@@ -375,8 +381,108 @@ async def _pick_work(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) 
     draft = Draft(w.title, w.author, list(w.editions), {e.brn for e in w.editions}, gen=s.gen,
                   message_id=_message_id(update))
     ctx.user_data["draft"] = draft
-    await update.callback_query.answer()
-    await _show_editions(update, draft)
+    await _show_availability(update, ctx, draft)
+
+
+# --- availability and the library picker -------------------------------------
+
+
+def _shelf(store: Store, brns: list[int]) -> tuple[dict[str, int], set[str]]:
+    """For these BRNs, at open lending libraries only: on-shelf copies per library, and the libraries
+    that hold copies but have none on the shelf. Unchecked BRNs count as nowhere."""
+    open_codes = {b.code for b in store.branches(open_only=True)}
+    on_shelf: dict[str, int] = {}
+    held: set[str] = set()
+    for brn in brns:
+        for code, n in (store.get_snapshot(brn) or {}).items():  # a row per library holding a copy
+            if code in open_codes:
+                held.add(code)
+                if n:
+                    on_shelf[code] = on_shelf.get(code, 0) + n
+    return on_shelf, held - set(on_shelf)
+
+
+def _picker_options(store: Store, draft: Draft) -> list[tuple[Branch, str]]:
+    """Open libraries holding a copy of the ticked editions, plus earlier picks at open libraries that
+    no longer do (shown as "no copies" so they can be unticked)."""
+    on_shelf, on_loan = _shelf(store, draft.physical())
+    options = []
+    for b in store.branches(open_only=True):
+        if b.code in on_shelf:
+            options.append((b, M.SHELF))
+        elif b.code in on_loan:
+            options.append((b, M.LOAN))
+        elif b.code in draft.branches:
+            options.append((b, M.NO_COPIES))
+    return options  # closed libraries never appear; _edit_watch drops old picks at them
+
+
+async def _show_availability(update: Update, ctx: ContextTypes.DEFAULT_TYPE, draft: Draft) -> None:
+    """Check every physical edition (ticked or not, so re-ticking costs nothing) unless checked in the
+    last VIEW_FRESH_FOR seconds, then show where the ticked ones are."""
+    q = update.callback_query
+    store, user_id = _store(ctx), update.effective_user.id
+    stale = _stale_brns(store, draft.physical(ticked_only=False), VIEW_FRESH_FOR)
+    if stale:
+        guard: SpamGuard = ctx.bot_data["spam_guard"]
+        if wait := guard.check(user_id):
+            await q.answer(M.check_paused_text(guard.minutes(wait)), show_alert=True)
+            return
+    await q.answer()
+    if stale:
+        estimate = M.estimate_text(len(stale), SAVE_SPACING)
+        render = lambda done: M.availability_checking_text(draft.title, draft.author, len(stale), estimate, done)
+        await q.edit_message_text(render(0), parse_mode=HTML)
+        result = await check_editions(store, stale, lambda b: _fetch(ctx, b), spacing=SAVE_SPACING,
+                                      on_progress=_progress(q, render))
+        # Other users watching these editions may be due an alert; this user is looking at the result.
+        await _send_alerts(ctx, result, skip_user=user_id)
+        if result.rate_limited or result.failed:
+            await q.edit_message_text(M.availability_busy_text(draft.title, draft.author), parse_mode=HTML,
+                                      reply_markup=M.availability_busy_keyboard(draft.back_button()))
+            return
+    await _render_availability(update, ctx, draft)
+
+
+async def _render_availability(update: Update, ctx: ContextTypes.DEFAULT_TYPE, draft: Draft) -> None:
+    """Availability from saved checks only (no NLB calls)."""
+    store = _store(ctx)
+    ticked = draft.physical()
+    on_shelf, on_loan = _shelf(store, ticked)
+    in_my_books = bool(store.works_sharing_editions(update.effective_user.id, draft.selected))
+    editions = [e for e in draft.editions if e.brn in draft.selected]
+    checked = M.ago(store.last_checked(ticked)) if ticked else ""
+    await update.callback_query.edit_message_text(
+        M.availability_text(draft.title, draft.author, editions, on_shelf, on_loan, _names(ctx), checked, in_my_books),
+        parse_mode=HTML,
+        reply_markup=M.availability_keyboard(draft.back_button(), len(draft.selected), len(draft.editions), in_my_books),
+    )
+
+
+async def _show_picker(update: Update, ctx: ContextTypes.DEFAULT_TYPE, draft: Draft) -> None:
+    options = _picker_options(_store(ctx), draft)
+    has_copies = any(status != M.NO_COPIES for _, status in options)
+    await update.callback_query.edit_message_text(
+        M.branches_text(draft.title, has_copies, draft.notify), parse_mode=HTML,
+        reply_markup=M.branches_keyboard(options, draft.branches, draft.notify),
+    )
+
+
+async def _availability_button(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) -> None:
+    """av = (re)check and show availability, ev = editions, sv = on to the library picker."""
+    q = update.callback_query
+    draft = _draft(update, ctx)
+    if not draft:
+        await _expired(update)
+        return
+    if data == "av":
+        await _show_availability(update, ctx, draft)
+        return
+    await q.answer()
+    if data == "ev":
+        await _show_editions(update, draft)
+    else:
+        await _show_picker(update, ctx, draft)
 
 
 async def _edit_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: str) -> None:
@@ -389,10 +495,22 @@ async def _edit_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE, data: s
         if not draft.selected:
             await q.answer("Tick at least one edition.", show_alert=True)
             return
+        if draft.watch_id is None:  # from a search: Done -> back to availability, from saved checks
+            await q.answer()
+            await _render_availability(update, ctx, draft)
+            return
+        # Editing a saved book: the picker needs every ticked edition checked at least once.
+        store = _store(ctx)
+        unchecked = _stale_brns(store, draft.physical(), float("inf"))
         await q.answer()
-        branches = _store(ctx).branches(open_only=True)
-        await q.edit_message_text(M.branches_text(draft.title, bool(branches), draft.notify), parse_mode=HTML,
-                                  reply_markup=M.branches_keyboard(branches, draft.branches, draft.notify))
+        if unchecked:
+            estimate = M.estimate_text(len(unchecked), SAVE_SPACING)
+            render = lambda done: M.availability_checking_text(draft.title, draft.author, len(unchecked), estimate, done)
+            await q.edit_message_text(render(0), parse_mode=HTML)
+            result = await check_editions(store, unchecked, lambda b: _fetch(ctx, b), spacing=SAVE_SPACING,
+                                          on_progress=_progress(q, render))
+            await _send_alerts(ctx, result, skip_user=update.effective_user.id)
+        await _show_picker(update, ctx, draft)
         return
     if data.startswith("ep:"):
         draft.page_start = min(max(0, int(data[3:])), max(0, len(draft.editions) - 1))
@@ -436,13 +554,17 @@ async def _back_to_results(update: Update, ctx: ContextTypes.DEFAULT_TYPE, gen: 
     await _render_results(update, s)
 
 
-async def _back_to_editions(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+async def _back_from_picker(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    """From a search: back to availability. Editing a saved book: back to its editions."""
     draft = _draft(update, ctx)
     if not draft:
         await _expired(update)
         return
     await update.callback_query.answer()
-    await _show_editions(update, draft)
+    if draft.watch_id is None:
+        await _render_availability(update, ctx, draft)
+    else:
+        await _show_editions(update, draft)
 
 
 async def _edit_watch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -> None:
@@ -455,7 +577,9 @@ async def _edit_watch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: 
         return
     work = store.get_work(w.work_id)
     editions, watched = store.edition_choices(w.work_id)
-    ctx.user_data["draft"] = Draft(work.title, work.author, editions, watched, set(w.branches), watch_id=watch_id,
+    # Libraries closed for renovation aren't offered, so an old pick at one is dropped when this is saved.
+    picks = set(w.branches) & {b.code for b in store.branches(open_only=True)}
+    ctx.user_data["draft"] = Draft(work.title, work.author, editions, watched, picks, watch_id=watch_id,
                                    notify=w.notify, message_id=_message_id(update))
     await q.answer()
     await _show_editions(update, ctx.user_data["draft"])
@@ -521,13 +645,14 @@ async def _toggle_branch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, code: s
     if not draft:
         await _expired(update)
         return
-    branches = _store(ctx).branches(open_only=True)
+    options = _picker_options(_store(ctx), draft)
     if code == "*":
         draft.branches.clear()
-    elif code in {b.code for b in branches}:
+    elif code in {b.code for b, _ in options}:
         draft.branches ^= {code}
     await q.answer()
-    await q.edit_message_reply_markup(M.branches_keyboard(branches, draft.branches, draft.notify))
+    # Unticking a "no copies" library drops it from the list, so redraw from the new picks.
+    await q.edit_message_reply_markup(M.branches_keyboard(_picker_options(_store(ctx), draft), draft.branches, draft.notify))
 
 
 async def _toggle_draft_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
@@ -538,11 +663,7 @@ async def _toggle_draft_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -
         return
     draft.notify = not draft.notify  # library picks are kept, so switching back on restores them
     await q.answer(M.notify_label(draft.notify))
-    branches = _store(ctx).branches(open_only=True)
-    await q.edit_message_text(  # text changes too: with alerts off there are no libraries to pick
-        M.branches_text(draft.title, bool(branches), draft.notify), parse_mode=HTML,
-        reply_markup=M.branches_keyboard(branches, draft.branches, draft.notify),
-    )
+    await _show_picker(update, ctx, draft)  # text changes too: with alerts off there are no libraries to pick
 
 
 async def _toggle_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -> None:

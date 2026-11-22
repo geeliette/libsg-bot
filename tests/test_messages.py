@@ -182,26 +182,44 @@ def test_editions_keyboard(pp_search):
 # --- branches --------------------------------------------------------------
 
 
+def _options(branches_data, statuses=None):
+    """Open libraries as picker options; statuses: code -> status (default: all on loan)."""
+    return [(b, (statuses or {}).get(b.code, M.LOAN)) for b in parse_branches(branches_data) if b.is_open]
+
+
 def test_branches_keyboard(branches_data):
-    open_branches = [b for b in parse_branches(branches_data) if b.is_open]
-    mk = M.branches_keyboard(open_branches, set())
+    opts = _options(branches_data, {"TRL": M.SHELF})
+    mk = M.branches_keyboard(opts, set())
     assert mk.inline_keyboard[0][0].text == "🔔 Alerts on (tap to change)"  # the switch comes first
     assert mk.inline_keyboard[1][0].text == "✅ Any library"
-    texts = _texts(M.branches_keyboard(open_branches, {"TRL"}))
-    assert "⬜ Any library" in texts and "✅ Tampines" in texts and "Chinatown" in texts
-    assert not any(t in texts for t in ("Ang Mo Kio", "Orchard", "library@orchard", "Queenstown"))
+    texts = _texts(mk)
+    assert "📗 Tampines" in texts and "⏳ Chinatown" in texts  # status icons
+    texts = _texts(M.branches_keyboard(opts, {"TRL"}))
+    assert "⬜ Any library" in texts and "✅📗 Tampines" in texts
     assert all(len(row) <= 3 for row in mk.inline_keyboard)
     assert _callbacks(mk)[0] == "bn" and _callbacks(mk)[-2:] == ["eb", "bs"]
+    assert _texts(mk)[-2:] == ["‹ Back", "Save"]
 
 
-def test_branches_text_without_list():
-    assert "couldn't be loaded" in M.branches_text("Emma", has_branches=False)
+def test_branches_keyboard_old_pick_without_copies(branches_data):
+    (tampines,) = [b for b in parse_branches(branches_data) if b.code == "TRL"]
+    texts = _texts(M.branches_keyboard([(tampines, M.NO_COPIES)], {"TRL"}))
+    assert "✅⚠️ Tampines (no copies)" in texts
+
+
+def test_branches_text_lists_only_libraries_with_copies():
+    t = M.branches_text("Emma")
+    assert "Only libraries with a copy are listed" in t and "📗" in t and "⏳" in t
+    none = M.branches_text("Emma", has_branches=False)
+    assert "No open library has a copy" in none and "Any library" in none
 
 
 def test_callback_data_fits_telegram_limit(pp_search, branches_data):
     eds = list(_biggest(pp_search).editions)
     for mk in (M.results_keyboard(999999, 995, 5, True), M.editions_keyboard(eds, set()),
-               M.branches_keyboard(parse_branches(branches_data), set()), M.watch_keyboard(10**9)):
+               M.branches_keyboard(_options(branches_data), set()), M.watch_keyboard(10**9),
+               M.availability_keyboard(("‹ Back to results", "r:999999"), 99, 99, True),
+               M.availability_busy_keyboard(("‹ Back to results", "r:999999"))):
         assert all(len(d.encode()) <= 64 for d in _callbacks(mk))
 
 
@@ -278,7 +296,7 @@ def test_alerts_off_wording():
 
 
 def test_branches_keyboard_alerts_toggle(branches_data):
-    open_branches = [b for b in parse_branches(branches_data) if b.is_open]
+    open_branches = _options(branches_data)
     on = M.branches_keyboard(open_branches, set())
     off = M.branches_keyboard(open_branches, set(), notify=False)
     assert "🔔 Alerts on (tap to change)" in _texts(on)
@@ -287,10 +305,9 @@ def test_branches_keyboard_alerts_toggle(branches_data):
     assert _callbacks(off) == ["bn", "eb", "bs"]
     assert len(_callbacks(on)) == 3 + 1 + len(open_branches)  # switch, Any library, each library, Back, Save
     # Picks survive switching off and on again (the keyboard just hides them).
-    assert "✅ Tampines" in _texts(M.branches_keyboard(open_branches, {"TRL"}, notify=True))
+    assert "✅⏳ Tampines" in _texts(M.branches_keyboard(open_branches, {"TRL"}, notify=True))
     bt = M.branches_text("Emma")
-    assert "which libraries should alert you?" in bt and "every library either way" in bt
-    assert "turn alerts off" in bt
+    assert "libraries you pick" in bt and "turn alerts off" in bt
     off_text = M.branches_text("Emma", notify=False)
     assert "no libraries to pick" in off_text and "/books shows every library" in off_text
     assert "Check now" in off_text
@@ -299,7 +316,8 @@ def test_branches_keyboard_alerts_toggle(branches_data):
 def test_check_texts():
     assert "Checking the shelves for 2 editions… about 10 seconds." in M.checking_now_text("Emma", 2, "about 10 seconds")
     assert M.check_paused_text(5) == (
-        "Too many checks in a short time. Check now is paused for 5 minutes. Regular checks continue as normal."
+        "Too many checks in a short time. Checking the shelves is paused for 5 minutes. "
+        "Regular checks continue as normal."
     )
     assert "paused for 1 minute." in M.check_paused_text(1)
 
@@ -334,3 +352,50 @@ def test_alert_text():
         "• <b>Tampines Library</b>: 1 copy\n"
         "   2025 · English · DK Classics · 467 pages"
     )
+
+
+# --- availability ------------------------------------------------------------
+
+AV_NAMES = {"CLL": "Clementi", "BIPL": "Bishan", "PRL": "Punggol", "TPPL": "Toa Payoh"}
+
+
+def _emma_eds(emma_search):
+    return list(suggest_works(parse_search(emma_search), physical_only=True)[0].editions)
+
+
+def test_availability_text(emma_search):
+    eds = _emma_eds(emma_search)
+    t = M.availability_text("Emma", "Austen, Jane, 1775-1817", eds, {"CLL": 1, "BIPL": 2, "PRL": 0},
+                            {"PRL", "TPPL"}, AV_NAMES, "just now")
+    assert t.startswith("<b>Emma</b> – Jane Austen\n2 editions (2024–2025) · English")
+    assert "📗 On shelf: Bishan (2), Clementi (1)" in t
+    assert "⏳ On loan: Punggol, Toa Payoh" in t  # no counts on loan: they'd read as copies to borrow
+    assert "Checked just now" in t
+    assert "In My books" not in t
+
+
+def test_availability_text_nothing_on_shelf_or_no_copies(emma_search):
+    eds = _emma_eds(emma_search)
+    t = M.availability_text("Emma", "", eds, {}, {"PRL"}, AV_NAMES)
+    assert "📗 Not on the shelf anywhere right now" in t and "⏳ On loan: Punggol" in t
+    none = M.availability_text("Emma", "", eds, {}, set(), AV_NAMES)
+    assert "No copies to borrow" in none and "📗" not in none
+
+
+def test_availability_keyboard():
+    mk = M.availability_keyboard(("‹ Back to results", "r:3"), 1, 2)
+    assert _texts(mk) == ["⭐ Save to My books", "Editions (1 of 2)", "‹ Back to results"]
+    assert _callbacks(mk) == ["sv", "ev", "r:3"]
+    saved = M.availability_keyboard(None, 2, 2, in_my_books=True)
+    assert _texts(saved) == ["⭐ Update in My books", "Editions (2 of 2)"]
+    assert "⭐ In My books" in M.availability_text("Emma", "", [], {}, set(), {}, in_my_books=True)
+
+
+def test_availability_busy():
+    assert "NLB is busy right now. Try again in a minute." in M.availability_busy_text("Emma", "")
+    assert _callbacks(M.availability_busy_keyboard(("‹ Back to results", "r:3"))) == ["av", "r:3"]
+
+
+def test_editions_keyboard_done_label(pp_search):
+    eds = list(_biggest(pp_search).editions)
+    assert _texts(M.editions_keyboard(eds, set(), done="Done"))[-1] == "Done"
