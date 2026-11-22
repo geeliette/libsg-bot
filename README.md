@@ -49,7 +49,7 @@ You need Python 3.14, an NLB API key with its app code, and a Telegram bot token
 .venv/bin/python -m libsg.bot
 ```
 
-The bot loads the library list from NLB on startup, then checks the editions of books with alerts on every 30 minutes. Data is stored in `libsg.db` (SQLite, gitignored).
+The bot loads the library list from NLB on startup, then checks the editions of books with alerts on every 30 minutes while libraries are open (opening hours from GetBranches, plus 30 minutes after closing; public holidays count as closed). If the hours can't be loaded, it checks around the clock. Data is stored in `libsg.db` (SQLite, gitignored).
 
 ### Optional settings (`.env`)
 

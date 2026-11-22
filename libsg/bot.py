@@ -21,7 +21,7 @@ from telegram.error import BadRequest, Forbidden, NetworkError
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
 
 from libsg import messages as M
-from libsg.branches import parse_branches
+from libsg.branches import SINGAPORE, any_open, parse_branches, parse_hours
 from libsg.db import Store
 from libsg.grouping import SuggestedWork, suggest_works
 from libsg.models import Edition, parse_search
@@ -765,7 +765,21 @@ async def _stop(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -
 # --- jobs -------------------------------------------------------------------
 
 
+def _now() -> datetime:
+    return datetime.now(SINGAPORE)
+
+
 async def poll_job(ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    # Copies only come back on the shelf while libraries are open, so rounds outside opening hours
+    # (plus 30 min after closing) are skipped. No hours known (refresh failed): poll as usual.
+    hours = ctx.bot_data.get("hours")
+    if hours and not any_open(hours, _now()):
+        if not ctx.bot_data.get("paused"):
+            log.info("Libraries closed: polling paused until one opens")
+            ctx.bot_data["paused"] = True
+        return
+    if ctx.bot_data.pop("paused", False):
+        log.info("A library is open: polling resumed")
     if ctx.bot_data.get("polling"):
         log.info("Previous round still running; skipping")
         return
@@ -782,12 +796,15 @@ async def poll_job(ctx: ContextTypes.DEFAULT_TYPE) -> None:
 async def refresh_branches(bot_data: dict) -> None:
     """Reload NLB's branch list so closures and reopenings show up."""
     try:
-        data = await asyncio.to_thread(bot_data["client"].get_branches)
+        async with bot_data["nlb_lock"]:  # like every NLB call, so the client's gap holds
+            data = await asyncio.to_thread(bot_data["client"].get_branches)
     except Exception as e:  # keep the last good list on any failure (API error, network, bad JSON)
         log.warning("Branch refresh failed, keeping last list: %s", e)
         return
     branches = parse_branches(data)
     bot_data["store"].save_branches(branches)
+    if hours := parse_hours(data):  # kept in memory; reloaded with the list on startup and daily
+        bot_data["hours"] = hours
     log.info("Branches: %d open, %d closed", sum(b.is_open for b in branches), sum(not b.is_open for b in branches))
 
 

@@ -53,7 +53,7 @@ HELP = (
     "Pick the libraries you'd like alerts from: only libraries with a copy are listed.\n\n"
     "<b>/books</b>\n"
     "My books: everything you've saved, and which libraries have it on the shelf.\n"
-    "🔔 <i>Alerts on</i>: the shelves get checked every {minutes} minutes, and you'll get a message "
+    "🔔 <i>Alerts on</i>: the shelves get checked every {minutes} minutes while libraries are open, and you'll get a message "
     "as soon as a copy is back at one of your alert libraries.\n"
     "🔕 <i>Alerts off</i>: tap <i>Check now</i> whenever you want to see where it is.\n\n"
     "Print books only, and reservations happen in the NLB app. Happy reading! 📖"

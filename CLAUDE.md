@@ -32,7 +32,10 @@ Telegram bot for Singapore NLB library books: search, see availability across ed
 - SearchTitles returns placeholder records with `brn: 0` and no data – skip them.
 - Digital editions have a `digitalId` / source "Overdrive" and no branch copies; only physical editions are polled.
 - A branch is open if GetBranches returns a non-empty `schedules`. Closed branches still have `isActive: true`.
-  Only branch types "PL"/"RL" lend books. Branch codes don't always follow names (Tampines = TRL, Toa Payoh = TPPL).
+  Only branch types "PL"/"RL" lend books. Branch codes don't always follow names (Tampines = TRL, Toa Payoh = TPPL,
+  Central = CLL, Clementi = CMPL).
+- Opening hours: `schedules` (per weekday, all 10:00 or 11:00 to 21:00 in Nov 2026) and `closureSchedules`
+  (dated public holidays as 00:00-00:00 = closed). The poll only runs while some library is open, +30 min.
 - Catalogue link: `https://catalogue.nlb.gov.sg/search/card?recordId=<BRN>`. NLB may show several editions on one page.
 - NLB rate-limits bursts with 429 "API calls quota exceeded"; the quota is undocumented. 429s carry a `Retry-After`
   (seen: about 1 s), which the client honours and logs.

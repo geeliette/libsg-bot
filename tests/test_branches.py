@@ -29,3 +29,44 @@ def test_names(branches_data):
 def test_missing_or_empty_response():
     assert parse_branches({}) == []
     assert parse_branches({"branches": None}) == []
+
+
+# --- opening hours ------------------------------------------------------------
+
+from datetime import datetime
+
+from libsg.branches import SINGAPORE, any_open, parse_hours
+
+
+def sg(*args):
+    return datetime(*args, tzinfo=SINGAPORE)
+
+
+def test_parse_hours(branches_data):
+    hours = parse_hours(branches_data)
+    assert "AMKPL" not in hours and "QUPL" not in hours  # closed for relocation / renovation
+    bukit_batok = hours["BBPL"]  # 11:00-21:00 every day
+    monday = sg(2026, 11, 23, 12, 0)
+    assert bukit_batok.is_open(monday)
+    assert not bukit_batok.is_open(monday.replace(hour=10, minute=30))
+    assert not bukit_batok.is_open(monday.replace(hour=21, minute=0))  # closing time itself is closed
+    assert not bukit_batok.is_open(sg(2026, 12, 25, 12, 0))  # Christmas Day: public holiday
+
+
+def test_any_open_window(branches_data):
+    hours = parse_hours(branches_data)
+    monday = sg(2026, 11, 23)
+    assert not any_open(hours, monday.replace(hour=9, minute=59))
+    assert any_open(hours, monday.replace(hour=10, minute=0))  # Bedok opens at 10
+    assert any_open(hours, monday.replace(hour=21, minute=29))  # 30 min grace after closing
+    assert not any_open(hours, monday.replace(hour=21, minute=30))
+    assert not any_open(hours, sg(2026, 12, 25, 15, 0))  # every library closed on Christmas
+    # Works from any timezone: 02:00 UTC = 10:00 in Singapore.
+    from datetime import timezone
+    assert any_open(hours, datetime(2026, 11, 23, 2, 0, tzinfo=timezone.utc))
+
+
+def test_parse_hours_handles_missing_data():
+    assert parse_hours({}) == {}
+    assert parse_hours({"branches": [{"branchCode": "X", "branchType": {"code": "PL"}, "schedules": [
+        {"day": "Funday", "openingTime": "bad", "closingTime": "21:00:00"}]}]}) == {}

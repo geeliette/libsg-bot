@@ -343,3 +343,77 @@ def test_editing_drops_closed_picks_and_flags_picks_without_copies(env, nlb):
     assert not any("Tampines" in t for t in _buttons(q))
     q = press(env, "eb", message_id=5)  # Back while editing -> editions
     assert _buttons(q)[-1] == "Next →"
+
+
+# --- polling only while libraries are open ---------------------------------------
+
+from datetime import datetime as _dt
+
+from libsg.branches import SINGAPORE, parse_hours
+
+
+@pytest.fixture
+def polls(env, monkeypatch, branches_data):
+    rounds = []
+
+    async def fake_poll_once(store, fetch, spacing):
+        rounds.append(1)
+        return B.PollResult()
+
+    monkeypatch.setattr(B, "poll_once", fake_poll_once)
+    env.ctx.bot_data["hours"] = parse_hours(branches_data)
+    env.ctx.bot_data["spacing"] = 0
+    return rounds
+
+
+def at(monkeypatch, *when):
+    monkeypatch.setattr(B, "_now", lambda: _dt(*when, tzinfo=SINGAPORE))
+
+
+def test_poll_skipped_while_libraries_are_closed(env, polls, monkeypatch):
+    at(monkeypatch, 2026, 11, 23, 3, 0)  # 3 am
+    asyncio.run(B.poll_job(env.ctx))
+    assert polls == []
+    at(monkeypatch, 2026, 11, 23, 10, 30)
+    asyncio.run(B.poll_job(env.ctx))
+    assert polls == [1]
+
+
+def test_poll_runs_when_hours_unknown(env, polls, monkeypatch):
+    env.ctx.bot_data.pop("hours")
+    at(monkeypatch, 2026, 11, 23, 3, 0)
+    asyncio.run(B.poll_job(env.ctx))
+    assert polls == [1]
+
+
+def test_check_now_and_results_work_while_libraries_are_closed(env, nlb, polls, monkeypatch):
+    at(monkeypatch, 2026, 11, 23, 3, 0)
+    q = press(env, "w:1:0", message_id=1)  # opening a result fetches from NLB at 3 am
+    assert "📗 On shelf" in q.edits[-1] and nlb.calls
+    wid = env.store.create_work(USER, env.emma.title, env.emma.author, env.emma.editions)
+    watch = env.store.set_watch(USER, wid)
+    env.store.conn.execute("DELETE FROM checked_editions")
+    nlb.calls = []
+    press(env, f"c:{watch}", message_id=2)  # Check now
+    assert sorted(nlb.calls) == sorted([A, B2])
+
+
+def test_branch_refresh_loads_hours_and_takes_the_nlb_lock(branches_data):
+    async def run():
+        lock = asyncio.Lock()
+        seen = []
+
+        class FakeClient:
+            def get_branches(self):
+                seen.append(lock.locked())
+                return branches_data
+
+        store = Store(":memory:")
+        bot_data = {"client": FakeClient(), "store": store, "nlb_lock": lock}
+        await B.refresh_branches(bot_data)
+        store.close()
+        return bot_data, seen
+
+    bot_data, seen = asyncio.run(run())
+    assert seen == [True]
+    assert "BBPL" in bot_data["hours"] and "QUPL" not in bot_data["hours"]
