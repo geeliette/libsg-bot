@@ -16,7 +16,7 @@ Telegram bot for Singapore NLB library books: search, merge editions, alert when
 
 ## Layout (libsg/)
 - `nlb_client.py` – sync HTTP client for both APIs (auth headers, 429 retry). No bot code here.
-- `models.py` – Edition/Copy parsed from API responses. `grouping.py` – suggest works by merging NLB groups.
+- `models.py` – Edition/Copy parsed from API responses. `grouping.py` – suggest works (one per NLB group; we tried merging groups, but it mixed in other languages).
 - `branches.py` – lending libraries from GetBranches. `db.py` – SQLite store (works, watches, snapshots, branches).
 - `watcher.py` – pure alert rule. `poller.py` – one polling round. `ratelimit.py` – Check now spam guard.
 - `messages.py` – all bot text and keyboards (pure functions). `bot.py` – handlers, jobs, entry point.

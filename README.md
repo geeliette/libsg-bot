@@ -7,7 +7,7 @@ Search for a book, pick the editions you care about (e.g. only English ones), ch
 ## Features
 
 - **Search** by title, author or ISBN. Print books only, top 5 matches with *More results*.
-- **Merged editions.** Editions NLB lists separately are grouped into one book; untick any you don't want. Each edition shows year, language, publisher, pages, ISBN and a link to the NLB catalogue.
+- **Editions together.** Each result is one of NLB's own groups of editions; untick any you don't want. Each edition shows year, language, publisher, pages, ISBN and a link to the NLB catalogue.
 - **Choose libraries**, or watch any library. Libraries closed for renovation or relocation are hidden automatically.
 - **Alerts** when a copy goes from not available to on the shelf at a watched library.
 - **`/books`** shows where each book is on the shelf as of the last check, with *Check now*, *Edit* and *Stop watching*.

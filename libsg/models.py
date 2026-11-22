@@ -59,6 +59,8 @@ class Edition:
     year: int | None
     isbns: tuple[str, ...] = ()
     physical: bool = True
+    # SearchTitles' availability flag. Not shown: it also counts reference-only and being-shelved copies.
+    # Kept so editions saved as JSON in the database still load.
     any_available: bool = False
     language: str = ""
     publisher: str = ""

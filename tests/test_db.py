@@ -49,8 +49,8 @@ def test_watched_brns_are_physical_and_watched_only(store, emma_work):
     wid = store.create_work(USER, emma_work.title, emma_work.author, emma_work.editions)
     assert store.watched_brns() == []
     store.set_watch(USER, wid)
-    assert store.watched_brns() == [4171279, 300123287, 300172872]
-    assert [w.work_id for w in store.watches_for_brn(4171279)] == [wid]
+    assert store.watched_brns() == [300123287, 300172872]
+    assert [w.work_id for w in store.watches_for_brn(300123287)] == [wid]
     assert store.watches_for_brn(999) == []
 
 
@@ -96,7 +96,7 @@ def test_branches_round_trip(store, branches_data):
 def test_edition_label_saved(store, emma_work):
     wid = store.create_work(USER, emma_work.title, emma_work.author, emma_work.editions)
     labels = {r["brn"]: r["label"] for r in store.work_editions(wid)}
-    assert labels[4171279] == "1981 · Indonesian · Gramedia · 185 pages"
+    assert labels[300123287] == "2024 · English · Puffic Books · Reissue edition · 576 pages"
 
 
 def test_migrates_old_database(tmp_path):
@@ -125,14 +125,14 @@ def test_unticked_editions_kept_but_not_watched(store, emma_work):
     store.set_watch(USER, wid)
     assert store.get_work(wid).brns == (300172872,)
     assert store.watched_brns() == [300172872]
-    assert store.watches_for_brn(4171279) == []  # unticked: no alerts
+    assert store.watches_for_brn(300123287) == []  # unticked: no alerts
     editions, watched = store.edition_choices(wid)
     assert [e.brn for e in editions] == [e.brn for e in emma_work.editions]  # original order, all candidates
     assert watched == keep
     rebuilt = {e.brn: e for e in editions}
     original = {e.brn: e for e in emma_work.editions}
-    assert rebuilt[4171279] == original[4171279]  # full Edition round-trips
-    assert store.works_sharing_editions(USER, [4171279]) == [wid]  # still "the same book"
+    assert rebuilt[300123287] == original[300123287]  # full Edition round-trips
+    assert store.works_sharing_editions(USER, [300123287]) == [wid]  # still "the same book"
 
 
 def test_last_checked(store):

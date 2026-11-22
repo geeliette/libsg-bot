@@ -124,14 +124,14 @@ def _alice(alice_search):
 def test_long_edition_lists_are_paged_not_trimmed(alice_search):
     w = _alice(alice_search)
     eds = list(w.editions)
-    assert len(eds) == 19
+    assert len(eds) == 17
     sel = set(w.brns)
     p1 = M.editions_text(w.title, w.author, eds, sel, start=0)
     p2 = M.editions_text(w.title, w.author, eds, sel, start=10)
-    assert "Editions 1–10 of 19 · 19 ticked in total" in p1
-    assert "Editions 11–19 of 19" in p2
+    assert "Editions 1–10 of 17 · 17 ticked in total" in p1
+    assert "Editions 11–17 of 17" in p2
     assert "<b>1.</b>" in p1 and "<b>10.</b>" in p1 and "<b>11.</b>" not in p1
-    assert "<b>11.</b>" in p2 and "<b>19.</b>" in p2
+    assert "<b>11.</b>" in p2 and "<b>17.</b>" in p2
     for page in (p1, p2):
         assert len(page) <= M.MAX_TEXT
         # every edition keeps its detail line (catalogue link, ISBN where known)
@@ -152,7 +152,7 @@ def test_editions_keyboard_paging(alice_search):
     assert "More editions ▸" in _texts(k1) and "‹ Previous editions" not in _texts(k1)
     assert "ep:10" in _callbacks(k1)
     k2 = M.editions_keyboard(eds, set(), ("‹ Back to results", "r:1"), start=10)
-    assert _texts(k2)[0] == "⬜ 11" and _texts(k2)[8] == "⬜ 19"
+    assert _texts(k2)[0] == "⬜ 11" and _texts(k2)[6] == "⬜ 17"
     assert "‹ Previous editions" in _texts(k2) and "More editions ▸" not in _texts(k2)
     assert "ep:0" in _callbacks(k2)
     assert _callbacks(k2)[-4:] == ["ea", "ec", "r:1", "en"]

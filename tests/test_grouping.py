@@ -1,44 +1,36 @@
-from libsg.grouping import author_key, suggest_works, title_key
+import json
+from pathlib import Path
+
+import pytest
+
+from libsg.grouping import suggest_works
 from libsg.models import parse_search
 
-
-def test_keys():
-    assert title_key("Emma") == title_key("Emma.") == "emma"
-    assert title_key("Emma : The Illustrated Edition") == "emma"
-    assert title_key("The annotated emma") == "annotated emma"
-    assert author_key("Austen, Jane, 1775-1817") == "austen"
-    assert author_key("Sánchez Vegara, Ma Isabel") == "sanchez vegara"
+FIXTURES = Path(__file__).parent / "fixtures"
 
 
 def _work_with(works, brn):
     return next(w for w in works if brn in w.brns)
 
 
-def test_split_emma_is_merged(emma_search):
-    works = suggest_works(parse_search(emma_search))
-    emma = _work_with(works, 300172872)
-    # NLB put the 1981 hardcopy in its own group; we merge it back.
-    assert 4171279 in emma.brns
-    assert emma.title == "Emma"
-    # The illustrated edition has the same main title + author, so it's suggested too.
-    assert 203300531 in emma.brns
-
-
-def test_different_works_stay_apart(emma_search):
-    works = suggest_works(parse_search(emma_search))
-    emma = _work_with(works, 300172872)
-    for other in (203519325, 203557764, 202670399, 300172891):  # vampires, annotated, Wang, P&P
-        assert other not in emma.brns
-    # Same title "Jane Austen", different authors.
-    assert _work_with(works, 200813179) is not _work_with(works, 201608063)
-
-
-def test_no_brn_lost_or_duplicated(emma_search):
+def test_follows_nlb_groups(emma_search):
     groups = parse_search(emma_search)
-    all_brns = sorted(e.brn for g in groups for e in g.editions)
     works = suggest_works(groups)
-    assert sorted(b for w in works for b in w.brns) == all_brns
-    assert len(works) < len(groups)
+    assert [w.brns for w in works] == [tuple(e.brn for e in g.editions) for g in groups if g.editions]
+
+
+def test_other_language_edition_stays_apart(emma_search):
+    works = suggest_works(parse_search(emma_search), physical_only=True)
+    english = _work_with(works, 300172872)
+    assert set(english.brns) == {300172872, 300123287}
+    indonesian = _work_with(works, 4171279)  # 1981 Gramedia: NLB keeps it in its own group
+    assert indonesian is not english
+
+
+@pytest.mark.parametrize("path", sorted(FIXTURES.glob("search_titles_*.json")), ids=lambda p: p.stem)
+def test_each_work_is_one_language(path):
+    for w in suggest_works(parse_search(json.loads(path.read_text())), physical_only=True):
+        assert len({e.language for e in w.editions}) == 1, w.title
 
 
 def test_order_follows_nlb_relevance(emma_search):
@@ -48,6 +40,8 @@ def test_order_follows_nlb_relevance(emma_search):
 
 def test_physical_only(emma_search):
     works = suggest_works(parse_search(emma_search), physical_only=True)
-    emma = _work_with(works, 300172872)
-    assert set(emma.brns) == {300172872, 300123287, 4171279}
     assert all(e.physical for w in works for e in w.editions)
+    # A group with only digital editions disappears instead of showing up empty.
+    assert all(w.editions for w in works)
+    all_works = suggest_works(parse_search(emma_search))
+    assert len(works) < len(all_works)

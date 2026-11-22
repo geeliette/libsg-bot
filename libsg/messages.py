@@ -115,8 +115,6 @@ def result_entry(n: int, work: SuggestedWork) -> str:
         bits[0] += f" ({yr})"
     if langs := _languages(eds):
         bits.append(escape(langs))
-    if any(e.any_available for e in eds):
-        bits.append("some on shelf now")
     return head + "\n" + " · ".join(bits)
 
 
@@ -158,8 +156,6 @@ def _edition_entry(n: int, e: Edition, selected: bool, detail: bool) -> str:
         extra.append(f"ISBN {e.isbn}")
     # Each edition links to its own record; NLB's site decides which page that opens.
     extra.append(f'<a href="{escape(e.catalogue_url)}">View in catalogue</a>')
-    if e.any_available:
-        extra.append("on shelf somewhere")
     return line + ("\n      " + " · ".join(extra) if extra else "")
 
 
