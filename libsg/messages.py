@@ -33,8 +33,7 @@ MAX_TEXT = 3900  # Telegram's limit is 4096; leave room
 
 START = (
     "📚 Find library books faster.\n\n"
-    "Search for a book to get started, e.g.\n"
-    "<code>/search pride and prejudice</code>\n\n"
+    "Tap /search to find a book and see which libraries have it on the shelf.\n\n"
     "New here? /help shows how it all works."
 )
 
@@ -48,11 +47,12 @@ UNKNOWN_COMMAND = "Sorry, that's not a command here. Try /search, /books or /hel
 HELP = (
     "📚 Here's how it works:\n\n"
     "<b>/search</b> <i>title, author or ISBN</i>\n"
-    "Find a book and see all its editions in one place. Watch them all at once, "
-    "or just untick any you don't want. Then pick the libraries you'd like alerts from "
-    "– alerts are on by default.\n\n"
+    "Find a book and see which libraries have it on the shelf, across all its editions. "
+    "Untick any editions you don't want, e.g. other translations.\n\n"
+    "⭐ <i>Save to My books</i> to keep it in /books, with alerts on by default. "
+    "Pick the libraries you'd like alerts from: only libraries with a copy are listed.\n\n"
     "<b>/books</b>\n"
-    "All your books, and which libraries have them on the shelf.\n"
+    "My books: everything you've saved, and which libraries have it on the shelf.\n"
     "🔔 <i>Alerts on</i>: the shelves get checked every {minutes} minutes, and you'll get a message "
     "as soon as a copy is back at one of your alert libraries.\n"
     "🔕 <i>Alerts off</i>: tap <i>Check now</i> whenever you want to see where it is.\n\n"
@@ -415,7 +415,7 @@ def watch_saved_text(
     notify: bool = True,
 ) -> str:
     """branches: alert libraries (empty = any). on_shelf: branch -> copies at every library, None if unknown."""
-    head = "Updated your watch" if replaced else "Watching"
+    head = "Updated in My books" if replaced else "Saved to My books"
     lines = [f"{head}: <b>{escape(title)}</b>"]
     if on_shelf is None:
         lines.append("Couldn't check the shelves just now (NLB was busy) – it'll be checked in the next round.")
@@ -472,7 +472,7 @@ def watch_text(
         alerts = "🔔 Alerts at any library"
     lines = [
         f"<b>{escape(title)}</b>" + (f" – {escape(author)}" if author else ""),
-        f"Watching {plural(n_editions, 'edition')}",
+        plural(n_editions, "edition"),
         alerts,
         *shelf_lines(on_shelf, branches, names, notify),
     ]
@@ -485,7 +485,7 @@ def watch_keyboard(watch_id: int, notify: bool = True) -> Markup:
     toggle = "🔕 Turn alerts off" if notify else "🔔 Turn alerts on"
     return Markup([
         [Button("🔄 Check now", callback_data=f"c:{watch_id}"), Button(toggle, callback_data=f"n:{watch_id}")],
-        [Button("Edit", callback_data=f"ed:{watch_id}"), Button("Stop watching", callback_data=f"x:{watch_id}")],
+        [Button("Edit", callback_data=f"ed:{watch_id}"), Button("Remove", callback_data=f"x:{watch_id}")],
     ])
 
 

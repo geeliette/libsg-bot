@@ -22,8 +22,9 @@ def test_help_mentions_interval_and_commands():
     assert "checked every 30 minutes" in t
     for cmd in ("/search", "/books"):
         assert f"<b>{cmd}</b>" in t  # each command has its own section
-    assert "all its editions in one place" in t  # what search does
-    assert "alerts are on by default" in t and "alert libraries" in t
+    assert "which libraries have it on the shelf, across all its editions" in t  # what search does
+    assert "Save to My books" in t and "alerts on by default" in t
+    assert "only libraries with a copy are listed" in t
     assert "🔔" in t and "🔕" in t and "Check now" in t
     assert "ISBN" in t and "NLB app" in t
     assert "/search" in M.START
@@ -241,7 +242,7 @@ def test_checking_text():
 def test_watch_saved_text():
     t = M.watch_saved_text("Emma", {"TRL", "PRPL"}, {"TRL": 1, "BEPL": 2}, {**NAMES, "BEPL": "Bedok"})
     assert t == (
-        "Watching: <b>Emma</b>\n"
+        "Saved to My books: <b>Emma</b>\n"
         "🔔 On the shelf at your alert libraries: Tampines (1)\n"
         "📗 Also on the shelf at 1 library: Bedok (2)\n"
         "\nYou'll get a message when a copy comes back at Pasir Ris, Tampines."
@@ -249,7 +250,7 @@ def test_watch_saved_text():
     assert "comes back at any library" in M.watch_saved_text("Emma", set(), {}, NAMES)
     assert "On the shelf: none right now" in M.watch_saved_text("Emma", set(), {}, NAMES)
     assert "Couldn't check" in M.watch_saved_text("Emma", set(), None, NAMES)
-    assert M.watch_saved_text("Emma", set(), {}, NAMES, replaced=True).startswith("Updated your watch")
+    assert M.watch_saved_text("Emma", set(), {}, NAMES, replaced=True).startswith("Updated in My books")
 
 
 def test_watch_text():
@@ -258,7 +259,7 @@ def test_watch_text():
                      {"TRL": 2, "BEPL": 1, "CLL": 3, "PRPL": 0}, "5 min ago")
     assert t == (
         "<b>Emma</b> – Jane Austen\n"
-        "Watching 3 editions\n"
+        "3 editions\n"
         "🔔 Alerts at Ang Mo Kio (closed), Tampines\n"
         "🔔 On the shelf at your alert libraries: Tampines (2)\n"
         "📗 Also on the shelf at 2 libraries: Bedok (1), Central (3)\n"  # every library is shown
@@ -399,3 +400,11 @@ def test_availability_busy():
 def test_editions_keyboard_done_label(pp_search):
     eds = list(_biggest(pp_search).editions)
     assert _texts(M.editions_keyboard(eds, set(), done="Done"))[-1] == "Done"
+
+
+def test_my_books_wording():
+    texts = _texts(M.watch_keyboard(1))
+    assert "Remove" in texts and not any("watch" in t.lower() for t in texts)
+    assert M.watch_text("Emma", "", 2, [], {}).splitlines()[1] == "2 editions"
+    for text in (M.START, M.help_text(30)):
+        assert "watch" not in text.lower()

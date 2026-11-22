@@ -247,10 +247,10 @@ async def cmd_books(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     msg = update.effective_message
     watches = store.list_watches(update.effective_user.id)
     if not watches:
-        await msg.reply_text("You're not watching anything yet. Try /search.")
+        await msg.reply_text("My books is empty. Tap /search to find a book, then ⭐ Save to My books.")
         return
     branches = store.branches()
-    await msg.reply_text(f"You're watching {M.plural(len(watches), 'book')}:")
+    await msg.reply_text(f"📚 My books ({len(watches)}):")
     for w in watches:
         await msg.reply_text(_watch_view(store, w, branches), parse_mode=HTML, reply_markup=M.watch_keyboard(w.watch_id, w.notify))
 
@@ -572,7 +572,7 @@ async def _edit_watch(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: 
     store = _store(ctx)
     w = store.get_watch(watch_id)
     if not w or w.user_id != update.effective_user.id:
-        await q.answer("That watch no longer exists.", show_alert=True)
+        await q.answer("That book is no longer in My books.", show_alert=True)
         await q.edit_message_reply_markup(None)
         return
     work = store.get_work(w.work_id)
@@ -590,7 +590,7 @@ async def _check_now(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: i
     store, user_id = _store(ctx), update.effective_user.id
     w = store.get_watch(watch_id)
     if not w or w.user_id != user_id:
-        await q.answer("That watch no longer exists.", show_alert=True)
+        await q.answer("That book is no longer in My books.", show_alert=True)
         await q.edit_message_reply_markup(None)
         return
     guard: SpamGuard = ctx.bot_data["spam_guard"]
@@ -633,7 +633,7 @@ async def _cancel_edit(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     w = store.get_watch(draft.watch_id) if draft.watch_id is not None else None
     await q.answer("No changes made")
     if not w:
-        await q.edit_message_text("No changes made. Send /books to see your watched books.")
+        await q.edit_message_text("No changes made. Send /books to see My books.")
         return
     await q.edit_message_text(_watch_view(store, w, store.branches()), parse_mode=HTML,
                               reply_markup=M.watch_keyboard(w.watch_id, w.notify))
@@ -672,7 +672,7 @@ async def _toggle_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_i
     store = _store(ctx)
     w = store.get_watch(watch_id)
     if not w or w.user_id != update.effective_user.id:
-        await q.answer("That watch no longer exists.", show_alert=True)
+        await q.answer("That book is no longer in My books.", show_alert=True)
         await q.edit_message_reply_markup(None)
         return
     store.set_notify(watch_id, not w.notify)
@@ -753,12 +753,12 @@ async def _stop(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -
     store = _store(ctx)
     w = store.get_watch(watch_id)
     if not w or w.user_id != update.effective_user.id:
-        await q.answer("Already stopped.")
+        await q.answer("Already removed.")
         await q.edit_message_reply_markup(None)
         return
     store.delete_work(w.work_id)  # works are per user and only exist for their watch
-    await q.answer("Stopped")
-    await q.edit_message_text(f"Stopped watching <b>{escape(w.work_title)}</b>.", parse_mode=HTML)
+    await q.answer("Removed")
+    await q.edit_message_text(f"Removed <b>{escape(w.work_title)}</b> from My books.", parse_mode=HTML)
 
 
 # --- jobs -------------------------------------------------------------------
