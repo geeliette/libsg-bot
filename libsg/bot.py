@@ -33,7 +33,8 @@ log = logging.getLogger("libsg.bot")
 HTML = ParseMode.HTML
 NO_PREVIEW = LinkPreviewOptions(is_disabled=True)
 SEARCH_PAGE = 20  # NLB groups fetched per API call; we show M.PAGE_SIZE at a time
-SAVE_SPACING = 1.5  # seconds between calls the user waits for (save, Check now); lowered from 3 s, watch logs for 429s
+NLB_MIN_GAP = 1.5  # seconds between any two NLB requests, whoever makes them (enforced by the client)
+SAVE_SPACING = 1.5  # between editions in checks a user waits for; the client gap already covers it, kept for estimates
 
 
 @dataclass
@@ -819,7 +820,7 @@ def build_app() -> Application:
 
     app = Application.builder().token(token).post_init(post_init).build()
     app.bot_data["store"] = Store(os.getenv("DB_PATH", "libsg.db"))
-    app.bot_data["client"] = NLBClient()
+    app.bot_data["client"] = NLBClient(min_gap=NLB_MIN_GAP)
     app.bot_data["spacing"] = float(os.getenv("POLL_SPACING_SECONDS", "10"))
     app.bot_data["poll_minutes"] = poll_minutes
     app.bot_data["nlb_lock"] = asyncio.Lock()

@@ -17,7 +17,8 @@ def client_with(responses, monkeypatch, max_retries=2):
         return queue.pop(0)
 
     monkeypatch.setattr(nc.time, "sleep", sleeps.append)
-    c = NLBClient("test-key", "test-app", transport=httpx.MockTransport(handler), max_retries=max_retries)
+    c = NLBClient("test-key", "test-app", transport=httpx.MockTransport(handler), max_retries=max_retries,
+                  min_gap=0)
     return c, calls, sleeps
 
 
@@ -47,7 +48,7 @@ def test_logs_each_429_and_giving_up(monkeypatch, caplog):
     assert err.value.status == 429
     assert sleeps == [5.0, 4.0]  # Retry-After honoured, then backoff
     assert [r.getMessage() for r in caplog.records] == [
-        "NLB 429 on GetAvailabilityInfo (attempt 1/3): retrying in 5s",
+        "NLB 429 on GetAvailabilityInfo (attempt 1/3): retrying in 5s (Retry-After: 5)",
         "NLB 429 on GetAvailabilityInfo (attempt 2/3): retrying in 4s",
         "NLB 429 on GetAvailabilityInfo (attempt 3/3): giving up",
     ]
@@ -65,3 +66,32 @@ def test_logs_never_contain_keys(monkeypatch, caplog):
     with caplog.at_level(logging.DEBUG), pytest.raises(NLBError):
         c.search_titles("emma")
     assert "test-key" not in caplog.text and "test-app" not in caplog.text
+
+
+def test_every_request_is_spaced_by_min_gap(monkeypatch):
+    """Pages of one BRN and calls from different callers all keep the gap (17:30 on 2026-11-22: two calls
+    0.15 s apart, one from the poll and one from a user, got 429s)."""
+    clock = [100.0]
+    sleeps = []
+
+    def sleep(s):
+        sleeps.append(round(s, 2))
+        clock[0] += s
+
+    def handler(request):
+        clock[0] += 0.5  # each request takes 0.5 s
+        offset = int(request.url.params.get("Offset", 0))
+        more = offset == 0 and request.url.params.get("BRN") == "1"
+        return httpx.Response(200, json={"items": [{"n": offset}], "hasMoreRecords": more, "nextRecordsOffset": 50})
+
+    monkeypatch.setattr(nc.time, "sleep", sleep)
+    monkeypatch.setattr(nc.time, "monotonic", lambda: clock[0])
+    c = NLBClient("k", "a", transport=httpx.MockTransport(handler), min_gap=1.5)
+    assert len(c.get_all_availability(1)) == 2  # two pages
+    assert sleeps == [1.5]  # the second page waited
+    clock[0] += 1.0  # another caller comes along 1 s later
+    c.search_titles("emma")
+    assert sleeps == [1.5, 0.5]  # waited only the rest of the gap
+    clock[0] += 5.0
+    c.search_titles("emma")
+    assert sleeps == [1.5, 0.5]  # long enough since the last one: no wait

@@ -48,8 +48,11 @@ class NLBClient:
         timeout: float = 20.0,
         on_response: ResponseHook | None = None,
         max_retries: int = 2,
+        min_gap: float = 1.5,
         transport: httpx.BaseTransport | None = None,  # for tests
     ):
+        """min_gap: seconds between the end of one request and the start of the next, whatever made them
+        (search, availability pages, poll, Check now). The bot shares one client, so this spaces every call."""
         load_dotenv()
         api_key = api_key or os.getenv("NLB_API_KEY")
         app_code = app_code or os.getenv("NLB_APP_CODE")
@@ -64,6 +67,13 @@ class NLBClient:
         )
         self.on_response = on_response
         self.max_retries = max_retries
+        self.min_gap = min_gap
+        self._last_request = float("-inf")  # time.monotonic() when the previous request ended
+
+    def _wait_for_gap(self) -> None:
+        wait = self._last_request + self.min_gap - time.monotonic()
+        if wait > 0:
+            time.sleep(wait)
 
     def close(self) -> None:
         self._http.close()
@@ -78,7 +88,11 @@ class NLBClient:
         params = {k: v for k, v in params.items() if v is not None}
         attempts = self.max_retries + 1
         for attempt in range(attempts):
-            resp = self._http.get(f"/{api}/{endpoint}", params=params)
+            self._wait_for_gap()
+            try:
+                resp = self._http.get(f"/{api}/{endpoint}", params=params)
+            finally:
+                self._last_request = time.monotonic()
             if resp.status_code != 429:
                 if attempt:
                     log.info("NLB %s succeeded after %d rate-limited attempt(s)", endpoint, attempt)
@@ -87,12 +101,15 @@ class NLBClient:
             if attempt == self.max_retries:
                 log.warning("NLB 429 on %s (attempt %d/%d): giving up", endpoint, attempt + 1, attempts)
                 break
+            retry_after = resp.headers.get("Retry-After")
             try:
-                wait = float(resp.headers.get("Retry-After", ""))
+                wait = float(retry_after or "")
             except ValueError:
                 wait = 2.0 * (attempt + 1)
             wait = min(wait, 30.0)
-            log.warning("NLB 429 on %s (attempt %d/%d): retrying in %.0fs", endpoint, attempt + 1, attempts, wait)
+            # Retry-After is logged as sent: it's the only hint NLB gives about its limit.
+            sent = f" (Retry-After: {retry_after})" if retry_after is not None else ""
+            log.warning("NLB 429 on %s (attempt %d/%d): retrying in %.0fs%s", endpoint, attempt + 1, attempts, wait, sent)
             time.sleep(wait)
         try:
             data = resp.json()
