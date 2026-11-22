@@ -1,23 +1,23 @@
 # NLB Watch Bot
 
-A Telegram bot that tells you when a Singapore NLB library book is back on the shelf at the libraries you choose.
+A Telegram bot for Singapore NLB library books: see where a book is on the shelf across all its editions, keep a list of books you want, and get a message when one is back on the shelf at the libraries you choose.
 
-Search for a book, pick the editions you care about (e.g. only English ones), choose your libraries, and the bot messages you when a copy becomes available.
+Search for a book and tap it to see which libraries have it on the shelf. Save it to *My books* to keep it, with alerts on or off.
 
 ## Features
 
-- **Search** by title, author or ISBN. Print books only, top 5 matches with *More results*.
+- **Search** by title, author or ISBN (`/search emma`, or just `/search` and then type it). Print books only, top 5 matches with *More results*.
+- **Availability at once.** Tapping a result checks every edition and lists the libraries with a copy on the shelf (with counts) and those whose copies are all on loan. Checks under 5 minutes old are reused.
 - **Editions together.** Each result is one of NLB's own groups of editions; untick any you don't want. Each edition shows year, language, publisher, pages, ISBN and a link to the NLB catalogue.
-- **Choose libraries**, or watch any library. Libraries closed for renovation or relocation are hidden automatically.
-- **Alerts** when a copy goes from not available to on the shelf at a watched library.
-- **`/books`** shows where each book is on the shelf as of the last check, with *Check now*, *Edit* and *Stop watching*.
+- **My books** (`/books`): saved books and where they are on the shelf as of the last check, with *Check now*, alerts on/off, *Edit* and *Remove*.
+- **Alerts** when a copy goes from not available to on the shelf at one of your alert libraries (or any library). The picker only lists open libraries that hold a copy; libraries closed for renovation or relocation never appear.
 
 ## Commands
 
 | Command | What it does |
 |---|---|
-| `/search <title, author or ISBN>` | Find a book and start watching it |
-| `/books` | Your watched books, where they are, and Check now / Edit / Stop |
+| `/search <title, author or ISBN>` | Find a book and see where it's on the shelf (bare `/search` asks for one) |
+| `/books` | My books: where each is, Check now, alerts on/off, Edit, Remove |
 | `/help` | How the bot works |
 
 ## Setup
@@ -49,7 +49,7 @@ You need Python 3.14, an NLB API key with its app code, and a Telegram bot token
 .venv/bin/python -m libsg.bot
 ```
 
-The bot loads the library list from NLB on startup, then checks all watched editions every 30 minutes. Data is stored in `libsg.db` (SQLite, gitignored).
+The bot loads the library list from NLB on startup, then checks the editions of books with alerts on every 30 minutes. Data is stored in `libsg.db` (SQLite, gitignored).
 
 ### Optional settings (`.env`)
 
@@ -57,7 +57,7 @@ The bot loads the library list from NLB on startup, then checks all watched edit
 |---|---|---|
 | `DB_PATH` | `libsg.db` | SQLite database file |
 | `POLL_MINUTES` | `30` | Minutes between regular checks |
-| `POLL_SPACING_SECONDS` | `10` | Pause between NLB calls during regular checks |
+| `POLL_SPACING_SECONDS` | `10` | Pause between editions during regular checks (on top of the 1.5 s gap between any two NLB calls) |
 
 ## Deploying (Oracle Cloud Always Free)
 
@@ -77,7 +77,7 @@ Runs the bot 24/7 on a free Ubuntu server as a systemd service: it starts on boo
    ```sh
    ssh ubuntu@<ip> 'mkdir -p libsg-bot'
    scp .env ubuntu@<ip>:libsg-bot/.env
-   # Optional, to keep existing watches: stop the bot on your Mac first, then
+   # Optional, to keep saved books: stop the bot on your Mac first, then
    scp libsg.db ubuntu@<ip>:libsg-bot/libsg.db
    deploy/push.sh ubuntu@<ip>
    ```
@@ -93,7 +93,7 @@ sudo systemctl restart libsg-bot        # restart
 sudo systemctl stop libsg-bot           # stop (starts again on reboot unless you `disable` it)
 ```
 
-The database lives at `~/libsg-bot/libsg.db` on the server. Copy it back now and then (`scp ubuntu@<ip>:libsg-bot/libsg.db backup.db`) so watches survive losing the VM.
+The database lives at `~/libsg-bot/libsg.db` on the server. Copy it back now and then (`scp ubuntu@<ip>:libsg-bot/libsg.db backup.db`) so saved books survive losing the VM.
 
 ## Trying the API without the bot
 
@@ -119,12 +119,12 @@ Tests run against saved API responses in `tests/fixtures/`. They make no network
 libsg/
   nlb_client.py   NLB Catalogue + Library API client
   models.py       Editions and copies parsed from API responses
-  grouping.py     Suggests which editions are the same book
+  grouping.py     One suggested book per NLB group of editions
   branches.py     Lending libraries and whether they're open
   db.py           SQLite storage
   watcher.py      The alert rule
   poller.py       One round of availability checks
-  ratelimit.py    Spam guard for Check now
+  ratelimit.py    Spam guard for Check now and opening results
   messages.py     All bot text and buttons
   bot.py          Telegram handlers, scheduled jobs, entry point
 try.py            CLI for poking the API
@@ -134,6 +134,6 @@ tests/            pytest suite + fixtures/
 
 ## Good to know
 
-- **NLB rate limits.** NLB returns HTTP 429 when calls come too fast, and the limit isn't documented. The bot spaces its calls, sends them one at a time, and stops a check round early if it's rate-limited; skipped editions go first next round.
-- **No reservations.** The bot only watches shelves. Reserve books in the NLB app.
-- **Restarts** interrupt any check in progress; saved watches are kept.
+- **NLB rate limits.** NLB returns HTTP 429 when calls come too fast, and the limit isn't documented. The quota is shared by all users (it's per API key). The bot sends calls one at a time with at least 1.5 s between any two, honours `Retry-After`, and stops a check round early if it's rate-limited; skipped editions go first next round.
+- **No reservations.** The bot only checks shelves. Reserve books in the NLB app.
+- **Restarts** interrupt any check in progress; saved books are kept.

@@ -1,5 +1,5 @@
 # NLB Watch Bot
-Telegram bot for Singapore NLB library books: search, merge editions, alert when available.
+Telegram bot for Singapore NLB library books: search, see availability across editions, My books list, alerts.
 
 ## Stack
 - Python 3.14, python-telegram-bot (with JobQueue), httpx, SQLite
@@ -9,16 +9,21 @@ Telegram bot for Singapore NLB library books: search, merge editions, alert when
 - Secrets come from .env only. Never hardcode or print keys. Telegram request URLs contain the bot token, so keep httpx logging at WARNING.
 
 ## Core concepts
-- Edition = one BRN. Work = a group of editions the user confirmed as "the same book".
-- Watch = (user, work, set of branches). Alert only when an edition goes from not-available to available at a watched branch.
+- Edition = one BRN. Work = a group of editions the user confirmed as "the same book" (starts as one NLB group).
+- Flow: /search → tap a result → availability of its print editions (checks reused under 5 min) → ⭐ Save to My books
+  → alerts on/off + library picker (only open lending libraries holding a copy of the ticked editions).
+- Watch = a saved book in My books (/books): (user, work, set of branches, notify). In code and the DB it's still a
+  "watch"; users never see that word. Books with alerts off stay saved but aren't polled.
+- Alert only when an edition goes from not-available to available at a watched branch.
 - Empty branch set = any branch. Works belong to one user (never shared).
+- Search only runs from /search (bare /search waits for the next text). Other text gets a hint and no NLB call.
 - A work stores all candidate editions; `watched=0` marks ones the user unticked, so Edit can offer them again.
 
 ## Layout (libsg/)
 - `nlb_client.py` – sync HTTP client for both APIs (auth headers, 429 retry). No bot code here.
 - `models.py` – Edition/Copy parsed from API responses. `grouping.py` – suggest works (one per NLB group; we tried merging groups, but it mixed in other languages).
 - `branches.py` – lending libraries from GetBranches. `db.py` – SQLite store (works, watches, snapshots, branches).
-- `watcher.py` – pure alert rule. `poller.py` – one polling round. `ratelimit.py` – Check now spam guard.
+- `watcher.py` – pure alert rule. `poller.py` – one polling round. `ratelimit.py` – spam guard for Check now and opening results.
 - `messages.py` – all bot text and keyboards (pure functions). `bot.py` – handlers, jobs, entry point.
 - `deploy/` – `push.sh` (rsync from Mac to server, then runs setup) and `setup.sh` (on server: uv Python 3.14, systemd unit `libsg-bot`). Server runs Oracle Cloud Always Free, Ubuntu, user `ubuntu`.
 
