@@ -72,7 +72,7 @@ def test_old_message_cannot_change_or_save_over_current_setup(env):
     env.ctx.user_data["search"] = B.Search(1, "emma", [env.emma], None)
     env.ctx.user_data["gen"] = 1
     press(env, "w:1:0", message_id=1)
-    # Message 2: Edit book B from /watches -> set-up for B replaces it, in message 2.
+    # Message 2: Edit book B from /books -> set-up for B replaces it, in message 2.
     press(env, f"ed:{b_watch}", message_id=2)
     draft = env.ctx.user_data["draft"]
     before = set(draft.selected)

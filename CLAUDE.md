@@ -30,7 +30,7 @@ Telegram bot for Singapore NLB library books: search, merge editions, alert when
   Only branch types "PL"/"RL" lend books. Branch codes don't always follow names (Tampines = TRL, Toa Payoh = TPPL).
 - Catalogue link: `https://catalogue.nlb.gov.sg/search/card?recordId=<BRN>`. NLB may show several editions on one page.
 - NLB rate-limits bursts with 429 "API calls quota exceeded"; the quota is undocumented and no rate-limit headers are sent.
-  All NLB calls go through one lock and are spaced (poll: 10 s, saves/Check now: 3 s).
+  All NLB calls go through one lock and are spaced (poll: 10 s, saves/Check now: 1.5 s, lowered from 3 s on 2026-11-22).
 
 ## Conventions
 - Keep the NLB client in its own module, separate from bot handlers.

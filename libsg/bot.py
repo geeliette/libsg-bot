@@ -33,7 +33,7 @@ log = logging.getLogger("libsg.bot")
 HTML = ParseMode.HTML
 NO_PREVIEW = LinkPreviewOptions(is_disabled=True)
 SEARCH_PAGE = 20  # NLB groups fetched per API call; we show M.PAGE_SIZE at a time
-SAVE_SPACING = 3.0  # seconds between calls when checking a newly saved watch
+SAVE_SPACING = 1.5  # seconds between calls the user waits for (save, Check now); lowered from 3 s, watch logs for 429s
 
 
 @dataclass
@@ -217,7 +217,7 @@ def _watch_view(store: Store, watch, branches) -> str:
                         notify=watch.notify)
 
 
-async def cmd_watches(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+async def cmd_books(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     store = _store(ctx)
     msg = update.effective_message
     watches = store.list_watches(update.effective_user.id)
@@ -298,7 +298,7 @@ def _draft(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> Draft | None:
 
 async def _expired(update: Update) -> None:
     await update.callback_query.answer(
-        "This message is out of date. Run /search again, or use /watches to edit a saved book.",
+        "This message is out of date. Run /search again, or use /books to edit a saved book.",
         show_alert=True,
     )
 
@@ -487,7 +487,7 @@ async def _cancel_edit(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     w = store.get_watch(draft.watch_id) if draft.watch_id is not None else None
     await q.answer("No changes made")
     if not w:
-        await q.edit_message_text("No changes made. Send /watches to see your watched books.")
+        await q.edit_message_text("No changes made. Send /books to see your watched books.")
         return
     await q.edit_message_text(_watch_view(store, w, store.branches()), parse_mode=HTML,
                               reply_markup=M.watch_keyboard(w.watch_id, w.notify))
@@ -524,7 +524,7 @@ async def _toggle_draft_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -
 
 
 async def _toggle_notify(update: Update, ctx: ContextTypes.DEFAULT_TYPE, watch_id: int) -> None:
-    """🔔/🔕 on a book in /watches."""
+    """🔔/🔕 on a book in /books."""
     q = update.callback_query
     store = _store(ctx)
     w = store.get_watch(watch_id)
@@ -685,7 +685,7 @@ def build_app() -> Application:
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("search", cmd_search))
-    app.add_handler(CommandHandler("watches", cmd_watches))
+    app.add_handler(CommandHandler("books", cmd_books))
     app.add_handler(CallbackQueryHandler(on_button))
     app.add_error_handler(on_error)
     app.job_queue.run_repeating(refresh_branches_job, interval=24 * 3600, first=24 * 3600, name="branches")

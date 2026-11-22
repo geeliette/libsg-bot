@@ -20,7 +20,7 @@ def _texts(markup):
 def test_help_mentions_interval_and_commands():
     t = M.help_text(30)
     assert "checked every 30 minutes" in t
-    for cmd in ("/search", "/watches"):
+    for cmd in ("/search", "/books"):
         assert f"<b>{cmd}</b>" in t  # each command has its own section
     assert "all its editions in one place" in t  # what search does
     assert "alerts are on by default" in t and "alert libraries" in t
@@ -33,7 +33,7 @@ def test_help_mentions_interval_and_commands():
     for text in (M.START, t):  # impersonal: no "I", "I'll", "I'm"...
         assert not re.search(r"\bI\b|\bI'", text), text
     assert len(M.START) < 200 and "/help" in M.START
-    assert "Alerts" not in M.START and "/watches" not in M.START  # explained in /help, not repeated
+    assert "Alerts" not in M.START and "/books" not in M.START  # explained in /help, not repeated
 
 
 def test_short_author():
@@ -213,7 +213,7 @@ NAMES = {"TRL": "Tampines", "PRPL": "Pasir Ris", "AMKPL": "Ang Mo Kio"}
 def test_checking_text():
     t = M.checking_text("Emma", 3, "about 15 seconds")
     assert "Checking the shelves for 3 editions… this takes about 15 seconds." in t
-    assert "/watches" in t  # a way back if the check is interrupted
+    assert "/books" in t  # a way back if the check is interrupted
     assert "checked…" not in t
     assert M.checking_text("Emma", 17, "about 1 minute", done=6).endswith("\n6 of 17 checked…")
     assert "checked…" not in M.checking_text("Emma", 17, "about 1 minute", done=17)
@@ -292,7 +292,7 @@ def test_branches_keyboard_alerts_toggle(branches_data):
     assert "which libraries should alert you?" in bt and "every library either way" in bt
     assert "turn alerts off" in bt
     off_text = M.branches_text("Emma", notify=False)
-    assert "no libraries to pick" in off_text and "/watches shows every library" in off_text
+    assert "no libraries to pick" in off_text and "/books shows every library" in off_text
     assert "Check now" in off_text
 
 

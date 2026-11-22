@@ -98,7 +98,7 @@ class WatchInfo:
     work_id: int
     work_title: str
     branches: frozenset[str]  # empty = any branch
-    notify: bool = True  # False: no alerts, the book is only listed in /watches
+    notify: bool = True  # False: no alerts, the book is only listed in /books
 
     def covers(self, branch_code: str) -> bool:
         return not self.branches or branch_code in self.branches

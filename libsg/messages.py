@@ -43,7 +43,7 @@ HELP = (
     "Find a book and see all its editions in one place. Watch them all at once, "
     "or just untick any you don't want. Then pick the libraries you'd like alerts from "
     "– alerts are on by default.\n\n"
-    "<b>/watches</b>\n"
+    "<b>/books</b>\n"
     "All your books, and which libraries have them on the shelf.\n"
     "🔔 <i>Alerts on</i>: the shelves get checked every {minutes} minutes, and you'll get a message "
     "as soon as a copy is back at one of your alert libraries.\n"
@@ -222,14 +222,14 @@ def branches_text(title: str, has_branches: bool = True, notify: bool = True) ->
     if not notify:
         return (
             f"<b>{escape(title)}</b>\n🔕 <i>Alerts off</i>: no messages, so no libraries to pick – "
-            "/watches shows every library. The book isn't checked automatically; "
-            "use <i>Check now</i> in /watches whenever you like."
+            "/books shows every library. The book isn't checked automatically; "
+            "use <i>Check now</i> in /books whenever you like."
             "\n\nTap 🔕 to turn alerts back on, or Save watch."
         )
     text = (
         f"<b>{escape(title)}</b>\n🔔 <i>Alerts on</i>: which libraries should alert you? Tap as many as you like, "
         "or keep <i>Any library</i> on. You'll get a message when a copy comes back on the shelf there, "
-        "and /watches shows every library either way."
+        "and /books shows every library either way."
         "\n\nRather not get messages? Tap 🔔 to turn alerts off. Then tap Save watch."
     )
     if not has_branches:
@@ -268,7 +268,7 @@ def checking_text(title: str, n_editions: int, estimate: str, done: int = 0) -> 
     return (
         f"Saved <b>{escape(title)}</b>.\n"
         f"Checking the shelves for {plural(n_editions, 'edition')}… this takes {estimate}."
-        "\nThe result will also be in /watches."
+        "\nThe result will also be in /books."
         + progress_line(done, n_editions)
     )
 
@@ -334,7 +334,7 @@ def watch_saved_text(
         where = _library_names(branches, names) if branches else "any library"
         lines.append(f"\nYou'll get a message when a copy comes back at {where}.")
     else:
-        lines.append("\n🔕 Alerts are off: this book isn't checked automatically. Use Check now in /watches to update it.")
+        lines.append("\n🔕 Alerts are off: this book isn't checked automatically. Use Check now in /books to update it.")
     return "\n".join(lines)
 
 
@@ -369,7 +369,7 @@ def watch_text(
     checked: str = "",
     notify: bool = True,
 ) -> str:
-    """One book for /watches. branches: alert libraries (empty = any).
+    """One book for /books. branches: alert libraries (empty = any).
     on_shelf: branch -> copies at every library; None = not checked yet."""
     author = short_author(author)
     branches = list(branches)
