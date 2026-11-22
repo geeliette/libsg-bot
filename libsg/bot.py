@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from telegram import LinkPreviewOptions, Update
 from telegram.constants import ParseMode
 from telegram.error import BadRequest, Forbidden, NetworkError
-from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes
+from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
 
 from libsg import messages as M
 from libsg.branches import parse_branches
@@ -155,24 +155,45 @@ async def _send_alerts(ctx: ContextTypes.DEFAULT_TYPE, result: PollResult, skip_
 # --- commands ---------------------------------------------------------------
 
 
+AWAITING_SEARCH = "awaiting_search"  # user_data flag: bare /search was sent, the next text is the query
+
+
 async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    ctx.user_data.pop(AWAITING_SEARCH, None)
     await update.effective_message.reply_text(M.START, parse_mode=HTML)
 
 
 async def cmd_help(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    ctx.user_data.pop(AWAITING_SEARCH, None)
     await update.effective_message.reply_text(M.help_text(ctx.bot_data["poll_minutes"]), parse_mode=HTML)
 
 
 async def cmd_search(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
-    msg = update.effective_message
     query = " ".join(ctx.args or []).strip()
     if not query:
-        await msg.reply_text(
-            "Send <code>/search</code> followed by a title, author or ISBN, e.g.\n"
-            "<code>/search pride and prejudice</code>",
-            parse_mode=HTML,
-        )
+        ctx.user_data[AWAITING_SEARCH] = True
+        await update.effective_message.reply_text(M.ASK_SEARCH)
         return
+    ctx.user_data.pop(AWAITING_SEARCH, None)
+    await _run_search(update.effective_message, ctx, query)
+
+
+async def on_text(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    """Plain text is only a search right after a bare /search; anything else gets a hint (no NLB call)."""
+    msg = update.effective_message
+    if not ctx.user_data.pop(AWAITING_SEARCH, False):
+        await msg.reply_text(M.USE_SEARCH, parse_mode=HTML)
+        return
+    await _run_search(msg, ctx, msg.text.strip())
+
+
+async def on_unknown_command(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    """e.g. the old /watches: point to the real commands instead of staying silent."""
+    ctx.user_data.pop(AWAITING_SEARCH, None)
+    await update.effective_message.reply_text(M.UNKNOWN_COMMAND, parse_mode=HTML)
+
+
+async def _run_search(msg, ctx: ContextTypes.DEFAULT_TYPE, query: str) -> None:
     placeholder = await msg.reply_text(M.searching_text(query), parse_mode=HTML)
     try:
         works, nxt = await _search_page(ctx, query, 0)
@@ -218,6 +239,7 @@ def _watch_view(store: Store, watch, branches) -> str:
 
 
 async def cmd_books(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
+    ctx.user_data.pop(AWAITING_SEARCH, None)
     store = _store(ctx)
     msg = update.effective_message
     watches = store.list_watches(update.effective_user.id)
@@ -686,6 +708,8 @@ def build_app() -> Application:
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("search", cmd_search))
     app.add_handler(CommandHandler("books", cmd_books))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, on_text))
+    app.add_handler(MessageHandler(filters.COMMAND, on_unknown_command))  # after the real commands
     app.add_handler(CallbackQueryHandler(on_button))
     app.add_error_handler(on_error)
     app.job_queue.run_repeating(refresh_branches_job, interval=24 * 3600, first=24 * 3600, name="branches")

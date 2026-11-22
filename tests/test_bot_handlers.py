@@ -124,3 +124,84 @@ def test_after_restart_buttons_are_out_of_date(env):
     for data in ("e:1", "en", "bs", "b:TRL", "bn", "wc", "r:1", "w:1:0"):
         q = press(env, data, message_id=1)
         assert q.answers[-1].startswith(OUT_OF_DATE), data
+
+
+# --- search only through /search ---------------------------------------------
+
+
+class FakeMessage:
+    def __init__(self, text=""):
+        self.text = text
+        self.replies = []
+
+    async def reply_text(self, text, **kw):
+        self.replies.append(text)
+
+
+@pytest.fixture
+def searches(env, monkeypatch):
+    """Records queries instead of calling NLB."""
+    calls = []
+
+    async def fake_run_search(msg, ctx, query):
+        calls.append(query)
+
+    monkeypatch.setattr(B, "_run_search", fake_run_search)
+    return calls
+
+
+def send(env, handler, text="", args=None):
+    msg = FakeMessage(text)
+    env.ctx.args = args
+    asyncio.run(handler(NS(effective_message=msg, effective_user=NS(id=USER)), env.ctx))
+    return msg
+
+
+def test_search_with_words_runs_at_once(env, searches):
+    send(env, B.cmd_search, "/search emma austen", args=["emma", "austen"])
+    assert searches == ["emma austen"]
+    send(env, B.on_text, "hello")  # not waiting for a query any more
+    assert searches == ["emma austen"]
+
+
+def test_bare_search_asks_and_next_text_is_the_query(env, searches):
+    msg = send(env, B.cmd_search, "/search", args=[])
+    assert msg.replies == [B.M.ASK_SEARCH] and searches == []
+    send(env, B.on_text, "  pride and prejudice ")
+    assert searches == ["pride and prejudice"]
+    # Only the one message right after the prompt is a search.
+    msg = send(env, B.on_text, "thanks!")
+    assert searches == ["pride and prejudice"] and msg.replies == [B.M.USE_SEARCH]
+
+
+def test_plain_text_without_search_gets_a_hint_and_no_nlb_call(env, searches):
+    msg = send(env, B.on_text, "emma")
+    assert searches == [] and msg.replies == [B.M.USE_SEARCH]
+    assert "/search" in B.M.USE_SEARCH
+
+
+@pytest.mark.parametrize("command", ["cmd_start", "cmd_help", "cmd_books", "on_unknown_command"])
+def test_other_commands_cancel_a_pending_search(env, searches, command):
+    send(env, B.cmd_search, "/search", args=[])
+    send(env, getattr(B, command), "/x")
+    msg = send(env, B.on_text, "emma")
+    assert searches == [] and msg.replies == [B.M.USE_SEARCH]
+
+
+def test_unknown_command_points_to_real_ones(env):
+    msg = send(env, B.on_unknown_command, "/watches")
+    assert msg.replies == [B.M.UNKNOWN_COMMAND]
+    for cmd in ("/search", "/books", "/help"):
+        assert cmd in B.M.UNKNOWN_COMMAND
+
+
+def test_text_and_unknown_command_handlers_are_registered(monkeypatch):
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "123:abc")
+    monkeypatch.setenv("DB_PATH", ":memory:")
+    app = B.build_app()
+    callbacks = [h.callback for group in app.handlers.values() for h in group]
+    # Real commands come before the catch-all for unknown ones.
+    assert callbacks.index(B.cmd_books) < callbacks.index(B.on_unknown_command)
+    assert B.on_text in callbacks
+    app.bot_data["store"].close()
+    app.bot_data["client"].close()

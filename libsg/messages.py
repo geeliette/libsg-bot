@@ -37,6 +37,13 @@ START = (
     "New here? /help shows how it all works."
 )
 
+ASK_SEARCH = "What would you like to search for? Type a title, author or ISBN."
+USE_SEARCH = (
+    "To find a book, tap /search, or type it with what you're looking for, e.g.\n"
+    "<code>/search pride and prejudice</code>"
+)
+UNKNOWN_COMMAND = "Sorry, that's not a command here. Try /search, /books or /help."
+
 HELP = (
     "📚 Here's how it works:\n\n"
     "<b>/search</b> <i>title, author or ISBN</i>\n"
